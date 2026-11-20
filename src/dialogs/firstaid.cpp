@@ -311,11 +311,19 @@ void FirstAid::checkVolume()
         if (alive.expired())
             return;
         Volume& volume = m_volumes[m_index];
+        // UDisks2 names the missing tool; no name is a failed or timed-out
+        // question, which says nothing about the tools.
+        if (!available && missing.empty()) {
+            log(format(tr("UDisks2 could not tell whether {format} volumes can be checked. Try again later."),
+                       {{"format", udisks::filesystemName(volume.type)}}));
+            ++m_failed;
+            nextVolume();
+            return;
+        }
         if (!available) {
-            const std::string tool = missing.empty() ? tr("a checking tool") : missing;
             log(format(tr("{format} volumes can’t be checked: {tool} is not installed."),
-                       {{"format", udisks::filesystemName(volume.type)}, {"tool", tool}}));
-            m_missingTools[volume.type] = tool;
+                       {{"format", udisks::filesystemName(volume.type)}, {"tool", missing}}));
+            m_missingTools[volume.type] = missing;
             m_context.actions.refresh();
             ++m_failed;
             nextVolume();
@@ -404,9 +412,11 @@ void FirstAid::repairVolume()
         if (alive.expired())
             return;
         if (!available) {
-            log(format(tr("{format} volumes can’t be repaired: {tool} is not installed."),
-                       {{"format", udisks::filesystemName(type)},
-                        {"tool", missing.empty() ? tr("a repair tool") : missing}}));
+            log(missing.empty()
+                        ? format(tr("UDisks2 could not tell whether {format} volumes can be repaired."),
+                                 {{"format", udisks::filesystemName(type)}})
+                        : format(tr("{format} volumes can’t be repaired: {tool} is not installed."),
+                                 {{"format", udisks::filesystemName(type)}, {"tool", missing}}));
             ++m_unrepaired;
             remount();
             return;

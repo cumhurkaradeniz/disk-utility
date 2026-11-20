@@ -582,3 +582,25 @@ TEST_F(VolumeToolsTest, RenameClosedLeavesNoGuard)
     runPosted();
     EXPECT_EQ(scenario.driver.dialog(), nullptr);
 }
+
+TEST_F(VolumeToolsTest, FirstAidUnansweredToolQuestionIsNotRemembered)
+{
+    select("v:" + sample::kData);
+    ASSERT_TRUE(actions.trigger(Action::FirstAid));
+    {
+        auto confirm = over(scenario.driver);
+        ASSERT_TRUE(confirm);
+        confirm->clickText("Run");
+    }
+    runPosted();
+    answer(error("org.freedesktop.DBus.Error.NoReply", "Did not receive a reply"));
+    EXPECT_EQ(methods(), (std::vector<std::string>{"CanCheck"}));
+    auto dialog = over(scenario.driver);
+    ASSERT_TRUE(dialog);
+    EXPECT_EQ(dialog->text("firstAid:status"), "First Aid process has failed.");
+    const std::string log = dialog->find<TextArea>("firstAid:log")->text();
+    EXPECT_NE(log.find("UDisks2 could not tell whether NTFS volumes can be checked."), std::string::npos);
+    EXPECT_EQ(log.find("not installed"), std::string::npos);
+    // The next try asks again.
+    EXPECT_TRUE(actions.isEnabled(Action::FirstAid));
+}
