@@ -18,6 +18,7 @@ add_library(disk-utility-core STATIC
     src/udisks/describe.cpp
     src/udisks/identity.cpp
     src/udisks/model.cpp
+    src/udisks/operations.cpp
     src/udisks/parse.cpp
     src/udisks/system.cpp
     src/udisks/tree.cpp
