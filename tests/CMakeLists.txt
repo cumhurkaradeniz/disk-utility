@@ -19,6 +19,7 @@ add_executable(disk-utility-logic-tests
     logic/model_test.cpp
     logic/operations_test.cpp
     logic/system_test.cpp
+    logic/transfer_test.cpp
     logic/tree_test.cpp
     logic/volume_format_test.cpp
     logic/volumes_test.cpp
