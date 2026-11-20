@@ -19,6 +19,7 @@ add_library(disk-utility-core STATIC
     src/dialogs/volume_format.cpp
     src/images/formats.cpp
     src/images/imagefile.cpp
+    src/images/progress.cpp
     src/images/size.cpp
     src/udisks/bus.cpp
     src/udisks/describe.cpp
