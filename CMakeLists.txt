@@ -23,6 +23,7 @@ add_library(disk-utility-core STATIC
     src/images/imagefile.cpp
     src/images/progress.cpp
     src/images/size.cpp
+    src/images/transfer.cpp
     src/udisks/bus.cpp
     src/udisks/describe.cpp
     src/udisks/errors.cpp
