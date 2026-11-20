@@ -1,0 +1,2423 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cutefish-disk-utility\n"
+"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"POT-Creation-Date: 2026-11-21 00:27+0800\n"
+"PO-Revision-Date: 2026-11-21 00:19+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: src/actions.cpp src/views/diskwindow.cpp
+msgid "View"
+msgstr "Visualizar"
+
+#: src/actions.cpp
+msgid "Add Partition…"
+msgstr "Adicionar partição…"
+
+#: src/actions.cpp
+msgid "Delete Partition…"
+msgstr "Excluir partição…"
+
+#: src/actions.cpp
+msgid "First Aid…"
+msgstr "Primeiros Socorros…"
+
+#: src/actions.cpp
+msgid "Partition…"
+msgstr "Particionar…"
+
+#: src/actions.cpp
+msgid "Erase…"
+msgstr "Apagar…"
+
+#: src/actions.cpp
+msgid "Restore…"
+msgstr "Restaurar…"
+
+#: src/actions.cpp
+msgid "Mount"
+msgstr "Montar"
+
+#: src/actions.cpp src/dialogs/diskimages.cpp
+msgid "Unmount"
+msgstr "Desmontar"
+
+#: src/actions.cpp
+msgid "Get Info"
+msgstr "Obter informações"
+
+#: src/actions.cpp
+msgid "Eject"
+msgstr "Ejetar"
+
+#: src/actions.cpp
+msgid "Rename…"
+msgstr "Renomear…"
+
+#: src/actions.cpp
+msgid "Lock"
+msgstr "Bloquear"
+
+#: src/actions.cpp
+msgid "Open Disk Image…"
+msgstr "Abrir imagem de disco…"
+
+#: src/actions.cpp
+msgid "Blank Image…"
+msgstr "Imagem em branco…"
+
+#: src/actions.cpp
+msgid "Image from Selection…"
+msgstr "Imagem da seleção…"
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The disks of the running system could not be found."
+msgstr "Não foi possível encontrar os discos do sistema em execução."
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The disk holds the running system."
+msgstr "O disco contém o sistema em execução."
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The volume holds the running system."
+msgstr "O volume contém o sistema em execução."
+
+#: src/actions.cpp
+msgid "An operation on this disk is in progress."
+msgstr "Há uma operação em andamento neste disco."
+
+#: src/actions.cpp src/dialogs/partition_plan.cpp
+#: src/dialogs/volume_actions.cpp
+msgid "A Master Boot Record holds at most four partitions."
+msgstr "Um Registro Mestre de Inicialização comporta no máximo quatro partições."
+
+#: src/actions.cpp src/dialogs/partition_plan.cpp
+#: src/dialogs/volume_actions.cpp
+msgid "There is no free space for another partition."
+msgstr "Não há espaço livre para outra partição."
+
+#: src/actions.cpp
+msgid "A partition in it is mounted or unlocked."
+msgstr "Uma partição nele está montada ou desbloqueada."
+
+#: src/dialogs/choice_button.cpp
+#, python-brace-format
+msgid "{choice} ({reason})"
+msgstr "{choice} ({reason})"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Preparing…"
+msgstr "Preparando…"
+
+#: src/dialogs/copyprogress.cpp src/dialogs/erase.cpp src/dialogs/partition.cpp
+msgid "Stop"
+msgstr "Parar"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Stopping…"
+msgstr "Parando…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Unmounting…"
+msgstr "Desmontando…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Opening…"
+msgstr "Abrindo…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Stopped."
+msgstr "Parado."
+
+#: src/dialogs/diskimages.cpp
+msgid "The new image could not be mounted."
+msgstr "Não foi possível montar a nova imagem."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Restoring “{name}”"
+msgstr "Restaurando “{name}”"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Copying “{source}” onto “{target}”."
+msgstr "Copiando “{source}” para “{target}”."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” was restored."
+msgstr "“{name}” foi restaurado."
+
+#: src/dialogs/diskimages.cpp
+msgid "A copy is in progress."
+msgstr "Há uma cópia em andamento."
+
+#: src/dialogs/diskimages.cpp src/views/sidebar.cpp
+msgid "Disk Images"
+msgstr "Imagens de disco"
+
+#: src/dialogs/diskimages.cpp
+msgid "All Files"
+msgstr "Todos os arquivos"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open Disk Image"
+msgstr "Abrir imagem de disco"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open"
+msgstr "Abrir"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open read-only"
+msgstr "Abrir somente leitura"
+
+#: src/dialogs/diskimages.cpp
+msgid "Restore from Disk Image"
+msgstr "Restaurar de imagem de disco"
+
+#: src/dialogs/diskimages.cpp
+msgid "Choose"
+msgstr "Escolher"
+
+#: src/dialogs/diskimages.cpp
+msgid "Save Image As"
+msgstr "Salvar imagem como"
+
+#: src/dialogs/diskimages.cpp
+msgid "Save"
+msgstr "Salvar"
+
+#: src/dialogs/diskimages.cpp
+msgid "Choose a Folder"
+msgstr "Escolha uma pasta"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” could not be opened."
+msgstr "Não foi possível abrir “{name}”."
+
+#: src/dialogs/diskimages.cpp src/dialogs/newimage.cpp
+#: src/dialogs/volume_format.cpp
+msgid "Untitled"
+msgstr "Sem título"
+
+#: src/dialogs/diskimages.cpp
+msgid "The image could not be created."
+msgstr "Não foi possível criar a imagem."
+
+#: src/dialogs/diskimages.cpp
+msgid "The file is an attached disk image. Eject it first."
+msgstr "O arquivo é uma imagem de disco conectada. Ejete-a primeiro."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "The image cannot be saved on “{name}” itself. Choose a folder on another disk."
+msgstr "A imagem não pode ser salva no próprio “{name}”. Escolha uma pasta em outro disco."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” holds the running system, so it cannot be unmounted to be read."
+msgstr "“{name}” contém o sistema em execução, por isso não pode ser desmontado para ser lido."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Creating “{name}”"
+msgstr "Criando “{name}”"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Copying “{source}” into “{file}”."
+msgstr "Copiando “{source}” para “{file}”."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{file}” was created."
+msgstr "“{file}” foi criado."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” must be unmounted to make an image of it."
+msgstr "“{name}” precisa ser desmontado para que se crie uma imagem dele."
+
+#: src/dialogs/diskimages.cpp
+msgid "It is unmounted, and locked when it is encrypted, before it is read, and stays so afterwards."
+msgstr "Ele é desmontado, e bloqueado se for criptografado, antes de ser lido, e permanece assim depois."
+
+#: src/dialogs/diskimages.cpp
+msgid "Another copy is in progress."
+msgstr "Há outra cópia em andamento."
+
+#: src/dialogs/diskimages.cpp
+msgid "Wait for it to finish, or stop it first."
+msgstr "Aguarde o término ou pare-a primeiro."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erase “{name}”"
+msgstr "Apagar “{name}”"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erasing “{name}” deletes every volume on it and everything stored on them. This can't be undone. Choose a name, a format and a partition scheme for it."
+msgstr "Apagar “{name}” exclui todos os volumes nele e tudo o que estiver armazenado neles. Isso não pode ser desfeito. Escolha um nome, um formato e um esquema de partição."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erasing “{name}” deletes everything stored on it. This can't be undone. Choose a name and a format for it."
+msgstr "Apagar “{name}” exclui tudo o que estiver armazenado nele. Isso não pode ser desfeito. Escolha um nome e um formato."
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/rename.cpp src/dialogs/volume_actions.cpp
+#: src/udisks/properties.cpp
+msgid "Name"
+msgstr "Nome"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/volume_actions.cpp src/udisks/properties.cpp
+msgid "Format"
+msgstr "Formato"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp
+msgid "Scheme"
+msgstr "Esquema"
+
+#: src/dialogs/erase.cpp
+msgid "Encrypt"
+msgstr "Criptografar"
+
+#: src/dialogs/erase.cpp src/dialogs/unlock.cpp
+msgid "Passphrase"
+msgstr "Frase secreta"
+
+#: src/dialogs/erase.cpp src/dialogs/unlock.cpp
+msgid "Required"
+msgstr "Obrigatório"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp
+msgid "Verify"
+msgstr "Confirmar"
+
+#: src/dialogs/erase.cpp
+msgid "The volume can only be read after unlocking it with the passphrase. If you forget the passphrase, the data can't be recovered."
+msgstr "O volume só pode ser lido depois de desbloqueado com a frase secreta. Se você esquecer a frase secreta, os dados não poderão ser recuperados."
+
+#: src/dialogs/erase.cpp
+msgid "Security Options…"
+msgstr "Opções de segurança…"
+
+#: src/dialogs/erase.cpp
+msgid "Erase"
+msgstr "Apagar"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "needs at least {size}"
+msgstr "requer pelo menos {size}"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "{format} can't be chosen: {reason}"
+msgstr "Não é possível escolher {format}: {reason}"
+
+#: src/dialogs/erase.cpp
+msgid "The passphrases don't match."
+msgstr "As frases secretas não coincidem."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "A Master Boot Record reaches only the first {reach} of “{name}”; the other {rest} stay unused. Choose GUID Partition Map to use all of it."
+msgstr "Um Registro Mestre de Inicialização alcança apenas os primeiros {reach} de “{name}”; os outros {rest} ficam sem uso. Escolha Mapa de Partição GUID para usar todo o espaço."
+
+#: src/dialogs/erase.cpp
+msgid "The data is overwritten with zeros first, which takes as long as writing the whole volume once."
+msgstr "Primeiro os dados são sobrescritos com zeros, o que leva o mesmo tempo que gravar o volume inteiro uma vez."
+
+#: src/dialogs/erase.cpp
+msgid "Quick Erase"
+msgstr "Apagamento rápido"
+
+#: src/dialogs/erase.cpp
+msgid "Zero Out Data"
+msgstr "Zerar dados"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+msgid "Done"
+msgstr "OK"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Step {step} of {count}"
+msgstr "Etapa {step} de {count}"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Stopping “{step}”…"
+msgstr "Parando “{step}”…"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was erased."
+msgstr "“{name}” foi apagado."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was erased only in part and has no usable volume now. Erase it again to use it."
+msgstr "“{name}” foi apagado apenas em parte e agora não tem nenhum volume utilizável. Apague-o novamente para usá-lo."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was not erased; nothing stored on it was changed."
+msgstr "“{name}” não foi apagado; nada armazenado nele foi alterado."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” was stopped before it finished."
+msgstr "“{step}” foi interrompido antes de terminar."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” was cancelled."
+msgstr "“{step}” foi cancelado."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” failed."
+msgstr "“{step}” falhou."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” failed: {message}"
+msgstr "“{step}” falhou: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "Hide Details"
+msgstr "Ocultar detalhes"
+
+#: src/dialogs/firstaid.cpp
+msgid "Show Details"
+msgstr "Mostrar detalhes"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking {format} volumes needs {tool}, which is not installed."
+msgstr "Verificar volumes {format} requer {tool}, que não está instalado."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds. Mounted volumes are unmounted while they are checked and mounted again afterwards."
+msgstr "Os Primeiros Socorros verificam se há erros em todos os volumes do disco e reparam os que encontrarem. Os volumes montados são desmontados durante a verificação e montados novamente depois."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds."
+msgstr "Os Primeiros Socorros verificam se há erros em todos os volumes do disco e reparam os que encontrarem."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks the volume for errors and repairs the ones it finds. The volume is unmounted while it is checked, so its files can’t be used until it’s done."
+msgstr "Os Primeiros Socorros verificam se há erros no volume e reparam os que encontrarem. O volume é desmontado durante a verificação, então seus arquivos não podem ser usados até o término."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks the volume for errors and repairs the ones it finds."
+msgstr "Os Primeiros Socorros verificam se há erros no volume e reparam os que encontrarem."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Run First Aid on “{name}”?"
+msgstr "Executar Primeiros Socorros em “{name}”?"
+
+#: src/dialogs/firstaid.cpp
+msgid "Run"
+msgstr "Executar"
+
+#: src/dialogs/firstaid.cpp
+msgid "There are no volumes to check."
+msgstr "Não há volumes para verificar."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking “{name}”…"
+msgstr "Verificando “{name}”…"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there. Skipped."
+msgstr "“{name}” não está mais disponível. Ignorado."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is locked. Unlock it to check it. Skipped."
+msgstr "“{name}” está bloqueado. Desbloqueie-o para verificá-lo. Ignorado."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” holds no file system First Aid can check. Skipped."
+msgstr "“{name}” não contém um sistema de arquivos que os Primeiros Socorros possam verificar. Ignorado."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking “{name}” ({device}, {format})."
+msgstr "Verificando “{name}” ({device}, {format})."
+
+#: src/dialogs/firstaid.cpp
+msgid "unknown format"
+msgstr "formato desconhecido"
+
+#: src/dialogs/firstaid.cpp
+msgid "a checking tool"
+msgstr "uma ferramenta de verificação"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{format} volumes can’t be checked: {tool} is not installed."
+msgstr "Não é possível verificar volumes {format}: {tool} não está instalado."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Unmounting “{name}”."
+msgstr "Desmontando “{name}”."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is in use and can’t be unmounted. Close the files and quit the programs using it, then run First Aid again."
+msgstr "“{name}” está em uso e não pode ser desmontado. Feche os arquivos e encerre os programas que o estão usando e execute os Primeiros Socorros novamente."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is in use by {programs} and can’t be unmounted. Close their files on it or quit them, then run First Aid again."
+msgstr "“{name}” está em uso por {programs} e não pode ser desmontado. Feche os arquivos deles nesse volume ou encerre-os e execute os Primeiros Socorros novamente."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” could not be unmounted: {message}"
+msgstr "Não foi possível desmontar “{name}”: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "Checking the file system."
+msgstr "Verificando o sistema de arquivos."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "The check failed: {message}"
+msgstr "A verificação falhou: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system appears to be OK."
+msgstr "O sistema de arquivos parece estar OK."
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system has errors."
+msgstr "O sistema de arquivos tem erros."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{format} volumes can’t be repaired: {tool} is not installed."
+msgstr "Não é possível reparar volumes {format}: {tool} não está instalado."
+
+#: src/dialogs/firstaid.cpp
+msgid "a repair tool"
+msgstr "uma ferramenta de reparo"
+
+#: src/dialogs/firstaid.cpp
+msgid "Repairing the file system."
+msgstr "Reparando o sistema de arquivos."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Repairing “{name}”…"
+msgstr "Reparando “{name}”…"
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system was repaired."
+msgstr "O sistema de arquivos foi reparado."
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system could not be repaired."
+msgstr "Não foi possível reparar o sistema de arquivos."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "The repair failed: {message}"
+msgstr "O reparo falhou: {message}"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Mounting “{name}” again."
+msgstr "Montando “{name}” novamente."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” could not be mounted again: {message}"
+msgstr "Não foi possível montar “{name}” novamente: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid was cancelled."
+msgstr "Os Primeiros Socorros foram cancelados."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid found errors it could not repair. Back up the data you can and erase the volume."
+msgstr "Os Primeiros Socorros encontraram erros que não puderam reparar. Faça backup dos dados que puder e apague o volume."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid process has failed."
+msgstr "O processo de Primeiros Socorros falhou."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid process has completed."
+msgstr "O processo de Primeiros Socorros foi concluído."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{n} volume was skipped."
+msgid_plural "{n} volumes were skipped."
+msgstr[0] "{n} volume foi ignorado."
+msgstr[1] "{n} volumes foram ignorados."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid"
+msgstr "Primeiros Socorros"
+
+#: src/dialogs/identity_guard.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there."
+msgstr "“{name}” não está mais disponível."
+
+#: src/dialogs/identity_guard.cpp
+msgid "It was removed or replaced by another disk, so nothing more is done to it."
+msgstr "Ele foi removido ou substituído por outro disco, então nada mais será feito nele."
+
+#: src/dialogs/info.cpp
+msgid "S.M.A.R.T. Details…"
+msgstr "Detalhes S.M.A.R.T.…"
+
+#: src/dialogs/mount.cpp
+msgid " and "
+msgstr " e "
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be mounted."
+msgstr "Não foi possível montar “{name}”."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be unmounted."
+msgstr "Não foi possível desmontar “{name}”."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be locked."
+msgstr "Não foi possível bloquear “{name}”."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be ejected."
+msgstr "Não foi possível ejetar “{name}”."
+
+#: src/dialogs/mount.cpp
+msgid "A program is still using a file on it. Close the files and quit the programs using it, then try again."
+msgstr "Um programa ainda está usando um arquivo nele. Feche os arquivos e encerre os programas que o estão usando e tente novamente."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "It is in use by {programs}. Close their files on it or quit them, then try again."
+msgstr "Ele está em uso por {programs}. Feche os arquivos deles nesse volume ou encerre-os e tente novamente."
+
+#: src/dialogs/mount.cpp
+msgid "Another operation on this disk is still running."
+msgstr "Outra operação neste disco ainda está em execução."
+
+#: src/dialogs/newimage.cpp
+msgid "New Blank Image"
+msgstr "Nova imagem em branco"
+
+#: src/dialogs/newimage.cpp
+msgid "Save As"
+msgstr "Salvar como"
+
+#: src/dialogs/newimage.cpp
+msgid "Where"
+msgstr "Onde"
+
+#: src/dialogs/newimage.cpp
+msgid "Choose…"
+msgstr "Escolher…"
+
+#: src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/volume_actions.cpp src/udisks/properties.cpp
+msgid "Size"
+msgstr "Tamanho"
+
+#: src/dialogs/newimage.cpp src/udisks/properties.cpp
+msgid "None"
+msgstr "Nenhuma"
+
+#: src/dialogs/newimage.cpp src/udisks/properties.cpp
+msgid "Encryption"
+msgstr "Criptografia"
+
+#: src/dialogs/newimage.cpp
+msgid "Encrypted with a Password"
+msgstr "Criptografada com senha"
+
+#: src/dialogs/newimage.cpp
+msgid "Password"
+msgstr "Senha"
+
+#: src/dialogs/newimage.cpp
+msgid "Create"
+msgstr "Criar"
+
+#: src/dialogs/newimage.cpp
+msgid "Type a name for the image file."
+msgstr "Digite um nome para o arquivo de imagem."
+
+#: src/dialogs/newimage.cpp
+msgid "The folder is no longer there."
+msgstr "A pasta não existe mais."
+
+#: src/dialogs/newimage.cpp
+#, python-brace-format
+msgid "A file named “{name}” already exists in this folder."
+msgstr "Já existe um arquivo chamado “{name}” nesta pasta."
+
+#: src/dialogs/newimage.cpp
+msgid "Type a size, such as 100 MB."
+msgstr "Digite um tamanho, como 100 MB."
+
+#: src/dialogs/newimage.cpp
+#, python-brace-format
+msgid "A {format} image needs at least {size}."
+msgstr "Uma imagem {format} requer pelo menos {size}."
+
+#: src/dialogs/newimage.cpp
+msgid "Type a password for the image."
+msgstr "Digite uma senha para a imagem."
+
+#: src/dialogs/newimage.cpp
+msgid "The passwords do not match."
+msgstr "As senhas não coincidem."
+
+#: src/dialogs/newimage.cpp
+msgid "Creating the file…"
+msgstr "Criando o arquivo…"
+
+#: src/dialogs/newimage.cpp
+msgid "Attaching the image…"
+msgstr "Conectando a imagem…"
+
+#: src/dialogs/newimage.cpp
+msgid "Creating the partition map…"
+msgstr "Criando o mapa de partição…"
+
+#: src/dialogs/newimage.cpp
+msgid "Formatting…"
+msgstr "Formatando…"
+
+#: src/dialogs/newimage.cpp
+msgid "Mounting…"
+msgstr "Montando…"
+
+#: src/dialogs/partition.cpp src/dialogs/volume_actions.cpp
+msgid "Add Partition"
+msgstr "Adicionar partição"
+
+#: src/dialogs/partition.cpp
+msgid "Delete Partition"
+msgstr "Excluir partição"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Partition “{name}”"
+msgstr "Particionar “{name}”"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” ({size}) has no partition map. Click + to add partitions; Apply creates a GUID Partition Map for them, erasing what is on the disk."
+msgstr "“{name}” ({size}) não tem mapa de partição. Clique em + para adicionar partições; Aplicar cria um Mapa de Partição GUID para elas, apagando o que estiver no disco."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "{scheme}, {size}. Click + to add a partition, drag the handles on the rim to resize. Nothing changes until you click Apply."
+msgstr "{scheme}, {size}. Clique em + para adicionar uma partição e arraste as alças da borda para redimensionar. Nada muda até você clicar em Aplicar."
+
+#: src/dialogs/partition.cpp
+msgid "Revert"
+msgstr "Reverter"
+
+#: src/dialogs/partition.cpp
+msgid "Apply"
+msgstr "Aplicar"
+
+#: src/dialogs/partition.cpp
+msgid "Free Space"
+msgstr "Espaço livre"
+
+#: src/dialogs/partition.cpp src/views/detailcontent.cpp
+msgid "Unformatted"
+msgstr "Não formatado"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Between {minimum} and {maximum}."
+msgstr "Entre {minimum} e {maximum}."
+
+#: src/dialogs/partition.cpp
+msgid "How far the filesystem can shrink is only known when it is applied; a shrink runs before anything is deleted."
+msgstr "O quanto o sistema de arquivos pode ser reduzido só é conhecido ao aplicar; a redução é feita antes de qualquer exclusão."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Changing the format erases everything on “{name}”."
+msgstr "Alterar o formato apaga tudo em “{name}”."
+
+#: src/dialogs/partition.cpp
+msgid "Click + to add a partition in this free space."
+msgstr "Clique em + para adicionar uma partição neste espaço livre."
+
+#: src/dialogs/partition.cpp src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "{format} can't be made: {reason}"
+msgstr "Não é possível criar {format}: {reason}"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "These steps will be taken on “{name}”, in this order:"
+msgstr "Estas etapas serão realizadas em “{name}”, nesta ordem:"
+
+#: src/dialogs/partition.cpp
+msgid "Deleted and erased volumes lose everything stored on them. Resizing can take a while; keep the disk connected until it is done."
+msgstr "Volumes excluídos e apagados perdem tudo o que estiver armazenado neles. O redimensionamento pode demorar; mantenha o disco conectado até o término."
+
+#: src/dialogs/partition.cpp
+msgid "Resizing can take a while; keep the disk connected until it is done."
+msgstr "O redimensionamento pode demorar; mantenha o disco conectado até o término."
+
+#: src/dialogs/partition.cpp
+msgid "Back"
+msgstr "Voltar"
+
+#: src/dialogs/partition.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Partition"
+msgstr "Particionar"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” was partitioned."
+msgstr "“{name}” foi particionado."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Nothing was changed on “{name}”."
+msgstr "Nada foi alterado em “{name}”."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” was partitioned only in part: the first {count} steps were taken."
+msgstr "“{name}” foi particionado apenas em parte: as primeiras {count} etapas foram realizadas."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Encrypted volumes can't be resized here."
+msgstr "Volumes criptografados não podem ser redimensionados aqui."
+
+#: src/dialogs/partition_plan.cpp
+msgid "The partition has no filesystem that can be resized."
+msgstr "A partição não tem um sistema de arquivos que possa ser redimensionado."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Checking whether the filesystem can be resized…"
+msgstr "Verificando se o sistema de arquivos pode ser redimensionado…"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Resizing {format} needs {tool}, which is not installed."
+msgstr "Redimensionar {format} requer {tool}, que não está instalado."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't be resized."
+msgstr "Não é possível redimensionar {format}."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Unmount “{name}” to shrink it."
+msgstr "Desmonte “{name}” para reduzi-lo."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Unmount “{name}” to grow it."
+msgstr "Desmonte “{name}” para aumentá-lo."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Mount “{name}” to shrink it."
+msgstr "Monte “{name}” para reduzi-lo."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Mount “{name}” to grow it."
+msgstr "Monte “{name}” para aumentá-lo."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't shrink."
+msgstr "Não é possível reduzir {format}."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't grow."
+msgstr "Não é possível aumentar {format}."
+
+#: src/dialogs/partition_plan.cpp src/dialogs/volume_actions.cpp
+msgid "The partition map holds no more partitions."
+msgstr "O mapa de partição não comporta mais partições."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Extended partitions and the partitions inside them can't be changed here."
+msgstr "Partições estendidas e as partições dentro delas não podem ser alteradas aqui."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” is too small for {format}, which needs at least {size}."
+msgstr "“{name}” é pequeno demais para {format}, que requer pelo menos {size}."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” can't be resized."
+msgstr "Não é possível redimensionar “{name}”."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” can't be smaller than {size}."
+msgstr "“{name}” não pode ser menor que {size}."
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Unmount “{name}”"
+msgstr "Desmontar “{name}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Lock “{name}”"
+msgstr "Bloquear “{name}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Delete “{name}”"
+msgstr "Excluir “{name}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Shrink the filesystem of “{name}” to {size}"
+msgstr "Reduzir o sistema de arquivos de “{name}” para {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resize “{name}” to {size}"
+msgstr "Redimensionar “{name}” para {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Grow the filesystem of “{name}” to fill its partition"
+msgstr "Aumentar o sistema de arquivos de “{name}” para ocupar a partição"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create a {scheme} on “{name}”"
+msgstr "Criar um {scheme} em “{name}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erase “{name}” as encrypted {format}"
+msgstr "Apagar “{name}” como {format} criptografado"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erase “{name}” as {format}"
+msgstr "Apagar “{name}” como {format}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create “{name}”, encrypted {format}, {size}"
+msgstr "Criar “{name}”, {format} criptografado, {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create “{name}”, {format}, {size}"
+msgstr "Criar “{name}”, {format}, {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Rename “{name}” to “{label}”"
+msgstr "Renomear “{name}” para “{label}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Unmounting “{name}”…"
+msgstr "Desmontando “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Locking “{name}”…"
+msgstr "Bloqueando “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Deleting “{name}”…"
+msgstr "Excluindo “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resizing the filesystem of “{name}”…"
+msgstr "Redimensionando o sistema de arquivos de “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resizing “{name}”…"
+msgstr "Redimensionando “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Creating the partition map on “{name}”…"
+msgstr "Criando o mapa de partição em “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erasing “{name}”…"
+msgstr "Apagando “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Creating “{name}”…"
+msgstr "Criando “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Renaming “{name}”…"
+msgstr "Renomeando “{name}”…"
+
+#: src/dialogs/plan_runner.cpp src/images/transfer.cpp
+msgid "The disk was removed or replaced by another."
+msgstr "O disco foi removido ou substituído por outro."
+
+#: src/dialogs/rename.cpp
+msgid "Rename Volume"
+msgstr "Renomear volume"
+
+#: src/dialogs/rename.cpp
+msgid "Rename"
+msgstr "Renomear"
+
+#: src/dialogs/rename.cpp
+#, python-brace-format
+msgid "{format} names have up to {n} characters and are kept in capitals."
+msgstr "Nomes {format} têm até {n} caracteres e são mantidos em maiúsculas."
+
+#: src/dialogs/rename.cpp
+#, python-brace-format
+msgid "{format} names have up to {n} characters."
+msgstr "Nomes {format} têm até {n} caracteres."
+
+#: src/dialogs/rename.cpp
+msgid "The volume could not be renamed."
+msgstr "Não foi possível renomear o volume."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Restore “{name}”"
+msgstr "Restaurar “{name}”"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Choose a volume, disk or disk image to copy onto “{name}”. Everything on “{name}” is erased and replaced with the copy."
+msgstr "Escolha um volume, disco ou imagem de disco para copiar para “{name}”. Tudo em “{name}” será apagado e substituído pela cópia."
+
+#: src/dialogs/restore.cpp
+msgid "Restore From"
+msgstr "Restaurar de"
+
+#: src/dialogs/restore.cpp
+msgid "Image…"
+msgstr "Imagem…"
+
+#: src/dialogs/restore.cpp
+msgid "Restore"
+msgstr "Restaurar"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "{name} ({device}, {size})"
+msgstr "{name} ({device}, {size})"
+
+#: src/dialogs/restore.cpp
+msgid "Choose a disk image, or attach a disk to restore from."
+msgstr "Escolha uma imagem de disco ou conecte um disco para restaurar."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Everything on “{target}” is replaced with the contents of “{source}”. This cannot be undone."
+msgstr "Tudo em “{target}” será substituído pelo conteúdo de “{source}”. Isso não pode ser desfeito."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "“{source}” is unmounted before it is read, and stays so afterwards."
+msgstr "“{source}” é desmontado antes de ser lido e permanece assim depois."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Erase “{target}”?"
+msgstr "Apagar “{target}”?"
+
+#: src/dialogs/restore.cpp
+msgid "Erase and Restore"
+msgstr "Apagar e restaurar"
+
+#: src/dialogs/restore.cpp
+msgid "The restore could not start."
+msgstr "Não foi possível iniciar a restauração."
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "S.M.A.R.T."
+msgstr "S.M.A.R.T."
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "The attributes could not be read: {message}"
+msgstr "Não foi possível ler os atributos: {message}"
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "The self-test could not be started: {message}"
+msgstr "Não foi possível iniciar o autoteste: {message}"
+
+#: src/dialogs/smart.cpp
+msgid "Status"
+msgstr "Estado"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Temperature"
+msgstr "Temperatura"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Powered On"
+msgstr "Tempo ligado"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Bad Sectors"
+msgstr "Setores defeituosos"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Critical Warnings"
+msgstr "Avisos críticos"
+
+#: src/dialogs/smart.cpp
+msgid "Self-Test"
+msgstr "Autoteste"
+
+#: src/dialogs/smart.cpp
+msgid "Last Read"
+msgstr "Última leitura"
+
+#: src/dialogs/smart.cpp
+msgid "Attributes"
+msgstr "Atributos"
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "Failing: {value}"
+msgstr "Falhando: {value}"
+
+#: src/dialogs/smart.cpp
+msgid "Health"
+msgstr "Saúde"
+
+#: src/dialogs/smart.cpp
+msgid "Run Self-Test"
+msgstr "Executar autoteste"
+
+#: src/dialogs/unlock.cpp
+msgid "Unlock Volume"
+msgstr "Desbloquear volume"
+
+#: src/dialogs/unlock.cpp
+#, python-brace-format
+msgid "Enter the passphrase to unlock “{name}”."
+msgstr "Digite a frase secreta para desbloquear “{name}”."
+
+#: src/dialogs/unlock.cpp
+msgid "Unlock"
+msgstr "Desbloquear"
+
+#: src/dialogs/unlock.cpp
+msgid "The passphrase is incorrect."
+msgstr "A frase secreta está incorreta."
+
+#: src/dialogs/unlock.cpp
+msgid "The volume could not be unlocked."
+msgstr "Não foi possível desbloquear o volume."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Up to {size} of free space, from {offset} into the disk."
+msgstr "Até {size} de espaço livre, a partir de {offset} do início do disco."
+
+#: src/dialogs/volume_actions.cpp
+msgid "Add"
+msgstr "Adicionar"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "{format} needs at least {size}."
+msgstr "{format} requer pelo menos {size}."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Added “{name}”."
+msgstr "“{name}” adicionado."
+
+#: src/dialogs/volume_actions.cpp
+msgid "The partition could not be added."
+msgstr "Não foi possível adicionar a partição."
+
+#: src/dialogs/volume_actions.cpp
+msgid "Everything stored on the partition is deleted. This can't be undone."
+msgstr "Tudo o que estiver armazenado na partição será excluído. Isso não pode ser desfeito."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "“{name}”"
+msgstr "“{name}”"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "The partitions in it, {names}, and everything stored on them are deleted. This can't be undone."
+msgstr "As partições dentro dela, {names}, e tudo o que estiver armazenado nelas serão excluídos. Isso não pode ser desfeito."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Delete “{name}”?"
+msgstr "Excluir “{name}”?"
+
+#: src/dialogs/volume_actions.cpp
+msgid "Delete"
+msgstr "Excluir"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Deleted “{name}”."
+msgstr "“{name}” excluído."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "“{name}” could not be deleted."
+msgstr "Não foi possível excluir “{name}”."
+
+#: src/dialogs/volume_format.cpp
+msgid "FAT32 (MS-DOS)"
+msgstr "FAT32 (MS-DOS)"
+
+#: src/dialogs/volume_format.cpp src/udisks/describe.cpp
+#: src/udisks/properties.cpp
+msgid "Swap"
+msgstr "Swap"
+
+#: src/dialogs/volume_format.cpp
+msgid "The name can't contain control characters."
+msgstr "O nome não pode conter caracteres de controle."
+
+#: src/dialogs/volume_format.cpp
+msgid "FAT32 names can only use unaccented letters, digits and simple punctuation."
+msgstr "Nomes FAT32 só podem usar letras sem acento, dígitos e pontuação simples."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "FAT32 names can't contain “{character}”."
+msgstr "Nomes FAT32 não podem conter “{character}”."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "{format} names can have at most {count} characters."
+msgstr "Nomes {format} podem ter no máximo {count} caracteres."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "{format} names can have at most {count} bytes."
+msgstr "Nomes {format} podem ter no máximo {count} bytes."
+
+#: src/dialogs/volume_format.cpp
+msgid "Checking for its tools…"
+msgstr "Procurando as ferramentas…"
+
+#: src/dialogs/volume_format.cpp
+msgid "Its tools are not installed."
+msgstr "As ferramentas não estão instaladas."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "Needs {tool}, which is not installed."
+msgstr "Requer {tool}, que não está instalado."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The source could not be read: {reason}"
+msgstr "Não foi possível ler a origem: {reason}"
+
+#: src/images/copy.cpp
+msgid "The destination is too small."
+msgstr "O destino é pequeno demais."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The destination could not be written: {reason}"
+msgstr "Não foi possível gravar no destino: {reason}"
+
+#: src/images/copy.cpp
+msgid "The source ended before all of it was read."
+msgstr "A origem terminou antes de ser lida por completo."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The data could not be saved on the destination: {reason}"
+msgstr "Não foi possível salvar os dados no destino: {reason}"
+
+#: src/images/imagefile.cpp
+msgid "There is not enough free space for an image of that size."
+msgstr "Não há espaço livre suficiente para uma imagem desse tamanho."
+
+#: src/images/imagefile.cpp
+msgid "A file with that name already exists."
+msgstr "Já existe um arquivo com esse nome."
+
+#: src/images/imagefile.cpp
+#, python-brace-format
+msgid "The file could not be created: {reason}"
+msgstr "Não foi possível criar o arquivo: {reason}"
+
+#: src/images/imagefile.cpp
+msgid "The file is too large for the disk it is on."
+msgstr "O arquivo é grande demais para o disco em que está."
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{copied} of {total}"
+msgstr "{copied} de {total}"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{size}/s"
+msgstr "{size}/s"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} second left"
+msgid_plural "About {n} seconds left"
+msgstr[0] "Cerca de {n} segundo restante"
+msgstr[1] "Cerca de {n} segundos restantes"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} minute left"
+msgid_plural "About {n} minutes left"
+msgstr[0] "Cerca de {n} minuto restante"
+msgstr[1] "Cerca de {n} minutos restantes"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} hour left"
+msgid_plural "About {n} hours left"
+msgstr[0] "Cerca de {n} hora restante"
+msgstr[1] "Cerca de {n} horas restantes"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{amount} ({rate})"
+msgstr "{amount} ({rate})"
+
+#: src/images/transfer.cpp
+msgid "The destination is no longer there."
+msgstr "O destino não está mais disponível."
+
+#: src/images/transfer.cpp
+msgid "A volume cannot be restored from itself."
+msgstr "Um volume não pode ser restaurado a partir de si mesmo."
+
+#: src/images/transfer.cpp
+msgid "The source and the destination overlap: one lies inside the other."
+msgstr "A origem e o destino estão um dentro do outro."
+
+#: src/images/transfer.cpp
+msgid "A disk image cannot be restored onto itself."
+msgstr "Uma imagem de disco não pode ser restaurada sobre si mesma."
+
+#: src/images/transfer.cpp
+msgid "The disk image is attached and mounted. Eject it first."
+msgstr "A imagem de disco está conectada e montada. Ejete-a primeiro."
+
+#: src/images/transfer.cpp
+msgid "The source could not be read."
+msgstr "Não foi possível ler a origem."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The source ({source}) is larger than the destination ({destination})."
+msgstr "A origem ({source}) é maior que o destino ({destination})."
+
+#: src/images/transfer.cpp
+msgid "The source is empty."
+msgstr "A origem está vazia."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The source could not be opened: {reason}"
+msgstr "Não foi possível abrir a origem: {reason}"
+
+#: src/images/transfer.cpp
+msgid "The source could not be opened."
+msgstr "Não foi possível abrir a origem."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The destination could not be opened: {reason}"
+msgstr "Não foi possível abrir o destino: {reason}"
+
+#: src/images/transfer.cpp
+msgid "The destination could not be opened."
+msgstr "Não foi possível abrir o destino."
+
+#: src/udisks/describe.cpp
+msgid "GUID Partition Map"
+msgstr "Mapa de Partição GUID"
+
+#: src/udisks/describe.cpp
+msgid "Master Boot Record"
+msgstr "Registro Mestre de Inicialização"
+
+#. TRANSLATORS: a disk without a model name, such as "16 GB Disk".
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Disk"
+msgstr "Disco de {size}"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Extended Partition"
+msgstr "Partição estendida"
+
+#. TRANSLATORS: a volume without a label, named by its size, such as "16 GB Volume".
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Encrypted Volume"
+msgstr "Volume criptografado de {size}"
+
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Volume"
+msgstr "Volume de {size}"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+msgid "SD Card"
+msgstr "Cartão SD"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Disk Image"
+msgstr "Imagem de disco"
+
+#: src/udisks/operations.cpp
+msgid "The device is no longer available."
+msgstr "O dispositivo não está mais disponível."
+
+#: src/udisks/operations.cpp
+msgid "Another operation on this disk is in progress."
+msgstr "Há outra operação em andamento neste disco."
+
+#: src/udisks/operations.cpp
+msgid "The partition holds the running system."
+msgstr "A partição contém o sistema em execução."
+
+#: src/udisks/operations.cpp
+msgid "The disk is no longer available."
+msgstr "O disco não está mais disponível."
+
+#: src/udisks/operations.cpp
+msgid "The disk cannot be ejected."
+msgstr "O disco não pode ser ejetado."
+
+#: src/udisks/operations.cpp
+msgid "The disk image holds the running system."
+msgstr "A imagem de disco contém o sistema em execução."
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{n} byte"
+msgid_plural "{n} bytes"
+msgstr[0] "{n} byte"
+msgstr[1] "{n} bytes"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{size} ({bytes})"
+msgstr "{size} ({bytes})"
+
+#: src/udisks/properties.cpp
+msgid "EFI System"
+msgstr "Sistema EFI"
+
+#: src/udisks/properties.cpp
+msgid "BIOS Boot"
+msgstr "Inicialização BIOS"
+
+#: src/udisks/properties.cpp
+msgid "Linux Filesystem"
+msgstr "Sistema de arquivos Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Root (x86-64)"
+msgstr "Raiz Linux (x86-64)"
+
+#: src/udisks/properties.cpp
+msgid "Linux Root (ARM64)"
+msgstr "Raiz Linux (ARM64)"
+
+#: src/udisks/properties.cpp
+msgid "Linux Home"
+msgstr "Home do Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Extended Boot"
+msgstr "Inicialização estendida Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Swap"
+msgstr "Swap do Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux LVM"
+msgstr "LVM do Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux RAID"
+msgstr "RAID do Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux LUKS"
+msgstr "LUKS do Linux"
+
+#: src/udisks/properties.cpp
+msgid "Microsoft Basic Data"
+msgstr "Dados básicos Microsoft"
+
+#: src/udisks/properties.cpp
+msgid "Microsoft Reserved"
+msgstr "Reservada Microsoft"
+
+#: src/udisks/properties.cpp
+msgid "Windows Recovery"
+msgstr "Recuperação do Windows"
+
+#: src/udisks/properties.cpp
+msgid "Apple HFS+"
+msgstr "Apple HFS+"
+
+#: src/udisks/properties.cpp
+msgid "Apple APFS"
+msgstr "Apple APFS"
+
+#: src/udisks/properties.cpp
+msgid "FAT12"
+msgstr "FAT12"
+
+#: src/udisks/properties.cpp
+msgid "FAT16"
+msgstr "FAT16"
+
+#: src/udisks/properties.cpp
+msgid "Extended"
+msgstr "Estendida"
+
+#: src/udisks/properties.cpp
+msgid "NTFS or exFAT"
+msgstr "NTFS ou exFAT"
+
+#: src/udisks/properties.cpp
+msgid "FAT32"
+msgstr "FAT32"
+
+#: src/udisks/properties.cpp
+msgid "FAT32 (LBA)"
+msgstr "FAT32 (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "FAT16 (LBA)"
+msgstr "FAT16 (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "Extended (LBA)"
+msgstr "Estendida (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "Linux"
+msgstr "Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Extended"
+msgstr "Linux estendida"
+
+#: src/udisks/properties.cpp
+msgid "Non-Filesystem Data"
+msgstr "Dados que não são sistema de arquivos"
+
+#: src/udisks/properties.cpp
+msgid "GPT Protective"
+msgstr "Proteção GPT"
+
+#: src/udisks/properties.cpp
+msgid "Bootable"
+msgstr "Inicializável"
+
+#: src/udisks/properties.cpp
+msgctxt "partition flag"
+msgid "Required"
+msgstr "Obrigatório"
+
+#: src/udisks/properties.cpp
+msgid "Ignored by Firmware"
+msgstr "Ignorada pelo firmware"
+
+#: src/udisks/properties.cpp
+msgid "Legacy BIOS Bootable"
+msgstr "Inicializável por BIOS legado"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Read Only"
+msgstr "Somente leitura"
+
+#: src/udisks/properties.cpp
+msgid "Hidden"
+msgstr "Oculta"
+
+#: src/udisks/properties.cpp
+msgid "No Automount"
+msgstr "Sem montagem automática"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Enabled"
+msgstr "Gerenciamento acústico ativado"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Supported"
+msgstr "Gerenciamento acústico suportado"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Recommended Value"
+msgstr "Valor recomendado de gerenciamento acústico"
+
+#: src/udisks/properties.cpp
+msgid "Active"
+msgstr "Ativo"
+
+#: src/udisks/properties.cpp
+msgid "Power Management (APM) Enabled"
+msgstr "Gerenciamento de energia (APM) ativado"
+
+#: src/udisks/properties.cpp
+msgid "Power Management (APM) Supported"
+msgstr "Gerenciamento de energia (APM) suportado"
+
+#: src/udisks/properties.cpp
+msgid "Detaches When Unused"
+msgstr "Desconecta quando não usado"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Image File"
+msgstr "Arquivo de imagem"
+
+#: src/udisks/properties.cpp
+msgid "Can Power Off"
+msgstr "Pode ser desligado"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Configuration"
+msgstr "Configuração desbloqueada"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Device"
+msgstr "Dispositivo desbloqueado"
+
+#: src/udisks/properties.cpp
+msgid "Configuration"
+msgstr "Configuração"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Connection"
+msgstr "Conexão"
+
+#: src/udisks/properties.cpp
+msgid "Controller ID"
+msgstr "ID do controlador"
+
+#: src/udisks/properties.cpp
+msgid "Encrypted Device"
+msgstr "Dispositivo criptografado"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Device"
+msgstr "Dispositivo"
+
+#: src/udisks/properties.cpp
+msgid "Device Number"
+msgstr "Número do dispositivo"
+
+#: src/udisks/properties.cpp
+msgid "Drive"
+msgstr "Unidade"
+
+#: src/udisks/properties.cpp
+msgid "Ejectable"
+msgstr "Ejetável"
+
+#: src/udisks/properties.cpp
+msgid "FRU GUID"
+msgstr "GUID da FRU"
+
+#: src/udisks/properties.cpp
+msgid "Flags"
+msgstr "Sinalizadores"
+
+#: src/udisks/properties.cpp
+msgid "Mounts Automatically"
+msgstr "Monta automaticamente"
+
+#: src/udisks/properties.cpp
+msgid "Icon"
+msgstr "Ícone"
+
+#: src/udisks/properties.cpp
+msgid "Hidden from Users"
+msgstr "Oculto dos usuários"
+
+#: src/udisks/properties.cpp
+msgid "Suggested Name"
+msgstr "Nome sugerido"
+
+#: src/udisks/properties.cpp
+msgid "Partitionable"
+msgstr "Particionável"
+
+#: src/udisks/properties.cpp
+msgid "Symbolic Icon"
+msgstr "Ícone simbólico"
+
+#: src/udisks/properties.cpp
+msgid "System Device"
+msgstr "Dispositivo do sistema"
+
+#: src/udisks/properties.cpp
+msgid "Identifier"
+msgstr "Identificador"
+
+#: src/udisks/properties.cpp
+msgid "Label"
+msgstr "Rótulo"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "UUID"
+msgstr "UUID"
+
+#: src/udisks/properties.cpp
+msgid "Contents"
+msgstr "Conteúdo"
+
+#: src/udisks/properties.cpp
+msgid "Format Version"
+msgstr "Versão do formato"
+
+#: src/udisks/properties.cpp
+msgid "Logical Partition"
+msgstr "Partição lógica"
+
+#: src/udisks/properties.cpp
+msgid "RAID Array"
+msgstr "Matriz RAID"
+
+#: src/udisks/properties.cpp
+msgid "RAID Member Of"
+msgstr "Membro do RAID"
+
+#: src/udisks/properties.cpp
+msgid "Media"
+msgstr "Mídia"
+
+#: src/udisks/properties.cpp
+msgid "Media Present"
+msgstr "Mídia presente"
+
+#: src/udisks/properties.cpp
+msgid "Media Change Detected"
+msgstr "Troca de mídia detectada"
+
+#: src/udisks/properties.cpp
+msgid "Compatible Media"
+msgstr "Mídias compatíveis"
+
+#: src/udisks/properties.cpp
+msgid "Removable Media"
+msgstr "Mídia removível"
+
+#: src/udisks/properties.cpp
+msgid "Header Size"
+msgstr "Tamanho do cabeçalho"
+
+#: src/udisks/properties.cpp
+msgid "Model"
+msgstr "Modelo"
+
+#: src/udisks/properties.cpp
+msgid "Mount Points"
+msgstr "Pontos de montagem"
+
+#: src/udisks/properties.cpp
+msgid "NVMe Version"
+msgstr "Versão NVMe"
+
+#: src/udisks/properties.cpp
+msgid "Number"
+msgstr "Número"
+
+#: src/udisks/properties.cpp
+msgid "Offset"
+msgstr "Deslocamento"
+
+#: src/udisks/properties.cpp
+msgid "Optical"
+msgstr "Óptico"
+
+#: src/udisks/properties.cpp
+msgid "Blank Disc"
+msgstr "Disco vazio"
+
+#: src/udisks/properties.cpp
+msgid "Audio Tracks"
+msgstr "Faixas de áudio"
+
+#: src/udisks/properties.cpp
+msgid "Data Tracks"
+msgstr "Faixas de dados"
+
+#: src/udisks/properties.cpp
+msgid "Sessions"
+msgstr "Sessões"
+
+#: src/udisks/properties.cpp
+msgid "Tracks"
+msgstr "Faixas"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Partitions"
+msgstr "Partições"
+
+#: src/udisks/properties.cpp
+msgid "Power Management Enabled"
+msgstr "Gerenciamento de energia ativado"
+
+#: src/udisks/properties.cpp
+msgid "Power Management Supported"
+msgstr "Gerenciamento de energia suportado"
+
+#: src/udisks/properties.cpp
+msgid "Preferred Device"
+msgstr "Dispositivo preferido"
+
+#: src/udisks/properties.cpp
+msgid "Read-Ahead Enabled"
+msgstr "Leitura antecipada ativada"
+
+#: src/udisks/properties.cpp
+msgid "Read-Ahead Supported"
+msgstr "Leitura antecipada suportada"
+
+#: src/udisks/properties.cpp
+msgid "Removable"
+msgstr "Removível"
+
+#: src/udisks/properties.cpp
+msgid "Firmware Revision"
+msgstr "Revisão do firmware"
+
+#: src/udisks/properties.cpp
+msgid "Rotation Rate"
+msgstr "Velocidade de rotação"
+
+#: src/udisks/properties.cpp
+msgid "Sanitize Remaining"
+msgstr "Sanitização restante"
+
+#: src/udisks/properties.cpp
+msgid "Sanitize Status"
+msgstr "Estado da sanitização"
+
+#: src/udisks/properties.cpp
+msgid "Seat"
+msgstr "Assento"
+
+#: src/udisks/properties.cpp
+msgid "Enhanced Secure Erase Time"
+msgstr "Tempo de apagamento seguro aprimorado"
+
+#: src/udisks/properties.cpp
+msgid "Secure Erase Time"
+msgstr "Tempo de apagamento seguro"
+
+#: src/udisks/properties.cpp
+msgid "Security Frozen"
+msgstr "Segurança congelada"
+
+#: src/udisks/properties.cpp
+msgid "Serial Number"
+msgstr "Número de série"
+
+#: src/udisks/properties.cpp
+msgid "Attached by User"
+msgstr "Conectado pelo usuário"
+
+#: src/udisks/properties.cpp
+msgid "Sibling Identifier"
+msgstr "Identificador irmão"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Enabled"
+msgstr "S.M.A.R.T. ativado"
+
+#: src/udisks/properties.cpp
+msgid "Predicts Failure"
+msgstr "Prevê falha"
+
+#: src/udisks/properties.cpp
+msgid "Attributes Failed in the Past"
+msgstr "Atributos que falharam no passado"
+
+#: src/udisks/properties.cpp
+msgid "Attributes Failing"
+msgstr "Atributos falhando"
+
+#: src/udisks/properties.cpp
+msgid "Self-Test Remaining"
+msgstr "Autoteste restante"
+
+#: src/udisks/properties.cpp
+msgid "Last Self-Test"
+msgstr "Último autoteste"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Supported"
+msgstr "S.M.A.R.T. suportado"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Read"
+msgstr "Leitura S.M.A.R.T."
+
+#: src/udisks/properties.cpp
+msgid "Sort Key"
+msgstr "Chave de ordenação"
+
+#: src/udisks/properties.cpp
+msgid "State"
+msgstr "Estado"
+
+#: src/udisks/properties.cpp
+msgid "Subsystem NQN"
+msgstr "NQN do subsistema"
+
+#: src/udisks/properties.cpp
+msgid "Links"
+msgstr "Links"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Partition Map"
+msgstr "Mapa de partição"
+
+#: src/udisks/properties.cpp
+msgid "Detected"
+msgstr "Detectado"
+
+#: src/udisks/properties.cpp
+msgid "Media Detected"
+msgstr "Mídia detectada"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Type"
+msgstr "Tipo"
+
+#: src/udisks/properties.cpp
+msgid "Unallocated Capacity"
+msgstr "Capacidade não alocada"
+
+#: src/udisks/properties.cpp
+msgid "Mount Options"
+msgstr "Opções de montagem"
+
+#: src/udisks/properties.cpp
+msgid "Vendor"
+msgstr "Fabricante"
+
+#: src/udisks/properties.cpp
+msgid "World Wide Name"
+msgstr "World Wide Name"
+
+#: src/udisks/properties.cpp
+msgid "Write Cache Enabled"
+msgstr "Cache de gravação ativado"
+
+#: src/udisks/properties.cpp
+msgid "Write Cache Supported"
+msgstr "Cache de gravação suportado"
+
+#: src/udisks/properties.cpp
+msgid "NVMe Controller"
+msgstr "Controlador NVMe"
+
+#: src/udisks/properties.cpp
+msgid "Block Device"
+msgstr "Dispositivo de bloco"
+
+#: src/udisks/properties.cpp
+msgid "File System"
+msgstr "Sistema de arquivos"
+
+#: src/udisks/properties.cpp
+msgid "Yes"
+msgstr "Sim"
+
+#: src/udisks/properties.cpp
+msgid "No"
+msgstr "Não"
+
+#: src/udisks/properties.cpp
+msgid "Never"
+msgstr "Nunca"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Solid State"
+msgstr "Estado sólido"
+
+#: src/udisks/properties.cpp
+msgid "Unknown"
+msgstr "Desconhecido"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{n} RPM"
+msgstr "{n} RPM"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{name} ({type})"
+msgstr "{name} ({type})"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Block Device"
+msgstr "Dispositivo de bloco desbloqueado"
+
+#: src/udisks/smart.cpp
+msgid "Not Supported"
+msgstr "Não suportado"
+
+#: src/udisks/smart.cpp
+msgid "Verified"
+msgstr "Verificado"
+
+#: src/udisks/smart.cpp
+msgid "Failing"
+msgstr "Falhando"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} °C"
+msgstr "{n} °C"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} hour"
+msgid_plural "{n} hours"
+msgstr[0] "{n} hora"
+msgstr[1] "{n} horas"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} day"
+msgid_plural "{n} days"
+msgstr[0] "{n} dia"
+msgstr[1] "{n} dias"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{days} ({hours})"
+msgstr "{days} ({hours})"
+
+#: src/udisks/smart.cpp
+msgid "In progress"
+msgstr "Em andamento"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "In progress, {n}% left"
+msgstr "Em andamento, faltam {n}%"
+
+#: src/udisks/smart.cpp
+msgid "Completed without error"
+msgstr "Concluído sem erros"
+
+#: src/udisks/smart.cpp
+msgid "Aborted"
+msgstr "Abortado"
+
+#: src/udisks/smart.cpp
+msgid "Interrupted by a reset"
+msgstr "Interrompido por uma redefinição"
+
+#: src/udisks/smart.cpp
+msgid "Failed: electrical error"
+msgstr "Falhou: erro elétrico"
+
+#: src/udisks/smart.cpp
+msgid "Failed: servo error"
+msgstr "Falhou: erro de servo"
+
+#: src/udisks/smart.cpp
+msgid "Failed: read error"
+msgstr "Falhou: erro de leitura"
+
+#: src/udisks/smart.cpp
+msgid "Failed: damage found"
+msgstr "Falhou: dano encontrado"
+
+#: src/udisks/smart.cpp
+msgid "Failed"
+msgstr "Falhou"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "Attribute {n}"
+msgstr "Atributo {n}"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} ms"
+msgstr "{n} ms"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} sector"
+msgid_plural "{n} sectors"
+msgstr[0] "{n} setor"
+msgstr[1] "{n} setores"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} minute"
+msgid_plural "{n} minutes"
+msgstr[0] "{n} minuto"
+msgstr[1] "{n} minutos"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{value} (threshold {threshold})"
+msgstr "{value} (limite {threshold})"
+
+#: src/udisks/smart.cpp
+msgid "Available Spare"
+msgstr "Reserva disponível"
+
+#: src/udisks/smart.cpp
+msgid "Wear"
+msgstr "Desgaste"
+
+#: src/udisks/smart.cpp
+msgid "Data Read"
+msgstr "Dados lidos"
+
+#: src/udisks/smart.cpp
+msgid "Data Written"
+msgstr "Dados gravados"
+
+#: src/udisks/smart.cpp
+msgid "Busy Time"
+msgstr "Tempo ocupado"
+
+#: src/udisks/smart.cpp
+msgid "Power Cycles"
+msgstr "Ciclos de energia"
+
+#: src/udisks/smart.cpp
+msgid "Unsafe Shutdowns"
+msgstr "Desligamentos inseguros"
+
+#: src/udisks/smart.cpp
+msgid "Media Errors"
+msgstr "Erros de mídia"
+
+#: src/udisks/smart.cpp
+msgid "Error Log Entries"
+msgstr "Entradas no log de erros"
+
+#: src/udisks/smart.cpp
+msgid "Warning Temperature"
+msgstr "Temperatura de aviso"
+
+#: src/udisks/smart.cpp
+msgid "Critical Temperature"
+msgstr "Temperatura crítica"
+
+#: src/udisks/smart.cpp
+msgid "Time Above Warning"
+msgstr "Tempo acima do aviso"
+
+#: src/udisks/smart.cpp
+msgid "Time Above Critical"
+msgstr "Tempo acima do crítico"
+
+#: src/views/detail.cpp
+msgid "No Disks"
+msgstr "Nenhum disco"
+
+#: src/views/detail.cpp
+msgid "Disks, volumes and disk images show here when they are attached."
+msgstr "Discos, volumes e imagens de disco aparecem aqui quando são conectados."
+
+#: src/views/detailcards.cpp
+#, python-brace-format
+msgid "{percent}%"
+msgstr "{percent}%"
+
+#: src/views/detailcontent.cpp
+msgid "Erasing"
+msgstr "Apagando"
+
+#: src/views/detailcontent.cpp
+msgid "Checking"
+msgstr "Verificando"
+
+#: src/views/detailcontent.cpp
+msgid "Repairing"
+msgstr "Reparando"
+
+#: src/views/detailcontent.cpp
+msgid "Resizing"
+msgstr "Redimensionando"
+
+#: src/views/detailcontent.cpp
+msgid "Mounting"
+msgstr "Montando"
+
+#: src/views/detailcontent.cpp
+msgid "Unmounting"
+msgstr "Desmontando"
+
+#: src/views/detailcontent.cpp
+msgid "Adding a partition"
+msgstr "Adicionando uma partição"
+
+#: src/views/detailcontent.cpp
+msgid "Deleting a partition"
+msgstr "Excluindo uma partição"
+
+#: src/views/detailcontent.cpp
+msgid "Changing the partition"
+msgstr "Alterando a partição"
+
+#: src/views/detailcontent.cpp
+msgid "Unlocking"
+msgstr "Desbloqueando"
+
+#: src/views/detailcontent.cpp
+msgid "Locking"
+msgstr "Bloqueando"
+
+#: src/views/detailcontent.cpp
+msgid "Ejecting"
+msgstr "Ejetando"
+
+#: src/views/detailcontent.cpp
+msgid "Powering off"
+msgstr "Desligando"
+
+#: src/views/detailcontent.cpp
+msgid "Running a self-test"
+msgstr "Executando um autoteste"
+
+#: src/views/detailcontent.cpp
+msgid "Attaching"
+msgstr "Conectando"
+
+#: src/views/detailcontent.cpp
+msgid "Working"
+msgstr "Trabalhando"
+
+#: src/views/detailcontent.cpp src/views/sidebar.cpp
+msgid "External"
+msgstr "Externos"
+
+#: src/views/detailcontent.cpp src/views/sidebar.cpp
+msgid "Internal"
+msgstr "Internos"
+
+#: src/views/detailcontent.cpp
+msgid "Optical Disc"
+msgstr "Disco óptico"
+
+#: src/views/detailcontent.cpp
+msgid "Flash Memory"
+msgstr "Memória flash"
+
+#: src/views/detailcontent.cpp
+msgid "Hard Disk"
+msgstr "Disco rígido"
+
+#. TRANSLATORS: an encrypted volume that is locked, such as "LUKS (Locked)".
+#: src/views/detailcontent.cpp
+#, python-brace-format
+msgid "{type} (Locked)"
+msgstr "{type} (bloqueado)"
+
+#. TRANSLATORS: an unlocked encrypted volume, such as "ext4 (Encrypted)".
+#: src/views/detailcontent.cpp
+#, python-brace-format
+msgid "{type} (Encrypted)"
+msgstr "{type} (criptografado)"
+
+#: src/views/detailcontent.cpp
+msgid "Free"
+msgstr "Livre"
+
+#: src/views/detailcontent.cpp
+msgid "Location"
+msgstr "Local"
+
+#: src/views/detailcontent.cpp
+msgid "Capacity"
+msgstr "Capacidade"
+
+#: src/views/detailcontent.cpp
+msgid "S.M.A.R.T. Status"
+msgstr "Estado S.M.A.R.T."
+
+#: src/views/detailcontent.cpp
+msgid "Access"
+msgstr "Acesso"
+
+#: src/views/detailcontent.cpp
+msgid "Used"
+msgstr "Usado"
+
+#: src/views/detailcontent.cpp
+msgid "Other"
+msgstr "Outros"
+
+#: src/views/detailcontent.cpp
+msgid "Mount Point"
+msgstr "Ponto de montagem"
+
+#: src/views/detailcontent.cpp
+msgid "Not Mounted"
+msgstr "Não montado"
+
+#: src/views/detailcontent.cpp
+msgid "Available"
+msgstr "Disponível"
+
+#: src/views/detailcontent.cpp
+msgid "Owner"
+msgstr "Proprietário"
+
+#: src/views/diskwindow.cpp src/views/toolbar.cpp cutefish-disk-utility.desktop
+msgid "Disk Utility"
+msgstr "Utilitário de Disco"
+
+#: src/views/diskwindow.cpp
+msgid "The operation was refused."
+msgstr "A operação foi recusada."
+
+#: src/views/diskwindow.cpp
+msgid "Show Only Volumes"
+msgstr "Mostrar só volumes"
+
+#: src/views/diskwindow.cpp
+msgid "Show All Devices"
+msgstr "Mostrar todos os dispositivos"
+
+#: src/views/diskwindow.cpp
+msgid "An operation is in progress."
+msgstr "Há uma operação em andamento."
+
+#: src/views/diskwindow.cpp
+msgid "Quitting now stops it partway, which can leave the disk unusable. Wait until it is done."
+msgstr "Encerrar agora a interrompe pela metade, o que pode deixar o disco inutilizável. Aguarde até que termine."
+
+#: src/views/diskwindow.cpp
+msgid "Keep Running"
+msgstr "Continuar"
+
+#: src/views/diskwindow.cpp
+msgid "Quit Anyway"
+msgstr "Encerrar mesmo assim"
+
+#: src/views/diskwindow.cpp
+msgid "OK"
+msgstr "OK"
+
+#: src/views/diskwindow.cpp
+msgid "Erases, partitions, checks and images the disks of your computer."
+msgstr "Apaga, particiona, verifica e cria imagens dos discos do seu computador."
+
+#: src/views/diskwindow.cpp
+msgid "About Disk Utility"
+msgstr "Sobre o Utilitário de Disco"
+
+#: src/views/diskwindow.cpp
+msgid "Hide Disk Utility"
+msgstr "Ocultar Utilitário de Disco"
+
+#: src/views/diskwindow.cpp
+msgid "Quit Disk Utility"
+msgstr "Encerrar Utilitário de Disco"
+
+#: src/views/diskwindow.cpp
+msgid "File"
+msgstr "Arquivo"
+
+#: src/views/diskwindow.cpp
+msgid "New Image"
+msgstr "Nova imagem"
+
+#: src/views/diskwindow.cpp
+msgid "Close Window"
+msgstr "Fechar janela"
+
+#: src/views/diskwindow.cpp
+msgid "Edit"
+msgstr "Editar"
+
+#: src/views/diskwindow.cpp
+msgid "Window"
+msgstr "Janela"
+
+#: src/views/diskwindow.cpp
+msgid "Minimize"
+msgstr "Minimizar"
+
+#: src/views/diskwindow.cpp
+msgid "Zoom"
+msgstr "Zoom"
+
+#: cutefish-disk-utility.desktop
+msgid "Manage disks, volumes and disk images"
+msgstr "Gerencie discos, volumes e imagens de disco"
+
+#: cutefish-disk-utility.desktop
+msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
+msgstr "Disco;Unidade;Volume;Partição;Formatar;Apagar;Montar;Imagem;ISO;USB;Pendrive;"
