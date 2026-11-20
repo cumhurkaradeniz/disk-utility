@@ -1,0 +1,2414 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cutefish-disk-utility\n"
+"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"POT-Creation-Date: 2026-11-21 00:27+0800\n"
+"PO-Revision-Date: 2026-11-21 00:19+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/actions.cpp src/views/diskwindow.cpp
+msgid "View"
+msgstr "Tampilan"
+
+#: src/actions.cpp
+msgid "Add Partition…"
+msgstr "Tambah Partisi…"
+
+#: src/actions.cpp
+msgid "Delete Partition…"
+msgstr "Hapus Partisi…"
+
+#: src/actions.cpp
+msgid "First Aid…"
+msgstr "Pertolongan Pertama…"
+
+#: src/actions.cpp
+msgid "Partition…"
+msgstr "Partisi…"
+
+#: src/actions.cpp
+msgid "Erase…"
+msgstr "Hapus…"
+
+#: src/actions.cpp
+msgid "Restore…"
+msgstr "Pulihkan…"
+
+#: src/actions.cpp
+msgid "Mount"
+msgstr "Pasang"
+
+#: src/actions.cpp src/dialogs/diskimages.cpp
+msgid "Unmount"
+msgstr "Lepas"
+
+#: src/actions.cpp
+msgid "Get Info"
+msgstr "Dapatkan Info"
+
+#: src/actions.cpp
+msgid "Eject"
+msgstr "Keluarkan"
+
+#: src/actions.cpp
+msgid "Rename…"
+msgstr "Ubah Nama…"
+
+#: src/actions.cpp
+msgid "Lock"
+msgstr "Kunci"
+
+#: src/actions.cpp
+msgid "Open Disk Image…"
+msgstr "Buka Image Disk…"
+
+#: src/actions.cpp
+msgid "Blank Image…"
+msgstr "Image Kosong…"
+
+#: src/actions.cpp
+msgid "Image from Selection…"
+msgstr "Image dari Pilihan…"
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The disks of the running system could not be found."
+msgstr "Disk sistem yang sedang berjalan tidak dapat ditemukan."
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The disk holds the running system."
+msgstr "Disk ini berisi sistem yang sedang berjalan."
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The volume holds the running system."
+msgstr "Volume ini berisi sistem yang sedang berjalan."
+
+#: src/actions.cpp
+msgid "An operation on this disk is in progress."
+msgstr "Sebuah operasi pada disk ini sedang berlangsung."
+
+#: src/actions.cpp src/dialogs/partition_plan.cpp
+#: src/dialogs/volume_actions.cpp
+msgid "A Master Boot Record holds at most four partitions."
+msgstr "Master Boot Record hanya dapat memuat paling banyak empat partisi."
+
+#: src/actions.cpp src/dialogs/partition_plan.cpp
+#: src/dialogs/volume_actions.cpp
+msgid "There is no free space for another partition."
+msgstr "Tidak ada ruang kosong untuk partisi lain."
+
+#: src/actions.cpp
+msgid "A partition in it is mounted or unlocked."
+msgstr "Ada partisi di dalamnya yang terpasang atau tidak terkunci."
+
+#: src/dialogs/choice_button.cpp
+#, python-brace-format
+msgid "{choice} ({reason})"
+msgstr "{choice} ({reason})"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Preparing…"
+msgstr "Menyiapkan…"
+
+#: src/dialogs/copyprogress.cpp src/dialogs/erase.cpp src/dialogs/partition.cpp
+msgid "Stop"
+msgstr "Hentikan"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Stopping…"
+msgstr "Menghentikan…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Unmounting…"
+msgstr "Melepas…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Opening…"
+msgstr "Membuka…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Stopped."
+msgstr "Dihentikan."
+
+#: src/dialogs/diskimages.cpp
+msgid "The new image could not be mounted."
+msgstr "Image baru tidak dapat dipasang."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Restoring “{name}”"
+msgstr "Memulihkan “{name}”"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Copying “{source}” onto “{target}”."
+msgstr "Menyalin “{source}” ke “{target}”."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” was restored."
+msgstr "“{name}” telah dipulihkan."
+
+#: src/dialogs/diskimages.cpp
+msgid "A copy is in progress."
+msgstr "Penyalinan sedang berlangsung."
+
+#: src/dialogs/diskimages.cpp src/views/sidebar.cpp
+msgid "Disk Images"
+msgstr "Image Disk"
+
+#: src/dialogs/diskimages.cpp
+msgid "All Files"
+msgstr "Semua File"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open Disk Image"
+msgstr "Buka Image Disk"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open"
+msgstr "Buka"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open read-only"
+msgstr "Buka hanya-baca"
+
+#: src/dialogs/diskimages.cpp
+msgid "Restore from Disk Image"
+msgstr "Pulihkan dari Image Disk"
+
+#: src/dialogs/diskimages.cpp
+msgid "Choose"
+msgstr "Pilih"
+
+#: src/dialogs/diskimages.cpp
+msgid "Save Image As"
+msgstr "Simpan Image Sebagai"
+
+#: src/dialogs/diskimages.cpp
+msgid "Save"
+msgstr "Simpan"
+
+#: src/dialogs/diskimages.cpp
+msgid "Choose a Folder"
+msgstr "Pilih Folder"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” could not be opened."
+msgstr "“{name}” tidak dapat dibuka."
+
+#: src/dialogs/diskimages.cpp src/dialogs/newimage.cpp
+#: src/dialogs/volume_format.cpp
+msgid "Untitled"
+msgstr "Tanpa Judul"
+
+#: src/dialogs/diskimages.cpp
+msgid "The image could not be created."
+msgstr "Image tidak dapat dibuat."
+
+#: src/dialogs/diskimages.cpp
+msgid "The file is an attached disk image. Eject it first."
+msgstr "File ini adalah image disk yang sedang terpasang. Keluarkan terlebih dahulu."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "The image cannot be saved on “{name}” itself. Choose a folder on another disk."
+msgstr "Image tidak dapat disimpan di “{name}” itu sendiri. Pilih folder di disk lain."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” holds the running system, so it cannot be unmounted to be read."
+msgstr "“{name}” berisi sistem yang sedang berjalan, sehingga tidak dapat dilepas untuk dibaca."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Creating “{name}”"
+msgstr "Membuat “{name}”"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Copying “{source}” into “{file}”."
+msgstr "Menyalin “{source}” ke “{file}”."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{file}” was created."
+msgstr "“{file}” telah dibuat."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” must be unmounted to make an image of it."
+msgstr "“{name}” harus dilepas untuk membuat image-nya."
+
+#: src/dialogs/diskimages.cpp
+msgid "It is unmounted, and locked when it is encrypted, before it is read, and stays so afterwards."
+msgstr "Volume dilepas, dan dikunci jika terenkripsi, sebelum dibaca, dan tetap demikian setelahnya."
+
+#: src/dialogs/diskimages.cpp
+msgid "Another copy is in progress."
+msgstr "Penyalinan lain sedang berlangsung."
+
+#: src/dialogs/diskimages.cpp
+msgid "Wait for it to finish, or stop it first."
+msgstr "Tunggu hingga selesai, atau hentikan terlebih dahulu."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erase “{name}”"
+msgstr "Hapus “{name}”"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erasing “{name}” deletes every volume on it and everything stored on them. This can't be undone. Choose a name, a format and a partition scheme for it."
+msgstr "Menghapus “{name}” akan menghapus setiap volume di dalamnya beserta semua yang tersimpan. Tindakan ini tidak dapat dibatalkan. Pilih nama, format, dan skema partisi untuknya."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erasing “{name}” deletes everything stored on it. This can't be undone. Choose a name and a format for it."
+msgstr "Menghapus “{name}” akan menghapus semua yang tersimpan di dalamnya. Tindakan ini tidak dapat dibatalkan. Pilih nama dan format untuknya."
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/rename.cpp src/dialogs/volume_actions.cpp
+#: src/udisks/properties.cpp
+msgid "Name"
+msgstr "Nama"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/volume_actions.cpp src/udisks/properties.cpp
+msgid "Format"
+msgstr "Format"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp
+msgid "Scheme"
+msgstr "Skema"
+
+#: src/dialogs/erase.cpp
+msgid "Encrypt"
+msgstr "Enkripsi"
+
+#: src/dialogs/erase.cpp src/dialogs/unlock.cpp
+msgid "Passphrase"
+msgstr "Frasa sandi"
+
+#: src/dialogs/erase.cpp src/dialogs/unlock.cpp
+msgid "Required"
+msgstr "Wajib"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp
+msgid "Verify"
+msgstr "Verifikasi"
+
+#: src/dialogs/erase.cpp
+msgid "The volume can only be read after unlocking it with the passphrase. If you forget the passphrase, the data can't be recovered."
+msgstr "Volume hanya dapat dibaca setelah dibuka dengan frasa sandi. Jika Anda lupa frasa sandinya, data tidak dapat dipulihkan."
+
+#: src/dialogs/erase.cpp
+msgid "Security Options…"
+msgstr "Opsi Keamanan…"
+
+#: src/dialogs/erase.cpp
+msgid "Erase"
+msgstr "Hapus"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "needs at least {size}"
+msgstr "memerlukan minimal {size}"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "{format} can't be chosen: {reason}"
+msgstr "{format} tidak dapat dipilih: {reason}"
+
+#: src/dialogs/erase.cpp
+msgid "The passphrases don't match."
+msgstr "Frasa sandi tidak cocok."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "A Master Boot Record reaches only the first {reach} of “{name}”; the other {rest} stay unused. Choose GUID Partition Map to use all of it."
+msgstr "Master Boot Record hanya menjangkau {reach} pertama dari “{name}”; sisa {rest} tidak terpakai. Pilih Peta Partisi GUID untuk menggunakan seluruhnya."
+
+#: src/dialogs/erase.cpp
+msgid "The data is overwritten with zeros first, which takes as long as writing the whole volume once."
+msgstr "Data ditimpa dengan nol terlebih dahulu, yang memakan waktu selama menulis seluruh volume satu kali."
+
+#: src/dialogs/erase.cpp
+msgid "Quick Erase"
+msgstr "Hapus Cepat"
+
+#: src/dialogs/erase.cpp
+msgid "Zero Out Data"
+msgstr "Timpa Data dengan Nol"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+msgid "Done"
+msgstr "Selesai"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Step {step} of {count}"
+msgstr "Langkah {step} dari {count}"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Stopping “{step}”…"
+msgstr "Menghentikan “{step}”…"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was erased."
+msgstr "“{name}” telah dihapus."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was erased only in part and has no usable volume now. Erase it again to use it."
+msgstr "“{name}” hanya terhapus sebagian dan kini tidak memiliki volume yang dapat digunakan. Hapus lagi untuk menggunakannya."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was not erased; nothing stored on it was changed."
+msgstr "“{name}” tidak dihapus; tidak ada yang tersimpan di dalamnya yang diubah."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” was stopped before it finished."
+msgstr "“{step}” dihentikan sebelum selesai."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” was cancelled."
+msgstr "“{step}” dibatalkan."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” failed."
+msgstr "“{step}” gagal."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” failed: {message}"
+msgstr "“{step}” gagal: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "Hide Details"
+msgstr "Sembunyikan Detail"
+
+#: src/dialogs/firstaid.cpp
+msgid "Show Details"
+msgstr "Tampilkan Detail"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking {format} volumes needs {tool}, which is not installed."
+msgstr "Memeriksa volume {format} memerlukan {tool}, yang tidak terpasang."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds. Mounted volumes are unmounted while they are checked and mounted again afterwards."
+msgstr "Pertolongan Pertama memeriksa setiap volume di disk dari kesalahan dan memperbaiki yang ditemukan. Volume yang terpasang dilepas selama diperiksa dan dipasang kembali setelahnya."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds."
+msgstr "Pertolongan Pertama memeriksa setiap volume di disk dari kesalahan dan memperbaiki yang ditemukan."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks the volume for errors and repairs the ones it finds. The volume is unmounted while it is checked, so its files can’t be used until it’s done."
+msgstr "Pertolongan Pertama memeriksa volume dari kesalahan dan memperbaiki yang ditemukan. Volume dilepas selama diperiksa, sehingga file-nya tidak dapat digunakan sampai selesai."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks the volume for errors and repairs the ones it finds."
+msgstr "Pertolongan Pertama memeriksa volume dari kesalahan dan memperbaiki yang ditemukan."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Run First Aid on “{name}”?"
+msgstr "Jalankan Pertolongan Pertama pada “{name}”?"
+
+#: src/dialogs/firstaid.cpp
+msgid "Run"
+msgstr "Jalankan"
+
+#: src/dialogs/firstaid.cpp
+msgid "There are no volumes to check."
+msgstr "Tidak ada volume untuk diperiksa."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking “{name}”…"
+msgstr "Memeriksa “{name}”…"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there. Skipped."
+msgstr "“{name}” sudah tidak ada. Dilewati."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is locked. Unlock it to check it. Skipped."
+msgstr "“{name}” terkunci. Buka kuncinya untuk memeriksanya. Dilewati."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” holds no file system First Aid can check. Skipped."
+msgstr "“{name}” tidak berisi sistem file yang dapat diperiksa Pertolongan Pertama. Dilewati."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking “{name}” ({device}, {format})."
+msgstr "Memeriksa “{name}” ({device}, {format})."
+
+#: src/dialogs/firstaid.cpp
+msgid "unknown format"
+msgstr "format tidak dikenal"
+
+#: src/dialogs/firstaid.cpp
+msgid "a checking tool"
+msgstr "alat pemeriksa"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{format} volumes can’t be checked: {tool} is not installed."
+msgstr "Volume {format} tidak dapat diperiksa: {tool} tidak terpasang."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Unmounting “{name}”."
+msgstr "Melepas “{name}”."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is in use and can’t be unmounted. Close the files and quit the programs using it, then run First Aid again."
+msgstr "“{name}” sedang digunakan dan tidak dapat dilepas. Tutup file dan keluar dari program yang menggunakannya, lalu jalankan Pertolongan Pertama lagi."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is in use by {programs} and can’t be unmounted. Close their files on it or quit them, then run First Aid again."
+msgstr "“{name}” sedang digunakan oleh {programs} dan tidak dapat dilepas. Tutup file mereka di dalamnya atau keluar dari program tersebut, lalu jalankan Pertolongan Pertama lagi."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” could not be unmounted: {message}"
+msgstr "“{name}” tidak dapat dilepas: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "Checking the file system."
+msgstr "Memeriksa sistem file."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "The check failed: {message}"
+msgstr "Pemeriksaan gagal: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system appears to be OK."
+msgstr "Sistem file tampaknya baik-baik saja."
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system has errors."
+msgstr "Sistem file memiliki kesalahan."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{format} volumes can’t be repaired: {tool} is not installed."
+msgstr "Volume {format} tidak dapat diperbaiki: {tool} tidak terpasang."
+
+#: src/dialogs/firstaid.cpp
+msgid "a repair tool"
+msgstr "alat perbaikan"
+
+#: src/dialogs/firstaid.cpp
+msgid "Repairing the file system."
+msgstr "Memperbaiki sistem file."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Repairing “{name}”…"
+msgstr "Memperbaiki “{name}”…"
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system was repaired."
+msgstr "Sistem file telah diperbaiki."
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system could not be repaired."
+msgstr "Sistem file tidak dapat diperbaiki."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "The repair failed: {message}"
+msgstr "Perbaikan gagal: {message}"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Mounting “{name}” again."
+msgstr "Memasang kembali “{name}”."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” could not be mounted again: {message}"
+msgstr "“{name}” tidak dapat dipasang kembali: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid was cancelled."
+msgstr "Pertolongan Pertama dibatalkan."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid found errors it could not repair. Back up the data you can and erase the volume."
+msgstr "Pertolongan Pertama menemukan kesalahan yang tidak dapat diperbaiki. Cadangkan data yang bisa dan hapus volume tersebut."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid process has failed."
+msgstr "Proses Pertolongan Pertama gagal."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid process has completed."
+msgstr "Proses Pertolongan Pertama telah selesai."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{n} volume was skipped."
+msgid_plural "{n} volumes were skipped."
+msgstr[0] "{n} volume dilewati."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid"
+msgstr "Pertolongan Pertama"
+
+#: src/dialogs/identity_guard.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there."
+msgstr "“{name}” sudah tidak ada."
+
+#: src/dialogs/identity_guard.cpp
+msgid "It was removed or replaced by another disk, so nothing more is done to it."
+msgstr "Disk telah dicabut atau diganti dengan disk lain, sehingga tidak ada lagi yang dilakukan padanya."
+
+#: src/dialogs/info.cpp
+msgid "S.M.A.R.T. Details…"
+msgstr "Detail S.M.A.R.T.…"
+
+#: src/dialogs/mount.cpp
+msgid " and "
+msgstr " dan "
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be mounted."
+msgstr "“{name}” tidak dapat dipasang."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be unmounted."
+msgstr "“{name}” tidak dapat dilepas."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be locked."
+msgstr "“{name}” tidak dapat dikunci."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be ejected."
+msgstr "“{name}” tidak dapat dikeluarkan."
+
+#: src/dialogs/mount.cpp
+msgid "A program is still using a file on it. Close the files and quit the programs using it, then try again."
+msgstr "Masih ada program yang menggunakan file di dalamnya. Tutup file dan keluar dari program yang menggunakannya, lalu coba lagi."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "It is in use by {programs}. Close their files on it or quit them, then try again."
+msgstr "Sedang digunakan oleh {programs}. Tutup file mereka di dalamnya atau keluar dari program tersebut, lalu coba lagi."
+
+#: src/dialogs/mount.cpp
+msgid "Another operation on this disk is still running."
+msgstr "Operasi lain pada disk ini masih berjalan."
+
+#: src/dialogs/newimage.cpp
+msgid "New Blank Image"
+msgstr "Image Kosong Baru"
+
+#: src/dialogs/newimage.cpp
+msgid "Save As"
+msgstr "Simpan Sebagai"
+
+#: src/dialogs/newimage.cpp
+msgid "Where"
+msgstr "Lokasi"
+
+#: src/dialogs/newimage.cpp
+msgid "Choose…"
+msgstr "Pilih…"
+
+#: src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/volume_actions.cpp src/udisks/properties.cpp
+msgid "Size"
+msgstr "Ukuran"
+
+#: src/dialogs/newimage.cpp src/udisks/properties.cpp
+msgid "None"
+msgstr "Tidak Ada"
+
+#: src/dialogs/newimage.cpp src/udisks/properties.cpp
+msgid "Encryption"
+msgstr "Enkripsi"
+
+#: src/dialogs/newimage.cpp
+msgid "Encrypted with a Password"
+msgstr "Dienkripsi dengan Kata Sandi"
+
+#: src/dialogs/newimage.cpp
+msgid "Password"
+msgstr "Kata sandi"
+
+#: src/dialogs/newimage.cpp
+msgid "Create"
+msgstr "Buat"
+
+#: src/dialogs/newimage.cpp
+msgid "Type a name for the image file."
+msgstr "Ketik nama untuk file image."
+
+#: src/dialogs/newimage.cpp
+msgid "The folder is no longer there."
+msgstr "Folder sudah tidak ada."
+
+#: src/dialogs/newimage.cpp
+#, python-brace-format
+msgid "A file named “{name}” already exists in this folder."
+msgstr "File bernama “{name}” sudah ada di folder ini."
+
+#: src/dialogs/newimage.cpp
+msgid "Type a size, such as 100 MB."
+msgstr "Ketik ukuran, misalnya 100 MB."
+
+#: src/dialogs/newimage.cpp
+#, python-brace-format
+msgid "A {format} image needs at least {size}."
+msgstr "Image {format} memerlukan minimal {size}."
+
+#: src/dialogs/newimage.cpp
+msgid "Type a password for the image."
+msgstr "Ketik kata sandi untuk image."
+
+#: src/dialogs/newimage.cpp
+msgid "The passwords do not match."
+msgstr "Kata sandi tidak cocok."
+
+#: src/dialogs/newimage.cpp
+msgid "Creating the file…"
+msgstr "Membuat file…"
+
+#: src/dialogs/newimage.cpp
+msgid "Attaching the image…"
+msgstr "Memasang image…"
+
+#: src/dialogs/newimage.cpp
+msgid "Creating the partition map…"
+msgstr "Membuat peta partisi…"
+
+#: src/dialogs/newimage.cpp
+msgid "Formatting…"
+msgstr "Memformat…"
+
+#: src/dialogs/newimage.cpp
+msgid "Mounting…"
+msgstr "Memasang…"
+
+#: src/dialogs/partition.cpp src/dialogs/volume_actions.cpp
+msgid "Add Partition"
+msgstr "Tambah Partisi"
+
+#: src/dialogs/partition.cpp
+msgid "Delete Partition"
+msgstr "Hapus Partisi"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Partition “{name}”"
+msgstr "Partisi “{name}”"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” ({size}) has no partition map. Click + to add partitions; Apply creates a GUID Partition Map for them, erasing what is on the disk."
+msgstr "“{name}” ({size}) tidak memiliki peta partisi. Klik + untuk menambah partisi; Terapkan akan membuat Peta Partisi GUID untuknya, dan menghapus isi disk."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "{scheme}, {size}. Click + to add a partition, drag the handles on the rim to resize. Nothing changes until you click Apply."
+msgstr "{scheme}, {size}. Klik + untuk menambah partisi, seret pegangan di tepi untuk mengubah ukuran. Tidak ada yang berubah sampai Anda mengeklik Terapkan."
+
+#: src/dialogs/partition.cpp
+msgid "Revert"
+msgstr "Kembalikan"
+
+#: src/dialogs/partition.cpp
+msgid "Apply"
+msgstr "Terapkan"
+
+#: src/dialogs/partition.cpp
+msgid "Free Space"
+msgstr "Ruang Kosong"
+
+#: src/dialogs/partition.cpp src/views/detailcontent.cpp
+msgid "Unformatted"
+msgstr "Belum Diformat"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Between {minimum} and {maximum}."
+msgstr "Antara {minimum} dan {maximum}."
+
+#: src/dialogs/partition.cpp
+msgid "How far the filesystem can shrink is only known when it is applied; a shrink runs before anything is deleted."
+msgstr "Seberapa jauh sistem file dapat diperkecil hanya diketahui saat diterapkan; pengecilan dijalankan sebelum apa pun dihapus."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Changing the format erases everything on “{name}”."
+msgstr "Mengubah format akan menghapus semua yang ada di “{name}”."
+
+#: src/dialogs/partition.cpp
+msgid "Click + to add a partition in this free space."
+msgstr "Klik + untuk menambah partisi di ruang kosong ini."
+
+#: src/dialogs/partition.cpp src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "{format} can't be made: {reason}"
+msgstr "{format} tidak dapat dibuat: {reason}"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "These steps will be taken on “{name}”, in this order:"
+msgstr "Langkah-langkah berikut akan dilakukan pada “{name}”, dengan urutan ini:"
+
+#: src/dialogs/partition.cpp
+msgid "Deleted and erased volumes lose everything stored on them. Resizing can take a while; keep the disk connected until it is done."
+msgstr "Volume yang dihapus kehilangan semua yang tersimpan di dalamnya. Pengubahan ukuran dapat memakan waktu; biarkan disk tetap terhubung sampai selesai."
+
+#: src/dialogs/partition.cpp
+msgid "Resizing can take a while; keep the disk connected until it is done."
+msgstr "Pengubahan ukuran dapat memakan waktu; biarkan disk tetap terhubung sampai selesai."
+
+#: src/dialogs/partition.cpp
+msgid "Back"
+msgstr "Kembali"
+
+#: src/dialogs/partition.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Partition"
+msgstr "Partisi"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” was partitioned."
+msgstr "“{name}” telah dipartisi."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Nothing was changed on “{name}”."
+msgstr "Tidak ada yang diubah pada “{name}”."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” was partitioned only in part: the first {count} steps were taken."
+msgstr "“{name}” hanya dipartisi sebagian: {count} langkah pertama telah dilakukan."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Encrypted volumes can't be resized here."
+msgstr "Volume terenkripsi tidak dapat diubah ukurannya di sini."
+
+#: src/dialogs/partition_plan.cpp
+msgid "The partition has no filesystem that can be resized."
+msgstr "Partisi tidak memiliki sistem file yang dapat diubah ukurannya."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Checking whether the filesystem can be resized…"
+msgstr "Memeriksa apakah sistem file dapat diubah ukurannya…"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Resizing {format} needs {tool}, which is not installed."
+msgstr "Mengubah ukuran {format} memerlukan {tool}, yang tidak terpasang."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't be resized."
+msgstr "{format} tidak dapat diubah ukurannya."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Unmount “{name}” to shrink it."
+msgstr "Lepas “{name}” untuk memperkecilnya."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Unmount “{name}” to grow it."
+msgstr "Lepas “{name}” untuk memperbesarnya."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Mount “{name}” to shrink it."
+msgstr "Pasang “{name}” untuk memperkecilnya."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Mount “{name}” to grow it."
+msgstr "Pasang “{name}” untuk memperbesarnya."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't shrink."
+msgstr "{format} tidak dapat diperkecil."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't grow."
+msgstr "{format} tidak dapat diperbesar."
+
+#: src/dialogs/partition_plan.cpp src/dialogs/volume_actions.cpp
+msgid "The partition map holds no more partitions."
+msgstr "Peta partisi tidak dapat memuat partisi lagi."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Extended partitions and the partitions inside them can't be changed here."
+msgstr "Partisi extended dan partisi di dalamnya tidak dapat diubah di sini."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” is too small for {format}, which needs at least {size}."
+msgstr "“{name}” terlalu kecil untuk {format}, yang memerlukan minimal {size}."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” can't be resized."
+msgstr "“{name}” tidak dapat diubah ukurannya."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” can't be smaller than {size}."
+msgstr "“{name}” tidak boleh lebih kecil dari {size}."
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Unmount “{name}”"
+msgstr "Lepas “{name}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Lock “{name}”"
+msgstr "Kunci “{name}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Delete “{name}”"
+msgstr "Hapus “{name}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Shrink the filesystem of “{name}” to {size}"
+msgstr "Perkecil sistem file “{name}” menjadi {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resize “{name}” to {size}"
+msgstr "Ubah ukuran “{name}” menjadi {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Grow the filesystem of “{name}” to fill its partition"
+msgstr "Perbesar sistem file “{name}” hingga memenuhi partisinya"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create a {scheme} on “{name}”"
+msgstr "Buat {scheme} pada “{name}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erase “{name}” as encrypted {format}"
+msgstr "Hapus “{name}” sebagai {format} terenkripsi"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erase “{name}” as {format}"
+msgstr "Hapus “{name}” sebagai {format}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create “{name}”, encrypted {format}, {size}"
+msgstr "Buat “{name}”, {format} terenkripsi, {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create “{name}”, {format}, {size}"
+msgstr "Buat “{name}”, {format}, {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Rename “{name}” to “{label}”"
+msgstr "Ubah nama “{name}” menjadi “{label}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Unmounting “{name}”…"
+msgstr "Melepas “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Locking “{name}”…"
+msgstr "Mengunci “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Deleting “{name}”…"
+msgstr "Menghapus “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resizing the filesystem of “{name}”…"
+msgstr "Mengubah ukuran sistem file “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resizing “{name}”…"
+msgstr "Mengubah ukuran “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Creating the partition map on “{name}”…"
+msgstr "Membuat peta partisi pada “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erasing “{name}”…"
+msgstr "Menghapus “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Creating “{name}”…"
+msgstr "Membuat “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Renaming “{name}”…"
+msgstr "Mengubah nama “{name}”…"
+
+#: src/dialogs/plan_runner.cpp src/images/transfer.cpp
+msgid "The disk was removed or replaced by another."
+msgstr "Disk telah dicabut atau diganti dengan disk lain."
+
+#: src/dialogs/rename.cpp
+msgid "Rename Volume"
+msgstr "Ubah Nama Volume"
+
+#: src/dialogs/rename.cpp
+msgid "Rename"
+msgstr "Ubah Nama"
+
+#: src/dialogs/rename.cpp
+#, python-brace-format
+msgid "{format} names have up to {n} characters and are kept in capitals."
+msgstr "Nama {format} paling banyak {n} karakter dan disimpan dalam huruf kapital."
+
+#: src/dialogs/rename.cpp
+#, python-brace-format
+msgid "{format} names have up to {n} characters."
+msgstr "Nama {format} paling banyak {n} karakter."
+
+#: src/dialogs/rename.cpp
+msgid "The volume could not be renamed."
+msgstr "Nama volume tidak dapat diubah."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Restore “{name}”"
+msgstr "Pulihkan “{name}”"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Choose a volume, disk or disk image to copy onto “{name}”. Everything on “{name}” is erased and replaced with the copy."
+msgstr "Pilih volume, disk, atau image disk untuk disalin ke “{name}”. Semua yang ada di “{name}” akan dihapus dan diganti dengan salinannya."
+
+#: src/dialogs/restore.cpp
+msgid "Restore From"
+msgstr "Pulihkan Dari"
+
+#: src/dialogs/restore.cpp
+msgid "Image…"
+msgstr "Image…"
+
+#: src/dialogs/restore.cpp
+msgid "Restore"
+msgstr "Pulihkan"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "{name} ({device}, {size})"
+msgstr "{name} ({device}, {size})"
+
+#: src/dialogs/restore.cpp
+msgid "Choose a disk image, or attach a disk to restore from."
+msgstr "Pilih image disk, atau hubungkan disk untuk dipulihkan."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Everything on “{target}” is replaced with the contents of “{source}”. This cannot be undone."
+msgstr "Semua yang ada di “{target}” akan diganti dengan isi “{source}”. Tindakan ini tidak dapat dibatalkan."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "“{source}” is unmounted before it is read, and stays so afterwards."
+msgstr "“{source}” dilepas sebelum dibaca, dan tetap demikian setelahnya."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Erase “{target}”?"
+msgstr "Hapus “{target}”?"
+
+#: src/dialogs/restore.cpp
+msgid "Erase and Restore"
+msgstr "Hapus dan Pulihkan"
+
+#: src/dialogs/restore.cpp
+msgid "The restore could not start."
+msgstr "Pemulihan tidak dapat dimulai."
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "S.M.A.R.T."
+msgstr "S.M.A.R.T."
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "The attributes could not be read: {message}"
+msgstr "Atribut tidak dapat dibaca: {message}"
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "The self-test could not be started: {message}"
+msgstr "Uji mandiri tidak dapat dimulai: {message}"
+
+#: src/dialogs/smart.cpp
+msgid "Status"
+msgstr "Status"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Temperature"
+msgstr "Suhu"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Powered On"
+msgstr "Waktu Menyala"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Bad Sectors"
+msgstr "Sektor Rusak"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Critical Warnings"
+msgstr "Peringatan Kritis"
+
+#: src/dialogs/smart.cpp
+msgid "Self-Test"
+msgstr "Uji Mandiri"
+
+#: src/dialogs/smart.cpp
+msgid "Last Read"
+msgstr "Terakhir Dibaca"
+
+#: src/dialogs/smart.cpp
+msgid "Attributes"
+msgstr "Atribut"
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "Failing: {value}"
+msgstr "Gagal: {value}"
+
+#: src/dialogs/smart.cpp
+msgid "Health"
+msgstr "Kesehatan"
+
+#: src/dialogs/smart.cpp
+msgid "Run Self-Test"
+msgstr "Jalankan Uji Mandiri"
+
+#: src/dialogs/unlock.cpp
+msgid "Unlock Volume"
+msgstr "Buka Kunci Volume"
+
+#: src/dialogs/unlock.cpp
+#, python-brace-format
+msgid "Enter the passphrase to unlock “{name}”."
+msgstr "Masukkan frasa sandi untuk membuka kunci “{name}”."
+
+#: src/dialogs/unlock.cpp
+msgid "Unlock"
+msgstr "Buka Kunci"
+
+#: src/dialogs/unlock.cpp
+msgid "The passphrase is incorrect."
+msgstr "Frasa sandi salah."
+
+#: src/dialogs/unlock.cpp
+msgid "The volume could not be unlocked."
+msgstr "Kunci volume tidak dapat dibuka."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Up to {size} of free space, from {offset} into the disk."
+msgstr "Ruang kosong hingga {size}, mulai dari {offset} di dalam disk."
+
+#: src/dialogs/volume_actions.cpp
+msgid "Add"
+msgstr "Tambah"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "{format} needs at least {size}."
+msgstr "{format} memerlukan minimal {size}."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Added “{name}”."
+msgstr "“{name}” ditambahkan."
+
+#: src/dialogs/volume_actions.cpp
+msgid "The partition could not be added."
+msgstr "Partisi tidak dapat ditambahkan."
+
+#: src/dialogs/volume_actions.cpp
+msgid "Everything stored on the partition is deleted. This can't be undone."
+msgstr "Semua yang tersimpan di partisi akan dihapus. Tindakan ini tidak dapat dibatalkan."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "“{name}”"
+msgstr "“{name}”"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "The partitions in it, {names}, and everything stored on them are deleted. This can't be undone."
+msgstr "Partisi di dalamnya, {names}, beserta semua yang tersimpan di dalamnya akan dihapus. Tindakan ini tidak dapat dibatalkan."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Delete “{name}”?"
+msgstr "Hapus “{name}”?"
+
+#: src/dialogs/volume_actions.cpp
+msgid "Delete"
+msgstr "Hapus"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Deleted “{name}”."
+msgstr "“{name}” dihapus."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "“{name}” could not be deleted."
+msgstr "“{name}” tidak dapat dihapus."
+
+#: src/dialogs/volume_format.cpp
+msgid "FAT32 (MS-DOS)"
+msgstr "FAT32 (MS-DOS)"
+
+#: src/dialogs/volume_format.cpp src/udisks/describe.cpp
+#: src/udisks/properties.cpp
+msgid "Swap"
+msgstr "Swap"
+
+#: src/dialogs/volume_format.cpp
+msgid "The name can't contain control characters."
+msgstr "Nama tidak boleh berisi karakter kontrol."
+
+#: src/dialogs/volume_format.cpp
+msgid "FAT32 names can only use unaccented letters, digits and simple punctuation."
+msgstr "Nama FAT32 hanya boleh menggunakan huruf tanpa aksen, angka, dan tanda baca sederhana."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "FAT32 names can't contain “{character}”."
+msgstr "Nama FAT32 tidak boleh berisi “{character}”."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "{format} names can have at most {count} characters."
+msgstr "Nama {format} paling banyak {count} karakter."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "{format} names can have at most {count} bytes."
+msgstr "Nama {format} paling banyak {count} byte."
+
+#: src/dialogs/volume_format.cpp
+msgid "Checking for its tools…"
+msgstr "Memeriksa alatnya…"
+
+#: src/dialogs/volume_format.cpp
+msgid "Its tools are not installed."
+msgstr "Alatnya tidak terpasang."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "Needs {tool}, which is not installed."
+msgstr "Memerlukan {tool}, yang tidak terpasang."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The source could not be read: {reason}"
+msgstr "Sumber tidak dapat dibaca: {reason}"
+
+#: src/images/copy.cpp
+msgid "The destination is too small."
+msgstr "Tujuan terlalu kecil."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The destination could not be written: {reason}"
+msgstr "Tujuan tidak dapat ditulis: {reason}"
+
+#: src/images/copy.cpp
+msgid "The source ended before all of it was read."
+msgstr "Sumber berakhir sebelum seluruhnya terbaca."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The data could not be saved on the destination: {reason}"
+msgstr "Data tidak dapat disimpan di tujuan: {reason}"
+
+#: src/images/imagefile.cpp
+msgid "There is not enough free space for an image of that size."
+msgstr "Ruang kosong tidak cukup untuk image sebesar itu."
+
+#: src/images/imagefile.cpp
+msgid "A file with that name already exists."
+msgstr "File dengan nama tersebut sudah ada."
+
+#: src/images/imagefile.cpp
+#, python-brace-format
+msgid "The file could not be created: {reason}"
+msgstr "File tidak dapat dibuat: {reason}"
+
+#: src/images/imagefile.cpp
+msgid "The file is too large for the disk it is on."
+msgstr "File terlalu besar untuk disk tempatnya berada."
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{copied} of {total}"
+msgstr "{copied} dari {total}"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{size}/s"
+msgstr "{size}/s"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} second left"
+msgid_plural "About {n} seconds left"
+msgstr[0] "Sekitar {n} detik lagi"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} minute left"
+msgid_plural "About {n} minutes left"
+msgstr[0] "Sekitar {n} menit lagi"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} hour left"
+msgid_plural "About {n} hours left"
+msgstr[0] "Sekitar {n} jam lagi"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{amount} ({rate})"
+msgstr "{amount} ({rate})"
+
+#: src/images/transfer.cpp
+msgid "The destination is no longer there."
+msgstr "Tujuan sudah tidak ada."
+
+#: src/images/transfer.cpp
+msgid "A volume cannot be restored from itself."
+msgstr "Volume tidak dapat dipulihkan dari dirinya sendiri."
+
+#: src/images/transfer.cpp
+msgid "The source and the destination overlap: one lies inside the other."
+msgstr "Sumber dan tujuan saling berada di dalam satu sama lain."
+
+#: src/images/transfer.cpp
+msgid "A disk image cannot be restored onto itself."
+msgstr "Image disk tidak dapat dipulihkan ke dirinya sendiri."
+
+#: src/images/transfer.cpp
+msgid "The disk image is attached and mounted. Eject it first."
+msgstr "Image disk sedang terpasang. Keluarkan terlebih dahulu."
+
+#: src/images/transfer.cpp
+msgid "The source could not be read."
+msgstr "Sumber tidak dapat dibaca."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The source ({source}) is larger than the destination ({destination})."
+msgstr "Sumber ({source}) lebih besar dari tujuan ({destination})."
+
+#: src/images/transfer.cpp
+msgid "The source is empty."
+msgstr "Sumber kosong."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The source could not be opened: {reason}"
+msgstr "Sumber tidak dapat dibuka: {reason}"
+
+#: src/images/transfer.cpp
+msgid "The source could not be opened."
+msgstr "Sumber tidak dapat dibuka."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The destination could not be opened: {reason}"
+msgstr "Tujuan tidak dapat dibuka: {reason}"
+
+#: src/images/transfer.cpp
+msgid "The destination could not be opened."
+msgstr "Tujuan tidak dapat dibuka."
+
+#: src/udisks/describe.cpp
+msgid "GUID Partition Map"
+msgstr "Peta Partisi GUID"
+
+#: src/udisks/describe.cpp
+msgid "Master Boot Record"
+msgstr "Master Boot Record"
+
+#. TRANSLATORS: a disk without a model name, such as "16 GB Disk".
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Disk"
+msgstr "Disk {size}"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Extended Partition"
+msgstr "Partisi Extended"
+
+#. TRANSLATORS: a volume without a label, named by its size, such as "16 GB Volume".
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Encrypted Volume"
+msgstr "Volume Terenkripsi {size}"
+
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Volume"
+msgstr "Volume {size}"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+msgid "SD Card"
+msgstr "Kartu SD"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Disk Image"
+msgstr "Image Disk"
+
+#: src/udisks/operations.cpp
+msgid "The device is no longer available."
+msgstr "Perangkat sudah tidak tersedia."
+
+#: src/udisks/operations.cpp
+msgid "Another operation on this disk is in progress."
+msgstr "Operasi lain pada disk ini sedang berlangsung."
+
+#: src/udisks/operations.cpp
+msgid "The partition holds the running system."
+msgstr "Partisi ini berisi sistem yang sedang berjalan."
+
+#: src/udisks/operations.cpp
+msgid "The disk is no longer available."
+msgstr "Disk sudah tidak tersedia."
+
+#: src/udisks/operations.cpp
+msgid "The disk cannot be ejected."
+msgstr "Disk tidak dapat dikeluarkan."
+
+#: src/udisks/operations.cpp
+msgid "The disk image holds the running system."
+msgstr "Image disk ini berisi sistem yang sedang berjalan."
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{n} byte"
+msgid_plural "{n} bytes"
+msgstr[0] "{n} byte"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{size} ({bytes})"
+msgstr "{size} ({bytes})"
+
+#: src/udisks/properties.cpp
+msgid "EFI System"
+msgstr "Sistem EFI"
+
+#: src/udisks/properties.cpp
+msgid "BIOS Boot"
+msgstr "Boot BIOS"
+
+#: src/udisks/properties.cpp
+msgid "Linux Filesystem"
+msgstr "Sistem File Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Root (x86-64)"
+msgstr "Root Linux (x86-64)"
+
+#: src/udisks/properties.cpp
+msgid "Linux Root (ARM64)"
+msgstr "Root Linux (ARM64)"
+
+#: src/udisks/properties.cpp
+msgid "Linux Home"
+msgstr "Home Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Extended Boot"
+msgstr "Boot Extended Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Swap"
+msgstr "Swap Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux LVM"
+msgstr "Linux LVM"
+
+#: src/udisks/properties.cpp
+msgid "Linux RAID"
+msgstr "Linux RAID"
+
+#: src/udisks/properties.cpp
+msgid "Linux LUKS"
+msgstr "Linux LUKS"
+
+#: src/udisks/properties.cpp
+msgid "Microsoft Basic Data"
+msgstr "Data Dasar Microsoft"
+
+#: src/udisks/properties.cpp
+msgid "Microsoft Reserved"
+msgstr "Microsoft Reserved"
+
+#: src/udisks/properties.cpp
+msgid "Windows Recovery"
+msgstr "Pemulihan Windows"
+
+#: src/udisks/properties.cpp
+msgid "Apple HFS+"
+msgstr "Apple HFS+"
+
+#: src/udisks/properties.cpp
+msgid "Apple APFS"
+msgstr "Apple APFS"
+
+#: src/udisks/properties.cpp
+msgid "FAT12"
+msgstr "FAT12"
+
+#: src/udisks/properties.cpp
+msgid "FAT16"
+msgstr "FAT16"
+
+#: src/udisks/properties.cpp
+msgid "Extended"
+msgstr "Extended"
+
+#: src/udisks/properties.cpp
+msgid "NTFS or exFAT"
+msgstr "NTFS atau exFAT"
+
+#: src/udisks/properties.cpp
+msgid "FAT32"
+msgstr "FAT32"
+
+#: src/udisks/properties.cpp
+msgid "FAT32 (LBA)"
+msgstr "FAT32 (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "FAT16 (LBA)"
+msgstr "FAT16 (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "Extended (LBA)"
+msgstr "Extended (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "Linux"
+msgstr "Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Extended"
+msgstr "Linux Extended"
+
+#: src/udisks/properties.cpp
+msgid "Non-Filesystem Data"
+msgstr "Data Non-Sistem File"
+
+#: src/udisks/properties.cpp
+msgid "GPT Protective"
+msgstr "Pelindung GPT"
+
+#: src/udisks/properties.cpp
+msgid "Bootable"
+msgstr "Dapat Di-boot"
+
+#: src/udisks/properties.cpp
+msgctxt "partition flag"
+msgid "Required"
+msgstr "Wajib"
+
+#: src/udisks/properties.cpp
+msgid "Ignored by Firmware"
+msgstr "Diabaikan oleh Firmware"
+
+#: src/udisks/properties.cpp
+msgid "Legacy BIOS Bootable"
+msgstr "Dapat Di-boot BIOS Lama"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Read Only"
+msgstr "Hanya-Baca"
+
+#: src/udisks/properties.cpp
+msgid "Hidden"
+msgstr "Tersembunyi"
+
+#: src/udisks/properties.cpp
+msgid "No Automount"
+msgstr "Tanpa Pemasangan Otomatis"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Enabled"
+msgstr "Manajemen Akustik Aktif"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Supported"
+msgstr "Manajemen Akustik Didukung"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Recommended Value"
+msgstr "Nilai Rekomendasi Manajemen Akustik"
+
+#: src/udisks/properties.cpp
+msgid "Active"
+msgstr "Aktif"
+
+#: src/udisks/properties.cpp
+msgid "Power Management (APM) Enabled"
+msgstr "Manajemen Daya (APM) Aktif"
+
+#: src/udisks/properties.cpp
+msgid "Power Management (APM) Supported"
+msgstr "Manajemen Daya (APM) Didukung"
+
+#: src/udisks/properties.cpp
+msgid "Detaches When Unused"
+msgstr "Terlepas Saat Tidak Digunakan"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Image File"
+msgstr "File Image"
+
+#: src/udisks/properties.cpp
+msgid "Can Power Off"
+msgstr "Dapat Dimatikan"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Configuration"
+msgstr "Konfigurasi Tidak Terkunci"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Device"
+msgstr "Perangkat Tidak Terkunci"
+
+#: src/udisks/properties.cpp
+msgid "Configuration"
+msgstr "Konfigurasi"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Connection"
+msgstr "Koneksi"
+
+#: src/udisks/properties.cpp
+msgid "Controller ID"
+msgstr "ID Pengontrol"
+
+#: src/udisks/properties.cpp
+msgid "Encrypted Device"
+msgstr "Perangkat Terenkripsi"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Device"
+msgstr "Perangkat"
+
+#: src/udisks/properties.cpp
+msgid "Device Number"
+msgstr "Nomor Perangkat"
+
+#: src/udisks/properties.cpp
+msgid "Drive"
+msgstr "Drive"
+
+#: src/udisks/properties.cpp
+msgid "Ejectable"
+msgstr "Dapat Dikeluarkan"
+
+#: src/udisks/properties.cpp
+msgid "FRU GUID"
+msgstr "FRU GUID"
+
+#: src/udisks/properties.cpp
+msgid "Flags"
+msgstr "Flag"
+
+#: src/udisks/properties.cpp
+msgid "Mounts Automatically"
+msgstr "Terpasang Otomatis"
+
+#: src/udisks/properties.cpp
+msgid "Icon"
+msgstr "Ikon"
+
+#: src/udisks/properties.cpp
+msgid "Hidden from Users"
+msgstr "Tersembunyi dari Pengguna"
+
+#: src/udisks/properties.cpp
+msgid "Suggested Name"
+msgstr "Nama yang Disarankan"
+
+#: src/udisks/properties.cpp
+msgid "Partitionable"
+msgstr "Dapat Dipartisi"
+
+#: src/udisks/properties.cpp
+msgid "Symbolic Icon"
+msgstr "Ikon Simbolik"
+
+#: src/udisks/properties.cpp
+msgid "System Device"
+msgstr "Perangkat Sistem"
+
+#: src/udisks/properties.cpp
+msgid "Identifier"
+msgstr "Pengenal"
+
+#: src/udisks/properties.cpp
+msgid "Label"
+msgstr "Label"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "UUID"
+msgstr "UUID"
+
+#: src/udisks/properties.cpp
+msgid "Contents"
+msgstr "Isi"
+
+#: src/udisks/properties.cpp
+msgid "Format Version"
+msgstr "Versi Format"
+
+#: src/udisks/properties.cpp
+msgid "Logical Partition"
+msgstr "Partisi Logis"
+
+#: src/udisks/properties.cpp
+msgid "RAID Array"
+msgstr "Array RAID"
+
+#: src/udisks/properties.cpp
+msgid "RAID Member Of"
+msgstr "Anggota RAID dari"
+
+#: src/udisks/properties.cpp
+msgid "Media"
+msgstr "Media"
+
+#: src/udisks/properties.cpp
+msgid "Media Present"
+msgstr "Media Ada"
+
+#: src/udisks/properties.cpp
+msgid "Media Change Detected"
+msgstr "Perubahan Media Terdeteksi"
+
+#: src/udisks/properties.cpp
+msgid "Compatible Media"
+msgstr "Media yang Kompatibel"
+
+#: src/udisks/properties.cpp
+msgid "Removable Media"
+msgstr "Media Lepas-Pasang"
+
+#: src/udisks/properties.cpp
+msgid "Header Size"
+msgstr "Ukuran Header"
+
+#: src/udisks/properties.cpp
+msgid "Model"
+msgstr "Model"
+
+#: src/udisks/properties.cpp
+msgid "Mount Points"
+msgstr "Titik Pasang"
+
+#: src/udisks/properties.cpp
+msgid "NVMe Version"
+msgstr "Versi NVMe"
+
+#: src/udisks/properties.cpp
+msgid "Number"
+msgstr "Nomor"
+
+#: src/udisks/properties.cpp
+msgid "Offset"
+msgstr "Offset"
+
+#: src/udisks/properties.cpp
+msgid "Optical"
+msgstr "Optik"
+
+#: src/udisks/properties.cpp
+msgid "Blank Disc"
+msgstr "Cakram Kosong"
+
+#: src/udisks/properties.cpp
+msgid "Audio Tracks"
+msgstr "Trek Audio"
+
+#: src/udisks/properties.cpp
+msgid "Data Tracks"
+msgstr "Trek Data"
+
+#: src/udisks/properties.cpp
+msgid "Sessions"
+msgstr "Sesi"
+
+#: src/udisks/properties.cpp
+msgid "Tracks"
+msgstr "Trek"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Partitions"
+msgstr "Partisi"
+
+#: src/udisks/properties.cpp
+msgid "Power Management Enabled"
+msgstr "Manajemen Daya Aktif"
+
+#: src/udisks/properties.cpp
+msgid "Power Management Supported"
+msgstr "Manajemen Daya Didukung"
+
+#: src/udisks/properties.cpp
+msgid "Preferred Device"
+msgstr "Perangkat Pilihan"
+
+#: src/udisks/properties.cpp
+msgid "Read-Ahead Enabled"
+msgstr "Read-Ahead Aktif"
+
+#: src/udisks/properties.cpp
+msgid "Read-Ahead Supported"
+msgstr "Read-Ahead Didukung"
+
+#: src/udisks/properties.cpp
+msgid "Removable"
+msgstr "Lepas-Pasang"
+
+#: src/udisks/properties.cpp
+msgid "Firmware Revision"
+msgstr "Revisi Firmware"
+
+#: src/udisks/properties.cpp
+msgid "Rotation Rate"
+msgstr "Kecepatan Putar"
+
+#: src/udisks/properties.cpp
+msgid "Sanitize Remaining"
+msgstr "Sisa Sanitasi"
+
+#: src/udisks/properties.cpp
+msgid "Sanitize Status"
+msgstr "Status Sanitasi"
+
+#: src/udisks/properties.cpp
+msgid "Seat"
+msgstr "Seat"
+
+#: src/udisks/properties.cpp
+msgid "Enhanced Secure Erase Time"
+msgstr "Waktu Penghapusan Aman Ditingkatkan"
+
+#: src/udisks/properties.cpp
+msgid "Secure Erase Time"
+msgstr "Waktu Penghapusan Aman"
+
+#: src/udisks/properties.cpp
+msgid "Security Frozen"
+msgstr "Keamanan Dibekukan"
+
+#: src/udisks/properties.cpp
+msgid "Serial Number"
+msgstr "Nomor Seri"
+
+#: src/udisks/properties.cpp
+msgid "Attached by User"
+msgstr "Dipasang oleh Pengguna"
+
+#: src/udisks/properties.cpp
+msgid "Sibling Identifier"
+msgstr "Pengenal Saudara"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Enabled"
+msgstr "S.M.A.R.T. Aktif"
+
+#: src/udisks/properties.cpp
+msgid "Predicts Failure"
+msgstr "Memprediksi Kegagalan"
+
+#: src/udisks/properties.cpp
+msgid "Attributes Failed in the Past"
+msgstr "Atribut yang Pernah Gagal"
+
+#: src/udisks/properties.cpp
+msgid "Attributes Failing"
+msgstr "Atribut yang Gagal"
+
+#: src/udisks/properties.cpp
+msgid "Self-Test Remaining"
+msgstr "Sisa Uji Mandiri"
+
+#: src/udisks/properties.cpp
+msgid "Last Self-Test"
+msgstr "Uji Mandiri Terakhir"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Supported"
+msgstr "S.M.A.R.T. Didukung"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Read"
+msgstr "S.M.A.R.T. Dibaca"
+
+#: src/udisks/properties.cpp
+msgid "Sort Key"
+msgstr "Kunci Urutan"
+
+#: src/udisks/properties.cpp
+msgid "State"
+msgstr "Keadaan"
+
+#: src/udisks/properties.cpp
+msgid "Subsystem NQN"
+msgstr "NQN Subsistem"
+
+#: src/udisks/properties.cpp
+msgid "Links"
+msgstr "Tautan"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Partition Map"
+msgstr "Peta Partisi"
+
+#: src/udisks/properties.cpp
+msgid "Detected"
+msgstr "Terdeteksi"
+
+#: src/udisks/properties.cpp
+msgid "Media Detected"
+msgstr "Media Terdeteksi"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Type"
+msgstr "Jenis"
+
+#: src/udisks/properties.cpp
+msgid "Unallocated Capacity"
+msgstr "Kapasitas Belum Dialokasikan"
+
+#: src/udisks/properties.cpp
+msgid "Mount Options"
+msgstr "Opsi Pemasangan"
+
+#: src/udisks/properties.cpp
+msgid "Vendor"
+msgstr "Vendor"
+
+#: src/udisks/properties.cpp
+msgid "World Wide Name"
+msgstr "World Wide Name"
+
+#: src/udisks/properties.cpp
+msgid "Write Cache Enabled"
+msgstr "Cache Tulis Aktif"
+
+#: src/udisks/properties.cpp
+msgid "Write Cache Supported"
+msgstr "Cache Tulis Didukung"
+
+#: src/udisks/properties.cpp
+msgid "NVMe Controller"
+msgstr "Pengontrol NVMe"
+
+#: src/udisks/properties.cpp
+msgid "Block Device"
+msgstr "Perangkat Blok"
+
+#: src/udisks/properties.cpp
+msgid "File System"
+msgstr "Sistem File"
+
+#: src/udisks/properties.cpp
+msgid "Yes"
+msgstr "Ya"
+
+#: src/udisks/properties.cpp
+msgid "No"
+msgstr "Tidak"
+
+#: src/udisks/properties.cpp
+msgid "Never"
+msgstr "Tidak pernah"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Solid State"
+msgstr "Solid State"
+
+#: src/udisks/properties.cpp
+msgid "Unknown"
+msgstr "Tidak diketahui"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{n} RPM"
+msgstr "{n} RPM"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{name} ({type})"
+msgstr "{name} ({type})"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Block Device"
+msgstr "Perangkat Blok Tidak Terkunci"
+
+#: src/udisks/smart.cpp
+msgid "Not Supported"
+msgstr "Tidak Didukung"
+
+#: src/udisks/smart.cpp
+msgid "Verified"
+msgstr "Terverifikasi"
+
+#: src/udisks/smart.cpp
+msgid "Failing"
+msgstr "Gagal"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} °C"
+msgstr "{n} °C"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} hour"
+msgid_plural "{n} hours"
+msgstr[0] "{n} jam"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} day"
+msgid_plural "{n} days"
+msgstr[0] "{n} hari"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{days} ({hours})"
+msgstr "{days} ({hours})"
+
+#: src/udisks/smart.cpp
+msgid "In progress"
+msgstr "Sedang berlangsung"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "In progress, {n}% left"
+msgstr "Sedang berlangsung, sisa {n}%"
+
+#: src/udisks/smart.cpp
+msgid "Completed without error"
+msgstr "Selesai tanpa kesalahan"
+
+#: src/udisks/smart.cpp
+msgid "Aborted"
+msgstr "Dibatalkan"
+
+#: src/udisks/smart.cpp
+msgid "Interrupted by a reset"
+msgstr "Terputus oleh reset"
+
+#: src/udisks/smart.cpp
+msgid "Failed: electrical error"
+msgstr "Gagal: kesalahan listrik"
+
+#: src/udisks/smart.cpp
+msgid "Failed: servo error"
+msgstr "Gagal: kesalahan servo"
+
+#: src/udisks/smart.cpp
+msgid "Failed: read error"
+msgstr "Gagal: kesalahan baca"
+
+#: src/udisks/smart.cpp
+msgid "Failed: damage found"
+msgstr "Gagal: ditemukan kerusakan"
+
+#: src/udisks/smart.cpp
+msgid "Failed"
+msgstr "Gagal"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "Attribute {n}"
+msgstr "Atribut {n}"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} ms"
+msgstr "{n} md"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} sector"
+msgid_plural "{n} sectors"
+msgstr[0] "{n} sektor"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} minute"
+msgid_plural "{n} minutes"
+msgstr[0] "{n} menit"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{value} (threshold {threshold})"
+msgstr "{value} (ambang {threshold})"
+
+#: src/udisks/smart.cpp
+msgid "Available Spare"
+msgstr "Cadangan Tersedia"
+
+#: src/udisks/smart.cpp
+msgid "Wear"
+msgstr "Keausan"
+
+#: src/udisks/smart.cpp
+msgid "Data Read"
+msgstr "Data Dibaca"
+
+#: src/udisks/smart.cpp
+msgid "Data Written"
+msgstr "Data Ditulis"
+
+#: src/udisks/smart.cpp
+msgid "Busy Time"
+msgstr "Waktu Sibuk"
+
+#: src/udisks/smart.cpp
+msgid "Power Cycles"
+msgstr "Siklus Daya"
+
+#: src/udisks/smart.cpp
+msgid "Unsafe Shutdowns"
+msgstr "Pematian Tidak Aman"
+
+#: src/udisks/smart.cpp
+msgid "Media Errors"
+msgstr "Kesalahan Media"
+
+#: src/udisks/smart.cpp
+msgid "Error Log Entries"
+msgstr "Entri Log Kesalahan"
+
+#: src/udisks/smart.cpp
+msgid "Warning Temperature"
+msgstr "Suhu Peringatan"
+
+#: src/udisks/smart.cpp
+msgid "Critical Temperature"
+msgstr "Suhu Kritis"
+
+#: src/udisks/smart.cpp
+msgid "Time Above Warning"
+msgstr "Waktu di Atas Peringatan"
+
+#: src/udisks/smart.cpp
+msgid "Time Above Critical"
+msgstr "Waktu di Atas Kritis"
+
+#: src/views/detail.cpp
+msgid "No Disks"
+msgstr "Tidak Ada Disk"
+
+#: src/views/detail.cpp
+msgid "Disks, volumes and disk images show here when they are attached."
+msgstr "Disk, volume, dan image disk muncul di sini saat terpasang."
+
+#: src/views/detailcards.cpp
+#, python-brace-format
+msgid "{percent}%"
+msgstr "{percent}%"
+
+#: src/views/detailcontent.cpp
+msgid "Erasing"
+msgstr "Menghapus"
+
+#: src/views/detailcontent.cpp
+msgid "Checking"
+msgstr "Memeriksa"
+
+#: src/views/detailcontent.cpp
+msgid "Repairing"
+msgstr "Memperbaiki"
+
+#: src/views/detailcontent.cpp
+msgid "Resizing"
+msgstr "Mengubah ukuran"
+
+#: src/views/detailcontent.cpp
+msgid "Mounting"
+msgstr "Memasang"
+
+#: src/views/detailcontent.cpp
+msgid "Unmounting"
+msgstr "Melepas"
+
+#: src/views/detailcontent.cpp
+msgid "Adding a partition"
+msgstr "Menambah partisi"
+
+#: src/views/detailcontent.cpp
+msgid "Deleting a partition"
+msgstr "Menghapus partisi"
+
+#: src/views/detailcontent.cpp
+msgid "Changing the partition"
+msgstr "Mengubah partisi"
+
+#: src/views/detailcontent.cpp
+msgid "Unlocking"
+msgstr "Membuka kunci"
+
+#: src/views/detailcontent.cpp
+msgid "Locking"
+msgstr "Mengunci"
+
+#: src/views/detailcontent.cpp
+msgid "Ejecting"
+msgstr "Mengeluarkan"
+
+#: src/views/detailcontent.cpp
+msgid "Powering off"
+msgstr "Mematikan"
+
+#: src/views/detailcontent.cpp
+msgid "Running a self-test"
+msgstr "Menjalankan uji mandiri"
+
+#: src/views/detailcontent.cpp
+msgid "Attaching"
+msgstr "Memasang image"
+
+#: src/views/detailcontent.cpp
+msgid "Working"
+msgstr "Memproses"
+
+#: src/views/detailcontent.cpp src/views/sidebar.cpp
+msgid "External"
+msgstr "Eksternal"
+
+#: src/views/detailcontent.cpp src/views/sidebar.cpp
+msgid "Internal"
+msgstr "Internal"
+
+#: src/views/detailcontent.cpp
+msgid "Optical Disc"
+msgstr "Cakram Optik"
+
+#: src/views/detailcontent.cpp
+msgid "Flash Memory"
+msgstr "Memori Flash"
+
+#: src/views/detailcontent.cpp
+msgid "Hard Disk"
+msgstr "Hard Disk"
+
+#. TRANSLATORS: an encrypted volume that is locked, such as "LUKS (Locked)".
+#: src/views/detailcontent.cpp
+#, python-brace-format
+msgid "{type} (Locked)"
+msgstr "{type} (Terkunci)"
+
+#. TRANSLATORS: an unlocked encrypted volume, such as "ext4 (Encrypted)".
+#: src/views/detailcontent.cpp
+#, python-brace-format
+msgid "{type} (Encrypted)"
+msgstr "{type} (Terenkripsi)"
+
+#: src/views/detailcontent.cpp
+msgid "Free"
+msgstr "Kosong"
+
+#: src/views/detailcontent.cpp
+msgid "Location"
+msgstr "Lokasi"
+
+#: src/views/detailcontent.cpp
+msgid "Capacity"
+msgstr "Kapasitas"
+
+#: src/views/detailcontent.cpp
+msgid "S.M.A.R.T. Status"
+msgstr "Status S.M.A.R.T."
+
+#: src/views/detailcontent.cpp
+msgid "Access"
+msgstr "Akses"
+
+#: src/views/detailcontent.cpp
+msgid "Used"
+msgstr "Terpakai"
+
+#: src/views/detailcontent.cpp
+msgid "Other"
+msgstr "Lainnya"
+
+#: src/views/detailcontent.cpp
+msgid "Mount Point"
+msgstr "Titik Pasang"
+
+#: src/views/detailcontent.cpp
+msgid "Not Mounted"
+msgstr "Tidak Terpasang"
+
+#: src/views/detailcontent.cpp
+msgid "Available"
+msgstr "Tersedia"
+
+#: src/views/detailcontent.cpp
+msgid "Owner"
+msgstr "Pemilik"
+
+#: src/views/diskwindow.cpp src/views/toolbar.cpp cutefish-disk-utility.desktop
+msgid "Disk Utility"
+msgstr "Utilitas Disk"
+
+#: src/views/diskwindow.cpp
+msgid "The operation was refused."
+msgstr "Operasi ditolak."
+
+#: src/views/diskwindow.cpp
+msgid "Show Only Volumes"
+msgstr "Hanya Tampilkan Volume"
+
+#: src/views/diskwindow.cpp
+msgid "Show All Devices"
+msgstr "Tampilkan Semua Perangkat"
+
+#: src/views/diskwindow.cpp
+msgid "An operation is in progress."
+msgstr "Sebuah operasi sedang berlangsung."
+
+#: src/views/diskwindow.cpp
+msgid "Quitting now stops it partway, which can leave the disk unusable. Wait until it is done."
+msgstr "Keluar sekarang akan menghentikannya di tengah jalan, yang dapat membuat disk tidak dapat digunakan. Tunggu sampai selesai."
+
+#: src/views/diskwindow.cpp
+msgid "Keep Running"
+msgstr "Tetap Berjalan"
+
+#: src/views/diskwindow.cpp
+msgid "Quit Anyway"
+msgstr "Tetap Keluar"
+
+#: src/views/diskwindow.cpp
+msgid "OK"
+msgstr "OK"
+
+#: src/views/diskwindow.cpp
+msgid "Erases, partitions, checks and images the disks of your computer."
+msgstr "Menghapus, mempartisi, memeriksa, dan membuat image disk komputer Anda."
+
+#: src/views/diskwindow.cpp
+msgid "About Disk Utility"
+msgstr "Tentang Utilitas Disk"
+
+#: src/views/diskwindow.cpp
+msgid "Hide Disk Utility"
+msgstr "Sembunyikan Utilitas Disk"
+
+#: src/views/diskwindow.cpp
+msgid "Quit Disk Utility"
+msgstr "Keluar dari Utilitas Disk"
+
+#: src/views/diskwindow.cpp
+msgid "File"
+msgstr "File"
+
+#: src/views/diskwindow.cpp
+msgid "New Image"
+msgstr "Image Baru"
+
+#: src/views/diskwindow.cpp
+msgid "Close Window"
+msgstr "Tutup Jendela"
+
+#: src/views/diskwindow.cpp
+msgid "Edit"
+msgstr "Edit"
+
+#: src/views/diskwindow.cpp
+msgid "Window"
+msgstr "Jendela"
+
+#: src/views/diskwindow.cpp
+msgid "Minimize"
+msgstr "Minimalkan"
+
+#: src/views/diskwindow.cpp
+msgid "Zoom"
+msgstr "Zoom"
+
+#: cutefish-disk-utility.desktop
+msgid "Manage disks, volumes and disk images"
+msgstr "Kelola disk, volume, dan image disk"
+
+#: cutefish-disk-utility.desktop
+msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
+msgstr "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;Partisi;Hapus;Pasang;Kait;Cakram;"
