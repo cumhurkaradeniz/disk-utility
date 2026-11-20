@@ -5,6 +5,7 @@
 
 #include "actions.h"
 #include "images/blankimage.h"
+#include "images/imagefile.h"
 #include "images/transfer.h"
 #include "udisks/model.h"
 #include "udisks/operations.h"
@@ -528,4 +529,23 @@ TEST_F(BlankImageTest, ThePassphraseIsForgotten)
     EXPECT_EQ(names[3], "Unlock loop7p1");
     EXPECT_EQ(backend.calls[2].arguments[6].value<VariantMap>().at("encrypt.passphrase").value<std::string>(),
               "secret");
+}
+
+TEST_F(TransferTest, CompressedFilesAreNoSource)
+{
+    const std::vector<std::pair<std::string, std::string>> files = {
+        {"xz", std::string("\xFD" "7zXZ\0\0", 8)}, {"gzip", "\x1F\x8B\x08\x00"},
+        {"bzip2", "BZh91AY"},                      {"zstd", "\x28\xB5\x2F\xFD\x00"},
+        {"ZIP", "PK\x03\x04\x14"},                 {"7-Zip", "7z\xBC\xAF\x27\x1C\x00"},
+        {"LZ4", "\x04\x22\x4D\x18\x64"},
+    };
+    for (const auto& [format, head] : files) {
+        const std::string path = write("compressed." + format, head + std::string(4096, 'x'));
+        EXPECT_EQ(compressionOf(path), format);
+        EXPECT_NE(restoreProblem(model, Endpoint::ofFile(path), sdy).find("Decompress it first"), std::string::npos)
+            << format;
+    }
+    EXPECT_EQ(compressionOf(source), "");
+    EXPECT_EQ(compressionOf(write("short", "P")), "");
+    EXPECT_EQ(compressionOf(file("missing")), "");
 }

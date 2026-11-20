@@ -119,6 +119,9 @@ std::string restoreProblem(const Model& model, const Endpoint& source, const std
             return tr("A volume cannot be restored from itself.");
         if (overlaps(model, source.block, target))
             return tr("The source and the destination overlap: one lies inside the other.");
+    } else if (const std::string compression = compressionOf(source.file); !compression.empty()) {
+        // Written as it is, it would be the compressed bytes on the disk.
+        return format(tr("The file is compressed ({format}). Decompress it first."), {{"format", compression}});
     } else if (const std::string loop = loopOfFile(model, source.file); !loop.empty()) {
         // An attached image changes under its mounted volumes, and restoring
         // it onto its own loop device copies it onto itself.

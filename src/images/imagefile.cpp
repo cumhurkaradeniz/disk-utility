@@ -12,6 +12,7 @@
 #include <cerrno>
 #include <cstring>
 #include <filesystem>
+#include <string_view>
 
 #include <fcntl.h>
 #include <sys/statvfs.h>
@@ -82,6 +83,38 @@ std::string loopOfFile(const udisks::Model& model, const std::string& path)
     return {};
 }
 
+std::string compressionOf(const std::string& path)
+{
+    unsigned char head[8] = {};
+    const int fd = ::open(path.c_str(), O_RDONLY | O_CLOEXEC);
+    if (fd < 0)
+        return {};
+    const ssize_t got = ::read(fd, head, sizeof(head));
+    ::close(fd);
+    if (got <= 0)
+        return {};
+    struct Signature
+    {
+        const char* name;
+        std::string_view bytes;
+    };
+    using namespace std::string_view_literals;
+    static constexpr Signature kSignatures[] = {
+        {"xz", "\xFD" "7zXZ\0"sv},
+        {"gzip", "\x1F\x8B"sv},
+        {"bzip2", "BZh"sv},
+        {"zstd", "\x28\xB5\x2F\xFD"sv},
+        {"ZIP", "PK\x03\x04"sv},
+        {"7-Zip", "7z\xBC\xAF\x27\x1C"sv},
+        {"LZ4", "\x04\x22\x4D\x18"sv},
+    };
+    const std::string_view start(reinterpret_cast<const char*>(head), size_t(got));
+    for (const Signature& signature : kSignatures) {
+        if (start.starts_with(signature.bytes))
+            return signature.name;
+    }
+    return {};
+}
 std::string createBlankFile(const std::string& path, uint64_t size)
 {
     // The file takes its room as it is written, so it has to be there already.
