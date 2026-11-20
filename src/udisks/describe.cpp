@@ -23,6 +23,14 @@ using cutefish::base::Locale;
 
 std::string formatSize(uint64_t bytes, const Locale& locale)
 {
+    // The unit is chosen before the rounding: 999.995 GB and up would show
+    // as "1,000.00 GB", with a group separator the size fields refuse. They
+    // round to 1.00 of the next unit, which is what its first size shows.
+    unsigned __int128 unit = 1000;
+    while (unit * 1000 <= bytes)
+        unit *= 1000;
+    if (bytes >= 1000 && (unsigned __int128)(bytes) * 1000 >= unit * 999995)
+        return locale.formattedDataSize(int64_t(unit * 1000), 2, Locale::DataSizeFormat::Si);
     return locale.formattedDataSize(int64_t(bytes), 2, Locale::DataSizeFormat::Si);
 }
 

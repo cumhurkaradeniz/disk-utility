@@ -222,6 +222,25 @@ TEST(SizeTest, TheShownTextReadsBack)
     }
 }
 
+// A size that rounds up to a thousand of its unit shows as one of the next,
+// without a group separator, and reads back.
+TEST(SizeTest, TheRoundingEdgeShowsTheNextUnit)
+{
+    EXPECT_EQ(formatSize(999'995'000'000, Locale("en_US")), "1.00 TB");
+    EXPECT_EQ(formatSize(999'994'999'999, Locale("en_US")), "999.99 GB");
+    EXPECT_EQ(formatSize(999'999, Locale("en_US")), "1.00 MB");
+    for (const char* name : {"en_US", "de_DE", "fr_FR"}) {
+        const Locale locale(name);
+        for (uint64_t bytes : {uint64_t(999'994'999'999), uint64_t(999'995'000'000), uint64_t(999'999'999'999),
+                               uint64_t(1'000'000'000'000), uint64_t(999'995), uint64_t(999'999'999)}) {
+            const std::string shown = formatSize(bytes, locale);
+            const std::optional<uint64_t> read = parseSize(shown, kGB, locale);
+            ASSERT_TRUE(read) << name << ": " << shown;
+            EXPECT_LE(std::abs(double(*read) - double(bytes)), double(bytes) * 0.0001) << name << ": " << shown;
+        }
+    }
+}
+
 TEST(SizeTest, SuffixesOverrideTheUnit)
 {
     const Locale english("en_US");
