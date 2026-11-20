@@ -62,6 +62,7 @@ add_library(disk-utility-ui STATIC
     src/dialogs/identity_guard.cpp
     src/dialogs/info.cpp
     src/dialogs/mount.cpp
+    src/dialogs/partition.cpp
     src/dialogs/pie_chart.cpp
     src/dialogs/rename.cpp
     src/dialogs/smart.cpp
