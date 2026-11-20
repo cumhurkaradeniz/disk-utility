@@ -1,0 +1,2414 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cutefish-disk-utility\n"
+"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"POT-Creation-Date: 2026-11-21 00:27+0800\n"
+"PO-Revision-Date: 2026-11-21 00:19+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/actions.cpp src/views/diskwindow.cpp
+msgid "View"
+msgstr "Xem"
+
+#: src/actions.cpp
+msgid "Add Partition…"
+msgstr "Thêm phân vùng…"
+
+#: src/actions.cpp
+msgid "Delete Partition…"
+msgstr "Xóa phân vùng…"
+
+#: src/actions.cpp
+msgid "First Aid…"
+msgstr "Sơ cứu…"
+
+#: src/actions.cpp
+msgid "Partition…"
+msgstr "Phân vùng…"
+
+#: src/actions.cpp
+msgid "Erase…"
+msgstr "Xóa…"
+
+#: src/actions.cpp
+msgid "Restore…"
+msgstr "Khôi phục…"
+
+#: src/actions.cpp
+msgid "Mount"
+msgstr "Gắn"
+
+#: src/actions.cpp src/dialogs/diskimages.cpp
+msgid "Unmount"
+msgstr "Tháo gắn"
+
+#: src/actions.cpp
+msgid "Get Info"
+msgstr "Lấy thông tin"
+
+#: src/actions.cpp
+msgid "Eject"
+msgstr "Đẩy ra"
+
+#: src/actions.cpp
+msgid "Rename…"
+msgstr "Đổi tên…"
+
+#: src/actions.cpp
+msgid "Lock"
+msgstr "Khóa"
+
+#: src/actions.cpp
+msgid "Open Disk Image…"
+msgstr "Mở ảnh đĩa…"
+
+#: src/actions.cpp
+msgid "Blank Image…"
+msgstr "Ảnh trống…"
+
+#: src/actions.cpp
+msgid "Image from Selection…"
+msgstr "Ảnh từ lựa chọn…"
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The disks of the running system could not be found."
+msgstr "Không tìm thấy các đĩa của hệ thống đang chạy."
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The disk holds the running system."
+msgstr "Đĩa này chứa hệ thống đang chạy."
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The volume holds the running system."
+msgstr "Ổ đĩa này chứa hệ thống đang chạy."
+
+#: src/actions.cpp
+msgid "An operation on this disk is in progress."
+msgstr "Một thao tác trên đĩa này đang diễn ra."
+
+#: src/actions.cpp src/dialogs/partition_plan.cpp
+#: src/dialogs/volume_actions.cpp
+msgid "A Master Boot Record holds at most four partitions."
+msgstr "Master Boot Record chỉ chứa tối đa bốn phân vùng."
+
+#: src/actions.cpp src/dialogs/partition_plan.cpp
+#: src/dialogs/volume_actions.cpp
+msgid "There is no free space for another partition."
+msgstr "Không còn dung lượng trống cho phân vùng khác."
+
+#: src/actions.cpp
+msgid "A partition in it is mounted or unlocked."
+msgstr "Một phân vùng trong đó đang được gắn hoặc đã mở khóa."
+
+#: src/dialogs/choice_button.cpp
+#, python-brace-format
+msgid "{choice} ({reason})"
+msgstr "{choice} ({reason})"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Preparing…"
+msgstr "Đang chuẩn bị…"
+
+#: src/dialogs/copyprogress.cpp src/dialogs/erase.cpp src/dialogs/partition.cpp
+msgid "Stop"
+msgstr "Dừng"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Stopping…"
+msgstr "Đang dừng…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Unmounting…"
+msgstr "Đang tháo gắn…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Opening…"
+msgstr "Đang mở…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Stopped."
+msgstr "Đã dừng."
+
+#: src/dialogs/diskimages.cpp
+msgid "The new image could not be mounted."
+msgstr "Không thể gắn ảnh mới."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Restoring “{name}”"
+msgstr "Đang khôi phục “{name}”"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Copying “{source}” onto “{target}”."
+msgstr "Đang sao chép “{source}” vào “{target}”."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” was restored."
+msgstr "Đã khôi phục “{name}”."
+
+#: src/dialogs/diskimages.cpp
+msgid "A copy is in progress."
+msgstr "Đang có một bản sao chép diễn ra."
+
+#: src/dialogs/diskimages.cpp src/views/sidebar.cpp
+msgid "Disk Images"
+msgstr "Ảnh đĩa"
+
+#: src/dialogs/diskimages.cpp
+msgid "All Files"
+msgstr "Tất cả tệp"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open Disk Image"
+msgstr "Mở ảnh đĩa"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open"
+msgstr "Mở"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open read-only"
+msgstr "Mở chỉ đọc"
+
+#: src/dialogs/diskimages.cpp
+msgid "Restore from Disk Image"
+msgstr "Khôi phục từ ảnh đĩa"
+
+#: src/dialogs/diskimages.cpp
+msgid "Choose"
+msgstr "Chọn"
+
+#: src/dialogs/diskimages.cpp
+msgid "Save Image As"
+msgstr "Lưu ảnh thành"
+
+#: src/dialogs/diskimages.cpp
+msgid "Save"
+msgstr "Lưu"
+
+#: src/dialogs/diskimages.cpp
+msgid "Choose a Folder"
+msgstr "Chọn thư mục"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” could not be opened."
+msgstr "Không thể mở “{name}”."
+
+#: src/dialogs/diskimages.cpp src/dialogs/newimage.cpp
+#: src/dialogs/volume_format.cpp
+msgid "Untitled"
+msgstr "Không có tiêu đề"
+
+#: src/dialogs/diskimages.cpp
+msgid "The image could not be created."
+msgstr "Không thể tạo ảnh."
+
+#: src/dialogs/diskimages.cpp
+msgid "The file is an attached disk image. Eject it first."
+msgstr "Tệp này là một ảnh đĩa đang được gắn. Hãy đẩy nó ra trước."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "The image cannot be saved on “{name}” itself. Choose a folder on another disk."
+msgstr "Không thể lưu ảnh lên chính “{name}”. Hãy chọn một thư mục trên đĩa khác."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” holds the running system, so it cannot be unmounted to be read."
+msgstr "“{name}” chứa hệ thống đang chạy nên không thể tháo gắn để đọc."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Creating “{name}”"
+msgstr "Đang tạo “{name}”"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Copying “{source}” into “{file}”."
+msgstr "Đang sao chép “{source}” vào “{file}”."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{file}” was created."
+msgstr "Đã tạo “{file}”."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” must be unmounted to make an image of it."
+msgstr "Phải tháo gắn “{name}” để tạo ảnh của nó."
+
+#: src/dialogs/diskimages.cpp
+msgid "It is unmounted, and locked when it is encrypted, before it is read, and stays so afterwards."
+msgstr "Nó sẽ được tháo gắn, và khóa lại nếu được mã hóa, trước khi đọc, và giữ nguyên như vậy sau đó."
+
+#: src/dialogs/diskimages.cpp
+msgid "Another copy is in progress."
+msgstr "Đang có một bản sao chép khác diễn ra."
+
+#: src/dialogs/diskimages.cpp
+msgid "Wait for it to finish, or stop it first."
+msgstr "Hãy chờ nó hoàn tất hoặc dừng nó trước."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erase “{name}”"
+msgstr "Xóa “{name}”"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erasing “{name}” deletes every volume on it and everything stored on them. This can't be undone. Choose a name, a format and a partition scheme for it."
+msgstr "Xóa “{name}” sẽ xóa mọi ổ đĩa trên đó và mọi thứ được lưu trên chúng. Không thể hoàn tác thao tác này. Hãy chọn tên, định dạng và lược đồ phân vùng cho nó."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erasing “{name}” deletes everything stored on it. This can't be undone. Choose a name and a format for it."
+msgstr "Xóa “{name}” sẽ xóa mọi thứ được lưu trên đó. Không thể hoàn tác thao tác này. Hãy chọn tên và định dạng cho nó."
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/rename.cpp src/dialogs/volume_actions.cpp
+#: src/udisks/properties.cpp
+msgid "Name"
+msgstr "Tên"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/volume_actions.cpp src/udisks/properties.cpp
+msgid "Format"
+msgstr "Định dạng"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp
+msgid "Scheme"
+msgstr "Lược đồ"
+
+#: src/dialogs/erase.cpp
+msgid "Encrypt"
+msgstr "Mã hóa"
+
+#: src/dialogs/erase.cpp src/dialogs/unlock.cpp
+msgid "Passphrase"
+msgstr "Cụm mật khẩu"
+
+#: src/dialogs/erase.cpp src/dialogs/unlock.cpp
+msgid "Required"
+msgstr "Bắt buộc"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp
+msgid "Verify"
+msgstr "Xác nhận"
+
+#: src/dialogs/erase.cpp
+msgid "The volume can only be read after unlocking it with the passphrase. If you forget the passphrase, the data can't be recovered."
+msgstr "Ổ đĩa chỉ có thể được đọc sau khi mở khóa bằng cụm mật khẩu. Nếu bạn quên cụm mật khẩu, dữ liệu sẽ không thể khôi phục."
+
+#: src/dialogs/erase.cpp
+msgid "Security Options…"
+msgstr "Tùy chọn bảo mật…"
+
+#: src/dialogs/erase.cpp
+msgid "Erase"
+msgstr "Xóa"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "needs at least {size}"
+msgstr "cần ít nhất {size}"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "{format} can't be chosen: {reason}"
+msgstr "Không thể chọn {format}: {reason}"
+
+#: src/dialogs/erase.cpp
+msgid "The passphrases don't match."
+msgstr "Các cụm mật khẩu không khớp."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "A Master Boot Record reaches only the first {reach} of “{name}”; the other {rest} stay unused. Choose GUID Partition Map to use all of it."
+msgstr "Master Boot Record chỉ dùng được {reach} đầu tiên của “{name}”; {rest} còn lại sẽ không được dùng. Hãy chọn Bản đồ phân vùng GUID để dùng toàn bộ."
+
+#: src/dialogs/erase.cpp
+msgid "The data is overwritten with zeros first, which takes as long as writing the whole volume once."
+msgstr "Dữ liệu sẽ được ghi đè bằng số không trước, mất thời gian bằng việc ghi toàn bộ ổ đĩa một lần."
+
+#: src/dialogs/erase.cpp
+msgid "Quick Erase"
+msgstr "Xóa nhanh"
+
+#: src/dialogs/erase.cpp
+msgid "Zero Out Data"
+msgstr "Ghi đè số không"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+msgid "Done"
+msgstr "Xong"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Step {step} of {count}"
+msgstr "Bước {step}/{count}"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Stopping “{step}”…"
+msgstr "Đang dừng “{step}”…"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was erased."
+msgstr "Đã xóa “{name}”."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was erased only in part and has no usable volume now. Erase it again to use it."
+msgstr "“{name}” chỉ được xóa một phần và hiện không có ổ đĩa nào dùng được. Hãy xóa lại để sử dụng."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was not erased; nothing stored on it was changed."
+msgstr "“{name}” chưa được xóa; không có gì được lưu trên đó bị thay đổi."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” was stopped before it finished."
+msgstr "“{step}” đã bị dừng trước khi hoàn tất."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” was cancelled."
+msgstr "“{step}” đã bị hủy."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” failed."
+msgstr "“{step}” không thành công."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” failed: {message}"
+msgstr "“{step}” không thành công: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "Hide Details"
+msgstr "Ẩn chi tiết"
+
+#: src/dialogs/firstaid.cpp
+msgid "Show Details"
+msgstr "Hiện chi tiết"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking {format} volumes needs {tool}, which is not installed."
+msgstr "Để kiểm tra ổ đĩa {format} cần có {tool}, nhưng công cụ này chưa được cài đặt."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds. Mounted volumes are unmounted while they are checked and mounted again afterwards."
+msgstr "Sơ cứu kiểm tra lỗi trên mọi ổ đĩa của đĩa và sửa các lỗi tìm thấy. Các ổ đĩa đang gắn sẽ được tháo gắn trong khi kiểm tra và gắn lại sau đó."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds."
+msgstr "Sơ cứu kiểm tra lỗi trên mọi ổ đĩa của đĩa và sửa các lỗi tìm thấy."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks the volume for errors and repairs the ones it finds. The volume is unmounted while it is checked, so its files can’t be used until it’s done."
+msgstr "Sơ cứu kiểm tra lỗi trên ổ đĩa và sửa các lỗi tìm thấy. Ổ đĩa sẽ được tháo gắn trong khi kiểm tra, nên không thể dùng các tệp của nó cho đến khi xong."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks the volume for errors and repairs the ones it finds."
+msgstr "Sơ cứu kiểm tra lỗi trên ổ đĩa và sửa các lỗi tìm thấy."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Run First Aid on “{name}”?"
+msgstr "Chạy Sơ cứu trên “{name}”?"
+
+#: src/dialogs/firstaid.cpp
+msgid "Run"
+msgstr "Chạy"
+
+#: src/dialogs/firstaid.cpp
+msgid "There are no volumes to check."
+msgstr "Không có ổ đĩa nào để kiểm tra."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking “{name}”…"
+msgstr "Đang kiểm tra “{name}”…"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there. Skipped."
+msgstr "“{name}” không còn nữa. Đã bỏ qua."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is locked. Unlock it to check it. Skipped."
+msgstr "“{name}” đang bị khóa. Hãy mở khóa để kiểm tra. Đã bỏ qua."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” holds no file system First Aid can check. Skipped."
+msgstr "“{name}” không chứa hệ thống tệp nào mà Sơ cứu có thể kiểm tra. Đã bỏ qua."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking “{name}” ({device}, {format})."
+msgstr "Đang kiểm tra “{name}” ({device}, {format})."
+
+#: src/dialogs/firstaid.cpp
+msgid "unknown format"
+msgstr "định dạng không xác định"
+
+#: src/dialogs/firstaid.cpp
+msgid "a checking tool"
+msgstr "một công cụ kiểm tra"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{format} volumes can’t be checked: {tool} is not installed."
+msgstr "Không thể kiểm tra ổ đĩa {format}: chưa cài đặt {tool}."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Unmounting “{name}”."
+msgstr "Đang tháo gắn “{name}”."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is in use and can’t be unmounted. Close the files and quit the programs using it, then run First Aid again."
+msgstr "“{name}” đang được sử dụng nên không thể tháo gắn. Hãy đóng các tệp và thoát các chương trình đang dùng nó, rồi chạy lại Sơ cứu."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is in use by {programs} and can’t be unmounted. Close their files on it or quit them, then run First Aid again."
+msgstr "“{name}” đang được {programs} sử dụng nên không thể tháo gắn. Hãy đóng các tệp của chúng trên đó hoặc thoát chúng, rồi chạy lại Sơ cứu."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” could not be unmounted: {message}"
+msgstr "Không thể tháo gắn “{name}”: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "Checking the file system."
+msgstr "Đang kiểm tra hệ thống tệp."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "The check failed: {message}"
+msgstr "Kiểm tra không thành công: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system appears to be OK."
+msgstr "Hệ thống tệp có vẻ ổn."
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system has errors."
+msgstr "Hệ thống tệp có lỗi."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{format} volumes can’t be repaired: {tool} is not installed."
+msgstr "Không thể sửa ổ đĩa {format}: chưa cài đặt {tool}."
+
+#: src/dialogs/firstaid.cpp
+msgid "a repair tool"
+msgstr "một công cụ sửa chữa"
+
+#: src/dialogs/firstaid.cpp
+msgid "Repairing the file system."
+msgstr "Đang sửa hệ thống tệp."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Repairing “{name}”…"
+msgstr "Đang sửa “{name}”…"
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system was repaired."
+msgstr "Đã sửa hệ thống tệp."
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system could not be repaired."
+msgstr "Không thể sửa hệ thống tệp."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "The repair failed: {message}"
+msgstr "Sửa chữa không thành công: {message}"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Mounting “{name}” again."
+msgstr "Đang gắn lại “{name}”."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” could not be mounted again: {message}"
+msgstr "Không thể gắn lại “{name}”: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid was cancelled."
+msgstr "Sơ cứu đã bị hủy."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid found errors it could not repair. Back up the data you can and erase the volume."
+msgstr "Sơ cứu tìm thấy lỗi không thể sửa. Hãy sao lưu những dữ liệu có thể và xóa ổ đĩa."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid process has failed."
+msgstr "Quá trình Sơ cứu không thành công."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid process has completed."
+msgstr "Quá trình Sơ cứu đã hoàn tất."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{n} volume was skipped."
+msgid_plural "{n} volumes were skipped."
+msgstr[0] "Đã bỏ qua {n} ổ đĩa."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid"
+msgstr "Sơ cứu"
+
+#: src/dialogs/identity_guard.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there."
+msgstr "“{name}” không còn nữa."
+
+#: src/dialogs/identity_guard.cpp
+msgid "It was removed or replaced by another disk, so nothing more is done to it."
+msgstr "Nó đã bị gỡ ra hoặc thay bằng một đĩa khác, nên không thực hiện gì thêm trên nó."
+
+#: src/dialogs/info.cpp
+msgid "S.M.A.R.T. Details…"
+msgstr "Chi tiết S.M.A.R.T.…"
+
+#: src/dialogs/mount.cpp
+msgid " and "
+msgstr " và "
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be mounted."
+msgstr "Không thể gắn “{name}”."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be unmounted."
+msgstr "Không thể tháo gắn “{name}”."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be locked."
+msgstr "Không thể khóa “{name}”."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be ejected."
+msgstr "Không thể đẩy “{name}” ra."
+
+#: src/dialogs/mount.cpp
+msgid "A program is still using a file on it. Close the files and quit the programs using it, then try again."
+msgstr "Một chương trình vẫn đang dùng một tệp trên đó. Hãy đóng các tệp và thoát các chương trình đang dùng nó, rồi thử lại."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "It is in use by {programs}. Close their files on it or quit them, then try again."
+msgstr "Nó đang được {programs} sử dụng. Hãy đóng các tệp của chúng trên đó hoặc thoát chúng, rồi thử lại."
+
+#: src/dialogs/mount.cpp
+msgid "Another operation on this disk is still running."
+msgstr "Một thao tác khác trên đĩa này vẫn đang chạy."
+
+#: src/dialogs/newimage.cpp
+msgid "New Blank Image"
+msgstr "Ảnh trống mới"
+
+#: src/dialogs/newimage.cpp
+msgid "Save As"
+msgstr "Lưu thành"
+
+#: src/dialogs/newimage.cpp
+msgid "Where"
+msgstr "Vị trí"
+
+#: src/dialogs/newimage.cpp
+msgid "Choose…"
+msgstr "Chọn…"
+
+#: src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/volume_actions.cpp src/udisks/properties.cpp
+msgid "Size"
+msgstr "Kích thước"
+
+#: src/dialogs/newimage.cpp src/udisks/properties.cpp
+msgid "None"
+msgstr "Không có"
+
+#: src/dialogs/newimage.cpp src/udisks/properties.cpp
+msgid "Encryption"
+msgstr "Mã hóa"
+
+#: src/dialogs/newimage.cpp
+msgid "Encrypted with a Password"
+msgstr "Mã hóa bằng mật khẩu"
+
+#: src/dialogs/newimage.cpp
+msgid "Password"
+msgstr "Mật khẩu"
+
+#: src/dialogs/newimage.cpp
+msgid "Create"
+msgstr "Tạo"
+
+#: src/dialogs/newimage.cpp
+msgid "Type a name for the image file."
+msgstr "Hãy nhập tên cho tệp ảnh."
+
+#: src/dialogs/newimage.cpp
+msgid "The folder is no longer there."
+msgstr "Thư mục không còn nữa."
+
+#: src/dialogs/newimage.cpp
+#, python-brace-format
+msgid "A file named “{name}” already exists in this folder."
+msgstr "Đã có một tệp tên “{name}” trong thư mục này."
+
+#: src/dialogs/newimage.cpp
+msgid "Type a size, such as 100 MB."
+msgstr "Hãy nhập kích thước, ví dụ 100 MB."
+
+#: src/dialogs/newimage.cpp
+#, python-brace-format
+msgid "A {format} image needs at least {size}."
+msgstr "Ảnh {format} cần ít nhất {size}."
+
+#: src/dialogs/newimage.cpp
+msgid "Type a password for the image."
+msgstr "Hãy nhập mật khẩu cho ảnh."
+
+#: src/dialogs/newimage.cpp
+msgid "The passwords do not match."
+msgstr "Các mật khẩu không khớp."
+
+#: src/dialogs/newimage.cpp
+msgid "Creating the file…"
+msgstr "Đang tạo tệp…"
+
+#: src/dialogs/newimage.cpp
+msgid "Attaching the image…"
+msgstr "Đang gắn ảnh…"
+
+#: src/dialogs/newimage.cpp
+msgid "Creating the partition map…"
+msgstr "Đang tạo bản đồ phân vùng…"
+
+#: src/dialogs/newimage.cpp
+msgid "Formatting…"
+msgstr "Đang định dạng…"
+
+#: src/dialogs/newimage.cpp
+msgid "Mounting…"
+msgstr "Đang gắn…"
+
+#: src/dialogs/partition.cpp src/dialogs/volume_actions.cpp
+msgid "Add Partition"
+msgstr "Thêm phân vùng"
+
+#: src/dialogs/partition.cpp
+msgid "Delete Partition"
+msgstr "Xóa phân vùng"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Partition “{name}”"
+msgstr "Phân vùng “{name}”"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” ({size}) has no partition map. Click + to add partitions; Apply creates a GUID Partition Map for them, erasing what is on the disk."
+msgstr "“{name}” ({size}) không có bản đồ phân vùng. Bấm + để thêm phân vùng; Áp dụng sẽ tạo Bản đồ phân vùng GUID cho chúng và xóa những gì có trên đĩa."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "{scheme}, {size}. Click + to add a partition, drag the handles on the rim to resize. Nothing changes until you click Apply."
+msgstr "{scheme}, {size}. Bấm + để thêm phân vùng, kéo các tay nắm trên viền để đổi kích thước. Không có gì thay đổi cho đến khi bạn bấm Áp dụng."
+
+#: src/dialogs/partition.cpp
+msgid "Revert"
+msgstr "Hoàn nguyên"
+
+#: src/dialogs/partition.cpp
+msgid "Apply"
+msgstr "Áp dụng"
+
+#: src/dialogs/partition.cpp
+msgid "Free Space"
+msgstr "Dung lượng trống"
+
+#: src/dialogs/partition.cpp src/views/detailcontent.cpp
+msgid "Unformatted"
+msgstr "Chưa định dạng"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Between {minimum} and {maximum}."
+msgstr "Từ {minimum} đến {maximum}."
+
+#: src/dialogs/partition.cpp
+msgid "How far the filesystem can shrink is only known when it is applied; a shrink runs before anything is deleted."
+msgstr "Mức thu nhỏ của hệ thống tệp chỉ biết được khi áp dụng; việc thu nhỏ chạy trước khi xóa bất cứ thứ gì."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Changing the format erases everything on “{name}”."
+msgstr "Thay đổi định dạng sẽ xóa mọi thứ trên “{name}”."
+
+#: src/dialogs/partition.cpp
+msgid "Click + to add a partition in this free space."
+msgstr "Bấm + để thêm phân vùng vào dung lượng trống này."
+
+#: src/dialogs/partition.cpp src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "{format} can't be made: {reason}"
+msgstr "Không thể tạo {format}: {reason}"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "These steps will be taken on “{name}”, in this order:"
+msgstr "Các bước sau sẽ được thực hiện trên “{name}”, theo thứ tự này:"
+
+#: src/dialogs/partition.cpp
+msgid "Deleted and erased volumes lose everything stored on them. Resizing can take a while; keep the disk connected until it is done."
+msgstr "Các ổ đĩa bị xóa sẽ mất mọi thứ được lưu trên chúng. Việc đổi kích thước có thể mất một lúc; hãy giữ đĩa được kết nối cho đến khi xong."
+
+#: src/dialogs/partition.cpp
+msgid "Resizing can take a while; keep the disk connected until it is done."
+msgstr "Việc đổi kích thước có thể mất một lúc; hãy giữ đĩa được kết nối cho đến khi xong."
+
+#: src/dialogs/partition.cpp
+msgid "Back"
+msgstr "Quay lại"
+
+#: src/dialogs/partition.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Partition"
+msgstr "Phân vùng"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” was partitioned."
+msgstr "Đã phân vùng “{name}”."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Nothing was changed on “{name}”."
+msgstr "Không có gì thay đổi trên “{name}”."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” was partitioned only in part: the first {count} steps were taken."
+msgstr "“{name}” chỉ được phân vùng một phần: đã thực hiện {count} bước đầu tiên."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Encrypted volumes can't be resized here."
+msgstr "Không thể đổi kích thước ổ đĩa được mã hóa tại đây."
+
+#: src/dialogs/partition_plan.cpp
+msgid "The partition has no filesystem that can be resized."
+msgstr "Phân vùng không có hệ thống tệp nào có thể đổi kích thước."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Checking whether the filesystem can be resized…"
+msgstr "Đang kiểm tra xem hệ thống tệp có thể đổi kích thước không…"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Resizing {format} needs {tool}, which is not installed."
+msgstr "Để đổi kích thước {format} cần có {tool}, nhưng công cụ này chưa được cài đặt."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't be resized."
+msgstr "Không thể đổi kích thước {format}."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Unmount “{name}” to shrink it."
+msgstr "Hãy tháo gắn “{name}” để thu nhỏ nó."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Unmount “{name}” to grow it."
+msgstr "Hãy tháo gắn “{name}” để mở rộng nó."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Mount “{name}” to shrink it."
+msgstr "Hãy gắn “{name}” để thu nhỏ nó."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Mount “{name}” to grow it."
+msgstr "Hãy gắn “{name}” để mở rộng nó."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't shrink."
+msgstr "Không thể thu nhỏ {format}."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't grow."
+msgstr "Không thể mở rộng {format}."
+
+#: src/dialogs/partition_plan.cpp src/dialogs/volume_actions.cpp
+msgid "The partition map holds no more partitions."
+msgstr "Bản đồ phân vùng không chứa thêm phân vùng nào được nữa."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Extended partitions and the partitions inside them can't be changed here."
+msgstr "Không thể thay đổi phân vùng mở rộng và các phân vùng bên trong tại đây."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” is too small for {format}, which needs at least {size}."
+msgstr "“{name}” quá nhỏ cho {format}, định dạng này cần ít nhất {size}."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” can't be resized."
+msgstr "Không thể đổi kích thước “{name}”."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” can't be smaller than {size}."
+msgstr "“{name}” không thể nhỏ hơn {size}."
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Unmount “{name}”"
+msgstr "Tháo gắn “{name}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Lock “{name}”"
+msgstr "Khóa “{name}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Delete “{name}”"
+msgstr "Xóa “{name}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Shrink the filesystem of “{name}” to {size}"
+msgstr "Thu nhỏ hệ thống tệp của “{name}” xuống {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resize “{name}” to {size}"
+msgstr "Đổi kích thước “{name}” thành {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Grow the filesystem of “{name}” to fill its partition"
+msgstr "Mở rộng hệ thống tệp của “{name}” cho đầy phân vùng"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create a {scheme} on “{name}”"
+msgstr "Tạo {scheme} trên “{name}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erase “{name}” as encrypted {format}"
+msgstr "Xóa “{name}” thành {format} được mã hóa"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erase “{name}” as {format}"
+msgstr "Xóa “{name}” thành {format}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create “{name}”, encrypted {format}, {size}"
+msgstr "Tạo “{name}”, {format} được mã hóa, {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create “{name}”, {format}, {size}"
+msgstr "Tạo “{name}”, {format}, {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Rename “{name}” to “{label}”"
+msgstr "Đổi tên “{name}” thành “{label}”"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Unmounting “{name}”…"
+msgstr "Đang tháo gắn “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Locking “{name}”…"
+msgstr "Đang khóa “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Deleting “{name}”…"
+msgstr "Đang xóa “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resizing the filesystem of “{name}”…"
+msgstr "Đang đổi kích thước hệ thống tệp của “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resizing “{name}”…"
+msgstr "Đang đổi kích thước “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Creating the partition map on “{name}”…"
+msgstr "Đang tạo bản đồ phân vùng trên “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erasing “{name}”…"
+msgstr "Đang xóa “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Creating “{name}”…"
+msgstr "Đang tạo “{name}”…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Renaming “{name}”…"
+msgstr "Đang đổi tên “{name}”…"
+
+#: src/dialogs/plan_runner.cpp src/images/transfer.cpp
+msgid "The disk was removed or replaced by another."
+msgstr "Đĩa đã bị gỡ ra hoặc thay bằng đĩa khác."
+
+#: src/dialogs/rename.cpp
+msgid "Rename Volume"
+msgstr "Đổi tên ổ đĩa"
+
+#: src/dialogs/rename.cpp
+msgid "Rename"
+msgstr "Đổi tên"
+
+#: src/dialogs/rename.cpp
+#, python-brace-format
+msgid "{format} names have up to {n} characters and are kept in capitals."
+msgstr "Tên {format} có tối đa {n} ký tự và được lưu dưới dạng chữ hoa."
+
+#: src/dialogs/rename.cpp
+#, python-brace-format
+msgid "{format} names have up to {n} characters."
+msgstr "Tên {format} có tối đa {n} ký tự."
+
+#: src/dialogs/rename.cpp
+msgid "The volume could not be renamed."
+msgstr "Không thể đổi tên ổ đĩa."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Restore “{name}”"
+msgstr "Khôi phục “{name}”"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Choose a volume, disk or disk image to copy onto “{name}”. Everything on “{name}” is erased and replaced with the copy."
+msgstr "Hãy chọn một ổ đĩa, đĩa hoặc ảnh đĩa để sao chép vào “{name}”. Mọi thứ trên “{name}” sẽ bị xóa và thay bằng bản sao."
+
+#: src/dialogs/restore.cpp
+msgid "Restore From"
+msgstr "Khôi phục từ"
+
+#: src/dialogs/restore.cpp
+msgid "Image…"
+msgstr "Ảnh…"
+
+#: src/dialogs/restore.cpp
+msgid "Restore"
+msgstr "Khôi phục"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "{name} ({device}, {size})"
+msgstr "{name} ({device}, {size})"
+
+#: src/dialogs/restore.cpp
+msgid "Choose a disk image, or attach a disk to restore from."
+msgstr "Hãy chọn một ảnh đĩa hoặc kết nối một đĩa để khôi phục từ đó."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Everything on “{target}” is replaced with the contents of “{source}”. This cannot be undone."
+msgstr "Mọi thứ trên “{target}” sẽ được thay bằng nội dung của “{source}”. Không thể hoàn tác thao tác này."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "“{source}” is unmounted before it is read, and stays so afterwards."
+msgstr "“{source}” sẽ được tháo gắn trước khi đọc và giữ nguyên như vậy sau đó."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Erase “{target}”?"
+msgstr "Xóa “{target}”?"
+
+#: src/dialogs/restore.cpp
+msgid "Erase and Restore"
+msgstr "Xóa và khôi phục"
+
+#: src/dialogs/restore.cpp
+msgid "The restore could not start."
+msgstr "Không thể bắt đầu khôi phục."
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "S.M.A.R.T."
+msgstr "S.M.A.R.T."
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "The attributes could not be read: {message}"
+msgstr "Không thể đọc các thuộc tính: {message}"
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "The self-test could not be started: {message}"
+msgstr "Không thể bắt đầu tự kiểm tra: {message}"
+
+#: src/dialogs/smart.cpp
+msgid "Status"
+msgstr "Trạng thái"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Temperature"
+msgstr "Nhiệt độ"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Powered On"
+msgstr "Thời gian bật"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Bad Sectors"
+msgstr "Sector lỗi"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Critical Warnings"
+msgstr "Cảnh báo nghiêm trọng"
+
+#: src/dialogs/smart.cpp
+msgid "Self-Test"
+msgstr "Tự kiểm tra"
+
+#: src/dialogs/smart.cpp
+msgid "Last Read"
+msgstr "Lần đọc cuối"
+
+#: src/dialogs/smart.cpp
+msgid "Attributes"
+msgstr "Thuộc tính"
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "Failing: {value}"
+msgstr "Đang hỏng: {value}"
+
+#: src/dialogs/smart.cpp
+msgid "Health"
+msgstr "Tình trạng"
+
+#: src/dialogs/smart.cpp
+msgid "Run Self-Test"
+msgstr "Chạy tự kiểm tra"
+
+#: src/dialogs/unlock.cpp
+msgid "Unlock Volume"
+msgstr "Mở khóa ổ đĩa"
+
+#: src/dialogs/unlock.cpp
+#, python-brace-format
+msgid "Enter the passphrase to unlock “{name}”."
+msgstr "Nhập cụm mật khẩu để mở khóa “{name}”."
+
+#: src/dialogs/unlock.cpp
+msgid "Unlock"
+msgstr "Mở khóa"
+
+#: src/dialogs/unlock.cpp
+msgid "The passphrase is incorrect."
+msgstr "Cụm mật khẩu không đúng."
+
+#: src/dialogs/unlock.cpp
+msgid "The volume could not be unlocked."
+msgstr "Không thể mở khóa ổ đĩa."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Up to {size} of free space, from {offset} into the disk."
+msgstr "Tối đa {size} dung lượng trống, bắt đầu từ {offset} trên đĩa."
+
+#: src/dialogs/volume_actions.cpp
+msgid "Add"
+msgstr "Thêm"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "{format} needs at least {size}."
+msgstr "{format} cần ít nhất {size}."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Added “{name}”."
+msgstr "Đã thêm “{name}”."
+
+#: src/dialogs/volume_actions.cpp
+msgid "The partition could not be added."
+msgstr "Không thể thêm phân vùng."
+
+#: src/dialogs/volume_actions.cpp
+msgid "Everything stored on the partition is deleted. This can't be undone."
+msgstr "Mọi thứ được lưu trên phân vùng sẽ bị xóa. Không thể hoàn tác thao tác này."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "“{name}”"
+msgstr "“{name}”"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "The partitions in it, {names}, and everything stored on them are deleted. This can't be undone."
+msgstr "Các phân vùng bên trong, {names}, và mọi thứ được lưu trên chúng sẽ bị xóa. Không thể hoàn tác thao tác này."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Delete “{name}”?"
+msgstr "Xóa “{name}”?"
+
+#: src/dialogs/volume_actions.cpp
+msgid "Delete"
+msgstr "Xóa"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Deleted “{name}”."
+msgstr "Đã xóa “{name}”."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "“{name}” could not be deleted."
+msgstr "Không thể xóa “{name}”."
+
+#: src/dialogs/volume_format.cpp
+msgid "FAT32 (MS-DOS)"
+msgstr "FAT32 (MS-DOS)"
+
+#: src/dialogs/volume_format.cpp src/udisks/describe.cpp
+#: src/udisks/properties.cpp
+msgid "Swap"
+msgstr "Swap"
+
+#: src/dialogs/volume_format.cpp
+msgid "The name can't contain control characters."
+msgstr "Tên không được chứa ký tự điều khiển."
+
+#: src/dialogs/volume_format.cpp
+msgid "FAT32 names can only use unaccented letters, digits and simple punctuation."
+msgstr "Tên FAT32 chỉ được dùng chữ cái không dấu, chữ số và dấu câu đơn giản."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "FAT32 names can't contain “{character}”."
+msgstr "Tên FAT32 không được chứa “{character}”."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "{format} names can have at most {count} characters."
+msgstr "Tên {format} có tối đa {count} ký tự."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "{format} names can have at most {count} bytes."
+msgstr "Tên {format} có tối đa {count} byte."
+
+#: src/dialogs/volume_format.cpp
+msgid "Checking for its tools…"
+msgstr "Đang kiểm tra công cụ…"
+
+#: src/dialogs/volume_format.cpp
+msgid "Its tools are not installed."
+msgstr "Các công cụ chưa được cài đặt."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "Needs {tool}, which is not installed."
+msgstr "Cần {tool}, nhưng công cụ này chưa được cài đặt."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The source could not be read: {reason}"
+msgstr "Không thể đọc nguồn: {reason}"
+
+#: src/images/copy.cpp
+msgid "The destination is too small."
+msgstr "Đích quá nhỏ."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The destination could not be written: {reason}"
+msgstr "Không thể ghi vào đích: {reason}"
+
+#: src/images/copy.cpp
+msgid "The source ended before all of it was read."
+msgstr "Nguồn đã kết thúc trước khi đọc hết."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The data could not be saved on the destination: {reason}"
+msgstr "Không thể lưu dữ liệu vào đích: {reason}"
+
+#: src/images/imagefile.cpp
+msgid "There is not enough free space for an image of that size."
+msgstr "Không đủ dung lượng trống cho ảnh có kích thước đó."
+
+#: src/images/imagefile.cpp
+msgid "A file with that name already exists."
+msgstr "Đã có một tệp trùng tên."
+
+#: src/images/imagefile.cpp
+#, python-brace-format
+msgid "The file could not be created: {reason}"
+msgstr "Không thể tạo tệp: {reason}"
+
+#: src/images/imagefile.cpp
+msgid "The file is too large for the disk it is on."
+msgstr "Tệp quá lớn so với đĩa chứa nó."
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{copied} of {total}"
+msgstr "{copied} / {total}"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{size}/s"
+msgstr "{size}/s"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} second left"
+msgid_plural "About {n} seconds left"
+msgstr[0] "Còn khoảng {n} giây"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} minute left"
+msgid_plural "About {n} minutes left"
+msgstr[0] "Còn khoảng {n} phút"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} hour left"
+msgid_plural "About {n} hours left"
+msgstr[0] "Còn khoảng {n} giờ"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{amount} ({rate})"
+msgstr "{amount} ({rate})"
+
+#: src/images/transfer.cpp
+msgid "The destination is no longer there."
+msgstr "Đích không còn nữa."
+
+#: src/images/transfer.cpp
+msgid "A volume cannot be restored from itself."
+msgstr "Không thể khôi phục một ổ đĩa từ chính nó."
+
+#: src/images/transfer.cpp
+msgid "The source and the destination overlap: one lies inside the other."
+msgstr "Nguồn và đích nằm lồng trong nhau."
+
+#: src/images/transfer.cpp
+msgid "A disk image cannot be restored onto itself."
+msgstr "Không thể khôi phục một ảnh đĩa lên chính nó."
+
+#: src/images/transfer.cpp
+msgid "The disk image is attached and mounted. Eject it first."
+msgstr "Ảnh đĩa đang được gắn. Hãy đẩy nó ra trước."
+
+#: src/images/transfer.cpp
+msgid "The source could not be read."
+msgstr "Không thể đọc nguồn."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The source ({source}) is larger than the destination ({destination})."
+msgstr "Nguồn ({source}) lớn hơn đích ({destination})."
+
+#: src/images/transfer.cpp
+msgid "The source is empty."
+msgstr "Nguồn trống."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The source could not be opened: {reason}"
+msgstr "Không thể mở nguồn: {reason}"
+
+#: src/images/transfer.cpp
+msgid "The source could not be opened."
+msgstr "Không thể mở nguồn."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The destination could not be opened: {reason}"
+msgstr "Không thể mở đích: {reason}"
+
+#: src/images/transfer.cpp
+msgid "The destination could not be opened."
+msgstr "Không thể mở đích."
+
+#: src/udisks/describe.cpp
+msgid "GUID Partition Map"
+msgstr "Bản đồ phân vùng GUID"
+
+#: src/udisks/describe.cpp
+msgid "Master Boot Record"
+msgstr "Master Boot Record"
+
+#. TRANSLATORS: a disk without a model name, such as "16 GB Disk".
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Disk"
+msgstr "Đĩa {size}"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Extended Partition"
+msgstr "Phân vùng mở rộng"
+
+#. TRANSLATORS: a volume without a label, named by its size, such as "16 GB Volume".
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Encrypted Volume"
+msgstr "Ổ đĩa mã hóa {size}"
+
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Volume"
+msgstr "Ổ đĩa {size}"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+msgid "SD Card"
+msgstr "Thẻ SD"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Disk Image"
+msgstr "Ảnh đĩa"
+
+#: src/udisks/operations.cpp
+msgid "The device is no longer available."
+msgstr "Thiết bị không còn khả dụng."
+
+#: src/udisks/operations.cpp
+msgid "Another operation on this disk is in progress."
+msgstr "Một thao tác khác trên đĩa này đang diễn ra."
+
+#: src/udisks/operations.cpp
+msgid "The partition holds the running system."
+msgstr "Phân vùng này chứa hệ thống đang chạy."
+
+#: src/udisks/operations.cpp
+msgid "The disk is no longer available."
+msgstr "Đĩa không còn khả dụng."
+
+#: src/udisks/operations.cpp
+msgid "The disk cannot be ejected."
+msgstr "Không thể đẩy đĩa ra."
+
+#: src/udisks/operations.cpp
+msgid "The disk image holds the running system."
+msgstr "Ảnh đĩa này chứa hệ thống đang chạy."
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{n} byte"
+msgid_plural "{n} bytes"
+msgstr[0] "{n} byte"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{size} ({bytes})"
+msgstr "{size} ({bytes})"
+
+#: src/udisks/properties.cpp
+msgid "EFI System"
+msgstr "Hệ thống EFI"
+
+#: src/udisks/properties.cpp
+msgid "BIOS Boot"
+msgstr "Khởi động BIOS"
+
+#: src/udisks/properties.cpp
+msgid "Linux Filesystem"
+msgstr "Hệ thống tệp Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Root (x86-64)"
+msgstr "Linux Root (x86-64)"
+
+#: src/udisks/properties.cpp
+msgid "Linux Root (ARM64)"
+msgstr "Linux Root (ARM64)"
+
+#: src/udisks/properties.cpp
+msgid "Linux Home"
+msgstr "Linux Home"
+
+#: src/udisks/properties.cpp
+msgid "Linux Extended Boot"
+msgstr "Khởi động mở rộng Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Swap"
+msgstr "Linux Swap"
+
+#: src/udisks/properties.cpp
+msgid "Linux LVM"
+msgstr "Linux LVM"
+
+#: src/udisks/properties.cpp
+msgid "Linux RAID"
+msgstr "Linux RAID"
+
+#: src/udisks/properties.cpp
+msgid "Linux LUKS"
+msgstr "Linux LUKS"
+
+#: src/udisks/properties.cpp
+msgid "Microsoft Basic Data"
+msgstr "Dữ liệu cơ bản Microsoft"
+
+#: src/udisks/properties.cpp
+msgid "Microsoft Reserved"
+msgstr "Microsoft dành riêng"
+
+#: src/udisks/properties.cpp
+msgid "Windows Recovery"
+msgstr "Khôi phục Windows"
+
+#: src/udisks/properties.cpp
+msgid "Apple HFS+"
+msgstr "Apple HFS+"
+
+#: src/udisks/properties.cpp
+msgid "Apple APFS"
+msgstr "Apple APFS"
+
+#: src/udisks/properties.cpp
+msgid "FAT12"
+msgstr "FAT12"
+
+#: src/udisks/properties.cpp
+msgid "FAT16"
+msgstr "FAT16"
+
+#: src/udisks/properties.cpp
+msgid "Extended"
+msgstr "Mở rộng"
+
+#: src/udisks/properties.cpp
+msgid "NTFS or exFAT"
+msgstr "NTFS hoặc exFAT"
+
+#: src/udisks/properties.cpp
+msgid "FAT32"
+msgstr "FAT32"
+
+#: src/udisks/properties.cpp
+msgid "FAT32 (LBA)"
+msgstr "FAT32 (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "FAT16 (LBA)"
+msgstr "FAT16 (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "Extended (LBA)"
+msgstr "Mở rộng (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "Linux"
+msgstr "Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Extended"
+msgstr "Linux mở rộng"
+
+#: src/udisks/properties.cpp
+msgid "Non-Filesystem Data"
+msgstr "Dữ liệu không phải hệ thống tệp"
+
+#: src/udisks/properties.cpp
+msgid "GPT Protective"
+msgstr "Bảo vệ GPT"
+
+#: src/udisks/properties.cpp
+msgid "Bootable"
+msgstr "Có thể khởi động"
+
+#: src/udisks/properties.cpp
+msgctxt "partition flag"
+msgid "Required"
+msgstr "Bắt buộc"
+
+#: src/udisks/properties.cpp
+msgid "Ignored by Firmware"
+msgstr "Firmware bỏ qua"
+
+#: src/udisks/properties.cpp
+msgid "Legacy BIOS Bootable"
+msgstr "Khởi động BIOS cũ"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Read Only"
+msgstr "Chỉ đọc"
+
+#: src/udisks/properties.cpp
+msgid "Hidden"
+msgstr "Ẩn"
+
+#: src/udisks/properties.cpp
+msgid "No Automount"
+msgstr "Không tự động gắn"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Enabled"
+msgstr "Đã bật quản lý âm thanh"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Supported"
+msgstr "Hỗ trợ quản lý âm thanh"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Recommended Value"
+msgstr "Giá trị quản lý âm thanh khuyến nghị"
+
+#: src/udisks/properties.cpp
+msgid "Active"
+msgstr "Hoạt động"
+
+#: src/udisks/properties.cpp
+msgid "Power Management (APM) Enabled"
+msgstr "Đã bật quản lý nguồn (APM)"
+
+#: src/udisks/properties.cpp
+msgid "Power Management (APM) Supported"
+msgstr "Hỗ trợ quản lý nguồn (APM)"
+
+#: src/udisks/properties.cpp
+msgid "Detaches When Unused"
+msgstr "Tách ra khi không dùng"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Image File"
+msgstr "Tệp ảnh"
+
+#: src/udisks/properties.cpp
+msgid "Can Power Off"
+msgstr "Có thể tắt nguồn"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Configuration"
+msgstr "Cấu hình đã mở khóa"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Device"
+msgstr "Thiết bị đã mở khóa"
+
+#: src/udisks/properties.cpp
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Connection"
+msgstr "Kết nối"
+
+#: src/udisks/properties.cpp
+msgid "Controller ID"
+msgstr "ID bộ điều khiển"
+
+#: src/udisks/properties.cpp
+msgid "Encrypted Device"
+msgstr "Thiết bị được mã hóa"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Device"
+msgstr "Thiết bị"
+
+#: src/udisks/properties.cpp
+msgid "Device Number"
+msgstr "Số thiết bị"
+
+#: src/udisks/properties.cpp
+msgid "Drive"
+msgstr "Ổ"
+
+#: src/udisks/properties.cpp
+msgid "Ejectable"
+msgstr "Có thể đẩy ra"
+
+#: src/udisks/properties.cpp
+msgid "FRU GUID"
+msgstr "FRU GUID"
+
+#: src/udisks/properties.cpp
+msgid "Flags"
+msgstr "Cờ"
+
+#: src/udisks/properties.cpp
+msgid "Mounts Automatically"
+msgstr "Tự động gắn"
+
+#: src/udisks/properties.cpp
+msgid "Icon"
+msgstr "Biểu tượng"
+
+#: src/udisks/properties.cpp
+msgid "Hidden from Users"
+msgstr "Ẩn với người dùng"
+
+#: src/udisks/properties.cpp
+msgid "Suggested Name"
+msgstr "Tên đề xuất"
+
+#: src/udisks/properties.cpp
+msgid "Partitionable"
+msgstr "Có thể phân vùng"
+
+#: src/udisks/properties.cpp
+msgid "Symbolic Icon"
+msgstr "Biểu tượng ký hiệu"
+
+#: src/udisks/properties.cpp
+msgid "System Device"
+msgstr "Thiết bị hệ thống"
+
+#: src/udisks/properties.cpp
+msgid "Identifier"
+msgstr "Mã định danh"
+
+#: src/udisks/properties.cpp
+msgid "Label"
+msgstr "Nhãn"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "UUID"
+msgstr "UUID"
+
+#: src/udisks/properties.cpp
+msgid "Contents"
+msgstr "Nội dung"
+
+#: src/udisks/properties.cpp
+msgid "Format Version"
+msgstr "Phiên bản định dạng"
+
+#: src/udisks/properties.cpp
+msgid "Logical Partition"
+msgstr "Phân vùng logic"
+
+#: src/udisks/properties.cpp
+msgid "RAID Array"
+msgstr "Mảng RAID"
+
+#: src/udisks/properties.cpp
+msgid "RAID Member Of"
+msgstr "Thành viên RAID của"
+
+#: src/udisks/properties.cpp
+msgid "Media"
+msgstr "Phương tiện"
+
+#: src/udisks/properties.cpp
+msgid "Media Present"
+msgstr "Có phương tiện"
+
+#: src/udisks/properties.cpp
+msgid "Media Change Detected"
+msgstr "Phát hiện thay đổi phương tiện"
+
+#: src/udisks/properties.cpp
+msgid "Compatible Media"
+msgstr "Phương tiện tương thích"
+
+#: src/udisks/properties.cpp
+msgid "Removable Media"
+msgstr "Phương tiện rời"
+
+#: src/udisks/properties.cpp
+msgid "Header Size"
+msgstr "Kích thước header"
+
+#: src/udisks/properties.cpp
+msgid "Model"
+msgstr "Kiểu máy"
+
+#: src/udisks/properties.cpp
+msgid "Mount Points"
+msgstr "Điểm gắn"
+
+#: src/udisks/properties.cpp
+msgid "NVMe Version"
+msgstr "Phiên bản NVMe"
+
+#: src/udisks/properties.cpp
+msgid "Number"
+msgstr "Số"
+
+#: src/udisks/properties.cpp
+msgid "Offset"
+msgstr "Độ lệch"
+
+#: src/udisks/properties.cpp
+msgid "Optical"
+msgstr "Quang"
+
+#: src/udisks/properties.cpp
+msgid "Blank Disc"
+msgstr "Đĩa trống"
+
+#: src/udisks/properties.cpp
+msgid "Audio Tracks"
+msgstr "Bản nhạc âm thanh"
+
+#: src/udisks/properties.cpp
+msgid "Data Tracks"
+msgstr "Bản dữ liệu"
+
+#: src/udisks/properties.cpp
+msgid "Sessions"
+msgstr "Phiên"
+
+#: src/udisks/properties.cpp
+msgid "Tracks"
+msgstr "Bản ghi"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Partitions"
+msgstr "Phân vùng"
+
+#: src/udisks/properties.cpp
+msgid "Power Management Enabled"
+msgstr "Đã bật quản lý nguồn"
+
+#: src/udisks/properties.cpp
+msgid "Power Management Supported"
+msgstr "Hỗ trợ quản lý nguồn"
+
+#: src/udisks/properties.cpp
+msgid "Preferred Device"
+msgstr "Thiết bị ưu tiên"
+
+#: src/udisks/properties.cpp
+msgid "Read-Ahead Enabled"
+msgstr "Đã bật đọc trước"
+
+#: src/udisks/properties.cpp
+msgid "Read-Ahead Supported"
+msgstr "Hỗ trợ đọc trước"
+
+#: src/udisks/properties.cpp
+msgid "Removable"
+msgstr "Tháo rời được"
+
+#: src/udisks/properties.cpp
+msgid "Firmware Revision"
+msgstr "Phiên bản firmware"
+
+#: src/udisks/properties.cpp
+msgid "Rotation Rate"
+msgstr "Tốc độ quay"
+
+#: src/udisks/properties.cpp
+msgid "Sanitize Remaining"
+msgstr "Phần làm sạch còn lại"
+
+#: src/udisks/properties.cpp
+msgid "Sanitize Status"
+msgstr "Trạng thái làm sạch"
+
+#: src/udisks/properties.cpp
+msgid "Seat"
+msgstr "Seat"
+
+#: src/udisks/properties.cpp
+msgid "Enhanced Secure Erase Time"
+msgstr "Thời gian xóa an toàn nâng cao"
+
+#: src/udisks/properties.cpp
+msgid "Secure Erase Time"
+msgstr "Thời gian xóa an toàn"
+
+#: src/udisks/properties.cpp
+msgid "Security Frozen"
+msgstr "Bảo mật đã bị đóng băng"
+
+#: src/udisks/properties.cpp
+msgid "Serial Number"
+msgstr "Số sê-ri"
+
+#: src/udisks/properties.cpp
+msgid "Attached by User"
+msgstr "Do người dùng gắn"
+
+#: src/udisks/properties.cpp
+msgid "Sibling Identifier"
+msgstr "Mã định danh cùng cấp"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Enabled"
+msgstr "Đã bật S.M.A.R.T."
+
+#: src/udisks/properties.cpp
+msgid "Predicts Failure"
+msgstr "Dự đoán hỏng"
+
+#: src/udisks/properties.cpp
+msgid "Attributes Failed in the Past"
+msgstr "Thuộc tính từng hỏng"
+
+#: src/udisks/properties.cpp
+msgid "Attributes Failing"
+msgstr "Thuộc tính đang hỏng"
+
+#: src/udisks/properties.cpp
+msgid "Self-Test Remaining"
+msgstr "Tự kiểm tra còn lại"
+
+#: src/udisks/properties.cpp
+msgid "Last Self-Test"
+msgstr "Lần tự kiểm tra cuối"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Supported"
+msgstr "Hỗ trợ S.M.A.R.T."
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Read"
+msgstr "Lần đọc S.M.A.R.T."
+
+#: src/udisks/properties.cpp
+msgid "Sort Key"
+msgstr "Khóa sắp xếp"
+
+#: src/udisks/properties.cpp
+msgid "State"
+msgstr "Trạng thái"
+
+#: src/udisks/properties.cpp
+msgid "Subsystem NQN"
+msgstr "NQN hệ thống con"
+
+#: src/udisks/properties.cpp
+msgid "Links"
+msgstr "Liên kết"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Partition Map"
+msgstr "Bản đồ phân vùng"
+
+#: src/udisks/properties.cpp
+msgid "Detected"
+msgstr "Đã phát hiện"
+
+#: src/udisks/properties.cpp
+msgid "Media Detected"
+msgstr "Đã phát hiện phương tiện"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Type"
+msgstr "Loại"
+
+#: src/udisks/properties.cpp
+msgid "Unallocated Capacity"
+msgstr "Dung lượng chưa cấp phát"
+
+#: src/udisks/properties.cpp
+msgid "Mount Options"
+msgstr "Tùy chọn gắn"
+
+#: src/udisks/properties.cpp
+msgid "Vendor"
+msgstr "Nhà sản xuất"
+
+#: src/udisks/properties.cpp
+msgid "World Wide Name"
+msgstr "World Wide Name"
+
+#: src/udisks/properties.cpp
+msgid "Write Cache Enabled"
+msgstr "Đã bật bộ nhớ đệm ghi"
+
+#: src/udisks/properties.cpp
+msgid "Write Cache Supported"
+msgstr "Hỗ trợ bộ nhớ đệm ghi"
+
+#: src/udisks/properties.cpp
+msgid "NVMe Controller"
+msgstr "Bộ điều khiển NVMe"
+
+#: src/udisks/properties.cpp
+msgid "Block Device"
+msgstr "Thiết bị khối"
+
+#: src/udisks/properties.cpp
+msgid "File System"
+msgstr "Hệ thống tệp"
+
+#: src/udisks/properties.cpp
+msgid "Yes"
+msgstr "Có"
+
+#: src/udisks/properties.cpp
+msgid "No"
+msgstr "Không"
+
+#: src/udisks/properties.cpp
+msgid "Never"
+msgstr "Không bao giờ"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Solid State"
+msgstr "Thể rắn"
+
+#: src/udisks/properties.cpp
+msgid "Unknown"
+msgstr "Không xác định"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{n} RPM"
+msgstr "{n} RPM"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{name} ({type})"
+msgstr "{name} ({type})"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Block Device"
+msgstr "Thiết bị khối đã mở khóa"
+
+#: src/udisks/smart.cpp
+msgid "Not Supported"
+msgstr "Không hỗ trợ"
+
+#: src/udisks/smart.cpp
+msgid "Verified"
+msgstr "Đã xác minh"
+
+#: src/udisks/smart.cpp
+msgid "Failing"
+msgstr "Đang hỏng"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} °C"
+msgstr "{n} °C"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} hour"
+msgid_plural "{n} hours"
+msgstr[0] "{n} giờ"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} day"
+msgid_plural "{n} days"
+msgstr[0] "{n} ngày"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{days} ({hours})"
+msgstr "{days} ({hours})"
+
+#: src/udisks/smart.cpp
+msgid "In progress"
+msgstr "Đang thực hiện"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "In progress, {n}% left"
+msgstr "Đang thực hiện, còn {n}%"
+
+#: src/udisks/smart.cpp
+msgid "Completed without error"
+msgstr "Hoàn tất không lỗi"
+
+#: src/udisks/smart.cpp
+msgid "Aborted"
+msgstr "Đã hủy bỏ"
+
+#: src/udisks/smart.cpp
+msgid "Interrupted by a reset"
+msgstr "Bị gián đoạn do đặt lại"
+
+#: src/udisks/smart.cpp
+msgid "Failed: electrical error"
+msgstr "Lỗi: lỗi điện"
+
+#: src/udisks/smart.cpp
+msgid "Failed: servo error"
+msgstr "Lỗi: lỗi servo"
+
+#: src/udisks/smart.cpp
+msgid "Failed: read error"
+msgstr "Lỗi: lỗi đọc"
+
+#: src/udisks/smart.cpp
+msgid "Failed: damage found"
+msgstr "Lỗi: phát hiện hư hỏng"
+
+#: src/udisks/smart.cpp
+msgid "Failed"
+msgstr "Không thành công"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "Attribute {n}"
+msgstr "Thuộc tính {n}"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} ms"
+msgstr "{n} ms"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} sector"
+msgid_plural "{n} sectors"
+msgstr[0] "{n} sector"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} minute"
+msgid_plural "{n} minutes"
+msgstr[0] "{n} phút"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{value} (threshold {threshold})"
+msgstr "{value} (ngưỡng {threshold})"
+
+#: src/udisks/smart.cpp
+msgid "Available Spare"
+msgstr "Dự phòng khả dụng"
+
+#: src/udisks/smart.cpp
+msgid "Wear"
+msgstr "Hao mòn"
+
+#: src/udisks/smart.cpp
+msgid "Data Read"
+msgstr "Dữ liệu đã đọc"
+
+#: src/udisks/smart.cpp
+msgid "Data Written"
+msgstr "Dữ liệu đã ghi"
+
+#: src/udisks/smart.cpp
+msgid "Busy Time"
+msgstr "Thời gian bận"
+
+#: src/udisks/smart.cpp
+msgid "Power Cycles"
+msgstr "Số lần bật/tắt"
+
+#: src/udisks/smart.cpp
+msgid "Unsafe Shutdowns"
+msgstr "Tắt máy không an toàn"
+
+#: src/udisks/smart.cpp
+msgid "Media Errors"
+msgstr "Lỗi phương tiện"
+
+#: src/udisks/smart.cpp
+msgid "Error Log Entries"
+msgstr "Mục nhật ký lỗi"
+
+#: src/udisks/smart.cpp
+msgid "Warning Temperature"
+msgstr "Nhiệt độ cảnh báo"
+
+#: src/udisks/smart.cpp
+msgid "Critical Temperature"
+msgstr "Nhiệt độ tới hạn"
+
+#: src/udisks/smart.cpp
+msgid "Time Above Warning"
+msgstr "Thời gian trên mức cảnh báo"
+
+#: src/udisks/smart.cpp
+msgid "Time Above Critical"
+msgstr "Thời gian trên mức tới hạn"
+
+#: src/views/detail.cpp
+msgid "No Disks"
+msgstr "Không có đĩa"
+
+#: src/views/detail.cpp
+msgid "Disks, volumes and disk images show here when they are attached."
+msgstr "Đĩa, ổ đĩa và ảnh đĩa sẽ hiện ở đây khi được kết nối."
+
+#: src/views/detailcards.cpp
+#, python-brace-format
+msgid "{percent}%"
+msgstr "{percent}%"
+
+#: src/views/detailcontent.cpp
+msgid "Erasing"
+msgstr "Đang xóa"
+
+#: src/views/detailcontent.cpp
+msgid "Checking"
+msgstr "Đang kiểm tra"
+
+#: src/views/detailcontent.cpp
+msgid "Repairing"
+msgstr "Đang sửa"
+
+#: src/views/detailcontent.cpp
+msgid "Resizing"
+msgstr "Đang đổi kích thước"
+
+#: src/views/detailcontent.cpp
+msgid "Mounting"
+msgstr "Đang gắn"
+
+#: src/views/detailcontent.cpp
+msgid "Unmounting"
+msgstr "Đang tháo gắn"
+
+#: src/views/detailcontent.cpp
+msgid "Adding a partition"
+msgstr "Đang thêm phân vùng"
+
+#: src/views/detailcontent.cpp
+msgid "Deleting a partition"
+msgstr "Đang xóa phân vùng"
+
+#: src/views/detailcontent.cpp
+msgid "Changing the partition"
+msgstr "Đang thay đổi phân vùng"
+
+#: src/views/detailcontent.cpp
+msgid "Unlocking"
+msgstr "Đang mở khóa"
+
+#: src/views/detailcontent.cpp
+msgid "Locking"
+msgstr "Đang khóa"
+
+#: src/views/detailcontent.cpp
+msgid "Ejecting"
+msgstr "Đang đẩy ra"
+
+#: src/views/detailcontent.cpp
+msgid "Powering off"
+msgstr "Đang tắt nguồn"
+
+#: src/views/detailcontent.cpp
+msgid "Running a self-test"
+msgstr "Đang tự kiểm tra"
+
+#: src/views/detailcontent.cpp
+msgid "Attaching"
+msgstr "Đang gắn ảnh"
+
+#: src/views/detailcontent.cpp
+msgid "Working"
+msgstr "Đang xử lý"
+
+#: src/views/detailcontent.cpp src/views/sidebar.cpp
+msgid "External"
+msgstr "Bên ngoài"
+
+#: src/views/detailcontent.cpp src/views/sidebar.cpp
+msgid "Internal"
+msgstr "Bên trong"
+
+#: src/views/detailcontent.cpp
+msgid "Optical Disc"
+msgstr "Đĩa quang"
+
+#: src/views/detailcontent.cpp
+msgid "Flash Memory"
+msgstr "Bộ nhớ flash"
+
+#: src/views/detailcontent.cpp
+msgid "Hard Disk"
+msgstr "Ổ cứng"
+
+#. TRANSLATORS: an encrypted volume that is locked, such as "LUKS (Locked)".
+#: src/views/detailcontent.cpp
+#, python-brace-format
+msgid "{type} (Locked)"
+msgstr "{type} (Đã khóa)"
+
+#. TRANSLATORS: an unlocked encrypted volume, such as "ext4 (Encrypted)".
+#: src/views/detailcontent.cpp
+#, python-brace-format
+msgid "{type} (Encrypted)"
+msgstr "{type} (Đã mã hóa)"
+
+#: src/views/detailcontent.cpp
+msgid "Free"
+msgstr "Trống"
+
+#: src/views/detailcontent.cpp
+msgid "Location"
+msgstr "Vị trí"
+
+#: src/views/detailcontent.cpp
+msgid "Capacity"
+msgstr "Dung lượng"
+
+#: src/views/detailcontent.cpp
+msgid "S.M.A.R.T. Status"
+msgstr "Trạng thái S.M.A.R.T."
+
+#: src/views/detailcontent.cpp
+msgid "Access"
+msgstr "Truy cập"
+
+#: src/views/detailcontent.cpp
+msgid "Used"
+msgstr "Đã dùng"
+
+#: src/views/detailcontent.cpp
+msgid "Other"
+msgstr "Khác"
+
+#: src/views/detailcontent.cpp
+msgid "Mount Point"
+msgstr "Điểm gắn"
+
+#: src/views/detailcontent.cpp
+msgid "Not Mounted"
+msgstr "Chưa gắn"
+
+#: src/views/detailcontent.cpp
+msgid "Available"
+msgstr "Khả dụng"
+
+#: src/views/detailcontent.cpp
+msgid "Owner"
+msgstr "Chủ sở hữu"
+
+#: src/views/diskwindow.cpp src/views/toolbar.cpp cutefish-disk-utility.desktop
+msgid "Disk Utility"
+msgstr "Tiện ích Ổ đĩa"
+
+#: src/views/diskwindow.cpp
+msgid "The operation was refused."
+msgstr "Thao tác đã bị từ chối."
+
+#: src/views/diskwindow.cpp
+msgid "Show Only Volumes"
+msgstr "Chỉ hiện ổ đĩa"
+
+#: src/views/diskwindow.cpp
+msgid "Show All Devices"
+msgstr "Hiện tất cả thiết bị"
+
+#: src/views/diskwindow.cpp
+msgid "An operation is in progress."
+msgstr "Một thao tác đang diễn ra."
+
+#: src/views/diskwindow.cpp
+msgid "Quitting now stops it partway, which can leave the disk unusable. Wait until it is done."
+msgstr "Thoát ngay bây giờ sẽ dừng nó giữa chừng, có thể khiến đĩa không dùng được. Hãy chờ cho đến khi xong."
+
+#: src/views/diskwindow.cpp
+msgid "Keep Running"
+msgstr "Tiếp tục chạy"
+
+#: src/views/diskwindow.cpp
+msgid "Quit Anyway"
+msgstr "Vẫn thoát"
+
+#: src/views/diskwindow.cpp
+msgid "OK"
+msgstr "OK"
+
+#: src/views/diskwindow.cpp
+msgid "Erases, partitions, checks and images the disks of your computer."
+msgstr "Xóa, phân vùng, kiểm tra và tạo ảnh các đĩa của máy tính."
+
+#: src/views/diskwindow.cpp
+msgid "About Disk Utility"
+msgstr "Giới thiệu về Tiện ích Ổ đĩa"
+
+#: src/views/diskwindow.cpp
+msgid "Hide Disk Utility"
+msgstr "Ẩn Tiện ích Ổ đĩa"
+
+#: src/views/diskwindow.cpp
+msgid "Quit Disk Utility"
+msgstr "Thoát Tiện ích Ổ đĩa"
+
+#: src/views/diskwindow.cpp
+msgid "File"
+msgstr "Tệp"
+
+#: src/views/diskwindow.cpp
+msgid "New Image"
+msgstr "Ảnh mới"
+
+#: src/views/diskwindow.cpp
+msgid "Close Window"
+msgstr "Đóng cửa sổ"
+
+#: src/views/diskwindow.cpp
+msgid "Edit"
+msgstr "Sửa"
+
+#: src/views/diskwindow.cpp
+msgid "Window"
+msgstr "Cửa sổ"
+
+#: src/views/diskwindow.cpp
+msgid "Minimize"
+msgstr "Thu nhỏ"
+
+#: src/views/diskwindow.cpp
+msgid "Zoom"
+msgstr "Phóng to"
+
+#: cutefish-disk-utility.desktop
+msgid "Manage disks, volumes and disk images"
+msgstr "Quản lý đĩa, ổ đĩa và ảnh đĩa"
+
+#: cutefish-disk-utility.desktop
+msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
+msgstr "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;Đĩa;Ổ đĩa;Phân vùng;Định dạng;Xóa;Gắn;Ảnh đĩa;"
