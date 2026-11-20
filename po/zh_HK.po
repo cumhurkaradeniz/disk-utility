@@ -1,0 +1,2414 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cutefish-disk-utility\n"
+"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"POT-Creation-Date: 2026-11-21 00:27+0800\n"
+"PO-Revision-Date: 2026-11-21 00:19+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_HK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/actions.cpp src/views/diskwindow.cpp
+msgid "View"
+msgstr "檢視"
+
+#: src/actions.cpp
+msgid "Add Partition…"
+msgstr "加入分區…"
+
+#: src/actions.cpp
+msgid "Delete Partition…"
+msgstr "刪除分區…"
+
+#: src/actions.cpp
+msgid "First Aid…"
+msgstr "急救…"
+
+#: src/actions.cpp
+msgid "Partition…"
+msgstr "分區…"
+
+#: src/actions.cpp
+msgid "Erase…"
+msgstr "清除…"
+
+#: src/actions.cpp
+msgid "Restore…"
+msgstr "還原…"
+
+#: src/actions.cpp
+msgid "Mount"
+msgstr "掛載"
+
+#: src/actions.cpp src/dialogs/diskimages.cpp
+msgid "Unmount"
+msgstr "卸載"
+
+#: src/actions.cpp
+msgid "Get Info"
+msgstr "取得資料"
+
+#: src/actions.cpp
+msgid "Eject"
+msgstr "退出"
+
+#: src/actions.cpp
+msgid "Rename…"
+msgstr "重新命名…"
+
+#: src/actions.cpp
+msgid "Lock"
+msgstr "鎖定"
+
+#: src/actions.cpp
+msgid "Open Disk Image…"
+msgstr "開啟磁碟映像檔…"
+
+#: src/actions.cpp
+msgid "Blank Image…"
+msgstr "空白映像檔…"
+
+#: src/actions.cpp
+msgid "Image from Selection…"
+msgstr "從所選項目建立映像檔…"
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The disks of the running system could not be found."
+msgstr "找不到運行中系統所在的磁碟。"
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The disk holds the running system."
+msgstr "此磁碟包含運行中的系統。"
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The volume holds the running system."
+msgstr "此卷宗包含運行中的系統。"
+
+#: src/actions.cpp
+msgid "An operation on this disk is in progress."
+msgstr "此磁碟上有正在進行的操作。"
+
+#: src/actions.cpp src/dialogs/partition_plan.cpp
+#: src/dialogs/volume_actions.cpp
+msgid "A Master Boot Record holds at most four partitions."
+msgstr "主開機記錄最多只能容納四個分區。"
+
+#: src/actions.cpp src/dialogs/partition_plan.cpp
+#: src/dialogs/volume_actions.cpp
+msgid "There is no free space for another partition."
+msgstr "沒有可用空間來加入分區。"
+
+#: src/actions.cpp
+msgid "A partition in it is mounted or unlocked."
+msgstr "其中有分區已掛載或已解鎖。"
+
+#: src/dialogs/choice_button.cpp
+#, python-brace-format
+msgid "{choice} ({reason})"
+msgstr "{choice}（{reason}）"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Preparing…"
+msgstr "正在準備…"
+
+#: src/dialogs/copyprogress.cpp src/dialogs/erase.cpp src/dialogs/partition.cpp
+msgid "Stop"
+msgstr "停止"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Stopping…"
+msgstr "正在停止…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Unmounting…"
+msgstr "正在卸載…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Opening…"
+msgstr "正在開啟…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Stopped."
+msgstr "已停止。"
+
+#: src/dialogs/diskimages.cpp
+msgid "The new image could not be mounted."
+msgstr "無法掛載新映像檔。"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Restoring “{name}”"
+msgstr "正在還原「{name}」"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Copying “{source}” onto “{target}”."
+msgstr "正在將「{source}」複製到「{target}」上。"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” was restored."
+msgstr "已還原「{name}」。"
+
+#: src/dialogs/diskimages.cpp
+msgid "A copy is in progress."
+msgstr "正在進行複製。"
+
+#: src/dialogs/diskimages.cpp src/views/sidebar.cpp
+msgid "Disk Images"
+msgstr "磁碟映像檔"
+
+#: src/dialogs/diskimages.cpp
+msgid "All Files"
+msgstr "所有檔案"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open Disk Image"
+msgstr "開啟磁碟映像檔"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open"
+msgstr "開啟"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open read-only"
+msgstr "以唯讀方式開啟"
+
+#: src/dialogs/diskimages.cpp
+msgid "Restore from Disk Image"
+msgstr "從磁碟映像檔還原"
+
+#: src/dialogs/diskimages.cpp
+msgid "Choose"
+msgstr "選擇"
+
+#: src/dialogs/diskimages.cpp
+msgid "Save Image As"
+msgstr "映像檔儲存為"
+
+#: src/dialogs/diskimages.cpp
+msgid "Save"
+msgstr "儲存"
+
+#: src/dialogs/diskimages.cpp
+msgid "Choose a Folder"
+msgstr "選擇檔案夾"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” could not be opened."
+msgstr "無法開啟「{name}」。"
+
+#: src/dialogs/diskimages.cpp src/dialogs/newimage.cpp
+#: src/dialogs/volume_format.cpp
+msgid "Untitled"
+msgstr "未命名"
+
+#: src/dialogs/diskimages.cpp
+msgid "The image could not be created."
+msgstr "無法建立映像檔。"
+
+#: src/dialogs/diskimages.cpp
+msgid "The file is an attached disk image. Eject it first."
+msgstr "此檔案是已連接的磁碟映像檔。請先將其退出。"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "The image cannot be saved on “{name}” itself. Choose a folder on another disk."
+msgstr "映像檔不能儲存在「{name}」本身。請選擇其他磁碟上的檔案夾。"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” holds the running system, so it cannot be unmounted to be read."
+msgstr "「{name}」包含運行中的系統，因此無法卸載以進行讀取。"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Creating “{name}”"
+msgstr "正在建立「{name}」"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Copying “{source}” into “{file}”."
+msgstr "正在將「{source}」複製到「{file}」中。"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{file}” was created."
+msgstr "已建立「{file}」。"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” must be unmounted to make an image of it."
+msgstr "必須先卸載「{name}」才能為其建立映像檔。"
+
+#: src/dialogs/diskimages.cpp
+msgid "It is unmounted, and locked when it is encrypted, before it is read, and stays so afterwards."
+msgstr "讀取前會將其卸載（若已加密還會鎖定），完成後保持該狀態。"
+
+#: src/dialogs/diskimages.cpp
+msgid "Another copy is in progress."
+msgstr "另一個複製正在進行。"
+
+#: src/dialogs/diskimages.cpp
+msgid "Wait for it to finish, or stop it first."
+msgstr "請等待其完成，或先將其停止。"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erase “{name}”"
+msgstr "清除「{name}」"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erasing “{name}” deletes every volume on it and everything stored on them. This can't be undone. Choose a name, a format and a partition scheme for it."
+msgstr "清除「{name}」將刪除其上所有卷宗及其中儲存的全部內容。此操作無法還原。請為其選擇名稱、格式和分區方案。"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erasing “{name}” deletes everything stored on it. This can't be undone. Choose a name and a format for it."
+msgstr "清除「{name}」將刪除其中儲存的全部內容。此操作無法還原。請為其選擇名稱和格式。"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/rename.cpp src/dialogs/volume_actions.cpp
+#: src/udisks/properties.cpp
+msgid "Name"
+msgstr "名稱"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/volume_actions.cpp src/udisks/properties.cpp
+msgid "Format"
+msgstr "格式"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp
+msgid "Scheme"
+msgstr "方案"
+
+#: src/dialogs/erase.cpp
+msgid "Encrypt"
+msgstr "加密"
+
+#: src/dialogs/erase.cpp src/dialogs/unlock.cpp
+msgid "Passphrase"
+msgstr "密碼"
+
+#: src/dialogs/erase.cpp src/dialogs/unlock.cpp
+msgid "Required"
+msgstr "必填"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp
+msgid "Verify"
+msgstr "驗證"
+
+#: src/dialogs/erase.cpp
+msgid "The volume can only be read after unlocking it with the passphrase. If you forget the passphrase, the data can't be recovered."
+msgstr "必須使用密碼解鎖後才能讀取此卷宗。如果忘記密碼，數據將無法復原。"
+
+#: src/dialogs/erase.cpp
+msgid "Security Options…"
+msgstr "保安選項…"
+
+#: src/dialogs/erase.cpp
+msgid "Erase"
+msgstr "清除"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "needs at least {size}"
+msgstr "至少需要 {size}"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "{format} can't be chosen: {reason}"
+msgstr "無法選擇 {format}：{reason}"
+
+#: src/dialogs/erase.cpp
+msgid "The passphrases don't match."
+msgstr "密碼不相符。"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "A Master Boot Record reaches only the first {reach} of “{name}”; the other {rest} stay unused. Choose GUID Partition Map to use all of it."
+msgstr "主開機記錄只能使用「{name}」的前 {reach}，其餘 {rest} 將無法使用。請選擇「GUID 分區表」以使用全部空間。"
+
+#: src/dialogs/erase.cpp
+msgid "The data is overwritten with zeros first, which takes as long as writing the whole volume once."
+msgstr "會先以零覆寫數據，所需時間與完整寫入一次卷宗相同。"
+
+#: src/dialogs/erase.cpp
+msgid "Quick Erase"
+msgstr "快速清除"
+
+#: src/dialogs/erase.cpp
+msgid "Zero Out Data"
+msgstr "以零覆寫數據"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+msgid "Done"
+msgstr "完成"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Step {step} of {count}"
+msgstr "第 {step} 步，共 {count} 步"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Stopping “{step}”…"
+msgstr "正在停止「{step}」…"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was erased."
+msgstr "已清除「{name}」。"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was erased only in part and has no usable volume now. Erase it again to use it."
+msgstr "「{name}」僅被部分清除，現在沒有可用的卷宗。請再次清除後再使用。"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was not erased; nothing stored on it was changed."
+msgstr "「{name}」未被清除，其中儲存的內容均未更改。"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” was stopped before it finished."
+msgstr "「{step}」在完成前已被停止。"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” was cancelled."
+msgstr "「{step}」已取消。"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” failed."
+msgstr "「{step}」失敗。"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” failed: {message}"
+msgstr "「{step}」失敗：{message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "Hide Details"
+msgstr "隱藏詳細資料"
+
+#: src/dialogs/firstaid.cpp
+msgid "Show Details"
+msgstr "顯示詳細資料"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking {format} volumes needs {tool}, which is not installed."
+msgstr "檢查 {format} 卷宗需要 {tool}，但尚未安裝。"
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds. Mounted volumes are unmounted while they are checked and mounted again afterwards."
+msgstr "急救會檢查磁碟上的每個卷宗是否有錯誤，並修復找到的錯誤。已掛載的卷宗在檢查期間會被卸載，完成後重新掛載。"
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds."
+msgstr "急救會檢查磁碟上的每個卷宗是否有錯誤，並修復找到的錯誤。"
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks the volume for errors and repairs the ones it finds. The volume is unmounted while it is checked, so its files can’t be used until it’s done."
+msgstr "急救會檢查卷宗是否有錯誤，並修復找到的錯誤。檢查期間卷宗會被卸載，因此在完成前無法使用其中的檔案。"
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks the volume for errors and repairs the ones it finds."
+msgstr "急救會檢查卷宗是否有錯誤，並修復找到的錯誤。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Run First Aid on “{name}”?"
+msgstr "要對「{name}」執行急救嗎？"
+
+#: src/dialogs/firstaid.cpp
+msgid "Run"
+msgstr "執行"
+
+#: src/dialogs/firstaid.cpp
+msgid "There are no volumes to check."
+msgstr "沒有可檢查的卷宗。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking “{name}”…"
+msgstr "正在檢查「{name}」…"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there. Skipped."
+msgstr "「{name}」已不存在。已略過。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is locked. Unlock it to check it. Skipped."
+msgstr "「{name}」已鎖定。請解鎖後再檢查。已略過。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” holds no file system First Aid can check. Skipped."
+msgstr "「{name}」沒有急救可以檢查的檔案系統。已略過。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking “{name}” ({device}, {format})."
+msgstr "正在檢查「{name}」（{device}，{format}）。"
+
+#: src/dialogs/firstaid.cpp
+msgid "unknown format"
+msgstr "未知格式"
+
+#: src/dialogs/firstaid.cpp
+msgid "a checking tool"
+msgstr "檢查工具"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{format} volumes can’t be checked: {tool} is not installed."
+msgstr "無法檢查 {format} 卷宗：尚未安裝 {tool}。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Unmounting “{name}”."
+msgstr "正在卸載「{name}」。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is in use and can’t be unmounted. Close the files and quit the programs using it, then run First Aid again."
+msgstr "「{name}」正在使用中，無法卸載。請關閉正在使用它的檔案並結束相關程式，然後再次執行急救。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is in use by {programs} and can’t be unmounted. Close their files on it or quit them, then run First Aid again."
+msgstr "「{name}」正被 {programs} 使用，無法卸載。請關閉它們在其上開啟的檔案或結束它們，然後再次執行急救。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” could not be unmounted: {message}"
+msgstr "無法卸載「{name}」：{message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "Checking the file system."
+msgstr "正在檢查檔案系統。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "The check failed: {message}"
+msgstr "檢查失敗：{message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system appears to be OK."
+msgstr "檔案系統看起來正常。"
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system has errors."
+msgstr "檔案系統有錯誤。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{format} volumes can’t be repaired: {tool} is not installed."
+msgstr "無法修復 {format} 卷宗：尚未安裝 {tool}。"
+
+#: src/dialogs/firstaid.cpp
+msgid "a repair tool"
+msgstr "修復工具"
+
+#: src/dialogs/firstaid.cpp
+msgid "Repairing the file system."
+msgstr "正在修復檔案系統。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Repairing “{name}”…"
+msgstr "正在修復「{name}」…"
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system was repaired."
+msgstr "檔案系統已修復。"
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system could not be repaired."
+msgstr "無法修復檔案系統。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "The repair failed: {message}"
+msgstr "修復失敗：{message}"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Mounting “{name}” again."
+msgstr "正在重新掛載「{name}」。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” could not be mounted again: {message}"
+msgstr "無法重新掛載「{name}」：{message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid was cancelled."
+msgstr "急救已取消。"
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid found errors it could not repair. Back up the data you can and erase the volume."
+msgstr "急救發現了無法修復的錯誤。請備份可備份的數據，然後清除該卷宗。"
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid process has failed."
+msgstr "急救程序失敗。"
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid process has completed."
+msgstr "急救程序已完成。"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{n} volume was skipped."
+msgid_plural "{n} volumes were skipped."
+msgstr[0] "已略過 {n} 個卷宗。"
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid"
+msgstr "急救"
+
+#: src/dialogs/identity_guard.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there."
+msgstr "「{name}」已不存在。"
+
+#: src/dialogs/identity_guard.cpp
+msgid "It was removed or replaced by another disk, so nothing more is done to it."
+msgstr "它已被移除或被其他磁碟取代，因此不會再對其進行任何操作。"
+
+#: src/dialogs/info.cpp
+msgid "S.M.A.R.T. Details…"
+msgstr "S.M.A.R.T. 詳細資料…"
+
+#: src/dialogs/mount.cpp
+msgid " and "
+msgstr "和"
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be mounted."
+msgstr "無法掛載「{name}」。"
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be unmounted."
+msgstr "無法卸載「{name}」。"
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be locked."
+msgstr "無法鎖定「{name}」。"
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be ejected."
+msgstr "無法退出「{name}」。"
+
+#: src/dialogs/mount.cpp
+msgid "A program is still using a file on it. Close the files and quit the programs using it, then try again."
+msgstr "仍有程式在使用其中的檔案。請關閉這些檔案並結束正在使用它的程式，然後再試一次。"
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "It is in use by {programs}. Close their files on it or quit them, then try again."
+msgstr "它正被 {programs} 使用。請關閉它們在其上開啟的檔案或結束它們，然後再試一次。"
+
+#: src/dialogs/mount.cpp
+msgid "Another operation on this disk is still running."
+msgstr "此磁碟上的另一個操作仍在進行。"
+
+#: src/dialogs/newimage.cpp
+msgid "New Blank Image"
+msgstr "新增空白映像檔"
+
+#: src/dialogs/newimage.cpp
+msgid "Save As"
+msgstr "儲存為"
+
+#: src/dialogs/newimage.cpp
+msgid "Where"
+msgstr "位置"
+
+#: src/dialogs/newimage.cpp
+msgid "Choose…"
+msgstr "選擇…"
+
+#: src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/volume_actions.cpp src/udisks/properties.cpp
+msgid "Size"
+msgstr "大小"
+
+#: src/dialogs/newimage.cpp src/udisks/properties.cpp
+msgid "None"
+msgstr "無"
+
+#: src/dialogs/newimage.cpp src/udisks/properties.cpp
+msgid "Encryption"
+msgstr "加密"
+
+#: src/dialogs/newimage.cpp
+msgid "Encrypted with a Password"
+msgstr "使用密碼加密"
+
+#: src/dialogs/newimage.cpp
+msgid "Password"
+msgstr "密碼"
+
+#: src/dialogs/newimage.cpp
+msgid "Create"
+msgstr "建立"
+
+#: src/dialogs/newimage.cpp
+msgid "Type a name for the image file."
+msgstr "請輸入映像檔的名稱。"
+
+#: src/dialogs/newimage.cpp
+msgid "The folder is no longer there."
+msgstr "此檔案夾已不存在。"
+
+#: src/dialogs/newimage.cpp
+#, python-brace-format
+msgid "A file named “{name}” already exists in this folder."
+msgstr "此檔案夾中已有名為「{name}」的檔案。"
+
+#: src/dialogs/newimage.cpp
+msgid "Type a size, such as 100 MB."
+msgstr "請輸入大小，例如 100 MB。"
+
+#: src/dialogs/newimage.cpp
+#, python-brace-format
+msgid "A {format} image needs at least {size}."
+msgstr "{format} 映像檔至少需要 {size}。"
+
+#: src/dialogs/newimage.cpp
+msgid "Type a password for the image."
+msgstr "請輸入映像檔的密碼。"
+
+#: src/dialogs/newimage.cpp
+msgid "The passwords do not match."
+msgstr "密碼不相符。"
+
+#: src/dialogs/newimage.cpp
+msgid "Creating the file…"
+msgstr "正在建立檔案…"
+
+#: src/dialogs/newimage.cpp
+msgid "Attaching the image…"
+msgstr "正在連接映像檔…"
+
+#: src/dialogs/newimage.cpp
+msgid "Creating the partition map…"
+msgstr "正在建立分區表…"
+
+#: src/dialogs/newimage.cpp
+msgid "Formatting…"
+msgstr "正在格式化…"
+
+#: src/dialogs/newimage.cpp
+msgid "Mounting…"
+msgstr "正在掛載…"
+
+#: src/dialogs/partition.cpp src/dialogs/volume_actions.cpp
+msgid "Add Partition"
+msgstr "加入分區"
+
+#: src/dialogs/partition.cpp
+msgid "Delete Partition"
+msgstr "刪除分區"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Partition “{name}”"
+msgstr "為「{name}」分區"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” ({size}) has no partition map. Click + to add partitions; Apply creates a GUID Partition Map for them, erasing what is on the disk."
+msgstr "「{name}」（{size}）沒有分區表。按一下 + 加入分區；按一下「套用」會為其建立 GUID 分區表，並清除磁碟上的內容。"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "{scheme}, {size}. Click + to add a partition, drag the handles on the rim to resize. Nothing changes until you click Apply."
+msgstr "{scheme}，{size}。按一下 + 加入分區，拖移邊緣上的控點可調整大小。按一下「套用」之前不會作任何更改。"
+
+#: src/dialogs/partition.cpp
+msgid "Revert"
+msgstr "回復"
+
+#: src/dialogs/partition.cpp
+msgid "Apply"
+msgstr "套用"
+
+#: src/dialogs/partition.cpp
+msgid "Free Space"
+msgstr "可用空間"
+
+#: src/dialogs/partition.cpp src/views/detailcontent.cpp
+msgid "Unformatted"
+msgstr "未格式化"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Between {minimum} and {maximum}."
+msgstr "介於 {minimum} 和 {maximum} 之間。"
+
+#: src/dialogs/partition.cpp
+msgid "How far the filesystem can shrink is only known when it is applied; a shrink runs before anything is deleted."
+msgstr "檔案系統能縮小多少，只有在套用時才能確定；縮小操作會在任何刪除操作之前進行。"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Changing the format erases everything on “{name}”."
+msgstr "更改格式將清除「{name}」上的全部內容。"
+
+#: src/dialogs/partition.cpp
+msgid "Click + to add a partition in this free space."
+msgstr "按一下 + 在此可用空間中加入分區。"
+
+#: src/dialogs/partition.cpp src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "{format} can't be made: {reason}"
+msgstr "無法建立 {format}：{reason}"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "These steps will be taken on “{name}”, in this order:"
+msgstr "將依以下次序對「{name}」執行這些步驟："
+
+#: src/dialogs/partition.cpp
+msgid "Deleted and erased volumes lose everything stored on them. Resizing can take a while; keep the disk connected until it is done."
+msgstr "被刪除和清除的卷宗將遺失其中儲存的全部內容。調整大小可能需要一段時間；請在完成前保持磁碟連接。"
+
+#: src/dialogs/partition.cpp
+msgid "Resizing can take a while; keep the disk connected until it is done."
+msgstr "調整大小可能需要一段時間；請在完成前保持磁碟連接。"
+
+#: src/dialogs/partition.cpp
+msgid "Back"
+msgstr "上一頁"
+
+#: src/dialogs/partition.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Partition"
+msgstr "分區"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” was partitioned."
+msgstr "已為「{name}」分區。"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Nothing was changed on “{name}”."
+msgstr "「{name}」未作任何更改。"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” was partitioned only in part: the first {count} steps were taken."
+msgstr "「{name}」僅完成部分分區：已執行前 {count} 個步驟。"
+
+#: src/dialogs/partition_plan.cpp
+msgid "Encrypted volumes can't be resized here."
+msgstr "無法在此調整加密卷宗的大小。"
+
+#: src/dialogs/partition_plan.cpp
+msgid "The partition has no filesystem that can be resized."
+msgstr "此分區沒有可調整大小的檔案系統。"
+
+#: src/dialogs/partition_plan.cpp
+msgid "Checking whether the filesystem can be resized…"
+msgstr "正在檢查檔案系統能否調整大小…"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Resizing {format} needs {tool}, which is not installed."
+msgstr "調整 {format} 的大小需要 {tool}，但尚未安裝。"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't be resized."
+msgstr "無法調整 {format} 的大小。"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Unmount “{name}” to shrink it."
+msgstr "請卸載「{name}」以縮小它。"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Unmount “{name}” to grow it."
+msgstr "請卸載「{name}」以擴大它。"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Mount “{name}” to shrink it."
+msgstr "請掛載「{name}」以縮小它。"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Mount “{name}” to grow it."
+msgstr "請掛載「{name}」以擴大它。"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't shrink."
+msgstr "{format} 無法縮小。"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't grow."
+msgstr "{format} 無法擴大。"
+
+#: src/dialogs/partition_plan.cpp src/dialogs/volume_actions.cpp
+msgid "The partition map holds no more partitions."
+msgstr "分區表無法再容納更多分區。"
+
+#: src/dialogs/partition_plan.cpp
+msgid "Extended partitions and the partitions inside them can't be changed here."
+msgstr "無法在此更改擴展分區及其中的分區。"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” is too small for {format}, which needs at least {size}."
+msgstr "「{name}」對 {format} 而言太小，{format} 至少需要 {size}。"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” can't be resized."
+msgstr "無法調整「{name}」的大小。"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” can't be smaller than {size}."
+msgstr "「{name}」不能小於 {size}。"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Unmount “{name}”"
+msgstr "卸載「{name}」"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Lock “{name}”"
+msgstr "鎖定「{name}」"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Delete “{name}”"
+msgstr "刪除「{name}」"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Shrink the filesystem of “{name}” to {size}"
+msgstr "將「{name}」的檔案系統縮小至 {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resize “{name}” to {size}"
+msgstr "將「{name}」的大小調整為 {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Grow the filesystem of “{name}” to fill its partition"
+msgstr "擴大「{name}」的檔案系統以填滿其分區"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create a {scheme} on “{name}”"
+msgstr "在「{name}」上建立{scheme}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erase “{name}” as encrypted {format}"
+msgstr "將「{name}」清除為加密的 {format}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erase “{name}” as {format}"
+msgstr "將「{name}」清除為 {format}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create “{name}”, encrypted {format}, {size}"
+msgstr "建立「{name}」，加密的 {format}，{size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create “{name}”, {format}, {size}"
+msgstr "建立「{name}」，{format}，{size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Rename “{name}” to “{label}”"
+msgstr "將「{name}」重新命名為「{label}」"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Unmounting “{name}”…"
+msgstr "正在卸載「{name}」…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Locking “{name}”…"
+msgstr "正在鎖定「{name}」…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Deleting “{name}”…"
+msgstr "正在刪除「{name}」…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resizing the filesystem of “{name}”…"
+msgstr "正在調整「{name}」的檔案系統大小…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resizing “{name}”…"
+msgstr "正在調整「{name}」的大小…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Creating the partition map on “{name}”…"
+msgstr "正在「{name}」上建立分區表…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erasing “{name}”…"
+msgstr "正在清除「{name}」…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Creating “{name}”…"
+msgstr "正在建立「{name}」…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Renaming “{name}”…"
+msgstr "正在重新命名「{name}」…"
+
+#: src/dialogs/plan_runner.cpp src/images/transfer.cpp
+msgid "The disk was removed or replaced by another."
+msgstr "磁碟已被移除或被其他磁碟取代。"
+
+#: src/dialogs/rename.cpp
+msgid "Rename Volume"
+msgstr "重新命名卷宗"
+
+#: src/dialogs/rename.cpp
+msgid "Rename"
+msgstr "重新命名"
+
+#: src/dialogs/rename.cpp
+#, python-brace-format
+msgid "{format} names have up to {n} characters and are kept in capitals."
+msgstr "{format} 名稱最多 {n} 個字元，並以大寫形式儲存。"
+
+#: src/dialogs/rename.cpp
+#, python-brace-format
+msgid "{format} names have up to {n} characters."
+msgstr "{format} 名稱最多 {n} 個字元。"
+
+#: src/dialogs/rename.cpp
+msgid "The volume could not be renamed."
+msgstr "無法重新命名卷宗。"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Restore “{name}”"
+msgstr "還原「{name}」"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Choose a volume, disk or disk image to copy onto “{name}”. Everything on “{name}” is erased and replaced with the copy."
+msgstr "選擇要複製到「{name}」上的卷宗、磁碟或磁碟映像檔。「{name}」上的全部內容將被清除並取代為複製的內容。"
+
+#: src/dialogs/restore.cpp
+msgid "Restore From"
+msgstr "還原來源"
+
+#: src/dialogs/restore.cpp
+msgid "Image…"
+msgstr "映像檔…"
+
+#: src/dialogs/restore.cpp
+msgid "Restore"
+msgstr "還原"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "{name} ({device}, {size})"
+msgstr "{name}（{device}，{size}）"
+
+#: src/dialogs/restore.cpp
+msgid "Choose a disk image, or attach a disk to restore from."
+msgstr "請選擇一個磁碟映像檔，或連接一個磁碟作為還原來源。"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Everything on “{target}” is replaced with the contents of “{source}”. This cannot be undone."
+msgstr "「{target}」上的全部內容將被取代為「{source}」的內容。此操作無法還原。"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "“{source}” is unmounted before it is read, and stays so afterwards."
+msgstr "讀取前會卸載「{source}」，完成後保持卸載狀態。"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Erase “{target}”?"
+msgstr "要清除「{target}」嗎？"
+
+#: src/dialogs/restore.cpp
+msgid "Erase and Restore"
+msgstr "清除並還原"
+
+#: src/dialogs/restore.cpp
+msgid "The restore could not start."
+msgstr "無法開始還原。"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "S.M.A.R.T."
+msgstr "S.M.A.R.T."
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "The attributes could not be read: {message}"
+msgstr "無法讀取屬性：{message}"
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "The self-test could not be started: {message}"
+msgstr "無法開始自我測試：{message}"
+
+#: src/dialogs/smart.cpp
+msgid "Status"
+msgstr "狀態"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Temperature"
+msgstr "溫度"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Powered On"
+msgstr "開機時間"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Bad Sectors"
+msgstr "壞扇區"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Critical Warnings"
+msgstr "嚴重警告"
+
+#: src/dialogs/smart.cpp
+msgid "Self-Test"
+msgstr "自我測試"
+
+#: src/dialogs/smart.cpp
+msgid "Last Read"
+msgstr "上次讀取"
+
+#: src/dialogs/smart.cpp
+msgid "Attributes"
+msgstr "屬性"
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "Failing: {value}"
+msgstr "即將故障：{value}"
+
+#: src/dialogs/smart.cpp
+msgid "Health"
+msgstr "健康狀況"
+
+#: src/dialogs/smart.cpp
+msgid "Run Self-Test"
+msgstr "執行自我測試"
+
+#: src/dialogs/unlock.cpp
+msgid "Unlock Volume"
+msgstr "解鎖卷宗"
+
+#: src/dialogs/unlock.cpp
+#, python-brace-format
+msgid "Enter the passphrase to unlock “{name}”."
+msgstr "請輸入密碼以解鎖「{name}」。"
+
+#: src/dialogs/unlock.cpp
+msgid "Unlock"
+msgstr "解鎖"
+
+#: src/dialogs/unlock.cpp
+msgid "The passphrase is incorrect."
+msgstr "密碼不正確。"
+
+#: src/dialogs/unlock.cpp
+msgid "The volume could not be unlocked."
+msgstr "無法解鎖卷宗。"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Up to {size} of free space, from {offset} into the disk."
+msgstr "最多 {size} 可用空間，從磁碟的 {offset} 處開始。"
+
+#: src/dialogs/volume_actions.cpp
+msgid "Add"
+msgstr "加入"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "{format} needs at least {size}."
+msgstr "{format} 至少需要 {size}。"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Added “{name}”."
+msgstr "已加入「{name}」。"
+
+#: src/dialogs/volume_actions.cpp
+msgid "The partition could not be added."
+msgstr "無法加入分區。"
+
+#: src/dialogs/volume_actions.cpp
+msgid "Everything stored on the partition is deleted. This can't be undone."
+msgstr "分區中儲存的全部內容將被刪除。此操作無法還原。"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "“{name}”"
+msgstr "「{name}」"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "The partitions in it, {names}, and everything stored on them are deleted. This can't be undone."
+msgstr "其中的分區（{names}）及其中儲存的全部內容將被刪除。此操作無法還原。"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Delete “{name}”?"
+msgstr "要刪除「{name}」嗎？"
+
+#: src/dialogs/volume_actions.cpp
+msgid "Delete"
+msgstr "刪除"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Deleted “{name}”."
+msgstr "已刪除「{name}」。"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "“{name}” could not be deleted."
+msgstr "無法刪除「{name}」。"
+
+#: src/dialogs/volume_format.cpp
+msgid "FAT32 (MS-DOS)"
+msgstr "FAT32 (MS-DOS)"
+
+#: src/dialogs/volume_format.cpp src/udisks/describe.cpp
+#: src/udisks/properties.cpp
+msgid "Swap"
+msgstr "交換空間"
+
+#: src/dialogs/volume_format.cpp
+msgid "The name can't contain control characters."
+msgstr "名稱不能包含控制字元。"
+
+#: src/dialogs/volume_format.cpp
+msgid "FAT32 names can only use unaccented letters, digits and simple punctuation."
+msgstr "FAT32 名稱只能使用不帶重音符號的字母、數字和簡單的標點符號。"
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "FAT32 names can't contain “{character}”."
+msgstr "FAT32 名稱不能包含「{character}」。"
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "{format} names can have at most {count} characters."
+msgstr "{format} 名稱最多只能有 {count} 個字元。"
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "{format} names can have at most {count} bytes."
+msgstr "{format} 名稱最多只能有 {count} 個位元組。"
+
+#: src/dialogs/volume_format.cpp
+msgid "Checking for its tools…"
+msgstr "正在檢查所需工具…"
+
+#: src/dialogs/volume_format.cpp
+msgid "Its tools are not installed."
+msgstr "尚未安裝所需工具。"
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "Needs {tool}, which is not installed."
+msgstr "需要 {tool}，但尚未安裝。"
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The source could not be read: {reason}"
+msgstr "無法讀取來源：{reason}"
+
+#: src/images/copy.cpp
+msgid "The destination is too small."
+msgstr "目標太小。"
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The destination could not be written: {reason}"
+msgstr "無法寫入目標：{reason}"
+
+#: src/images/copy.cpp
+msgid "The source ended before all of it was read."
+msgstr "來源在全部讀取之前就已結束。"
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The data could not be saved on the destination: {reason}"
+msgstr "無法將數據儲存到目標：{reason}"
+
+#: src/images/imagefile.cpp
+msgid "There is not enough free space for an image of that size."
+msgstr "沒有足夠的可用空間來存放該大小的映像檔。"
+
+#: src/images/imagefile.cpp
+msgid "A file with that name already exists."
+msgstr "已有同名檔案。"
+
+#: src/images/imagefile.cpp
+#, python-brace-format
+msgid "The file could not be created: {reason}"
+msgstr "無法建立檔案：{reason}"
+
+#: src/images/imagefile.cpp
+msgid "The file is too large for the disk it is on."
+msgstr "檔案太大，所在磁碟無法容納。"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{copied} of {total}"
+msgstr "{copied}/{total}"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{size}/s"
+msgstr "{size}/秒"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} second left"
+msgid_plural "About {n} seconds left"
+msgstr[0] "大約還剩 {n} 秒"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} minute left"
+msgid_plural "About {n} minutes left"
+msgstr[0] "大約還剩 {n} 分鐘"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} hour left"
+msgid_plural "About {n} hours left"
+msgstr[0] "大約還剩 {n} 小時"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{amount} ({rate})"
+msgstr "{amount}（{rate}）"
+
+#: src/images/transfer.cpp
+msgid "The destination is no longer there."
+msgstr "目標已不存在。"
+
+#: src/images/transfer.cpp
+msgid "A volume cannot be restored from itself."
+msgstr "卷宗不能從自身還原。"
+
+#: src/images/transfer.cpp
+msgid "The source and the destination overlap: one lies inside the other."
+msgstr "來源和目標互相包含。"
+
+#: src/images/transfer.cpp
+msgid "A disk image cannot be restored onto itself."
+msgstr "磁碟映像檔不能還原到其自身。"
+
+#: src/images/transfer.cpp
+msgid "The disk image is attached and mounted. Eject it first."
+msgstr "此磁碟映像檔已連接並掛載。請先將其退出。"
+
+#: src/images/transfer.cpp
+msgid "The source could not be read."
+msgstr "無法讀取來源。"
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The source ({source}) is larger than the destination ({destination})."
+msgstr "來源（{source}）比目標（{destination}）大。"
+
+#: src/images/transfer.cpp
+msgid "The source is empty."
+msgstr "來源為空。"
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The source could not be opened: {reason}"
+msgstr "無法開啟來源：{reason}"
+
+#: src/images/transfer.cpp
+msgid "The source could not be opened."
+msgstr "無法開啟來源。"
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The destination could not be opened: {reason}"
+msgstr "無法開啟目標：{reason}"
+
+#: src/images/transfer.cpp
+msgid "The destination could not be opened."
+msgstr "無法開啟目標。"
+
+#: src/udisks/describe.cpp
+msgid "GUID Partition Map"
+msgstr "GUID 分區表"
+
+#: src/udisks/describe.cpp
+msgid "Master Boot Record"
+msgstr "主開機記錄"
+
+#. TRANSLATORS: a disk without a model name, such as "16 GB Disk".
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Disk"
+msgstr "{size} 磁碟"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Extended Partition"
+msgstr "擴展分區"
+
+#. TRANSLATORS: a volume without a label, named by its size, such as "16 GB Volume".
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Encrypted Volume"
+msgstr "{size} 加密卷宗"
+
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Volume"
+msgstr "{size} 卷宗"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+msgid "SD Card"
+msgstr "SD 卡"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Disk Image"
+msgstr "磁碟映像檔"
+
+#: src/udisks/operations.cpp
+msgid "The device is no longer available."
+msgstr "此裝置已無法使用。"
+
+#: src/udisks/operations.cpp
+msgid "Another operation on this disk is in progress."
+msgstr "此磁碟上的另一個操作正在進行。"
+
+#: src/udisks/operations.cpp
+msgid "The partition holds the running system."
+msgstr "此分區包含運行中的系統。"
+
+#: src/udisks/operations.cpp
+msgid "The disk is no longer available."
+msgstr "此磁碟已無法使用。"
+
+#: src/udisks/operations.cpp
+msgid "The disk cannot be ejected."
+msgstr "無法退出此磁碟。"
+
+#: src/udisks/operations.cpp
+msgid "The disk image holds the running system."
+msgstr "此磁碟映像檔包含運行中的系統。"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{n} byte"
+msgid_plural "{n} bytes"
+msgstr[0] "{n} 位元組"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{size} ({bytes})"
+msgstr "{size}（{bytes}）"
+
+#: src/udisks/properties.cpp
+msgid "EFI System"
+msgstr "EFI 系統"
+
+#: src/udisks/properties.cpp
+msgid "BIOS Boot"
+msgstr "BIOS 開機"
+
+#: src/udisks/properties.cpp
+msgid "Linux Filesystem"
+msgstr "Linux 檔案系統"
+
+#: src/udisks/properties.cpp
+msgid "Linux Root (x86-64)"
+msgstr "Linux 根分區 (x86-64)"
+
+#: src/udisks/properties.cpp
+msgid "Linux Root (ARM64)"
+msgstr "Linux 根分區 (ARM64)"
+
+#: src/udisks/properties.cpp
+msgid "Linux Home"
+msgstr "Linux 主目錄"
+
+#: src/udisks/properties.cpp
+msgid "Linux Extended Boot"
+msgstr "Linux 擴展開機"
+
+#: src/udisks/properties.cpp
+msgid "Linux Swap"
+msgstr "Linux 交換空間"
+
+#: src/udisks/properties.cpp
+msgid "Linux LVM"
+msgstr "Linux LVM"
+
+#: src/udisks/properties.cpp
+msgid "Linux RAID"
+msgstr "Linux RAID"
+
+#: src/udisks/properties.cpp
+msgid "Linux LUKS"
+msgstr "Linux LUKS"
+
+#: src/udisks/properties.cpp
+msgid "Microsoft Basic Data"
+msgstr "Microsoft 基本數據"
+
+#: src/udisks/properties.cpp
+msgid "Microsoft Reserved"
+msgstr "Microsoft 保留"
+
+#: src/udisks/properties.cpp
+msgid "Windows Recovery"
+msgstr "Windows 復原"
+
+#: src/udisks/properties.cpp
+msgid "Apple HFS+"
+msgstr "Apple HFS+"
+
+#: src/udisks/properties.cpp
+msgid "Apple APFS"
+msgstr "Apple APFS"
+
+#: src/udisks/properties.cpp
+msgid "FAT12"
+msgstr "FAT12"
+
+#: src/udisks/properties.cpp
+msgid "FAT16"
+msgstr "FAT16"
+
+#: src/udisks/properties.cpp
+msgid "Extended"
+msgstr "擴展"
+
+#: src/udisks/properties.cpp
+msgid "NTFS or exFAT"
+msgstr "NTFS 或 exFAT"
+
+#: src/udisks/properties.cpp
+msgid "FAT32"
+msgstr "FAT32"
+
+#: src/udisks/properties.cpp
+msgid "FAT32 (LBA)"
+msgstr "FAT32 (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "FAT16 (LBA)"
+msgstr "FAT16 (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "Extended (LBA)"
+msgstr "擴展 (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "Linux"
+msgstr "Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Extended"
+msgstr "Linux 擴展"
+
+#: src/udisks/properties.cpp
+msgid "Non-Filesystem Data"
+msgstr "非檔案系統數據"
+
+#: src/udisks/properties.cpp
+msgid "GPT Protective"
+msgstr "GPT 保護"
+
+#: src/udisks/properties.cpp
+msgid "Bootable"
+msgstr "可開機"
+
+#: src/udisks/properties.cpp
+msgctxt "partition flag"
+msgid "Required"
+msgstr "必填"
+
+#: src/udisks/properties.cpp
+msgid "Ignored by Firmware"
+msgstr "被韌件忽略"
+
+#: src/udisks/properties.cpp
+msgid "Legacy BIOS Bootable"
+msgstr "可經傳統 BIOS 開機"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Read Only"
+msgstr "唯讀"
+
+#: src/udisks/properties.cpp
+msgid "Hidden"
+msgstr "隱藏"
+
+#: src/udisks/properties.cpp
+msgid "No Automount"
+msgstr "不自動掛載"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Enabled"
+msgstr "已啟用噪音管理"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Supported"
+msgstr "支援噪音管理"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Recommended Value"
+msgstr "噪音管理建議值"
+
+#: src/udisks/properties.cpp
+msgid "Active"
+msgstr "使用中"
+
+#: src/udisks/properties.cpp
+msgid "Power Management (APM) Enabled"
+msgstr "已啟用電源管理 (APM)"
+
+#: src/udisks/properties.cpp
+msgid "Power Management (APM) Supported"
+msgstr "支援電源管理 (APM)"
+
+#: src/udisks/properties.cpp
+msgid "Detaches When Unused"
+msgstr "不使用時自動中斷連接"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Image File"
+msgstr "映像檔"
+
+#: src/udisks/properties.cpp
+msgid "Can Power Off"
+msgstr "可關閉電源"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Configuration"
+msgstr "解鎖後的設定"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Device"
+msgstr "解鎖後的裝置"
+
+#: src/udisks/properties.cpp
+msgid "Configuration"
+msgstr "設定"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Connection"
+msgstr "連接"
+
+#: src/udisks/properties.cpp
+msgid "Controller ID"
+msgstr "控制器 ID"
+
+#: src/udisks/properties.cpp
+msgid "Encrypted Device"
+msgstr "加密裝置"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Device"
+msgstr "裝置"
+
+#: src/udisks/properties.cpp
+msgid "Device Number"
+msgstr "裝置編號"
+
+#: src/udisks/properties.cpp
+msgid "Drive"
+msgstr "磁碟機"
+
+#: src/udisks/properties.cpp
+msgid "Ejectable"
+msgstr "可退出"
+
+#: src/udisks/properties.cpp
+msgid "FRU GUID"
+msgstr "FRU GUID"
+
+#: src/udisks/properties.cpp
+msgid "Flags"
+msgstr "標記"
+
+#: src/udisks/properties.cpp
+msgid "Mounts Automatically"
+msgstr "自動掛載"
+
+#: src/udisks/properties.cpp
+msgid "Icon"
+msgstr "圖示"
+
+#: src/udisks/properties.cpp
+msgid "Hidden from Users"
+msgstr "對用戶隱藏"
+
+#: src/udisks/properties.cpp
+msgid "Suggested Name"
+msgstr "建議名稱"
+
+#: src/udisks/properties.cpp
+msgid "Partitionable"
+msgstr "可分區"
+
+#: src/udisks/properties.cpp
+msgid "Symbolic Icon"
+msgstr "符號圖示"
+
+#: src/udisks/properties.cpp
+msgid "System Device"
+msgstr "系統裝置"
+
+#: src/udisks/properties.cpp
+msgid "Identifier"
+msgstr "識別碼"
+
+#: src/udisks/properties.cpp
+msgid "Label"
+msgstr "標籤"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "UUID"
+msgstr "UUID"
+
+#: src/udisks/properties.cpp
+msgid "Contents"
+msgstr "內容"
+
+#: src/udisks/properties.cpp
+msgid "Format Version"
+msgstr "格式版本"
+
+#: src/udisks/properties.cpp
+msgid "Logical Partition"
+msgstr "邏輯分區"
+
+#: src/udisks/properties.cpp
+msgid "RAID Array"
+msgstr "RAID 陣列"
+
+#: src/udisks/properties.cpp
+msgid "RAID Member Of"
+msgstr "所屬 RAID"
+
+#: src/udisks/properties.cpp
+msgid "Media"
+msgstr "媒體"
+
+#: src/udisks/properties.cpp
+msgid "Media Present"
+msgstr "有媒體"
+
+#: src/udisks/properties.cpp
+msgid "Media Change Detected"
+msgstr "偵測到媒體更換"
+
+#: src/udisks/properties.cpp
+msgid "Compatible Media"
+msgstr "兼容媒體"
+
+#: src/udisks/properties.cpp
+msgid "Removable Media"
+msgstr "可移除媒體"
+
+#: src/udisks/properties.cpp
+msgid "Header Size"
+msgstr "標頭大小"
+
+#: src/udisks/properties.cpp
+msgid "Model"
+msgstr "型號"
+
+#: src/udisks/properties.cpp
+msgid "Mount Points"
+msgstr "掛載點"
+
+#: src/udisks/properties.cpp
+msgid "NVMe Version"
+msgstr "NVMe 版本"
+
+#: src/udisks/properties.cpp
+msgid "Number"
+msgstr "編號"
+
+#: src/udisks/properties.cpp
+msgid "Offset"
+msgstr "偏移"
+
+#: src/udisks/properties.cpp
+msgid "Optical"
+msgstr "光學"
+
+#: src/udisks/properties.cpp
+msgid "Blank Disc"
+msgstr "空白光碟"
+
+#: src/udisks/properties.cpp
+msgid "Audio Tracks"
+msgstr "音訊軌"
+
+#: src/udisks/properties.cpp
+msgid "Data Tracks"
+msgstr "數據軌"
+
+#: src/udisks/properties.cpp
+msgid "Sessions"
+msgstr "區段"
+
+#: src/udisks/properties.cpp
+msgid "Tracks"
+msgstr "軌"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Partitions"
+msgstr "分區"
+
+#: src/udisks/properties.cpp
+msgid "Power Management Enabled"
+msgstr "已啟用電源管理"
+
+#: src/udisks/properties.cpp
+msgid "Power Management Supported"
+msgstr "支援電源管理"
+
+#: src/udisks/properties.cpp
+msgid "Preferred Device"
+msgstr "首選裝置"
+
+#: src/udisks/properties.cpp
+msgid "Read-Ahead Enabled"
+msgstr "已啟用預讀"
+
+#: src/udisks/properties.cpp
+msgid "Read-Ahead Supported"
+msgstr "支援預讀"
+
+#: src/udisks/properties.cpp
+msgid "Removable"
+msgstr "可移除"
+
+#: src/udisks/properties.cpp
+msgid "Firmware Revision"
+msgstr "韌件版本"
+
+#: src/udisks/properties.cpp
+msgid "Rotation Rate"
+msgstr "轉速"
+
+#: src/udisks/properties.cpp
+msgid "Sanitize Remaining"
+msgstr "清理剩餘時間"
+
+#: src/udisks/properties.cpp
+msgid "Sanitize Status"
+msgstr "清理狀態"
+
+#: src/udisks/properties.cpp
+msgid "Seat"
+msgstr "座位"
+
+#: src/udisks/properties.cpp
+msgid "Enhanced Secure Erase Time"
+msgstr "增強型安全清除時間"
+
+#: src/udisks/properties.cpp
+msgid "Secure Erase Time"
+msgstr "安全清除時間"
+
+#: src/udisks/properties.cpp
+msgid "Security Frozen"
+msgstr "保安已凍結"
+
+#: src/udisks/properties.cpp
+msgid "Serial Number"
+msgstr "序號"
+
+#: src/udisks/properties.cpp
+msgid "Attached by User"
+msgstr "由用戶連接"
+
+#: src/udisks/properties.cpp
+msgid "Sibling Identifier"
+msgstr "同級識別碼"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Enabled"
+msgstr "已啟用 S.M.A.R.T."
+
+#: src/udisks/properties.cpp
+msgid "Predicts Failure"
+msgstr "預測會故障"
+
+#: src/udisks/properties.cpp
+msgid "Attributes Failed in the Past"
+msgstr "過去曾故障的屬性"
+
+#: src/udisks/properties.cpp
+msgid "Attributes Failing"
+msgstr "即將故障的屬性"
+
+#: src/udisks/properties.cpp
+msgid "Self-Test Remaining"
+msgstr "自我測試剩餘"
+
+#: src/udisks/properties.cpp
+msgid "Last Self-Test"
+msgstr "上次自我測試"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Supported"
+msgstr "支援 S.M.A.R.T."
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Read"
+msgstr "S.M.A.R.T. 讀取時間"
+
+#: src/udisks/properties.cpp
+msgid "Sort Key"
+msgstr "排序鍵"
+
+#: src/udisks/properties.cpp
+msgid "State"
+msgstr "狀態"
+
+#: src/udisks/properties.cpp
+msgid "Subsystem NQN"
+msgstr "子系統 NQN"
+
+#: src/udisks/properties.cpp
+msgid "Links"
+msgstr "連結"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Partition Map"
+msgstr "分區表"
+
+#: src/udisks/properties.cpp
+msgid "Detected"
+msgstr "偵測時間"
+
+#: src/udisks/properties.cpp
+msgid "Media Detected"
+msgstr "偵測到媒體時間"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Type"
+msgstr "類型"
+
+#: src/udisks/properties.cpp
+msgid "Unallocated Capacity"
+msgstr "未分配容量"
+
+#: src/udisks/properties.cpp
+msgid "Mount Options"
+msgstr "掛載選項"
+
+#: src/udisks/properties.cpp
+msgid "Vendor"
+msgstr "供應商"
+
+#: src/udisks/properties.cpp
+msgid "World Wide Name"
+msgstr "全球唯一名稱 (WWN)"
+
+#: src/udisks/properties.cpp
+msgid "Write Cache Enabled"
+msgstr "已啟用寫入快取"
+
+#: src/udisks/properties.cpp
+msgid "Write Cache Supported"
+msgstr "支援寫入快取"
+
+#: src/udisks/properties.cpp
+msgid "NVMe Controller"
+msgstr "NVMe 控制器"
+
+#: src/udisks/properties.cpp
+msgid "Block Device"
+msgstr "區塊裝置"
+
+#: src/udisks/properties.cpp
+msgid "File System"
+msgstr "檔案系統"
+
+#: src/udisks/properties.cpp
+msgid "Yes"
+msgstr "是"
+
+#: src/udisks/properties.cpp
+msgid "No"
+msgstr "否"
+
+#: src/udisks/properties.cpp
+msgid "Never"
+msgstr "永不"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Solid State"
+msgstr "固態"
+
+#: src/udisks/properties.cpp
+msgid "Unknown"
+msgstr "未知"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{n} RPM"
+msgstr "{n} RPM"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{name} ({type})"
+msgstr "{name}（{type}）"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Block Device"
+msgstr "解鎖後的區塊裝置"
+
+#: src/udisks/smart.cpp
+msgid "Not Supported"
+msgstr "不支援"
+
+#: src/udisks/smart.cpp
+msgid "Verified"
+msgstr "已驗證"
+
+#: src/udisks/smart.cpp
+msgid "Failing"
+msgstr "即將故障"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} °C"
+msgstr "{n} °C"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} hour"
+msgid_plural "{n} hours"
+msgstr[0] "{n} 小時"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} day"
+msgid_plural "{n} days"
+msgstr[0] "{n} 天"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{days} ({hours})"
+msgstr "{days}（{hours}）"
+
+#: src/udisks/smart.cpp
+msgid "In progress"
+msgstr "正在進行"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "In progress, {n}% left"
+msgstr "正在進行，剩餘 {n}%"
+
+#: src/udisks/smart.cpp
+msgid "Completed without error"
+msgstr "已完成，無錯誤"
+
+#: src/udisks/smart.cpp
+msgid "Aborted"
+msgstr "已中止"
+
+#: src/udisks/smart.cpp
+msgid "Interrupted by a reset"
+msgstr "被重設中斷"
+
+#: src/udisks/smart.cpp
+msgid "Failed: electrical error"
+msgstr "失敗：電氣錯誤"
+
+#: src/udisks/smart.cpp
+msgid "Failed: servo error"
+msgstr "失敗：伺服錯誤"
+
+#: src/udisks/smart.cpp
+msgid "Failed: read error"
+msgstr "失敗：讀取錯誤"
+
+#: src/udisks/smart.cpp
+msgid "Failed: damage found"
+msgstr "失敗：發現損壞"
+
+#: src/udisks/smart.cpp
+msgid "Failed"
+msgstr "失敗"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "Attribute {n}"
+msgstr "屬性 {n}"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} ms"
+msgstr "{n} 毫秒"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} sector"
+msgid_plural "{n} sectors"
+msgstr[0] "{n} 個扇區"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} minute"
+msgid_plural "{n} minutes"
+msgstr[0] "{n} 分鐘"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{value} (threshold {threshold})"
+msgstr "{value}（臨界值 {threshold}）"
+
+#: src/udisks/smart.cpp
+msgid "Available Spare"
+msgstr "可用備用空間"
+
+#: src/udisks/smart.cpp
+msgid "Wear"
+msgstr "耗損"
+
+#: src/udisks/smart.cpp
+msgid "Data Read"
+msgstr "已讀取數據"
+
+#: src/udisks/smart.cpp
+msgid "Data Written"
+msgstr "已寫入數據"
+
+#: src/udisks/smart.cpp
+msgid "Busy Time"
+msgstr "忙碌時間"
+
+#: src/udisks/smart.cpp
+msgid "Power Cycles"
+msgstr "開機次數"
+
+#: src/udisks/smart.cpp
+msgid "Unsafe Shutdowns"
+msgstr "不安全關機次數"
+
+#: src/udisks/smart.cpp
+msgid "Media Errors"
+msgstr "媒體錯誤"
+
+#: src/udisks/smart.cpp
+msgid "Error Log Entries"
+msgstr "錯誤記錄項目"
+
+#: src/udisks/smart.cpp
+msgid "Warning Temperature"
+msgstr "警告溫度"
+
+#: src/udisks/smart.cpp
+msgid "Critical Temperature"
+msgstr "臨界溫度"
+
+#: src/udisks/smart.cpp
+msgid "Time Above Warning"
+msgstr "超過警告溫度時間"
+
+#: src/udisks/smart.cpp
+msgid "Time Above Critical"
+msgstr "超過臨界溫度時間"
+
+#: src/views/detail.cpp
+msgid "No Disks"
+msgstr "沒有磁碟"
+
+#: src/views/detail.cpp
+msgid "Disks, volumes and disk images show here when they are attached."
+msgstr "連接磁碟、卷宗和磁碟映像檔後，它們會顯示在這裏。"
+
+#: src/views/detailcards.cpp
+#, python-brace-format
+msgid "{percent}%"
+msgstr "{percent}%"
+
+#: src/views/detailcontent.cpp
+msgid "Erasing"
+msgstr "正在清除"
+
+#: src/views/detailcontent.cpp
+msgid "Checking"
+msgstr "正在檢查"
+
+#: src/views/detailcontent.cpp
+msgid "Repairing"
+msgstr "正在修復"
+
+#: src/views/detailcontent.cpp
+msgid "Resizing"
+msgstr "正在調整大小"
+
+#: src/views/detailcontent.cpp
+msgid "Mounting"
+msgstr "正在掛載"
+
+#: src/views/detailcontent.cpp
+msgid "Unmounting"
+msgstr "正在卸載"
+
+#: src/views/detailcontent.cpp
+msgid "Adding a partition"
+msgstr "正在加入分區"
+
+#: src/views/detailcontent.cpp
+msgid "Deleting a partition"
+msgstr "正在刪除分區"
+
+#: src/views/detailcontent.cpp
+msgid "Changing the partition"
+msgstr "正在更改分區"
+
+#: src/views/detailcontent.cpp
+msgid "Unlocking"
+msgstr "正在解鎖"
+
+#: src/views/detailcontent.cpp
+msgid "Locking"
+msgstr "正在鎖定"
+
+#: src/views/detailcontent.cpp
+msgid "Ejecting"
+msgstr "正在退出"
+
+#: src/views/detailcontent.cpp
+msgid "Powering off"
+msgstr "正在關閉電源"
+
+#: src/views/detailcontent.cpp
+msgid "Running a self-test"
+msgstr "正在執行自我測試"
+
+#: src/views/detailcontent.cpp
+msgid "Attaching"
+msgstr "正在連接"
+
+#: src/views/detailcontent.cpp
+msgid "Working"
+msgstr "正在處理"
+
+#: src/views/detailcontent.cpp src/views/sidebar.cpp
+msgid "External"
+msgstr "外置"
+
+#: src/views/detailcontent.cpp src/views/sidebar.cpp
+msgid "Internal"
+msgstr "內置"
+
+#: src/views/detailcontent.cpp
+msgid "Optical Disc"
+msgstr "光碟"
+
+#: src/views/detailcontent.cpp
+msgid "Flash Memory"
+msgstr "快閃記憶體"
+
+#: src/views/detailcontent.cpp
+msgid "Hard Disk"
+msgstr "硬碟"
+
+#. TRANSLATORS: an encrypted volume that is locked, such as "LUKS (Locked)".
+#: src/views/detailcontent.cpp
+#, python-brace-format
+msgid "{type} (Locked)"
+msgstr "{type}（已鎖定）"
+
+#. TRANSLATORS: an unlocked encrypted volume, such as "ext4 (Encrypted)".
+#: src/views/detailcontent.cpp
+#, python-brace-format
+msgid "{type} (Encrypted)"
+msgstr "{type}（已加密）"
+
+#: src/views/detailcontent.cpp
+msgid "Free"
+msgstr "可用"
+
+#: src/views/detailcontent.cpp
+msgid "Location"
+msgstr "位置"
+
+#: src/views/detailcontent.cpp
+msgid "Capacity"
+msgstr "容量"
+
+#: src/views/detailcontent.cpp
+msgid "S.M.A.R.T. Status"
+msgstr "S.M.A.R.T. 狀態"
+
+#: src/views/detailcontent.cpp
+msgid "Access"
+msgstr "存取權限"
+
+#: src/views/detailcontent.cpp
+msgid "Used"
+msgstr "已使用"
+
+#: src/views/detailcontent.cpp
+msgid "Other"
+msgstr "其他"
+
+#: src/views/detailcontent.cpp
+msgid "Mount Point"
+msgstr "掛載點"
+
+#: src/views/detailcontent.cpp
+msgid "Not Mounted"
+msgstr "未掛載"
+
+#: src/views/detailcontent.cpp
+msgid "Available"
+msgstr "可用"
+
+#: src/views/detailcontent.cpp
+msgid "Owner"
+msgstr "擁有人"
+
+#: src/views/diskwindow.cpp src/views/toolbar.cpp cutefish-disk-utility.desktop
+msgid "Disk Utility"
+msgstr "磁碟工具程式"
+
+#: src/views/diskwindow.cpp
+msgid "The operation was refused."
+msgstr "操作被拒絕。"
+
+#: src/views/diskwindow.cpp
+msgid "Show Only Volumes"
+msgstr "僅顯示卷宗"
+
+#: src/views/diskwindow.cpp
+msgid "Show All Devices"
+msgstr "顯示所有裝置"
+
+#: src/views/diskwindow.cpp
+msgid "An operation is in progress."
+msgstr "有操作正在進行。"
+
+#: src/views/diskwindow.cpp
+msgid "Quitting now stops it partway, which can leave the disk unusable. Wait until it is done."
+msgstr "現在結束會中途停止操作，可能導致磁碟無法使用。請等待操作完成。"
+
+#: src/views/diskwindow.cpp
+msgid "Keep Running"
+msgstr "繼續運行"
+
+#: src/views/diskwindow.cpp
+msgid "Quit Anyway"
+msgstr "仍要結束"
+
+#: src/views/diskwindow.cpp
+msgid "OK"
+msgstr "好"
+
+#: src/views/diskwindow.cpp
+msgid "Erases, partitions, checks and images the disks of your computer."
+msgstr "清除、分區、檢查電腦中的磁碟，並為其建立映像檔。"
+
+#: src/views/diskwindow.cpp
+msgid "About Disk Utility"
+msgstr "關於磁碟工具程式"
+
+#: src/views/diskwindow.cpp
+msgid "Hide Disk Utility"
+msgstr "隱藏磁碟工具程式"
+
+#: src/views/diskwindow.cpp
+msgid "Quit Disk Utility"
+msgstr "結束磁碟工具程式"
+
+#: src/views/diskwindow.cpp
+msgid "File"
+msgstr "檔案"
+
+#: src/views/diskwindow.cpp
+msgid "New Image"
+msgstr "新增映像檔"
+
+#: src/views/diskwindow.cpp
+msgid "Close Window"
+msgstr "關閉視窗"
+
+#: src/views/diskwindow.cpp
+msgid "Edit"
+msgstr "編輯"
+
+#: src/views/diskwindow.cpp
+msgid "Window"
+msgstr "視窗"
+
+#: src/views/diskwindow.cpp
+msgid "Minimize"
+msgstr "最小化"
+
+#: src/views/diskwindow.cpp
+msgid "Zoom"
+msgstr "縮放"
+
+#: cutefish-disk-utility.desktop
+msgid "Manage disks, volumes and disk images"
+msgstr "管理磁碟、卷宗和磁碟映像檔"
+
+#: cutefish-disk-utility.desktop
+msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
+msgstr "磁碟;硬碟;磁碟機;卷宗;分區;格式化;清除;掛載;映像檔;ISO;USB;USB手指;"
