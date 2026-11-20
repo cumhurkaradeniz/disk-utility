@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-disk-utility\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-21 00:27+0800\n"
+"POT-Creation-Date: 2026-11-21 01:52+0800\n"
 "PO-Revision-Date: 2026-11-21 00:19+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -76,21 +76,13 @@ msgstr "Image vierge…"
 msgid "Image from Selection…"
 msgstr "Image de la sélection…"
 
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The disks of the running system could not be found."
-msgstr "Les disques du système en cours d'exécution sont introuvables."
-
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The disk holds the running system."
-msgstr "Le disque contient le système en cours d'exécution."
-
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The volume holds the running system."
-msgstr "Le volume contient le système en cours d'exécution."
-
 #: src/actions.cpp
 msgid "An operation on this disk is in progress."
 msgstr "Une opération est en cours sur ce disque."
+
+#: src/actions.cpp
+msgid "Nothing is restored onto the system's disk: the copy would bring another volume's identity, and the computer could start from the wrong one."
+msgstr "Rien n’est restauré sur le disque du système : la copie apporterait l’identité d’un autre volume, et l’ordinateur pourrait démarrer sur le mauvais."
 
 #: src/actions.cpp src/dialogs/partition_plan.cpp
 #: src/dialogs/volume_actions.cpp
@@ -132,8 +124,20 @@ msgid "Opening…"
 msgstr "Ouverture…"
 
 #: src/dialogs/copyprogress.cpp
+msgid "Stopped. The incomplete image file was removed."
+msgstr "Arrêté. Le fichier image incomplet a été supprimé."
+
+#: src/dialogs/copyprogress.cpp
 msgid "Stopped."
 msgstr "Arrêté."
+
+#: src/dialogs/copyprogress.cpp
+msgid "The destination was overwritten in part. Restore or erase it again before you use it."
+msgstr "La destination a été en partie écrasée. Restaurez-la ou effacez-la à nouveau avant de l’utiliser."
+
+#: src/dialogs/copyprogress.cpp
+msgid "The incomplete image file was removed."
+msgstr "Le fichier image incomplet a été supprimé."
 
 #: src/dialogs/diskimages.cpp
 msgid "The new image could not be mounted."
@@ -409,6 +413,11 @@ msgstr "Afficher les détails"
 msgid "Checking {format} volumes needs {tool}, which is not installed."
 msgstr "La vérification des volumes {format} nécessite {tool}, qui n'est pas installé."
 
+#: src/dialogs/firstaid.cpp src/dialogs/identity_guard.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there."
+msgstr "« {name} » n'est plus là."
+
 #: src/dialogs/firstaid.cpp
 msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds. Mounted volumes are unmounted while they are checked and mounted again afterwards."
 msgstr "S.O.S. vérifie chaque volume du disque et répare les erreurs trouvées. Les volumes montés sont démontés pendant la vérification puis remontés ensuite."
@@ -468,8 +477,9 @@ msgid "unknown format"
 msgstr "format inconnu"
 
 #: src/dialogs/firstaid.cpp
-msgid "a checking tool"
-msgstr "un outil de vérification"
+#, python-brace-format
+msgid "UDisks2 could not tell whether {format} volumes can be checked. Try again later."
+msgstr "UDisks2 n’a pas pu indiquer si les volumes {format} peuvent être vérifiés. Réessayez plus tard."
 
 #: src/dialogs/firstaid.cpp
 #, python-brace-format
@@ -515,12 +525,13 @@ msgstr "Le système de fichiers contient des erreurs."
 
 #: src/dialogs/firstaid.cpp
 #, python-brace-format
-msgid "{format} volumes can’t be repaired: {tool} is not installed."
-msgstr "Les volumes {format} ne peuvent pas être réparés : {tool} n'est pas installé."
+msgid "UDisks2 could not tell whether {format} volumes can be repaired."
+msgstr "UDisks2 n’a pas pu indiquer si les volumes {format} peuvent être réparés."
 
 #: src/dialogs/firstaid.cpp
-msgid "a repair tool"
-msgstr "un outil de réparation"
+#, python-brace-format
+msgid "{format} volumes can’t be repaired: {tool} is not installed."
+msgstr "Les volumes {format} ne peuvent pas être réparés : {tool} n'est pas installé."
 
 #: src/dialogs/firstaid.cpp
 msgid "Repairing the file system."
@@ -580,11 +591,6 @@ msgstr[1] "{n} volumes ont été ignorés."
 #: src/dialogs/firstaid.cpp
 msgid "First Aid"
 msgstr "S.O.S."
-
-#: src/dialogs/identity_guard.cpp
-#, python-brace-format
-msgid "“{name}” is no longer there."
-msgstr "« {name} » n'est plus là."
 
 #: src/dialogs/identity_guard.cpp
 msgid "It was removed or replaced by another disk, so nothing more is done to it."
@@ -818,6 +824,11 @@ msgstr "Rien n'a été modifié sur « {name} »."
 
 #: src/dialogs/partition.cpp
 #, python-brace-format
+msgid "“{name}” was partitioned only in part: “{step}” may have changed it before it failed."
+msgstr "« {name} » n’a été partitionné qu’en partie : « {step} » l’a peut-être modifié avant d’échouer."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
 msgid "“{name}” was partitioned only in part: the first {count} steps were taken."
 msgstr "« {name} » n'a été partitionné qu'en partie : les {count} premières étapes ont été effectuées."
 
@@ -1001,6 +1012,11 @@ msgstr "Création de « {name} »…"
 msgid "Renaming “{name}”…"
 msgstr "Renommage de « {name} »…"
 
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "“{name}” is no longer the one the changes were made for."
+msgstr "« {name} » n’est plus celui pour lequel les modifications ont été préparées."
+
 #: src/dialogs/plan_runner.cpp src/images/transfer.cpp
 msgid "The disk was removed or replaced by another."
 msgstr "Le disque a été retiré ou remplacé par un autre."
@@ -1053,6 +1069,11 @@ msgstr "Restaurer"
 #, python-brace-format
 msgid "{name} ({device}, {size})"
 msgstr "{name} ({device}, {size})"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there. Choose another source."
+msgstr "« {name} » n’est plus là. Choisissez une autre source."
 
 #: src/dialogs/restore.cpp
 msgid "Choose a disk image, or attach a disk to restore from."
@@ -1351,6 +1372,11 @@ msgid "The source and the destination overlap: one lies inside the other."
 msgstr "La source et la destination se chevauchent."
 
 #: src/images/transfer.cpp
+#, python-brace-format
+msgid "The file is compressed ({format}). Decompress it first."
+msgstr "Le fichier est compressé ({format}). Décompressez-le d’abord."
+
+#: src/images/transfer.cpp
 msgid "A disk image cannot be restored onto itself."
 msgstr "Une image disque ne peut pas être restaurée sur elle-même."
 
@@ -1428,17 +1454,25 @@ msgstr "Carte SD"
 msgid "Disk Image"
 msgstr "Image disque"
 
-#: src/udisks/operations.cpp
+#: src/udisks/guard.cpp
 msgid "The device is no longer available."
 msgstr "L'appareil n'est plus disponible."
+
+#: src/udisks/guard.cpp
+msgid "The disks of the running system could not be found."
+msgstr "Les disques du système en cours d'exécution sont introuvables."
+
+#: src/udisks/guard.cpp
+msgid "The volume holds the running system."
+msgstr "Le volume contient le système en cours d'exécution."
+
+#: src/udisks/guard.cpp
+msgid "The disk holds the running system."
+msgstr "Le disque contient le système en cours d'exécution."
 
 #: src/udisks/operations.cpp
 msgid "Another operation on this disk is in progress."
 msgstr "Une autre opération est en cours sur ce disque."
-
-#: src/udisks/operations.cpp
-msgid "The partition holds the running system."
-msgstr "La partition contient le système en cours d'exécution."
 
 #: src/udisks/operations.cpp
 msgid "The disk is no longer available."
@@ -1447,10 +1481,6 @@ msgstr "Le disque n'est plus disponible."
 #: src/udisks/operations.cpp
 msgid "The disk cannot be ejected."
 msgstr "Le disque ne peut pas être éjecté."
-
-#: src/udisks/operations.cpp
-msgid "The disk image holds the running system."
-msgstr "L'image disque contient le système en cours d'exécution."
 
 #: src/udisks/properties.cpp
 #, python-brace-format
@@ -2421,3 +2451,15 @@ msgstr "Gérer les disques, volumes et images disque"
 #: cutefish-disk-utility.desktop
 msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
 msgstr "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;Disque;Lecteur;Partitionner;Formater;Effacer;Monter;Clé USB;"
+
+#~ msgid "a checking tool"
+#~ msgstr "un outil de vérification"
+
+#~ msgid "a repair tool"
+#~ msgstr "un outil de réparation"
+
+#~ msgid "The partition holds the running system."
+#~ msgstr "La partition contient le système en cours d'exécution."
+
+#~ msgid "The disk image holds the running system."
+#~ msgstr "L'image disque contient le système en cours d'exécution."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-disk-utility\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-21 00:27+0800\n"
+"POT-Creation-Date: 2026-11-21 01:52+0800\n"
 "PO-Revision-Date: 2026-11-21 00:19+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -76,21 +76,13 @@ msgstr "空のイメージ…"
 msgid "Image from Selection…"
 msgstr "選択項目からイメージ…"
 
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The disks of the running system could not be found."
-msgstr "実行中のシステムのディスクが見つかりませんでした。"
-
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The disk holds the running system."
-msgstr "このディスクには実行中のシステムがあります。"
-
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The volume holds the running system."
-msgstr "このボリュームには実行中のシステムがあります。"
-
 #: src/actions.cpp
 msgid "An operation on this disk is in progress."
 msgstr "このディスクで操作を実行中です。"
+
+#: src/actions.cpp
+msgid "Nothing is restored onto the system's disk: the copy would bring another volume's identity, and the computer could start from the wrong one."
+msgstr "システムのディスクには何も復元しません。コピーは別のボリュームの識別情報を持ち込むため、コンピュータが誤ったボリュームから起動するおそれがあります。"
 
 #: src/actions.cpp src/dialogs/partition_plan.cpp
 #: src/dialogs/volume_actions.cpp
@@ -132,8 +124,20 @@ msgid "Opening…"
 msgstr "開いています…"
 
 #: src/dialogs/copyprogress.cpp
+msgid "Stopped. The incomplete image file was removed."
+msgstr "停止しました。不完全なイメージファイルは削除されました。"
+
+#: src/dialogs/copyprogress.cpp
 msgid "Stopped."
 msgstr "停止しました。"
+
+#: src/dialogs/copyprogress.cpp
+msgid "The destination was overwritten in part. Restore or erase it again before you use it."
+msgstr "書き込み先は一部上書きされました。使用する前にもう一度復元するか消去してください。"
+
+#: src/dialogs/copyprogress.cpp
+msgid "The incomplete image file was removed."
+msgstr "不完全なイメージファイルは削除されました。"
 
 #: src/dialogs/diskimages.cpp
 msgid "The new image could not be mounted."
@@ -409,6 +413,11 @@ msgstr "詳細を表示"
 msgid "Checking {format} volumes needs {tool}, which is not installed."
 msgstr "{format} ボリュームを検査するには {tool} が必要ですが、インストールされていません。"
 
+#: src/dialogs/firstaid.cpp src/dialogs/identity_guard.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there."
+msgstr "「{name}」はもうありません。"
+
 #: src/dialogs/firstaid.cpp
 msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds. Mounted volumes are unmounted while they are checked and mounted again afterwards."
 msgstr "First Aid はディスク上のすべてのボリュームにエラーがないか検査し、見つかったエラーを修復します。マウントされているボリュームは検査中にアンマウントされ、終了後に再びマウントされます。"
@@ -468,8 +477,9 @@ msgid "unknown format"
 msgstr "不明なフォーマット"
 
 #: src/dialogs/firstaid.cpp
-msgid "a checking tool"
-msgstr "検査ツール"
+#, python-brace-format
+msgid "UDisks2 could not tell whether {format} volumes can be checked. Try again later."
+msgstr "UDisks2 は {format} ボリュームを検証できるかどうかを判断できませんでした。後でもう一度お試しください。"
 
 #: src/dialogs/firstaid.cpp
 #, python-brace-format
@@ -515,12 +525,13 @@ msgstr "ファイルシステムにエラーがあります。"
 
 #: src/dialogs/firstaid.cpp
 #, python-brace-format
-msgid "{format} volumes can’t be repaired: {tool} is not installed."
-msgstr "{format} ボリュームは修復できません: {tool} がインストールされていません。"
+msgid "UDisks2 could not tell whether {format} volumes can be repaired."
+msgstr "UDisks2 は {format} ボリュームを修復できるかどうかを判断できませんでした。"
 
 #: src/dialogs/firstaid.cpp
-msgid "a repair tool"
-msgstr "修復ツール"
+#, python-brace-format
+msgid "{format} volumes can’t be repaired: {tool} is not installed."
+msgstr "{format} ボリュームは修復できません: {tool} がインストールされていません。"
 
 #: src/dialogs/firstaid.cpp
 msgid "Repairing the file system."
@@ -579,11 +590,6 @@ msgstr[0] "{n} 個のボリュームをスキップしました。"
 #: src/dialogs/firstaid.cpp
 msgid "First Aid"
 msgstr "First Aid"
-
-#: src/dialogs/identity_guard.cpp
-#, python-brace-format
-msgid "“{name}” is no longer there."
-msgstr "「{name}」はもうありません。"
 
 #: src/dialogs/identity_guard.cpp
 msgid "It was removed or replaced by another disk, so nothing more is done to it."
@@ -817,6 +823,11 @@ msgstr "「{name}」は何も変更されませんでした。"
 
 #: src/dialogs/partition.cpp
 #, python-brace-format
+msgid "“{name}” was partitioned only in part: “{step}” may have changed it before it failed."
+msgstr "「{name}」は一部だけパーティション作成されました。「{step}」が失敗する前に変更した可能性があります。"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
 msgid "“{name}” was partitioned only in part: the first {count} steps were taken."
 msgstr "「{name}」のパーティション分割は一部のみ完了しました: 最初の {count} 個の手順が実行されました。"
 
@@ -1000,6 +1011,11 @@ msgstr "「{name}」を作成中…"
 msgid "Renaming “{name}”…"
 msgstr "「{name}」の名前を変更中…"
 
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "“{name}” is no longer the one the changes were made for."
+msgstr "「{name}」は、変更を用意したときのデバイスではなくなりました。"
+
 #: src/dialogs/plan_runner.cpp src/images/transfer.cpp
 msgid "The disk was removed or replaced by another."
 msgstr "ディスクが取り外されたか、別のディスクに置き換えられました。"
@@ -1052,6 +1068,11 @@ msgstr "復元"
 #, python-brace-format
 msgid "{name} ({device}, {size})"
 msgstr "{name}（{device}、{size}）"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there. Choose another source."
+msgstr "「{name}」はもうありません。別のソースを選択してください。"
 
 #: src/dialogs/restore.cpp
 msgid "Choose a disk image, or attach a disk to restore from."
@@ -1347,6 +1368,11 @@ msgid "The source and the destination overlap: one lies inside the other."
 msgstr "ソースとコピー先が互いに含まれています。"
 
 #: src/images/transfer.cpp
+#, python-brace-format
+msgid "The file is compressed ({format}). Decompress it first."
+msgstr "このファイルは圧縮されています（{format}）。先に展開してください。"
+
+#: src/images/transfer.cpp
 msgid "A disk image cannot be restored onto itself."
 msgstr "ディスクイメージをそれ自体に復元することはできません。"
 
@@ -1424,17 +1450,25 @@ msgstr "SD カード"
 msgid "Disk Image"
 msgstr "ディスクイメージ"
 
-#: src/udisks/operations.cpp
+#: src/udisks/guard.cpp
 msgid "The device is no longer available."
 msgstr "デバイスはもう利用できません。"
+
+#: src/udisks/guard.cpp
+msgid "The disks of the running system could not be found."
+msgstr "実行中のシステムのディスクが見つかりませんでした。"
+
+#: src/udisks/guard.cpp
+msgid "The volume holds the running system."
+msgstr "このボリュームには実行中のシステムがあります。"
+
+#: src/udisks/guard.cpp
+msgid "The disk holds the running system."
+msgstr "このディスクには実行中のシステムがあります。"
 
 #: src/udisks/operations.cpp
 msgid "Another operation on this disk is in progress."
 msgstr "このディスクで別の操作を実行中です。"
-
-#: src/udisks/operations.cpp
-msgid "The partition holds the running system."
-msgstr "このパーティションには実行中のシステムがあります。"
 
 #: src/udisks/operations.cpp
 msgid "The disk is no longer available."
@@ -1443,10 +1477,6 @@ msgstr "ディスクはもう利用できません。"
 #: src/udisks/operations.cpp
 msgid "The disk cannot be ejected."
 msgstr "ディスクを取り出せません。"
-
-#: src/udisks/operations.cpp
-msgid "The disk image holds the running system."
-msgstr "このディスクイメージには実行中のシステムがあります。"
 
 #: src/udisks/properties.cpp
 #, python-brace-format
@@ -2412,3 +2442,15 @@ msgstr "ディスク、ボリューム、ディスクイメージを管理"
 #: cutefish-disk-utility.desktop
 msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
 msgstr "ディスク;ドライブ;ボリューム;パーティション;フォーマット;消去;マウント;イメージ;ISO;USB;"
+
+#~ msgid "a checking tool"
+#~ msgstr "検査ツール"
+
+#~ msgid "a repair tool"
+#~ msgstr "修復ツール"
+
+#~ msgid "The partition holds the running system."
+#~ msgstr "このパーティションには実行中のシステムがあります。"
+
+#~ msgid "The disk image holds the running system."
+#~ msgstr "このディスクイメージには実行中のシステムがあります。"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-disk-utility\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-21 00:27+0800\n"
+"POT-Creation-Date: 2026-11-21 01:52+0800\n"
 "PO-Revision-Date: 2026-11-21 00:19+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -76,21 +76,13 @@ msgstr "Пустой образ…"
 msgid "Image from Selection…"
 msgstr "Образ из выбранного…"
 
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The disks of the running system could not be found."
-msgstr "Не удалось найти диски работающей системы."
-
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The disk holds the running system."
-msgstr "На диске находится работающая система."
-
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The volume holds the running system."
-msgstr "На томе находится работающая система."
-
 #: src/actions.cpp
 msgid "An operation on this disk is in progress."
 msgstr "С этим диском выполняется операция."
+
+#: src/actions.cpp
+msgid "Nothing is restored onto the system's disk: the copy would bring another volume's identity, and the computer could start from the wrong one."
+msgstr "На системный диск ничего не восстанавливается: копия принесёт идентификатор другого тома, и компьютер может загрузиться не с того."
 
 #: src/actions.cpp src/dialogs/partition_plan.cpp
 #: src/dialogs/volume_actions.cpp
@@ -132,8 +124,20 @@ msgid "Opening…"
 msgstr "Открытие…"
 
 #: src/dialogs/copyprogress.cpp
+msgid "Stopped. The incomplete image file was removed."
+msgstr "Остановлено. Неполный файл образа удалён."
+
+#: src/dialogs/copyprogress.cpp
 msgid "Stopped."
 msgstr "Остановлено."
+
+#: src/dialogs/copyprogress.cpp
+msgid "The destination was overwritten in part. Restore or erase it again before you use it."
+msgstr "Место назначения перезаписано частично. Восстановите или сотрите его снова перед использованием."
+
+#: src/dialogs/copyprogress.cpp
+msgid "The incomplete image file was removed."
+msgstr "Неполный файл образа удалён."
 
 #: src/dialogs/diskimages.cpp
 msgid "The new image could not be mounted."
@@ -409,6 +413,11 @@ msgstr "Показать подробности"
 msgid "Checking {format} volumes needs {tool}, which is not installed."
 msgstr "Для проверки томов {format} нужен {tool}, но он не установлен."
 
+#: src/dialogs/firstaid.cpp src/dialogs/identity_guard.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there."
+msgstr "«{name}» больше нет."
+
 #: src/dialogs/firstaid.cpp
 msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds. Mounted volumes are unmounted while they are checked and mounted again afterwards."
 msgstr "Первая помощь проверяет все тома на диске на наличие ошибок и исправляет найденные. Подключённые тома на время проверки отключаются, а затем подключаются снова."
@@ -468,8 +477,9 @@ msgid "unknown format"
 msgstr "неизвестный формат"
 
 #: src/dialogs/firstaid.cpp
-msgid "a checking tool"
-msgstr "программа проверки"
+#, python-brace-format
+msgid "UDisks2 could not tell whether {format} volumes can be checked. Try again later."
+msgstr "UDisks2 не смог сообщить, можно ли проверять тома {format}. Повторите попытку позже."
 
 #: src/dialogs/firstaid.cpp
 #, python-brace-format
@@ -515,12 +525,13 @@ msgstr "В файловой системе есть ошибки."
 
 #: src/dialogs/firstaid.cpp
 #, python-brace-format
-msgid "{format} volumes can’t be repaired: {tool} is not installed."
-msgstr "Тома {format} нельзя исправить: {tool} не установлен."
+msgid "UDisks2 could not tell whether {format} volumes can be repaired."
+msgstr "UDisks2 не смог сообщить, можно ли исправлять тома {format}."
 
 #: src/dialogs/firstaid.cpp
-msgid "a repair tool"
-msgstr "программа исправления"
+#, python-brace-format
+msgid "{format} volumes can’t be repaired: {tool} is not installed."
+msgstr "Тома {format} нельзя исправить: {tool} не установлен."
 
 #: src/dialogs/firstaid.cpp
 msgid "Repairing the file system."
@@ -581,11 +592,6 @@ msgstr[2] "{n} томов пропущено."
 #: src/dialogs/firstaid.cpp
 msgid "First Aid"
 msgstr "Первая помощь"
-
-#: src/dialogs/identity_guard.cpp
-#, python-brace-format
-msgid "“{name}” is no longer there."
-msgstr "«{name}» больше нет."
 
 #: src/dialogs/identity_guard.cpp
 msgid "It was removed or replaced by another disk, so nothing more is done to it."
@@ -819,6 +825,11 @@ msgstr "На «{name}» ничего не изменено."
 
 #: src/dialogs/partition.cpp
 #, python-brace-format
+msgid "“{name}” was partitioned only in part: “{step}” may have changed it before it failed."
+msgstr "«{name}» разбит лишь частично: шаг «{step}» мог изменить его до сбоя."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
 msgid "“{name}” was partitioned only in part: the first {count} steps were taken."
 msgstr "«{name}» разбит на разделы лишь частично: выполнены первые шаги ({count})."
 
@@ -1002,6 +1013,11 @@ msgstr "Создание «{name}»…"
 msgid "Renaming “{name}”…"
 msgstr "Переименование «{name}»…"
 
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "“{name}” is no longer the one the changes were made for."
+msgstr "«{name}» уже не то устройство, для которого готовились изменения."
+
 #: src/dialogs/plan_runner.cpp src/images/transfer.cpp
 msgid "The disk was removed or replaced by another."
 msgstr "Диск был извлечён или заменён другим."
@@ -1054,6 +1070,11 @@ msgstr "Восстановить"
 #, python-brace-format
 msgid "{name} ({device}, {size})"
 msgstr "{name} ({device}, {size})"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there. Choose another source."
+msgstr "«{name}» больше нет. Выберите другой источник."
 
 #: src/dialogs/restore.cpp
 msgid "Choose a disk image, or attach a disk to restore from."
@@ -1355,6 +1376,11 @@ msgid "The source and the destination overlap: one lies inside the other."
 msgstr "Источник и место назначения находятся друг в друге."
 
 #: src/images/transfer.cpp
+#, python-brace-format
+msgid "The file is compressed ({format}). Decompress it first."
+msgstr "Файл сжат ({format}). Сначала распакуйте его."
+
+#: src/images/transfer.cpp
 msgid "A disk image cannot be restored onto itself."
 msgstr "Образ диска нельзя восстановить на самого себя."
 
@@ -1432,17 +1458,25 @@ msgstr "SD-карта"
 msgid "Disk Image"
 msgstr "Образ диска"
 
-#: src/udisks/operations.cpp
+#: src/udisks/guard.cpp
 msgid "The device is no longer available."
 msgstr "Устройство больше недоступно."
+
+#: src/udisks/guard.cpp
+msgid "The disks of the running system could not be found."
+msgstr "Не удалось найти диски работающей системы."
+
+#: src/udisks/guard.cpp
+msgid "The volume holds the running system."
+msgstr "На томе находится работающая система."
+
+#: src/udisks/guard.cpp
+msgid "The disk holds the running system."
+msgstr "На диске находится работающая система."
 
 #: src/udisks/operations.cpp
 msgid "Another operation on this disk is in progress."
 msgstr "С этим диском выполняется другая операция."
-
-#: src/udisks/operations.cpp
-msgid "The partition holds the running system."
-msgstr "В разделе находится работающая система."
 
 #: src/udisks/operations.cpp
 msgid "The disk is no longer available."
@@ -1451,10 +1485,6 @@ msgstr "Диск больше недоступен."
 #: src/udisks/operations.cpp
 msgid "The disk cannot be ejected."
 msgstr "Этот диск нельзя извлечь."
-
-#: src/udisks/operations.cpp
-msgid "The disk image holds the running system."
-msgstr "В образе диска находится работающая система."
 
 #: src/udisks/properties.cpp
 #, python-brace-format
@@ -2430,3 +2460,15 @@ msgstr "Управление дисками, томами и образами д
 #: cutefish-disk-utility.desktop
 msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
 msgstr "Диск;Накопитель;Том;Раздел;Форматировать;Стереть;Подключить;Монтировать;Образ;ISO;USB;Флешка;"
+
+#~ msgid "a checking tool"
+#~ msgstr "программа проверки"
+
+#~ msgid "a repair tool"
+#~ msgstr "программа исправления"
+
+#~ msgid "The partition holds the running system."
+#~ msgstr "В разделе находится работающая система."
+
+#~ msgid "The disk image holds the running system."
+#~ msgstr "В образе диска находится работающая система."

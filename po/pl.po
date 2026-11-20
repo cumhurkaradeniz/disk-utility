@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-disk-utility\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-21 00:27+0800\n"
+"POT-Creation-Date: 2026-11-21 01:52+0800\n"
 "PO-Revision-Date: 2026-11-21 00:19+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -76,21 +76,13 @@ msgstr "Pusty obraz…"
 msgid "Image from Selection…"
 msgstr "Obraz z zaznaczenia…"
 
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The disks of the running system could not be found."
-msgstr "Nie można znaleźć dysków działającego systemu."
-
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The disk holds the running system."
-msgstr "Na dysku znajduje się działający system."
-
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The volume holds the running system."
-msgstr "Na woluminie znajduje się działający system."
-
 #: src/actions.cpp
 msgid "An operation on this disk is in progress."
 msgstr "Na tym dysku trwa operacja."
+
+#: src/actions.cpp
+msgid "Nothing is restored onto the system's disk: the copy would bring another volume's identity, and the computer could start from the wrong one."
+msgstr "Na dysk systemowy nic nie jest odtwarzane: kopia przeniosłaby tożsamość innego woluminu i komputer mógłby uruchomić się z niewłaściwego."
 
 #: src/actions.cpp src/dialogs/partition_plan.cpp
 #: src/dialogs/volume_actions.cpp
@@ -132,8 +124,20 @@ msgid "Opening…"
 msgstr "Otwieranie…"
 
 #: src/dialogs/copyprogress.cpp
+msgid "Stopped. The incomplete image file was removed."
+msgstr "Zatrzymano. Niekompletny plik obrazu został usunięty."
+
+#: src/dialogs/copyprogress.cpp
 msgid "Stopped."
 msgstr "Zatrzymano."
+
+#: src/dialogs/copyprogress.cpp
+msgid "The destination was overwritten in part. Restore or erase it again before you use it."
+msgstr "Miejsce docelowe zostało częściowo nadpisane. Odtwórz je lub wymaż ponownie przed użyciem."
+
+#: src/dialogs/copyprogress.cpp
+msgid "The incomplete image file was removed."
+msgstr "Niekompletny plik obrazu został usunięty."
 
 #: src/dialogs/diskimages.cpp
 msgid "The new image could not be mounted."
@@ -409,6 +413,11 @@ msgstr "Pokaż szczegóły"
 msgid "Checking {format} volumes needs {tool}, which is not installed."
 msgstr "Sprawdzanie woluminów {format} wymaga programu {tool}, który nie jest zainstalowany."
 
+#: src/dialogs/firstaid.cpp src/dialogs/identity_guard.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there."
+msgstr "„{name}” już nie istnieje."
+
 #: src/dialogs/firstaid.cpp
 msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds. Mounted volumes are unmounted while they are checked and mounted again afterwards."
 msgstr "Pierwsza pomoc sprawdza wszystkie woluminy na dysku pod kątem błędów i naprawia znalezione. Podłączone woluminy są odłączane na czas sprawdzania, a potem podłączane ponownie."
@@ -468,8 +477,9 @@ msgid "unknown format"
 msgstr "nieznany format"
 
 #: src/dialogs/firstaid.cpp
-msgid "a checking tool"
-msgstr "program do sprawdzania"
+#, python-brace-format
+msgid "UDisks2 could not tell whether {format} volumes can be checked. Try again later."
+msgstr "UDisks2 nie mógł ustalić, czy woluminy {format} można sprawdzić. Spróbuj ponownie później."
 
 #: src/dialogs/firstaid.cpp
 #, python-brace-format
@@ -515,12 +525,13 @@ msgstr "System plików zawiera błędy."
 
 #: src/dialogs/firstaid.cpp
 #, python-brace-format
-msgid "{format} volumes can’t be repaired: {tool} is not installed."
-msgstr "Nie można naprawić woluminów {format}: program {tool} nie jest zainstalowany."
+msgid "UDisks2 could not tell whether {format} volumes can be repaired."
+msgstr "UDisks2 nie mógł ustalić, czy woluminy {format} można naprawić."
 
 #: src/dialogs/firstaid.cpp
-msgid "a repair tool"
-msgstr "program do naprawy"
+#, python-brace-format
+msgid "{format} volumes can’t be repaired: {tool} is not installed."
+msgstr "Nie można naprawić woluminów {format}: program {tool} nie jest zainstalowany."
 
 #: src/dialogs/firstaid.cpp
 msgid "Repairing the file system."
@@ -581,11 +592,6 @@ msgstr[2] "Pominięto {n} woluminów."
 #: src/dialogs/firstaid.cpp
 msgid "First Aid"
 msgstr "Pierwsza pomoc"
-
-#: src/dialogs/identity_guard.cpp
-#, python-brace-format
-msgid "“{name}” is no longer there."
-msgstr "„{name}” już nie istnieje."
 
 #: src/dialogs/identity_guard.cpp
 msgid "It was removed or replaced by another disk, so nothing more is done to it."
@@ -819,6 +825,11 @@ msgstr "Na „{name}” niczego nie zmieniono."
 
 #: src/dialogs/partition.cpp
 #, python-brace-format
+msgid "“{name}” was partitioned only in part: “{step}” may have changed it before it failed."
+msgstr "„{name}” podzielono na partycje tylko częściowo: krok „{step}” mógł go zmienić przed niepowodzeniem."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
 msgid "“{name}” was partitioned only in part: the first {count} steps were taken."
 msgstr "„{name}” spartycjonowano tylko częściowo: wykonano pierwsze kroki ({count})."
 
@@ -1002,6 +1013,11 @@ msgstr "Tworzenie „{name}”…"
 msgid "Renaming “{name}”…"
 msgstr "Zmiana nazwy „{name}”…"
 
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "“{name}” is no longer the one the changes were made for."
+msgstr "„{name}” nie jest już urządzeniem, dla którego przygotowano zmiany."
+
 #: src/dialogs/plan_runner.cpp src/images/transfer.cpp
 msgid "The disk was removed or replaced by another."
 msgstr "Dysk został odłączony lub zastąpiony innym."
@@ -1054,6 +1070,11 @@ msgstr "Odtwórz"
 #, python-brace-format
 msgid "{name} ({device}, {size})"
 msgstr "{name} ({device}, {size})"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there. Choose another source."
+msgstr "„{name}” już nie istnieje. Wybierz inne źródło."
 
 #: src/dialogs/restore.cpp
 msgid "Choose a disk image, or attach a disk to restore from."
@@ -1355,6 +1376,11 @@ msgid "The source and the destination overlap: one lies inside the other."
 msgstr "Źródło i miejsce docelowe zawierają się w sobie nawzajem."
 
 #: src/images/transfer.cpp
+#, python-brace-format
+msgid "The file is compressed ({format}). Decompress it first."
+msgstr "Plik jest skompresowany ({format}). Najpierw go rozpakuj."
+
+#: src/images/transfer.cpp
 msgid "A disk image cannot be restored onto itself."
 msgstr "Obrazu dysku nie można odtworzyć na niego samego."
 
@@ -1432,17 +1458,25 @@ msgstr "Karta SD"
 msgid "Disk Image"
 msgstr "Obraz dysku"
 
-#: src/udisks/operations.cpp
+#: src/udisks/guard.cpp
 msgid "The device is no longer available."
 msgstr "Urządzenie nie jest już dostępne."
+
+#: src/udisks/guard.cpp
+msgid "The disks of the running system could not be found."
+msgstr "Nie można znaleźć dysków działającego systemu."
+
+#: src/udisks/guard.cpp
+msgid "The volume holds the running system."
+msgstr "Na woluminie znajduje się działający system."
+
+#: src/udisks/guard.cpp
+msgid "The disk holds the running system."
+msgstr "Na dysku znajduje się działający system."
 
 #: src/udisks/operations.cpp
 msgid "Another operation on this disk is in progress."
 msgstr "Na tym dysku trwa inna operacja."
-
-#: src/udisks/operations.cpp
-msgid "The partition holds the running system."
-msgstr "Na partycji znajduje się działający system."
 
 #: src/udisks/operations.cpp
 msgid "The disk is no longer available."
@@ -1451,10 +1485,6 @@ msgstr "Dysk nie jest już dostępny."
 #: src/udisks/operations.cpp
 msgid "The disk cannot be ejected."
 msgstr "Tego dysku nie można wysunąć."
-
-#: src/udisks/operations.cpp
-msgid "The disk image holds the running system."
-msgstr "W obrazie dysku znajduje się działający system."
 
 #: src/udisks/properties.cpp
 #, python-brace-format
@@ -2430,3 +2460,15 @@ msgstr "Zarządzaj dyskami, woluminami i obrazami dysków"
 #: cutefish-disk-utility.desktop
 msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
 msgstr "Dysk;Napęd;Wolumin;Partycja;Formatuj;Wymaż;Podłącz;Montuj;Obraz;ISO;USB;Pendrive;"
+
+#~ msgid "a checking tool"
+#~ msgstr "program do sprawdzania"
+
+#~ msgid "a repair tool"
+#~ msgstr "program do naprawy"
+
+#~ msgid "The partition holds the running system."
+#~ msgstr "Na partycji znajduje się działający system."
+
+#~ msgid "The disk image holds the running system."
+#~ msgstr "W obrazie dysku znajduje się działający system."

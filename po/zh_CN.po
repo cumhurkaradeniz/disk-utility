@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-disk-utility\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-21 00:27+0800\n"
+"POT-Creation-Date: 2026-11-21 01:52+0800\n"
 "PO-Revision-Date: 2026-11-21 00:19+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -76,21 +76,13 @@ msgstr "空白映像…"
 msgid "Image from Selection…"
 msgstr "从所选项创建映像…"
 
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The disks of the running system could not be found."
-msgstr "找不到正在运行的系统所在的磁盘。"
-
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The disk holds the running system."
-msgstr "此磁盘包含正在运行的系统。"
-
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The volume holds the running system."
-msgstr "此宗卷包含正在运行的系统。"
-
 #: src/actions.cpp
 msgid "An operation on this disk is in progress."
 msgstr "此磁盘上有正在进行的操作。"
+
+#: src/actions.cpp
+msgid "Nothing is restored onto the system's disk: the copy would bring another volume's identity, and the computer could start from the wrong one."
+msgstr "不会将任何内容恢复到系统所在的磁盘：副本会带来另一个宗卷的标识，电脑可能会从错误的宗卷启动。"
 
 #: src/actions.cpp src/dialogs/partition_plan.cpp
 #: src/dialogs/volume_actions.cpp
@@ -132,8 +124,20 @@ msgid "Opening…"
 msgstr "正在打开…"
 
 #: src/dialogs/copyprogress.cpp
+msgid "Stopped. The incomplete image file was removed."
+msgstr "已停止。不完整的映像文件已移除。"
+
+#: src/dialogs/copyprogress.cpp
 msgid "Stopped."
 msgstr "已停止。"
+
+#: src/dialogs/copyprogress.cpp
+msgid "The destination was overwritten in part. Restore or erase it again before you use it."
+msgstr "目标已被部分覆盖。使用前请再次恢复或抹掉它。"
+
+#: src/dialogs/copyprogress.cpp
+msgid "The incomplete image file was removed."
+msgstr "不完整的映像文件已移除。"
 
 #: src/dialogs/diskimages.cpp
 msgid "The new image could not be mounted."
@@ -409,6 +413,11 @@ msgstr "显示详细信息"
 msgid "Checking {format} volumes needs {tool}, which is not installed."
 msgstr "检查 {format} 宗卷需要 {tool}，但尚未安装。"
 
+#: src/dialogs/firstaid.cpp src/dialogs/identity_guard.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there."
+msgstr "“{name}”已不存在。"
+
 #: src/dialogs/firstaid.cpp
 msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds. Mounted volumes are unmounted while they are checked and mounted again afterwards."
 msgstr "急救会检查磁盘上的每个宗卷是否有错误，并修复发现的错误。已挂载的宗卷在检查期间会被卸载，完成后重新挂载。"
@@ -468,8 +477,9 @@ msgid "unknown format"
 msgstr "未知格式"
 
 #: src/dialogs/firstaid.cpp
-msgid "a checking tool"
-msgstr "检查工具"
+#, python-brace-format
+msgid "UDisks2 could not tell whether {format} volumes can be checked. Try again later."
+msgstr "UDisks2 无法确定 {format} 宗卷能否检查。请稍后再试。"
 
 #: src/dialogs/firstaid.cpp
 #, python-brace-format
@@ -515,12 +525,13 @@ msgstr "文件系统有错误。"
 
 #: src/dialogs/firstaid.cpp
 #, python-brace-format
-msgid "{format} volumes can’t be repaired: {tool} is not installed."
-msgstr "无法修复 {format} 宗卷：尚未安装 {tool}。"
+msgid "UDisks2 could not tell whether {format} volumes can be repaired."
+msgstr "UDisks2 无法确定 {format} 宗卷能否修复。"
 
 #: src/dialogs/firstaid.cpp
-msgid "a repair tool"
-msgstr "修复工具"
+#, python-brace-format
+msgid "{format} volumes can’t be repaired: {tool} is not installed."
+msgstr "无法修复 {format} 宗卷：尚未安装 {tool}。"
 
 #: src/dialogs/firstaid.cpp
 msgid "Repairing the file system."
@@ -579,11 +590,6 @@ msgstr[0] "已跳过 {n} 个宗卷。"
 #: src/dialogs/firstaid.cpp
 msgid "First Aid"
 msgstr "急救"
-
-#: src/dialogs/identity_guard.cpp
-#, python-brace-format
-msgid "“{name}” is no longer there."
-msgstr "“{name}”已不存在。"
 
 #: src/dialogs/identity_guard.cpp
 msgid "It was removed or replaced by another disk, so nothing more is done to it."
@@ -817,6 +823,11 @@ msgstr "“{name}”未做任何更改。"
 
 #: src/dialogs/partition.cpp
 #, python-brace-format
+msgid "“{name}” was partitioned only in part: “{step}” may have changed it before it failed."
+msgstr "“{name}”只完成了部分分区：“{step}”可能在失败前已更改了它。"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
 msgid "“{name}” was partitioned only in part: the first {count} steps were taken."
 msgstr "“{name}”仅完成了部分分区：已执行前 {count} 个步骤。"
 
@@ -1000,6 +1011,11 @@ msgstr "正在创建“{name}”…"
 msgid "Renaming “{name}”…"
 msgstr "正在重命名“{name}”…"
 
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "“{name}” is no longer the one the changes were made for."
+msgstr "“{name}”已不是准备这些更改时的那个设备。"
+
 #: src/dialogs/plan_runner.cpp src/images/transfer.cpp
 msgid "The disk was removed or replaced by another."
 msgstr "磁盘已被移除或被其他磁盘替换。"
@@ -1052,6 +1068,11 @@ msgstr "恢复"
 #, python-brace-format
 msgid "{name} ({device}, {size})"
 msgstr "{name}（{device}，{size}）"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there. Choose another source."
+msgstr "“{name}”已不存在。请选择其他来源。"
 
 #: src/dialogs/restore.cpp
 msgid "Choose a disk image, or attach a disk to restore from."
@@ -1347,6 +1368,11 @@ msgid "The source and the destination overlap: one lies inside the other."
 msgstr "来源和目标互相包含。"
 
 #: src/images/transfer.cpp
+#, python-brace-format
+msgid "The file is compressed ({format}). Decompress it first."
+msgstr "该文件已压缩（{format}）。请先解压缩。"
+
+#: src/images/transfer.cpp
 msgid "A disk image cannot be restored onto itself."
 msgstr "磁盘映像不能恢复到其自身上。"
 
@@ -1424,17 +1450,25 @@ msgstr "SD 卡"
 msgid "Disk Image"
 msgstr "磁盘映像"
 
-#: src/udisks/operations.cpp
+#: src/udisks/guard.cpp
 msgid "The device is no longer available."
 msgstr "该设备已不可用。"
+
+#: src/udisks/guard.cpp
+msgid "The disks of the running system could not be found."
+msgstr "找不到正在运行的系统所在的磁盘。"
+
+#: src/udisks/guard.cpp
+msgid "The volume holds the running system."
+msgstr "此宗卷包含正在运行的系统。"
+
+#: src/udisks/guard.cpp
+msgid "The disk holds the running system."
+msgstr "此磁盘包含正在运行的系统。"
 
 #: src/udisks/operations.cpp
 msgid "Another operation on this disk is in progress."
 msgstr "此磁盘上的另一个操作正在进行。"
-
-#: src/udisks/operations.cpp
-msgid "The partition holds the running system."
-msgstr "此分区包含正在运行的系统。"
 
 #: src/udisks/operations.cpp
 msgid "The disk is no longer available."
@@ -1443,10 +1477,6 @@ msgstr "该磁盘已不可用。"
 #: src/udisks/operations.cpp
 msgid "The disk cannot be ejected."
 msgstr "无法弹出该磁盘。"
-
-#: src/udisks/operations.cpp
-msgid "The disk image holds the running system."
-msgstr "此磁盘映像包含正在运行的系统。"
 
 #: src/udisks/properties.cpp
 #, python-brace-format
@@ -2412,3 +2442,15 @@ msgstr "管理磁盘、宗卷和磁盘映像"
 #: cutefish-disk-utility.desktop
 msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
 msgstr "磁盘;硬盘;驱动器;宗卷;分区;格式化;抹掉;挂载;映像;ISO;USB;U盘;"
+
+#~ msgid "a checking tool"
+#~ msgstr "检查工具"
+
+#~ msgid "a repair tool"
+#~ msgstr "修复工具"
+
+#~ msgid "The partition holds the running system."
+#~ msgstr "此分区包含正在运行的系统。"
+
+#~ msgid "The disk image holds the running system."
+#~ msgstr "此磁盘映像包含正在运行的系统。"

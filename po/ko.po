@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-disk-utility\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-21 00:27+0800\n"
+"POT-Creation-Date: 2026-11-21 01:52+0800\n"
 "PO-Revision-Date: 2026-11-21 00:19+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -76,21 +76,13 @@ msgstr "빈 이미지…"
 msgid "Image from Selection…"
 msgstr "선택 항목에서 이미지 생성…"
 
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The disks of the running system could not be found."
-msgstr "실행 중인 시스템의 디스크를 찾을 수 없습니다."
-
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The disk holds the running system."
-msgstr "이 디스크에 실행 중인 시스템이 있습니다."
-
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The volume holds the running system."
-msgstr "이 볼륨에 실행 중인 시스템이 있습니다."
-
 #: src/actions.cpp
 msgid "An operation on this disk is in progress."
 msgstr "이 디스크에서 작업이 진행 중입니다."
+
+#: src/actions.cpp
+msgid "Nothing is restored onto the system's disk: the copy would bring another volume's identity, and the computer could start from the wrong one."
+msgstr "시스템 디스크에는 아무것도 복원하지 않습니다. 사본이 다른 볼륨의 식별 정보를 가져와 컴퓨터가 잘못된 볼륨에서 시동할 수 있습니다."
 
 #: src/actions.cpp src/dialogs/partition_plan.cpp
 #: src/dialogs/volume_actions.cpp
@@ -132,8 +124,20 @@ msgid "Opening…"
 msgstr "여는 중…"
 
 #: src/dialogs/copyprogress.cpp
+msgid "Stopped. The incomplete image file was removed."
+msgstr "중지되었습니다. 불완전한 이미지 파일이 제거되었습니다."
+
+#: src/dialogs/copyprogress.cpp
 msgid "Stopped."
 msgstr "정지되었습니다."
+
+#: src/dialogs/copyprogress.cpp
+msgid "The destination was overwritten in part. Restore or erase it again before you use it."
+msgstr "대상이 일부 덮어쓰였습니다. 사용하기 전에 다시 복원하거나 지우십시오."
+
+#: src/dialogs/copyprogress.cpp
+msgid "The incomplete image file was removed."
+msgstr "불완전한 이미지 파일이 제거되었습니다."
 
 #: src/dialogs/diskimages.cpp
 msgid "The new image could not be mounted."
@@ -409,6 +413,11 @@ msgstr "세부사항 보기"
 msgid "Checking {format} volumes needs {tool}, which is not installed."
 msgstr "{format} 볼륨을 검사하려면 {tool}이(가) 필요하지만 설치되어 있지 않습니다."
 
+#: src/dialogs/firstaid.cpp src/dialogs/identity_guard.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there."
+msgstr "“{name}”이(가) 더 이상 없습니다."
+
 #: src/dialogs/firstaid.cpp
 msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds. Mounted volumes are unmounted while they are checked and mounted again afterwards."
 msgstr "응급 처치는 디스크의 모든 볼륨에서 오류를 검사하고 발견된 오류를 복구합니다. 마운트된 볼륨은 검사하는 동안 마운트가 해제되었다가 이후 다시 마운트됩니다."
@@ -468,8 +477,9 @@ msgid "unknown format"
 msgstr "알 수 없는 포맷"
 
 #: src/dialogs/firstaid.cpp
-msgid "a checking tool"
-msgstr "검사 도구"
+#, python-brace-format
+msgid "UDisks2 could not tell whether {format} volumes can be checked. Try again later."
+msgstr "UDisks2가 {format} 볼륨을 검사할 수 있는지 확인하지 못했습니다. 나중에 다시 시도하십시오."
 
 #: src/dialogs/firstaid.cpp
 #, python-brace-format
@@ -515,12 +525,13 @@ msgstr "파일 시스템에 오류가 있습니다."
 
 #: src/dialogs/firstaid.cpp
 #, python-brace-format
-msgid "{format} volumes can’t be repaired: {tool} is not installed."
-msgstr "{format} 볼륨을 복구할 수 없습니다: {tool}이(가) 설치되어 있지 않습니다."
+msgid "UDisks2 could not tell whether {format} volumes can be repaired."
+msgstr "UDisks2가 {format} 볼륨을 복구할 수 있는지 확인하지 못했습니다."
 
 #: src/dialogs/firstaid.cpp
-msgid "a repair tool"
-msgstr "복구 도구"
+#, python-brace-format
+msgid "{format} volumes can’t be repaired: {tool} is not installed."
+msgstr "{format} 볼륨을 복구할 수 없습니다: {tool}이(가) 설치되어 있지 않습니다."
 
 #: src/dialogs/firstaid.cpp
 msgid "Repairing the file system."
@@ -579,11 +590,6 @@ msgstr[0] "볼륨 {n}개를 건너뛰었습니다."
 #: src/dialogs/firstaid.cpp
 msgid "First Aid"
 msgstr "응급 처치"
-
-#: src/dialogs/identity_guard.cpp
-#, python-brace-format
-msgid "“{name}” is no longer there."
-msgstr "“{name}”이(가) 더 이상 없습니다."
 
 #: src/dialogs/identity_guard.cpp
 msgid "It was removed or replaced by another disk, so nothing more is done to it."
@@ -817,6 +823,11 @@ msgstr "“{name}”에서 변경된 것이 없습니다."
 
 #: src/dialogs/partition.cpp
 #, python-brace-format
+msgid "“{name}” was partitioned only in part: “{step}” may have changed it before it failed."
+msgstr "“{name}”의 파티션은 일부만 나뉘었습니다. “{step}” 단계가 실패하기 전에 변경했을 수 있습니다."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
 msgid "“{name}” was partitioned only in part: the first {count} steps were taken."
 msgstr "“{name}”의 파티션 작업이 일부만 완료되었습니다: 처음 {count}단계가 진행되었습니다."
 
@@ -1000,6 +1011,11 @@ msgstr "“{name}” 생성 중…"
 msgid "Renaming “{name}”…"
 msgstr "“{name}” 이름 변경 중…"
 
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "“{name}” is no longer the one the changes were made for."
+msgstr "“{name}”은(는) 변경을 준비했던 장치가 더 이상 아닙니다."
+
 #: src/dialogs/plan_runner.cpp src/images/transfer.cpp
 msgid "The disk was removed or replaced by another."
 msgstr "디스크가 제거되었거나 다른 디스크로 교체되었습니다."
@@ -1052,6 +1068,11 @@ msgstr "복원"
 #, python-brace-format
 msgid "{name} ({device}, {size})"
 msgstr "{name}({device}, {size})"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there. Choose another source."
+msgstr "“{name}”이(가) 더 이상 없습니다. 다른 소스를 선택하십시오."
 
 #: src/dialogs/restore.cpp
 msgid "Choose a disk image, or attach a disk to restore from."
@@ -1347,6 +1368,11 @@ msgid "The source and the destination overlap: one lies inside the other."
 msgstr "소스와 대상이 서로를 포함하고 있습니다."
 
 #: src/images/transfer.cpp
+#, python-brace-format
+msgid "The file is compressed ({format}). Decompress it first."
+msgstr "파일이 압축되어 있습니다({format}). 먼저 압축을 푸십시오."
+
+#: src/images/transfer.cpp
 msgid "A disk image cannot be restored onto itself."
 msgstr "디스크 이미지를 자기 자신에 복원할 수 없습니다."
 
@@ -1424,17 +1450,25 @@ msgstr "SD 카드"
 msgid "Disk Image"
 msgstr "디스크 이미지"
 
-#: src/udisks/operations.cpp
+#: src/udisks/guard.cpp
 msgid "The device is no longer available."
 msgstr "장치를 더 이상 사용할 수 없습니다."
+
+#: src/udisks/guard.cpp
+msgid "The disks of the running system could not be found."
+msgstr "실행 중인 시스템의 디스크를 찾을 수 없습니다."
+
+#: src/udisks/guard.cpp
+msgid "The volume holds the running system."
+msgstr "이 볼륨에 실행 중인 시스템이 있습니다."
+
+#: src/udisks/guard.cpp
+msgid "The disk holds the running system."
+msgstr "이 디스크에 실행 중인 시스템이 있습니다."
 
 #: src/udisks/operations.cpp
 msgid "Another operation on this disk is in progress."
 msgstr "이 디스크에서 다른 작업이 진행 중입니다."
-
-#: src/udisks/operations.cpp
-msgid "The partition holds the running system."
-msgstr "이 파티션에 실행 중인 시스템이 있습니다."
 
 #: src/udisks/operations.cpp
 msgid "The disk is no longer available."
@@ -1443,10 +1477,6 @@ msgstr "디스크를 더 이상 사용할 수 없습니다."
 #: src/udisks/operations.cpp
 msgid "The disk cannot be ejected."
 msgstr "디스크를 추출할 수 없습니다."
-
-#: src/udisks/operations.cpp
-msgid "The disk image holds the running system."
-msgstr "이 디스크 이미지에 실행 중인 시스템이 있습니다."
 
 #: src/udisks/properties.cpp
 #, python-brace-format
@@ -2412,3 +2442,15 @@ msgstr "디스크, 볼륨 및 디스크 이미지 관리"
 #: cutefish-disk-utility.desktop
 msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
 msgstr "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;디스크;드라이브;볼륨;파티션;포맷;지우기;마운트;이미지;"
+
+#~ msgid "a checking tool"
+#~ msgstr "검사 도구"
+
+#~ msgid "a repair tool"
+#~ msgstr "복구 도구"
+
+#~ msgid "The partition holds the running system."
+#~ msgstr "이 파티션에 실행 중인 시스템이 있습니다."
+
+#~ msgid "The disk image holds the running system."
+#~ msgstr "이 디스크 이미지에 실행 중인 시스템이 있습니다."

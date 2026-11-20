@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-disk-utility\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-21 00:27+0800\n"
+"POT-Creation-Date: 2026-11-21 01:52+0800\n"
 "PO-Revision-Date: 2026-11-21 00:19+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -76,21 +76,13 @@ msgstr "Prázdný obraz…"
 msgid "Image from Selection…"
 msgstr "Obraz z výběru…"
 
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The disks of the running system could not be found."
-msgstr "Disky běžícího systému nelze najít."
-
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The disk holds the running system."
-msgstr "Na disku je běžící systém."
-
-#: src/actions.cpp src/udisks/operations.cpp
-msgid "The volume holds the running system."
-msgstr "Na svazku je běžící systém."
-
 #: src/actions.cpp
 msgid "An operation on this disk is in progress."
 msgstr "Na tomto disku probíhá operace."
+
+#: src/actions.cpp
+msgid "Nothing is restored onto the system's disk: the copy would bring another volume's identity, and the computer could start from the wrong one."
+msgstr "Na disk systému se nic neobnovuje: kopie by přinesla identitu jiného svazku a počítač by mohl nastartovat ze špatného."
 
 #: src/actions.cpp src/dialogs/partition_plan.cpp
 #: src/dialogs/volume_actions.cpp
@@ -132,8 +124,20 @@ msgid "Opening…"
 msgstr "Otevírání…"
 
 #: src/dialogs/copyprogress.cpp
+msgid "Stopped. The incomplete image file was removed."
+msgstr "Zastaveno. Neúplný soubor obrazu byl odstraněn."
+
+#: src/dialogs/copyprogress.cpp
 msgid "Stopped."
 msgstr "Zastaveno."
+
+#: src/dialogs/copyprogress.cpp
+msgid "The destination was overwritten in part. Restore or erase it again before you use it."
+msgstr "Cíl byl částečně přepsán. Před použitím jej znovu obnovte nebo vymažte."
+
+#: src/dialogs/copyprogress.cpp
+msgid "The incomplete image file was removed."
+msgstr "Neúplný soubor obrazu byl odstraněn."
 
 #: src/dialogs/diskimages.cpp
 msgid "The new image could not be mounted."
@@ -409,6 +413,11 @@ msgstr "Zobrazit podrobnosti"
 msgid "Checking {format} volumes needs {tool}, which is not installed."
 msgstr "Kontrola svazků {format} vyžaduje {tool}, který není nainstalován."
 
+#: src/dialogs/firstaid.cpp src/dialogs/identity_guard.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there."
+msgstr "„{name}“ už není k dispozici."
+
 #: src/dialogs/firstaid.cpp
 msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds. Mounted volumes are unmounted while they are checked and mounted again afterwards."
 msgstr "První pomoc zkontroluje chyby na všech svazcích disku a opraví ty, které najde. Připojené svazky se během kontroly odpojí a potom znovu připojí."
@@ -468,8 +477,9 @@ msgid "unknown format"
 msgstr "neznámý formát"
 
 #: src/dialogs/firstaid.cpp
-msgid "a checking tool"
-msgstr "nástroj pro kontrolu"
+#, python-brace-format
+msgid "UDisks2 could not tell whether {format} volumes can be checked. Try again later."
+msgstr "UDisks2 nedokázal zjistit, zda lze svazky {format} zkontrolovat. Zkuste to později."
 
 #: src/dialogs/firstaid.cpp
 #, python-brace-format
@@ -515,12 +525,13 @@ msgstr "Systém souborů obsahuje chyby."
 
 #: src/dialogs/firstaid.cpp
 #, python-brace-format
-msgid "{format} volumes can’t be repaired: {tool} is not installed."
-msgstr "Svazky {format} nelze opravit: {tool} není nainstalován."
+msgid "UDisks2 could not tell whether {format} volumes can be repaired."
+msgstr "UDisks2 nedokázal zjistit, zda lze svazky {format} opravit."
 
 #: src/dialogs/firstaid.cpp
-msgid "a repair tool"
-msgstr "nástroj pro opravu"
+#, python-brace-format
+msgid "{format} volumes can’t be repaired: {tool} is not installed."
+msgstr "Svazky {format} nelze opravit: {tool} není nainstalován."
 
 #: src/dialogs/firstaid.cpp
 msgid "Repairing the file system."
@@ -581,11 +592,6 @@ msgstr[2] "{n} svazků bylo přeskočeno."
 #: src/dialogs/firstaid.cpp
 msgid "First Aid"
 msgstr "První pomoc"
-
-#: src/dialogs/identity_guard.cpp
-#, python-brace-format
-msgid "“{name}” is no longer there."
-msgstr "„{name}“ už není k dispozici."
 
 #: src/dialogs/identity_guard.cpp
 msgid "It was removed or replaced by another disk, so nothing more is done to it."
@@ -819,6 +825,11 @@ msgstr "Na „{name}“ se nic nezměnilo."
 
 #: src/dialogs/partition.cpp
 #, python-brace-format
+msgid "“{name}” was partitioned only in part: “{step}” may have changed it before it failed."
+msgstr "„{name}“ byl rozdělen jen zčásti: krok „{step}“ jej mohl změnit, než selhal."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
 msgid "“{name}” was partitioned only in part: the first {count} steps were taken."
 msgstr "„{name}“ byl rozdělen jen zčásti: počet provedených kroků: {count}."
 
@@ -1002,6 +1013,11 @@ msgstr "Vytváření „{name}“…"
 msgid "Renaming “{name}”…"
 msgstr "Přejmenovávání „{name}“…"
 
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "“{name}” is no longer the one the changes were made for."
+msgstr "„{name}“ už není zařízení, pro které byly změny připraveny."
+
 #: src/dialogs/plan_runner.cpp src/images/transfer.cpp
 msgid "The disk was removed or replaced by another."
 msgstr "Disk byl odebrán nebo nahrazen jiným."
@@ -1054,6 +1070,11 @@ msgstr "Obnovit"
 #, python-brace-format
 msgid "{name} ({device}, {size})"
 msgstr "{name} ({device}, {size})"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there. Choose another source."
+msgstr "„{name}“ už není k dispozici. Vyberte jiný zdroj."
 
 #: src/dialogs/restore.cpp
 msgid "Choose a disk image, or attach a disk to restore from."
@@ -1355,6 +1376,11 @@ msgid "The source and the destination overlap: one lies inside the other."
 msgstr "Zdroj a cíl jsou jeden v druhém."
 
 #: src/images/transfer.cpp
+#, python-brace-format
+msgid "The file is compressed ({format}). Decompress it first."
+msgstr "Soubor je komprimovaný ({format}). Nejprve jej rozbalte."
+
+#: src/images/transfer.cpp
 msgid "A disk image cannot be restored onto itself."
 msgstr "Obraz disku nelze obnovit sám na sebe."
 
@@ -1432,17 +1458,25 @@ msgstr "SD karta"
 msgid "Disk Image"
 msgstr "Obraz disku"
 
-#: src/udisks/operations.cpp
+#: src/udisks/guard.cpp
 msgid "The device is no longer available."
 msgstr "Zařízení už není k dispozici."
+
+#: src/udisks/guard.cpp
+msgid "The disks of the running system could not be found."
+msgstr "Disky běžícího systému nelze najít."
+
+#: src/udisks/guard.cpp
+msgid "The volume holds the running system."
+msgstr "Na svazku je běžící systém."
+
+#: src/udisks/guard.cpp
+msgid "The disk holds the running system."
+msgstr "Na disku je běžící systém."
 
 #: src/udisks/operations.cpp
 msgid "Another operation on this disk is in progress."
 msgstr "Na tomto disku probíhá jiná operace."
-
-#: src/udisks/operations.cpp
-msgid "The partition holds the running system."
-msgstr "Na oddílu je běžící systém."
 
 #: src/udisks/operations.cpp
 msgid "The disk is no longer available."
@@ -1451,10 +1485,6 @@ msgstr "Disk už není k dispozici."
 #: src/udisks/operations.cpp
 msgid "The disk cannot be ejected."
 msgstr "Disk nelze vysunout."
-
-#: src/udisks/operations.cpp
-msgid "The disk image holds the running system."
-msgstr "Na obrazu disku je běžící systém."
 
 #: src/udisks/properties.cpp
 #, python-brace-format
@@ -2430,3 +2460,15 @@ msgstr "Správa disků, svazků a obrazů disků"
 #: cutefish-disk-utility.desktop
 msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
 msgstr "Disk;Jednotka;Svazek;Oddíl;Formátovat;Vymazat;Připojit;Obraz;ISO;USB;Flashdisk;"
+
+#~ msgid "a checking tool"
+#~ msgstr "nástroj pro kontrolu"
+
+#~ msgid "a repair tool"
+#~ msgstr "nástroj pro opravu"
+
+#~ msgid "The partition holds the running system."
+#~ msgstr "Na oddílu je běžící systém."
+
+#~ msgid "The disk image holds the running system."
+#~ msgstr "Na obrazu disku je běžící systém."
