@@ -319,11 +319,15 @@ TEST_F(ActionsTest, AVolumeOnTheSystemDisk)
                            {{"MountPoints", Variant(std::vector<std::vector<uint8_t>>{encodeBytes("/media/u/W")})}});
     EXPECT_TRUE(enabled(Action::Unmount, id));
     // The disk's table and the drive stay as they are.
-    for (Action action : {Action::RemoveVolume, Action::Restore, Action::Partition, Action::AddVolume, Action::Eject}) {
+    for (Action action : {Action::RemoveVolume, Action::Partition, Action::AddVolume, Action::Eject}) {
         const ActionState state = actionState(action, model, &operations, select(id));
         EXPECT_FALSE(state.enabled) << actionName(action);
         EXPECT_EQ(state.reason, "The disk holds the running system.") << actionName(action);
     }
+    // Said plainly: a copy brings its source's filesystem UUID.
+    const ActionState restore = actionState(Action::Restore, model, &operations, select(id));
+    EXPECT_FALSE(restore.enabled);
+    EXPECT_NE(restore.reason.find("could start from the wrong one"), std::string::npos);
     EXPECT_FALSE(enabled(Action::Erase, "d:" + sample::kNvme));
     EXPECT_FALSE(enabled(Action::FirstAid, "d:" + sample::kNvme));
 }

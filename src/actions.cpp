@@ -263,8 +263,14 @@ ActionState actionState(Action action, const Model& model, const udisks::Operati
         // Erasing a partition formats it in place; erasing a disk, or
         // restoring onto anything, changes what the disk holds.
         const Change change = action == Action::Erase ? udisks::formatChange(model, node.block) : Change::Table;
-        if (const std::string why = systemRefusal(model, node.block, change); !why.empty())
+        if (const std::string why = systemRefusal(model, node.block, change); !why.empty()) {
+            // A restored copy keeps its source's filesystem UUID: a second
+            // one beside the system's can start the wrong one at boot.
+            if (action == Action::Restore && model.systemDevices().known && !model.holdsSystem(node.block))
+                return disabled(tr("Nothing is restored onto the system's disk: the copy would bring another "
+                                   "volume's identity, and the computer could start from the wrong one."));
             return disabled(why);
+        }
         if (readOnly || object->block->size == 0)
             return disabled();
         return enabled();
