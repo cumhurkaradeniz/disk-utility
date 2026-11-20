@@ -40,6 +40,7 @@ add_executable(disk-utility-scenario-tests
     scenarios/sidebar_test.cpp
     scenarios/detail_test.cpp
     scenarios/volumetools_test.cpp
+    scenarios/dialog_edge_test.cpp
 )
 target_link_libraries(disk-utility-scenario-tests PRIVATE disk-utility-ui disk-utility-fake GTest::gtest)
 # The application tests group every running copy of these binaries.

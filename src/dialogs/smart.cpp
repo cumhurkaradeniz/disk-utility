@@ -47,6 +47,7 @@ SmartDialog::SmartDialog(views::Context& context, Window* parent, std::string dr
 {
     m_dialog = std::make_unique<DialogWindow>(parent, driveName(context.model, m_drive), kWidth);
     m_dialog->setHeight(kHeight);
+    m_dialog->setEdgeToEdge(true);
     m_dialog->window()->setBackgroundColor(ColorId::Background);
     m_dialog->window()->addShortcut(NoModifier, key::Escape, [this] { m_dialog->close(); });
     m_dialog->onClosed = [this] { m_subscriptions.clear(); };

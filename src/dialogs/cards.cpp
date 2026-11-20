@@ -292,11 +292,11 @@ void ScrollingForm::layout()
     const bool hasFooter = !footer->children().empty();
     footer->setVisible(hasFooter);
     const double footerHeight = hasFooter ? footer->sizeHint().height : 0;
-    const double scrollHeight = hasFooter ? std::max(0.0, height - footerHeight - metrics::dialogSpacing)
-                                          : height + padding;
+    const double footerTop = height - padding - footerHeight;
+    const double scrollHeight = hasFooter ? std::max(0.0, footerTop - metrics::dialogSpacing) : height;
     scroll->setBottomCornerRadius(hasFooter ? 0 : Theme::current().windowRadius);
-    scroll->setGeometry({-padding, 0, width + 2 * padding, scrollHeight});
-    footer->setGeometry({0, height - footerHeight, width, footerHeight});
+    scroll->setGeometry({0, 0, width, scrollHeight});
+    footer->setGeometry({padding, footerTop, std::max(0.0, width - 2 * padding), footerHeight});
 }
 
 } // namespace dialogs

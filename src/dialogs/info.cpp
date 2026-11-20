@@ -35,6 +35,7 @@ InfoWindow::InfoWindow(views::Context& context, udisks::Node node)
 {
     m_dialog = std::make_unique<DialogWindow>(&context.window, udisks::displayName(context.model, m_node), kWidth);
     m_dialog->setHeight(kHeight);
+    m_dialog->setEdgeToEdge(true);
     m_dialog->window()->setBackgroundColor(ColorId::Background);
     m_dialog->window()->addShortcut(NoModifier, key::Escape, [this] { m_dialog->close(); });
     m_dialog->onClosed = [this] { m_subscriptions.clear(); };

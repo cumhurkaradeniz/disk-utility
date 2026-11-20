@@ -190,10 +190,10 @@ private:
     static double inset(const cutefish::ui::View* child);
 };
 
-// A dialog's content of cards that scroll, above a footer of buttons. The
-// scroll view spans the window from edge to edge, past the dialog's padding,
-// so its bar runs along the window's edge, and reaches the window's bottom
-// while the footer is empty; the cards keep the padding inside it.
+// The content of an edge-to-edge dialog: cards that scroll, above a footer
+// of buttons. The scroll view spans the window from edge to edge, so its bar
+// runs along the window's edge, and reaches the window's bottom while the
+// footer is empty; the cards and the footer keep the dialog's padding.
 class ScrollingForm : public cutefish::ui::View
 {
 public:
