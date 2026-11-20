@@ -57,6 +57,7 @@ add_custom_command(OUTPUT ${DISK_UTILITY_EMBEDDED}
 add_library(disk-utility-ui STATIC
     src/dialogs/cards.cpp
     src/dialogs/choice_button.cpp
+    src/dialogs/firstaid.cpp
     src/dialogs/identity_guard.cpp
     src/dialogs/info.cpp
     src/dialogs/mount.cpp
