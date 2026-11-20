@@ -88,6 +88,8 @@ protected:
                 return value(Variant(UnixFd::adopt(::open(file("source").c_str(), O_RDONLY | O_CLOEXEC))));
             if (call.method == "OpenForRestore" && holdRestore)
                 return std::nullopt;
+            if (call.method == "OpenForRestore" && unwritableTarget)
+                return value(Variant(UnixFd::adopt(::open(file("card").c_str(), O_RDONLY | O_CLOEXEC))));
             if (call.method == "OpenForRestore")
                 return value(Variant(UnixFd::adopt(::open(file("card").c_str(), O_WRONLY | O_CLOEXEC))));
             return Result{};
@@ -130,6 +132,8 @@ protected:
     bool failLoopSetup = false;
     // OpenForRestore waits for reply(), keeping the copy running.
     bool holdRestore = false;
+    // OpenForRestore hands over a descriptor that cannot be written.
+    bool unwritableTarget = false;
 };
 
 TEST_F(ImagesTest, OpenDiskImageAttachesAndSelects)
@@ -469,6 +473,46 @@ TEST_F(ImagesTest, NoAlertForATargetEjectedAfterwards)
     settle();
     EXPECT_EQ(scenario.driver.dialog(), nullptr);
     EXPECT_FALSE(scenario.driver.showsText("is no longer there"));
+}
+
+TEST_F(ImagesTest, AFailedRestoreSaysTheTargetIsDamaged)
+{
+    write("card", std::string(1000, '-'));
+    nextPath = write("backup.img", std::string(500, 'r'));
+    unwritableTarget = true;
+    scenario.driver.click("sidebar:d:" + sample::kCard);
+    scenario.window->actions().trigger(Action::Restore);
+    dialogs::RestoreDialog* restore = images().restoreDialog();
+    {
+        TestDriver driver(*scenario.driver.dialog(), fail);
+        driver.click("restore:image");
+        driver.click("restore:restore");
+    }
+    TestDriver alert(*restore->confirmation()->window(), fail);
+    ASSERT_TRUE(alert.clickText("Erase and Restore"));
+    ASSERT_TRUE(TestDriver::waitFor([&] { return images().copyDialog() && !images().copyDialog()->isRunning(); }));
+    settle();
+    ASSERT_TRUE(images().copyDialog()->isOpen());
+    TestDriver copy(*scenario.driver.dialog(), fail);
+    EXPECT_NE(copy.text("copy:error").find("overwritten in part"), std::string::npos) << copy.text("copy:error");
+}
+
+TEST_F(ImagesTest, AFailedImageSaysTheFileWasRemoved)
+{
+    // The volume says it is larger than what can be read from it.
+    write("source", std::string(1000, 's'));
+    scenario.model().changeProperties(sample::kData, interface::kBlock, {{"Size", Variant(uint64_t(300'000))}});
+    settle();
+    scenario.driver.click("sidebar:v:" + sample::kData);
+    nextPath = file("Data.img");
+    ASSERT_TRUE(scenario.window->actions().trigger(Action::NewImageFromSelection));
+    ASSERT_TRUE(TestDriver::waitFor([&] { return images().copyDialog() && !images().copyDialog()->isRunning(); }));
+    settle();
+    ASSERT_TRUE(images().copyDialog()->isOpen());
+    TestDriver copy(*scenario.driver.dialog(), fail);
+    EXPECT_NE(copy.text("copy:error").find("incomplete image file was removed"), std::string::npos)
+        << copy.text("copy:error");
+    EXPECT_FALSE(std::filesystem::exists(file("Data.img")));
 }
 
 TEST_F(ImagesTest, TheUnmountQuestionGoesWithItsVolume)

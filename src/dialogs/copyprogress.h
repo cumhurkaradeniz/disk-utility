@@ -60,6 +60,9 @@ private:
     cutefish::ui::DialogButton* m_stop;
     images::Transfer m_transfer;
     images::RateMeter m_meter;
+    bool m_ontoBlock = false;
+    // Writing has begun: a block target stopped now is no longer what it was.
+    bool m_copying = false;
 };
 
 } // namespace dialogs

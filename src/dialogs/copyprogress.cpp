@@ -78,6 +78,8 @@ bool CopyDialog::isOpen() const
 
 void CopyDialog::start(images::Endpoint source, images::Endpoint target)
 {
+    m_ontoBlock = target.isBlock();
+    m_copying = false;
     m_dialog->show();
     m_transfer.start(std::move(source), std::move(target));
 }
@@ -92,6 +94,7 @@ void CopyDialog::step(images::Transfer::Step step)
         m_status->setText(tr("Opening…"));
         break;
     case images::Transfer::Step::Copying:
+        m_copying = true;
         m_meter.start(images::RateMeter::Clock::now());
         m_bar->setIndeterminate(false);
         m_bar->setValue(0);
@@ -114,15 +117,28 @@ void CopyDialog::progress(uint64_t copied, uint64_t total)
 void CopyDialog::finished(const images::Transfer::Outcome& outcome)
 {
     const auto done = onFinished;
-    if (outcome.ok || outcome.cancelled) {
+    const bool overwritten = m_ontoBlock && m_copying;
+    if (outcome.ok || (outcome.cancelled && !overwritten)) {
         m_dialog->close();
-        m_context.toast(outcome.ok ? m_doneMessage : tr("Stopped."));
+        if (outcome.ok)
+            m_context.toast(m_doneMessage);
+        else if (m_copying)
+            m_context.toast(tr("Stopped. The incomplete image file was removed."));
+        else
+            m_context.toast(tr("Stopped."));
     } else {
+        // What is left behind matters more than why it stopped.
+        std::string text = outcome.cancelled ? tr("Stopped.") : outcome.error;
+        if (overwritten)
+            text += " " + std::string(tr("The destination was overwritten in part. Restore or erase it again before "
+                                         "you use it."));
+        else if (m_copying && !m_ontoBlock)
+            text += " " + std::string(tr("The incomplete image file was removed."));
         m_bar->setVisible(false);
         m_timeLeft->setText({});
         m_status->setText({});
         m_status->setVisible(false);
-        m_error->setText(outcome.error);
+        m_error->setText(text);
         m_stop->setVisible(false);
         m_dialog->setCloseVisible(true);
     }
