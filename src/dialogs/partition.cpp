@@ -186,6 +186,9 @@ void PartitionDialog::buildEditor()
     m_add = editor->add;
     m_remove = editor->remove;
     m_pie->setRange(m_layout.start(), m_layout.end());
+    // The pie takes no focus: a size typed before the press is applied
+    // first, as it can split the wedges and move the handles' indices.
+    m_pie->onPressed = [this] { sizeEdited(); };
     m_pie->onSelected = [this](uint32_t id) { select(id); };
     m_pie->onBoundaryMoved = [this](size_t index, uint64_t position) { moveBoundary(index, position, false); };
     m_pie->onDragFinished = [this] {
@@ -628,7 +631,7 @@ void PartitionDialog::finished()
     else
         m_status->setText(format(tr("“{name}” was partitioned only in part: the first {count} steps were taken."),
                                  {{"name", m_diskName}, {"count", std::to_string(failed)}}));
-    const std::string step = describe(m_runner->steps()[failed]);
+    const std::string step = describe(m_runner->steps()[m_runner->failedStep()]);
     if (m_stopped && result.cancelled())
         m_error->setText(format(tr("“{step}” was stopped before it finished."), {{"step", step}}));
     else if (result.cancelled())

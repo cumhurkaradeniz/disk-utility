@@ -224,6 +224,8 @@ void PieChart::pointerPress(const PointerEvent& event)
 {
     if (event.button != MouseButton::Left)
         return;
+    if (onPressed)
+        onPressed();
     for (size_t boundary : m_movable) {
         const std::optional<PointF> point = handlePoint(boundary);
         if (point && std::hypot(point->x - event.position.x, point->y - event.position.y) <= kHandleReach) {

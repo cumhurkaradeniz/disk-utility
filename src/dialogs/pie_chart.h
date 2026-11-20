@@ -54,6 +54,9 @@ public:
     cutefish::ui::SizeF sizeHint() const override { return {kSize, kSize}; }
     bool acceptsPointer() const override { return true; }
 
+    // A press, before the pie finds what is under it: whatever changes the
+    // wedges first goes here, so a handle is taken from the wedges shown.
+    std::function<void()> onPressed;
     std::function<void(uint32_t id)> onSelected;
     // A drag of the boundary after wedge index to the disk position.
     std::function<void(size_t boundary, uint64_t position)> onBoundaryMoved;

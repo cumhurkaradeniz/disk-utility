@@ -12,11 +12,15 @@
 #include "views/context.h"
 
 #include "ui/keys.h"
+#include "ui/test_input.h"
 #include "ui/text_field.h"
 
 #include <gtest/gtest.h>
 
+#include <cmath>
 #include <tuple>
+
+#include <sys/sysmacros.h>
 
 using namespace cutefish::ui;
 using namespace udisks::fake;
@@ -299,4 +303,58 @@ TEST_F(PartitionTest, MasterBootRecordLimit)
     driver->click("partition:add");
     EXPECT_FALSE(enabled(*driver, "partition:add"));
     EXPECT_EQ(driver->find<View>("partition:add")->toolTip(), "A Master Boot Record holds at most four partitions.");
+}
+
+TEST_F(PartitionTest, ADragAfterATypedSizeTakesTheRightHandle)
+{
+    // A disk of two ext4 partitions, A and B, and free space after them.
+    TreeBuilder tree;
+    const uint64_t size = 100 * kGB;
+    const std::string drive = tree.addDrive("Spare", {.model = "Spare", .size = size, .sortKey = "02"});
+    const std::string disk = tree.addDisk("sdx", drive, {.size = size, .deviceNumber = makedev(8, 96)}, "gpt");
+    std::vector<std::string> parts;
+    for (int i = 0; i < 2; ++i) {
+        parts.push_back(tree.addPartition(disk, "sdx" + std::to_string(i + 1), uint32_t(i + 1),
+                                          dialogs::kMiB + uint64_t(i) * 40 * kGB,
+                                          {.size = 40 * kGB, .deviceNumber = makedev(8, 97 + i), .idUsage = "filesystem",
+                                           .idType = "ext4", .idLabel = i == 0 ? "A" : "B"}));
+        tree.setFilesystem(parts.back(), {});
+    }
+    scenario.model().reset(tree.objects());
+    ASSERT_TRUE(TestDriver::waitFor([&] {
+        scenario.driver.layout();
+        return scenario.driver.countShown("sidebar:v:" + parts[0]) == 1;
+    }));
+    auto driver = open("v:" + parts[0]);
+    ASSERT_TRUE(driver);
+    auto* pie = driver->find<dialogs::PieChart>("partition:pie");
+    ASSERT_TRUE(pie);
+    const auto ids = dialogs::PartitionLayout::fromDisk(scenario.model(), disk).slices();
+    ASSERT_EQ(ids.size(), 3u);
+
+    // A typed smaller, then the B | free space handle dragged without
+    // leaving the field first: shrinking A adds a wedge before B.
+    replaceText(*driver, "partition:size", "20");
+    const std::optional<PointF> handle = pie->handlePoint(1);
+    ASSERT_TRUE(handle);
+    const RectF frame = driver->frame("partition:pie");
+    const double radius = std::min(frame.width, frame.height) / 2 - 10;
+    const PointF centre{frame.x + frame.width / 2, frame.y + frame.height / 2};
+    // Seven eighths of the way round: about 87.5 GB into the disk.
+    const double angle = 2 * M_PI * 0.875;
+    const PointF target{centre.x + radius * std::sin(angle), centre.y - radius * std::cos(angle)};
+    TestInput::press(driver->window(), {frame.x + handle->x, frame.y + handle->y});
+    TestInput::movePointer(driver->window(), target);
+    TestInput::release(driver->window(), target);
+    driver->layout();
+
+    pie->onSelected(ids[0].id);
+    driver->layout();
+    EXPECT_EQ(driver->text("partition:size"), udisks::formatSize(20 * kGB));
+    pie->onSelected(ids[1].id);
+    driver->layout();
+    const std::optional<uint64_t> grown = udisks::parseSize(driver->text("partition:size"), kGB);
+    ASSERT_TRUE(grown);
+    EXPECT_GT(*grown, 45 * kGB);
+    EXPECT_LT(*grown, 50 * kGB);
 }
