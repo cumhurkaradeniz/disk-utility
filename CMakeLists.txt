@@ -55,6 +55,7 @@ add_custom_command(OUTPUT ${DISK_UTILITY_EMBEDDED}
     VERBATIM)
 
 add_library(disk-utility-ui STATIC
+    src/dialogs/cards.cpp
     src/dialogs/identity_guard.cpp
     src/views/context.cpp
     src/views/detail.cpp
