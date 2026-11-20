@@ -12,6 +12,7 @@
 #include "ui/icon.h"
 
 #include <chrono>
+#include <cstdio>
 #include <filesystem>
 
 using namespace cutefish;
@@ -54,8 +55,14 @@ int main(int argc, char** argv)
         if (!bus->requestName(::Application::kService)) {
             base::dbus::Proxy running(bus, ::Application::kService, ::Application::kPath, ::Application::kService);
             running.setTimeout(3s);
-            if (!running.call("open", paths, app.takeActivationToken()).isError())
+            const auto reply = running.call("open", paths, app.takeActivationToken());
+            if (!reply.isError())
                 return 0;
+            // A second copy would work on the disks without knowing what the
+            // first one is doing with them.
+            std::fprintf(stderr, "cutefish-disk-utility: Disk Utility is already running but did not answer (%s).\n",
+                         reply.error().message.c_str());
+            return 1;
         }
         application.publishInstance(bus);
     }
