@@ -43,6 +43,24 @@ add_library(disk-utility-core STATIC
 target_include_directories(disk-utility-core PUBLIC src)
 target_link_libraries(disk-utility-core PUBLIC Cutefish::ToolkitBase)
 
+# The glyphs, built in.
+file(GLOB DISK_UTILITY_ICONS CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/icons/*.svg)
+set(DISK_UTILITY_EMBEDDED ${CMAKE_CURRENT_BINARY_DIR}/icons.cpp)
+# A list would be split into separate arguments on the way to the script.
+string(REPLACE ";" "|" DISK_UTILITY_ICON_LIST "${DISK_UTILITY_ICONS}")
+add_custom_command(OUTPUT ${DISK_UTILITY_EMBEDDED}
+    COMMAND ${CMAKE_COMMAND} -DOUTPUT=${DISK_UTILITY_EMBEDDED}
+            -DFILES=${DISK_UTILITY_ICON_LIST} -P ${PROJECT_SOURCE_DIR}/cmake/EmbedIcons.cmake
+    DEPENDS ${DISK_UTILITY_ICONS} ${PROJECT_SOURCE_DIR}/cmake/EmbedIcons.cmake
+    VERBATIM)
+
+add_library(disk-utility-ui STATIC
+    src/views/style.cpp
+    ${DISK_UTILITY_EMBEDDED}
+)
+target_include_directories(disk-utility-ui PUBLIC src)
+target_link_libraries(disk-utility-ui PUBLIC disk-utility-core Cutefish::Toolkit)
+
 cutefish_add_translations(cutefish-disk-utility SOURCES src DESKTOP_FILES cutefish-disk-utility.desktop)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/cutefish-disk-utility.desktop
         DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
