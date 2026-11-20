@@ -423,12 +423,6 @@ void EraseDialog::stop()
     m_context.operations.cancelJob(job->path);
 }
 
-static bool destroys(const PlanStep& step)
-{
-    return step.kind == PlanStep::Kind::CreateTable || step.kind == PlanStep::Kind::Format
-            || step.kind == PlanStep::Kind::Create;
-}
-
 void EraseDialog::finished()
 {
     if (!m_runner || !m_status)
@@ -436,10 +430,8 @@ void EraseDialog::finished()
     const udisks::Result& result = m_runner->result();
     // Turning down the password before anything changed goes back to the
     // form as it was filled in.
-    if (result.cancelled() && m_runner->current() == 0 && !m_stopped) {
-        m_status = nullptr;
-        m_bar = nullptr;
-        m_stop = nullptr;
+    if (dismissed(result) && m_runner->current() == 0) {
+        forgetViews();
         buildForm();
         restore();
         return;
@@ -457,9 +449,9 @@ void EraseDialog::finished()
     m_bar->setVisible(false);
     const auto& steps = m_runner->steps();
     const size_t failed = m_runner->current();
-    bool damaged = m_stopped && destroys(steps[failed]);
+    bool damaged = erasesData(steps[failed]) && ranPartWay(result);
     for (size_t i = 0; i < failed; ++i)
-        damaged = damaged || destroys(steps[i]);
+        damaged = damaged || erasesData(steps[i]);
     m_status->setText(damaged ? format(tr("“{name}” was erased only in part and has no usable volume now. Erase it "
                                           "again to use it."),
                                        {{"name", m_name}})

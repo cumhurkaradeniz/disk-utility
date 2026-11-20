@@ -612,10 +612,16 @@ void PartitionDialog::finished()
     }
     m_bar->setVisible(false);
     const size_t failed = m_runner->current();
-    m_status->setText(failed == 0 ? format(tr("Nothing was changed on “{name}”."), {{"name", m_diskName}})
-                                  : format(tr("“{name}” was partitioned only in part: the first {count} steps were "
-                                              "taken."),
-                                           {{"name", m_diskName}, {"count", std::to_string(failed)}}));
+    const bool changed = failed > 0 || (erasesData(m_runner->steps()[failed]) && ranPartWay(result));
+    if (!changed)
+        m_status->setText(format(tr("Nothing was changed on “{name}”."), {{"name", m_diskName}}));
+    else if (failed == 0)
+        m_status->setText(format(tr("“{name}” was partitioned only in part: “{step}” may have changed it before it "
+                                    "failed."),
+                                 {{"name", m_diskName}, {"step", describe(m_runner->steps()[0])}}));
+    else
+        m_status->setText(format(tr("“{name}” was partitioned only in part: the first {count} steps were taken."),
+                                 {{"name", m_diskName}, {"count", std::to_string(failed)}}));
     const std::string step = describe(m_runner->steps()[failed]);
     if (m_stopped && result.cancelled())
         m_error->setText(format(tr("“{step}” was stopped before it finished."), {{"step", step}}));

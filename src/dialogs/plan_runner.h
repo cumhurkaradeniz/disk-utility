@@ -73,6 +73,15 @@ std::string describe(const PlanStep& step);
 // "Deleting “Data”…", while the step runs.
 std::string describeRunning(const PlanStep& step);
 
+// A step whose failure part way can leave the data changed: a format runs
+// wipefs before its mkfs, a new partition can stay without its filesystem.
+bool erasesData(const PlanStep& step);
+// The failed call reached UDisks2 and may have run part way: it was not
+// turned down at the password, nor refused before it was sent.
+bool ranPartWay(const udisks::Result& result);
+// The password was turned down: nothing was sent.
+bool dismissed(const udisks::Result& result);
+
 // UDisks2's job on the first of the objects that has one: the step's
 // block, then its disk; null when none is running.
 const udisks::Object* jobOf(const udisks::Model& model, const std::vector<std::string>& paths);

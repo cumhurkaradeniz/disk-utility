@@ -258,10 +258,26 @@ TEST_F(EraseTest, ShowsTheError)
         driver->layout();
         return driver->shows("erase:done");
     }));
-    EXPECT_NE(driver->text("erase:status").find("was not erased"), std::string::npos);
+    // The format had begun: its wipefs may have run.
+    EXPECT_NE(driver->text("erase:status").find("only in part"), std::string::npos);
     EXPECT_NE(driver->text("erase:error").find("The device is busy"), std::string::npos);
 }
 
+TEST_F(EraseTest, AJobCancelledElsewhereIsReported)
+{
+    failing = "Format";
+    failingError = "org.freedesktop.UDisks2.Error.Cancelled";
+    openErase("v:" + sample::kData);
+    auto driver = dialog();
+    ASSERT_TRUE(driver);
+    driver->click("erase:erase");
+    ASSERT_TRUE(TestDriver::waitFor([&] {
+        driver->layout();
+        return driver->shows("erase:done");
+    }));
+    EXPECT_FALSE(driver->shows("erase:name"));
+    EXPECT_NE(driver->text("erase:error").find("was cancelled"), std::string::npos);
+}
 
 TEST_F(EraseTest, TheDialogStaysWhileItsVolumeGoes)
 {

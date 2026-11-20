@@ -92,6 +92,23 @@ bool stepHolds(const udisks::Model& model, const PlanStep& step)
     return step.resizedFrom != 0 && now == before;
 }
 
+bool erasesData(const PlanStep& step)
+{
+    return step.kind == PlanStep::Kind::CreateTable || step.kind == PlanStep::Kind::Format
+            || step.kind == PlanStep::Kind::Create;
+}
+
+bool dismissed(const udisks::Result& result)
+{
+    return result.errorName.starts_with("org.freedesktop.UDisks2.Error.NotAuthorized");
+}
+
+bool ranPartWay(const udisks::Result& result)
+{
+    return !result.ok() && !dismissed(result) && result.errorName != udisks::Operations::kSystemError
+            && result.errorName != udisks::Operations::kBusyError && result.errorName != PlanRunner::kChangedError;
+}
+
 const udisks::Object* jobOf(const udisks::Model& model, const std::vector<std::string>& paths)
 {
     for (const std::string& path : paths) {

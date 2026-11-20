@@ -224,6 +224,20 @@ TEST_F(PartitionTest, ATypedSizeStaysWithItsSlice)
     EXPECT_TRUE(enabled(*driver, "partition:apply"));
 }
 
+
+TEST_F(PartitionTest, AFailedNewMapSaysTheDiskChanged)
+{
+    failing = "Format";
+    auto driver = open("d:" + sample::kCard);
+    ASSERT_TRUE(driver);
+    driver->click("partition:add");
+    driver->click("partition:apply");
+    driver->click("partition:confirm");
+    ASSERT_TRUE(runs(*driver));
+    EXPECT_EQ(calls(), std::vector<std::string>{sample::kCard + " Format"});
+    EXPECT_NE(driver->text("partition:status").find("only in part"), std::string::npos);
+}
+
 TEST_F(PartitionTest, FatNamesInCapitals)
 {
     auto driver = open("v:" + sample::kData);
