@@ -49,6 +49,7 @@ gtest_discover_tests(disk-utility-scenario-tests PROPERTIES LABELS scenario RESO
 add_executable(disk-utility-layout-tests
     scenarios/main.cpp
     layout/layout_test.cpp
+    layout/scroll_test.cpp
 )
 target_include_directories(disk-utility-layout-tests PRIVATE scenarios)
 target_link_libraries(disk-utility-layout-tests PRIVATE disk-utility-ui disk-utility-fake GTest::gtest)
