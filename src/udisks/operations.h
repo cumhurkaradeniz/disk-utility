@@ -160,10 +160,6 @@ private:
     void refuse(Call call, const char* error, const std::string& message, Done done);
     // The whole disk a path belongs to; itself when it is none.
     std::string diskOf(const std::string& path) const;
-    // Refused: the block is gone, holds the system or is on its drive, or
-    // the system's devices are not known.
-    bool guarded(const std::string& block) const;
-    std::string guardMessage(const std::string& block, const std::string& systemText) const;
 
     Model& m_model;
     Backend& m_backend;

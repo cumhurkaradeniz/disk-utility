@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 #include "udisks/operations.h"
+#include "udisks/guard.h"
 #include "udisks/model.h"
 
 #include "base/event_loop.h"
@@ -105,26 +106,6 @@ std::string Operations::diskOf(const std::string& path) const
     if (object->partition)
         return object->partition->table;
     return path;
-}
-
-bool Operations::guarded(const std::string& block) const
-{
-    const Object* object = m_model.object(block);
-    if (!object || !object->block)
-        return true;
-    if (m_model.holdsSystem(block))
-        return true;
-    return object->block->drive.empty() ? false : m_model.driveHoldsSystem(object->block->drive);
-}
-
-std::string Operations::guardMessage(const std::string& block, const std::string& systemText) const
-{
-    const Object* object = m_model.object(block);
-    if (!object || !object->block)
-        return tr("The device is no longer available.");
-    if (!m_model.systemDevices().known)
-        return tr("The disks of the running system could not be found.");
-    return systemText;
 }
 
 bool Operations::isBusy(const std::string& path) const
@@ -234,9 +215,8 @@ void Operations::mount(const std::string& block, Done done)
 void Operations::unmount(const std::string& block, Done done)
 {
     Call call = makeCall(block, interface::kFilesystem, "Unmount", {options()});
-    if (guarded(block)) {
-        refuse(std::move(call), kSystemError, guardMessage(block, tr("The volume holds the running system.")),
-               std::move(done));
+    if (const std::string why = systemRefusal(m_model, block, Change::Volume); !why.empty()) {
+        refuse(std::move(call), kSystemError, why, std::move(done));
         return;
     }
     run(block, {{std::move(call)}}, std::move(done));
@@ -245,9 +225,8 @@ void Operations::unmount(const std::string& block, Done done)
 void Operations::setLabel(const std::string& block, const std::string& label, Done done)
 {
     Call call = makeCall(block, interface::kFilesystem, "SetLabel", {Variant(label), options()});
-    if (guarded(block)) {
-        refuse(std::move(call), kSystemError, guardMessage(block, tr("The volume holds the running system.")),
-               std::move(done));
+    if (const std::string why = systemRefusal(m_model, block, Change::Volume); !why.empty()) {
+        refuse(std::move(call), kSystemError, why, std::move(done));
         return;
     }
     run(block, {{std::move(call)}}, std::move(done));
@@ -261,9 +240,8 @@ void Operations::check(const std::string& block, Done done)
 void Operations::repair(const std::string& block, Done done)
 {
     Call call = makeCall(block, interface::kFilesystem, "Repair", {options()}, kLong);
-    if (guarded(block)) {
-        refuse(std::move(call), kSystemError, guardMessage(block, tr("The volume holds the running system.")),
-               std::move(done));
+    if (const std::string why = systemRefusal(m_model, block, Change::Volume); !why.empty()) {
+        refuse(std::move(call), kSystemError, why, std::move(done));
         return;
     }
     run(block, {{std::move(call)}}, std::move(done));
@@ -272,9 +250,8 @@ void Operations::repair(const std::string& block, Done done)
 void Operations::resizeFilesystem(const std::string& block, uint64_t size, Done done)
 {
     Call call = makeCall(block, interface::kFilesystem, "Resize", {Variant(size), options()}, kLong);
-    if (guarded(block)) {
-        refuse(std::move(call), kSystemError, guardMessage(block, tr("The volume holds the running system.")),
-               std::move(done));
+    if (const std::string why = systemRefusal(m_model, block, Change::Table); !why.empty()) {
+        refuse(std::move(call), kSystemError, why, std::move(done));
         return;
     }
     run(block, {{std::move(call)}}, std::move(done));
@@ -285,9 +262,8 @@ void Operations::format(const std::string& block, const std::string& type, const
 {
     Call call = makeCall(block, interface::kBlock, "Format", {Variant(type), options(formatOptions(formatting))},
                          kLong);
-    if (guarded(block)) {
-        refuse(std::move(call), kSystemError, guardMessage(block, tr("The disk holds the running system.")),
-               std::move(done));
+    if (const std::string why = systemRefusal(m_model, block, formatChange(m_model, block)); !why.empty()) {
+        refuse(std::move(call), kSystemError, why, std::move(done));
         return;
     }
     run(block, {{std::move(call)}}, std::move(done));
@@ -301,9 +277,8 @@ void Operations::openForBackup(const std::string& block, Done done)
 void Operations::openForRestore(const std::string& block, Done done)
 {
     Call call = makeCall(block, interface::kBlock, "OpenForRestore", {options()});
-    if (guarded(block)) {
-        refuse(std::move(call), kSystemError, guardMessage(block, tr("The disk holds the running system.")),
-               std::move(done));
+    if (const std::string why = systemRefusal(m_model, block, Change::Table); !why.empty()) {
+        refuse(std::move(call), kSystemError, why, std::move(done));
         return;
     }
     run(block, {{std::move(call)}}, std::move(done));
@@ -314,9 +289,8 @@ void Operations::createPartition(const std::string& table, uint64_t offset, uint
 {
     Call call = makeCall(table, interface::kPartitionTable, "CreatePartition",
                          {Variant(offset), Variant(size), Variant(type), Variant(name), options()});
-    if (guarded(table)) {
-        refuse(std::move(call), kSystemError, guardMessage(table, tr("The disk holds the running system.")),
-               std::move(done));
+    if (const std::string why = systemRefusal(m_model, table, Change::Table); !why.empty()) {
+        refuse(std::move(call), kSystemError, why, std::move(done));
         return;
     }
     run(table, {{std::move(call)}}, std::move(done));
@@ -330,9 +304,8 @@ void Operations::createPartitionAndFormat(const std::string& table, uint64_t off
                          {Variant(offset), Variant(size), Variant(partitionType), Variant(name), options(),
                           Variant(filesystem), options(formatOptions(formatting))},
                          kLong);
-    if (guarded(table)) {
-        refuse(std::move(call), kSystemError, guardMessage(table, tr("The disk holds the running system.")),
-               std::move(done));
+    if (const std::string why = systemRefusal(m_model, table, Change::Table); !why.empty()) {
+        refuse(std::move(call), kSystemError, why, std::move(done));
         return;
     }
     run(table, {{std::move(call)}}, std::move(done));
@@ -341,9 +314,8 @@ void Operations::createPartitionAndFormat(const std::string& table, uint64_t off
 void Operations::deletePartition(const std::string& block, Done done)
 {
     Call call = makeCall(block, interface::kPartition, "Delete", {options({{"tear-down", Variant(true)}})});
-    if (guarded(block)) {
-        refuse(std::move(call), kSystemError, guardMessage(block, tr("The partition holds the running system.")),
-               std::move(done));
+    if (const std::string why = systemRefusal(m_model, block, Change::Table); !why.empty()) {
+        refuse(std::move(call), kSystemError, why, std::move(done));
         return;
     }
     run(block, {{std::move(call)}}, std::move(done));
@@ -352,9 +324,8 @@ void Operations::deletePartition(const std::string& block, Done done)
 void Operations::resizePartition(const std::string& block, uint64_t size, Done done)
 {
     Call call = makeCall(block, interface::kPartition, "Resize", {Variant(size), options()}, kLong);
-    if (guarded(block)) {
-        refuse(std::move(call), kSystemError, guardMessage(block, tr("The partition holds the running system.")),
-               std::move(done));
+    if (const std::string why = systemRefusal(m_model, block, Change::Table); !why.empty()) {
+        refuse(std::move(call), kSystemError, why, std::move(done));
         return;
     }
     run(block, {{std::move(call)}}, std::move(done));
@@ -368,9 +339,8 @@ void Operations::setPartitionName(const std::string& block, const std::string& n
 void Operations::setPartitionType(const std::string& block, const std::string& type, Done done)
 {
     Call call = makeCall(block, interface::kPartition, "SetType", {Variant(type), options()});
-    if (guarded(block)) {
-        refuse(std::move(call), kSystemError, guardMessage(block, tr("The partition holds the running system.")),
-               std::move(done));
+    if (const std::string why = systemRefusal(m_model, block, Change::Table); !why.empty()) {
+        refuse(std::move(call), kSystemError, why, std::move(done));
         return;
     }
     run(block, {{std::move(call)}}, std::move(done));
@@ -385,9 +355,8 @@ void Operations::unlock(const std::string& block, const std::string& passphrase,
 void Operations::lock(const std::string& block, Done done)
 {
     Call call = makeCall(block, interface::kEncrypted, "Lock", {options()});
-    if (guarded(block)) {
-        refuse(std::move(call), kSystemError, guardMessage(block, tr("The volume holds the running system.")),
-               std::move(done));
+    if (const std::string why = systemRefusal(m_model, block, Change::Volume); !why.empty()) {
+        refuse(std::move(call), kSystemError, why, std::move(done));
         return;
     }
     run(block, {{std::move(call)}}, std::move(done));
@@ -452,9 +421,8 @@ void Operations::ejectDisk(const std::string& disk, Done done)
         }
         last = makeCall(whole->block->drive, interface::kDrive, ejectable ? "Eject" : "PowerOff", {options()});
     }
-    if (guarded(disk)) {
-        refuse(std::move(last), kSystemError, guardMessage(disk, tr("The disk holds the running system.")),
-               std::move(done));
+    if (const std::string why = systemRefusal(m_model, disk, Change::Drive); !why.empty()) {
+        refuse(std::move(last), kSystemError, why, std::move(done));
         return;
     }
     steps.push_back({std::move(last)});
@@ -476,9 +444,8 @@ void Operations::loopSetup(const std::string& file, bool readOnly, Done done)
 void Operations::loopDelete(const std::string& block, Done done)
 {
     Call call = makeCall(block, interface::kLoop, "Delete", {options()});
-    if (guarded(block)) {
-        refuse(std::move(call), kSystemError, guardMessage(block, tr("The disk image holds the running system.")),
-               std::move(done));
+    if (const std::string why = systemRefusal(m_model, block, Change::Drive); !why.empty()) {
+        refuse(std::move(call), kSystemError, why, std::move(done));
         return;
     }
     run(block, {{std::move(call)}}, std::move(done));

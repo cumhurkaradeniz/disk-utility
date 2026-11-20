@@ -136,6 +136,9 @@ Model::Objects sampleTree();
 SystemDevices sampleSystemDevices();
 // A model filled with both.
 void loadSample(Model& model);
+// Adds nvme0n1p3, an unmounted NTFS "Windows" partition, to the sample's
+// system disk: a volume that does not hold the system on a disk that does.
+std::string addDataPartitionToSystemDisk(Model& model);
 
 namespace sample {
 inline const std::string kNvmeDrive = TreeBuilder::drivePath("YMTC_PC005_512GB");

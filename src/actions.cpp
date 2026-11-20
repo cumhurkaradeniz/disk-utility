@@ -3,6 +3,7 @@
 
 #include "actions.h"
 
+#include "udisks/guard.h"
 #include "udisks/model.h"
 #include "udisks/operations.h"
 
@@ -11,6 +12,7 @@
 #include <algorithm>
 
 using cutefish::i18n::tr;
+using udisks::Change;
 using udisks::Model;
 using udisks::Node;
 using udisks::NodeKind;
@@ -175,6 +177,11 @@ static ActionState disabled(std::string reason = {})
     return {false, std::move(reason)};
 }
 
+static ActionState allowedUnless(std::string refusal)
+{
+    return refusal.empty() ? enabled() : disabled(std::move(refusal));
+}
+
 ActionState actionState(Action action, const Model& model, const udisks::Operations* operations,
                         const Selection& selection)
 {
@@ -199,16 +206,8 @@ ActionState actionState(Action action, const Model& model, const udisks::Operati
 
     const bool busy = isBusy(model, operations, node);
     const bool readOnly = object->block->readOnly || disk->block->readOnly;
-    const bool system = model.holdsSystem(node.block);
-    const bool systemDisk = model.holdsSystem(node.disk);
     const Object* content = model.contentOf(node.block);
     const bool isDisk = node.kind == NodeKind::Disk;
-    const bool systemKnown = model.systemDevices().known;
-    const std::string unknownReason = tr("The disks of the running system could not be found.");
-    const std::string diskReason = systemKnown ? tr("The disk holds the running system.") : unknownReason;
-    const std::string systemReason = !systemKnown ? unknownReason
-            : isDisk                             ? diskReason
-                                                 : tr("The volume holds the running system.");
 
     if (busy)
         return disabled(tr("An operation on this disk is in progress."));
@@ -233,8 +232,8 @@ ActionState actionState(Action action, const Model& model, const udisks::Operati
             bool any = false;
             for (const Object* volume : volumesOnDisk(model, node.disk)) {
                 if (isMounted(volume)) {
-                    if (model.holdsSystem(volume->path))
-                        return disabled(systemReason);
+                    if (const std::string why = systemRefusal(model, volume->path, Change::Volume); !why.empty())
+                        return disabled(why);
                     any = true;
                 }
             }
@@ -245,11 +244,11 @@ ActionState actionState(Action action, const Model& model, const udisks::Operati
         const bool unlocked = object->encrypted && content != object;
         if (!isMounted(content) && !unlocked)
             return disabled();
-        return system ? disabled(systemReason) : enabled();
+        return allowedUnless(systemRefusal(model, node.block, Change::Volume));
     }
     case Action::Eject: {
-        if (systemDisk || (!node.drive.empty() && model.driveHoldsSystem(node.drive)))
-            return disabled(diskReason);
+        if (const std::string why = systemRefusal(model, node.disk, Change::Drive); !why.empty())
+            return disabled(why);
         if (disk->loop)
             return enabled();
         const Object* drive = model.object(node.drive);
@@ -258,23 +257,27 @@ ActionState actionState(Action action, const Model& model, const udisks::Operati
         return disabled();
     }
     case Action::Erase:
-    case Action::Restore:
+    case Action::Restore: {
         if (node.kind == NodeKind::Container)
             return disabled();
-        if (system || (isDisk && systemDisk))
-            return disabled(systemReason);
+        // Erasing a partition formats it in place; erasing a disk, or
+        // restoring onto anything, changes what the disk holds.
+        const Change change = action == Action::Erase ? udisks::formatChange(model, node.block) : Change::Table;
+        if (const std::string why = systemRefusal(model, node.block, change); !why.empty())
+            return disabled(why);
         if (readOnly || object->block->size == 0)
             return disabled();
         return enabled();
+    }
     case Action::Partition:
-        if (systemDisk)
-            return disabled(diskReason);
+        if (const std::string why = systemRefusal(model, node.disk, Change::Table); !why.empty())
+            return disabled(why);
         if (readOnly || disk->block->size == 0)
             return disabled();
         return enabled();
     case Action::AddVolume:
-        if (systemDisk)
-            return disabled(diskReason);
+        if (const std::string why = systemRefusal(model, node.disk, Change::Table); !why.empty())
+            return disabled(why);
         if (readOnly)
             return disabled();
         if (disk->partitionTable && disk->partitionTable->type == "dos") {
@@ -292,8 +295,8 @@ ActionState actionState(Action action, const Model& model, const udisks::Operati
     case Action::RemoveVolume:
         if (!object->partition)
             return disabled();
-        if (system)
-            return disabled(systemReason);
+        if (const std::string why = systemRefusal(model, node.block, Change::Table); !why.empty())
+            return disabled(why);
         if (object->partition->isContainer) {
             for (const Object* logical : model.logicalPartitionsOf(node.block)) {
                 if (model.isInUse(logical->path) || model.cleartextOf(logical->path))
@@ -302,23 +305,24 @@ ActionState actionState(Action action, const Model& model, const udisks::Operati
         }
         return readOnly ? disabled() : enabled();
     case Action::FirstAid:
+        // On a disk, every volume of it, the system's too.
         if (isDisk)
-            return systemDisk ? disabled(systemReason) : enabled();
+            return allowedUnless(systemRefusal(model, node.disk, Change::Table));
         if (node.kind != NodeKind::Volume || !content || !content->filesystem)
             return disabled();
-        return system ? disabled(systemReason) : enabled();
+        return allowedUnless(systemRefusal(model, node.block, Change::Volume));
     case Action::Rename:
         if (node.kind != NodeKind::Volume || !content || !content->filesystem)
             return disabled();
-        if (system)
-            return disabled(systemReason);
+        if (const std::string why = systemRefusal(model, node.block, Change::Volume); !why.empty())
+            return disabled(why);
         return readOnly ? disabled() : enabled();
     case Action::NewImageFromSelection:
         return node.kind == NodeKind::Container ? disabled() : enabled();
     case Action::Lock:
         if (node.kind != NodeKind::Volume || !object->encrypted || !content || content == object)
             return disabled();
-        return system ? disabled(systemReason) : enabled();
+        return allowedUnless(systemRefusal(model, node.block, Change::Volume));
     default:
         return disabled();
     }
@@ -342,7 +346,8 @@ void ActionDispatcher::setHandler(Action action, Handler handler)
 
 bool ActionDispatcher::hasHandler(Action action) const
 {
-    return std::any_of(m_handlers.begin(), m_handlers.end(), [action](const auto& entry) { return entry.first == action; });
+    return std::any_of(m_handlers.begin(), m_handlers.end(),
+                       [action](const auto& entry) { return entry.first == action; });
 }
 
 void ActionDispatcher::setSelection(Selection selection)

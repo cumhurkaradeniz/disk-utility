@@ -30,6 +30,7 @@ add_library(disk-utility-core STATIC
     src/udisks/bus.cpp
     src/udisks/describe.cpp
     src/udisks/errors.cpp
+    src/udisks/guard.cpp
     src/udisks/holders.cpp
     src/udisks/identity.cpp
     src/udisks/model.cpp

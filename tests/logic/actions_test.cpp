@@ -306,6 +306,28 @@ TEST_F(ActionsTest, UnknownSystemDisablesEveryChange)
     EXPECT_TRUE(enabled(Action::Info, "v:" + sample::kStickVolume));
 }
 
+TEST_F(ActionsTest, AVolumeOnTheSystemDisk)
+{
+    const std::string windows = addDataPartitionToSystemDisk(model);
+    tree = buildTree(model, ViewMode::AllDevices);
+    const std::string id = "v:" + windows;
+    // Its own volume: mounted, unmounted, renamed, checked, erased in place.
+    EXPECT_TRUE(enabled(Action::Mount, id));
+    for (Action action : {Action::Rename, Action::FirstAid, Action::Erase, Action::Info})
+        EXPECT_TRUE(enabled(action, id)) << actionName(action);
+    model.changeProperties(windows, interface::kFilesystem,
+                           {{"MountPoints", Variant(std::vector<std::vector<uint8_t>>{encodeBytes("/media/u/W")})}});
+    EXPECT_TRUE(enabled(Action::Unmount, id));
+    // The disk's table and the drive stay as they are.
+    for (Action action : {Action::RemoveVolume, Action::Restore, Action::Partition, Action::AddVolume, Action::Eject}) {
+        const ActionState state = actionState(action, model, &operations, select(id));
+        EXPECT_FALSE(state.enabled) << actionName(action);
+        EXPECT_EQ(state.reason, "The disk holds the running system.") << actionName(action);
+    }
+    EXPECT_FALSE(enabled(Action::Erase, "d:" + sample::kNvme));
+    EXPECT_FALSE(enabled(Action::FirstAid, "d:" + sample::kNvme));
+}
+
 TEST_F(ActionsTest, NamesAndTitles)
 {
     EXPECT_EQ(actionName(Action::FirstAid), "firstAid");

@@ -394,6 +394,21 @@ SystemDevices sampleSystemDevices()
     return {{makedev(259, 1), makedev(259, 2), makedev(252, 0)}, true};
 }
 
+std::string addDataPartitionToSystemDisk(Model& model)
+{
+    TreeBuilder tree;
+    tree.addDisk("nvme0n1", sample::kNvmeDrive,
+                 TreeBuilder::BlockSpec{.size = 512110190592, .deviceNumber = makedev(259, 0)}, "gpt");
+    const std::string windows = tree.addPartition(
+        sample::kNvme, "nvme0n1p3", 3, 400 * kGB,
+        TreeBuilder::BlockSpec{.size = 100 * kGB, .deviceNumber = makedev(259, 3), .idUsage = "filesystem",
+                               .idType = "ntfs", .idLabel = "Windows", .idUuid = "WIN"},
+        "ebd0a0a2-b9e5-4433-87c0-68b6b72699c7");
+    tree.setFilesystem(windows, {});
+    model.addInterfaces(windows, tree.objects().at(windows));
+    return windows;
+}
+
 void loadSample(Model& model)
 {
     model.setSystemDevices(sampleSystemDevices());

@@ -166,6 +166,44 @@ TEST_F(OperationsTest, GuardsFailClosed)
     EXPECT_EQ(results[3].errorMessage, "The disks of the running system could not be found.");
 }
 
+TEST_F(OperationsTest, AVolumeOnTheSystemDisk)
+{
+    const std::string windows = addDataPartitionToSystemDisk(model);
+    model.changeProperties(windows, interface::kFilesystem,
+                           {{"MountPoints", Variant(std::vector<std::vector<uint8_t>>{encodeBytes("/media/u/W")})}});
+    std::vector<Result> refused;
+    const auto collect = [&](const Result& r) { refused.push_back(r); };
+    // The partition's own volume goes out.
+    operations.unmount(windows);
+    backend.replyAll();
+    runPosted();
+    operations.setLabel(windows, "Win");
+    backend.replyAll();
+    runPosted();
+    operations.repair(windows);
+    backend.replyAll();
+    runPosted();
+    operations.format(windows, "ntfs", {});
+    backend.replyAll();
+    runPosted();
+    EXPECT_EQ(backend.calls.size(), 4u);
+    // The table, the whole disk and the drive do not.
+    operations.deletePartition(windows, collect);
+    operations.resizePartition(windows, 1, collect);
+    operations.resizeFilesystem(windows, 1, collect);
+    operations.setPartitionType(windows, "0x83", collect);
+    operations.openForRestore(windows, collect);
+    operations.createPartition(sample::kNvme, 0, 1, {}, {}, collect);
+    operations.format(sample::kNvme, "gpt", {}, collect);
+    EXPECT_EQ(backend.calls.size(), 4u);
+    runPosted();
+    ASSERT_EQ(refused.size(), 7u);
+    for (const Result& result : refused) {
+        EXPECT_EQ(result.errorName, Operations::kSystemError);
+        EXPECT_EQ(result.errorMessage, "The disk holds the running system.");
+    }
+}
+
 TEST_F(OperationsTest, PromptsHaveTimeToBeAnswered)
 {
     operations.mount(sample::kData);
