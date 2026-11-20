@@ -32,10 +32,14 @@ public:
                   std::function<void()> close);
     // Closes the dialog on the loss, except while busy() says a run is under
     // way: the run stops before its next step and reports the loss itself,
-    // and the dialog stays to show it. Disarms itself once the dialog has
-    // closed, so a later loss says nothing.
+    // and the dialog stays to show it. Once busy() ends, the blocks are
+    // checked again, and the dialog is closed then if they are still gone.
+    // Disarms itself once the dialog has closed, so a later loss says
+    // nothing.
     IdentityGuard(views::Context& context, std::vector<udisks::Identity> identities, std::string name,
                   cutefish::ui::DialogWindow& dialog, std::function<bool()> busy = {});
+
+    ~IdentityGuard();
 
     IdentityGuard(const IdentityGuard&) = delete;
     IdentityGuard& operator=(const IdentityGuard&) = delete;
@@ -49,6 +53,11 @@ public:
 
 private:
     void lost();
+    // Closes the dialog and says why.
+    void close();
+    void watch();
+    void waitUntilIdle();
+    void stopWaiting();
 
     views::Context& m_context;
     std::string m_name;
@@ -57,6 +66,8 @@ private:
     std::function<bool()> m_busy;
     std::vector<udisks::Identity> m_identities;
     std::unique_ptr<udisks::IdentityWatch> m_watch;
+    // Polls busy() after a loss while busy; -1 while not waiting.
+    int m_idleTimer = -1;
 };
 
 // The window's alert for a block that went while a dialog was open on it.

@@ -496,3 +496,52 @@ TEST_F(EraseTest, AddsAPartitionInTheFreeSpace)
     EXPECT_EQ(create->arguments.at(3).value<std::string>(), "Backup");
     EXPECT_EQ(create->arguments.at(5).value<std::string>(), "ext4");
 }
+
+// The newest window over the main one shows the alert that the disk went.
+static bool alertsGone(Scenario& scenario)
+{
+    Window* window = scenario.driver.dialog();
+    if (!window)
+        return false;
+    TestDriver alert(*window, [](const std::string&) {});
+    alert.layout();
+    return alert.showsText("“STICK” is no longer there.");
+}
+
+TEST_F(EraseTest, ADiskSwappedWhileBusyIsReportedAfterwards)
+{
+    waiting = "Unmount";
+    openErase("v:" + sample::kStickVolume);
+    auto driver = dialog();
+    ASSERT_TRUE(driver);
+    driver->click("erase:erase");
+    ASSERT_EQ(scenario.backend().pendingCount(), 1u);
+    // Another stick in its place while the password is asked for.
+    scenario.model().changeProperties(sample::kStickVolume, udisks::interface::kPartition,
+                                      {{"UUID", Variant(std::string("another-stick"))}});
+    runPosted();
+    scenario.backend().reply(0, error("org.freedesktop.UDisks2.Error.NotAuthorizedDismissed", "dismissed"));
+    driver.reset();
+    // Once the run is over the dialog closes and says why.
+    EXPECT_TRUE(TestDriver::waitFor([&] { return alertsGone(scenario); }));
+    EXPECT_EQ(calls(), std::vector<std::string>{sample::kStickVolume + " Unmount"});
+}
+
+TEST_F(EraseTest, RenameOnASwappedDiskIsReportedAfterwards)
+{
+    waiting = "SetLabel";
+    scenario.window->select("v:" + sample::kStickVolume);
+    scenario.driver.layout();
+    ASSERT_TRUE(scenario.driver.chooseMenuItem("Edit", "Rename…"));
+    auto driver = dialog();
+    ASSERT_TRUE(driver);
+    replaceText(*driver, "rename:name", "PHOTOS");
+    driver->click("rename:rename");
+    ASSERT_EQ(scenario.backend().pendingCount(), 1u);
+    scenario.model().changeProperties(sample::kStickVolume, udisks::interface::kPartition,
+                                      {{"UUID", Variant(std::string("another-stick"))}});
+    runPosted();
+    scenario.backend().reply(0, error("org.freedesktop.UDisks2.Error.Cancelled", "cancelled"));
+    driver.reset();
+    EXPECT_TRUE(TestDriver::waitFor([&] { return alertsGone(scenario); }));
+}

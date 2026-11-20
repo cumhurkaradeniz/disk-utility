@@ -7,6 +7,7 @@
 
 #include "udisks/model.h"
 
+#include "base/event_loop.h"
 #include "base/i18n.h"
 #include "ui/dialog_window.h"
 
@@ -27,9 +28,9 @@ IdentityGuard::IdentityGuard(views::Context& context, std::vector<udisks::Identi
     : m_context(context)
     , m_name(std::move(name))
     , m_close(std::move(close))
-    , m_identities(identities)
-    , m_watch(std::make_unique<udisks::IdentityWatch>(context.model, std::move(identities), [this] { lost(); }))
+    , m_identities(std::move(identities))
 {
+    watch();
 }
 
 IdentityGuard::IdentityGuard(views::Context& context, std::vector<udisks::Identity> identities, std::string name,
@@ -38,9 +39,19 @@ IdentityGuard::IdentityGuard(views::Context& context, std::vector<udisks::Identi
     , m_name(std::move(name))
     , m_dialog(&dialog)
     , m_busy(std::move(busy))
-    , m_identities(identities)
-    , m_watch(std::make_unique<udisks::IdentityWatch>(context.model, std::move(identities), [this] { lost(); }))
+    , m_identities(std::move(identities))
 {
+    watch();
+}
+
+IdentityGuard::~IdentityGuard()
+{
+    stopWaiting();
+}
+
+void IdentityGuard::watch()
+{
+    m_watch = std::make_unique<udisks::IdentityWatch>(m_context.model, m_identities, [this] { lost(); });
 }
 
 bool IdentityGuard::holds() const
@@ -54,7 +65,38 @@ bool IdentityGuard::holds() const
 
 void IdentityGuard::disarm()
 {
+    stopWaiting();
     m_watch.reset();
+}
+
+void IdentityGuard::stopWaiting()
+{
+    if (m_idleTimer < 0)
+        return;
+    if (cutefish::base::EventLoop* loop = cutefish::base::EventLoop::current())
+        loop->stopTimer(m_idleTimer);
+    m_idleTimer = -1;
+}
+
+// The watch calls back once; a run that was busy then may end without the
+// model changing again, such as a call turned down at the password.
+void IdentityGuard::waitUntilIdle()
+{
+    if (m_idleTimer >= 0)
+        return;
+    m_idleTimer = cutefish::base::EventLoop::current()->startTimer(std::chrono::milliseconds(50), true, [this] {
+        if (m_busy && m_busy())
+            return;
+        stopWaiting();
+        if (!m_dialog->window()) {
+            disarm();
+            return;
+        }
+        if (holds())
+            watch();
+        else
+            close();
+    });
 }
 
 void IdentityGuard::lost()
@@ -65,14 +107,22 @@ void IdentityGuard::lost()
             disarm();
             return;
         }
-        if (m_busy && m_busy())
+        if (m_busy && m_busy()) {
+            waitUntilIdle();
             return;
-        disarm();
+        }
+    }
+    close();
+}
+
+void IdentityGuard::close()
+{
+    disarm();
+    if (m_dialog) {
         m_dialog->close();
         showGone(m_context, m_name);
         return;
     }
-    disarm();
     // The callback may destroy the guard.
     const std::function<void()> close = m_close;
     const std::string name = m_name;
