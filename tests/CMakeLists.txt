@@ -29,3 +29,11 @@ add_executable(disk-utility-logic-tests
 )
 target_link_libraries(disk-utility-logic-tests PRIVATE disk-utility-fake GTest::gtest)
 gtest_discover_tests(disk-utility-logic-tests PROPERTIES LABELS logic)
+
+add_executable(disk-utility-scenario-tests
+    scenarios/main.cpp
+    scenarios/window_test.cpp
+)
+target_link_libraries(disk-utility-scenario-tests PRIVATE disk-utility-ui disk-utility-fake GTest::gtest)
+# The application tests group every running copy of these binaries.
+gtest_discover_tests(disk-utility-scenario-tests PROPERTIES LABELS scenario RESOURCE_LOCK disk-utility-ui)
