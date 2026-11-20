@@ -13,6 +13,12 @@ include(CTest)
 
 find_package(CutefishToolkit REQUIRED)
 
+add_library(disk-utility-core STATIC
+    src/udisks/parse.cpp
+)
+target_include_directories(disk-utility-core PUBLIC src)
+target_link_libraries(disk-utility-core PUBLIC Cutefish::ToolkitBase)
+
 cutefish_add_translations(cutefish-disk-utility SOURCES src DESKTOP_FILES cutefish-disk-utility.desktop)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/cutefish-disk-utility.desktop
         DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
