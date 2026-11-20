@@ -58,6 +58,7 @@ add_library(disk-utility-ui STATIC
     src/dialogs/identity_guard.cpp
     src/views/context.cpp
     src/views/style.cpp
+    src/views/toolbar.cpp
     ${DISK_UTILITY_EMBEDDED}
 )
 target_include_directories(disk-utility-ui PUBLIC src)
