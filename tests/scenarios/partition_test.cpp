@@ -224,6 +224,39 @@ TEST_F(PartitionTest, ATypedSizeStaysWithItsSlice)
     EXPECT_TRUE(enabled(*driver, "partition:apply"));
 }
 
+TEST_F(PartitionTest, PlusTakesTheTypedSizeFirst)
+{
+    auto driver = open("v:" + sample::kData);
+    ASSERT_TRUE(driver);
+    auto* pie = driver->find<dialogs::PieChart>("partition:pie");
+    ASSERT_TRUE(pie);
+    const uint32_t data = dialogs::PartitionLayout::fromDisk(scenario.model(), sample::kSata).slices()[0].id;
+
+    // Typed for Data, then + (which takes no focus): Data takes the size
+    // before the new partition is made, and keeps it after.
+    replaceText(*driver, "partition:size", "250");
+    driver->click("partition:add");
+    EXPECT_EQ(driver->text("partition:name"), "Untitled");
+    const std::string created = driver->text("partition:size");
+    driver->click("partition:name");
+    EXPECT_EQ(driver->text("partition:size"), created);
+    pie->onSelected(data);
+    driver->layout();
+    EXPECT_EQ(driver->text("partition:size"), udisks::formatSize(250 * kGB));
+}
+
+TEST_F(PartitionTest, RevertDropsTheTypedSize)
+{
+    auto driver = open("v:" + sample::kData);
+    ASSERT_TRUE(driver);
+    driver->click("partition:add");
+    replaceText(*driver, "partition:size", "30");
+    driver->click("partition:revert");
+    EXPECT_EQ(driver->text("partition:size"), udisks::formatSize(500 * kGB));
+    driver->click("partition:name");
+    EXPECT_EQ(driver->text("partition:size"), udisks::formatSize(500 * kGB));
+    EXPECT_FALSE(enabled(*driver, "partition:apply"));
+}
 
 TEST_F(PartitionTest, AFailedNewMapSaysTheDiskChanged)
 {

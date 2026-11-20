@@ -283,6 +283,8 @@ void PartitionDialog::select(uint32_t id)
 
 void PartitionDialog::moveBoundary(size_t index, uint64_t position, bool finished)
 {
+    // The pie takes no focus: a size typed before the drag goes first.
+    sizeEdited();
     m_layout.moveBoundary(index, position);
     if (finished)
         m_layout.normalize();
@@ -431,6 +433,8 @@ std::string PartitionDialog::newFilesystem() const
 
 void PartitionDialog::add()
 {
+    // + and - take no focus: a size typed before them goes to its slice.
+    sizeEdited();
     const std::string type = newFilesystem();
     if (const std::optional<uint32_t> id = m_layout.add(m_selected, type, defaultLabel(type)))
         m_selected = id;
@@ -439,6 +443,7 @@ void PartitionDialog::add()
 
 void PartitionDialog::remove()
 {
+    sizeEdited();
     if (!m_selected)
         return;
     const Slice* slice = m_layout.slice(*m_selected);
@@ -455,6 +460,7 @@ void PartitionDialog::remove()
 
 void PartitionDialog::revert()
 {
+    m_sizeSlice.reset();
     m_layout = m_original;
     m_selected.reset();
     for (const Slice& slice : m_layout.slices()) {
@@ -466,7 +472,7 @@ void PartitionDialog::revert()
 
 void PartitionDialog::sizeEdited()
 {
-    if (!m_sizeSlice)
+    if (!m_sizeSlice || !m_size)
         return;
     const uint32_t id = *m_sizeSlice;
     m_sizeSlice.reset();
