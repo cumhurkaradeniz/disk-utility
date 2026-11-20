@@ -200,6 +200,14 @@ TEST_F(VolumeToolsTest, RenameKeepsToTheFilesystemsLimit)
     EXPECT_EQ(call.path, sample::kStickVolume);
     EXPECT_EQ(call.method, "SetLabel");
     EXPECT_EQ(call.arguments.at(0).value<std::string>(), "MY STICK");
+    runPosted();
+    EXPECT_EQ(scenario.driver.dialog(), nullptr);
+
+    // Ejected after the rename: nothing is said.
+    scenario.model().removeInterfaces(sample::kStickVolume, {udisks::interface::kBlock,
+                                                             udisks::interface::kPartition,
+                                                             udisks::interface::kFilesystem});
+    runPosted();
     EXPECT_EQ(scenario.driver.dialog(), nullptr);
 }
 
@@ -512,4 +520,65 @@ TEST_F(VolumeToolsTest, UnlockForgetsThePassphrase)
     driver->click("unlock:unlock");
     answer(value(Variant(ObjectPath{TreeBuilder::blockPath("dm_2d1")})));
     EXPECT_EQ(left, "");
+}
+
+TEST_F(VolumeToolsTest, FirstAidLeavesNoGuardBehind)
+{
+    select("v:" + sample::kStickVolume);
+    ASSERT_TRUE(actions.trigger(Action::FirstAid));
+    {
+        auto confirm = over(scenario.driver);
+        ASSERT_TRUE(confirm);
+        confirm->clickText("Run");
+    }
+    runPosted();
+    answer(available(true));
+    answer();
+    answer(value(Variant(true)));
+    answer();
+    ASSERT_EQ(methods(), (std::vector<std::string>{"CanCheck", "Unmount", "Check", "Mount"}));
+
+    // Ejected afterwards: nothing is said about the finished run.
+    scenario.model().removeInterfaces(sample::kStickVolume, {udisks::interface::kBlock,
+                                                             udisks::interface::kPartition,
+                                                             udisks::interface::kFilesystem});
+    runPosted();
+    auto top = over(scenario.driver);
+    ASSERT_TRUE(top);
+    EXPECT_FALSE(top->showsText("“STICK” is no longer there."));
+}
+
+TEST_F(VolumeToolsTest, FirstAidQuestionDeclinedLeavesNoGuard)
+{
+    select("v:" + sample::kStickVolume);
+    ASSERT_TRUE(actions.trigger(Action::FirstAid));
+    {
+        auto confirm = over(scenario.driver);
+        ASSERT_TRUE(confirm);
+        confirm->clickText("Cancel");
+    }
+    runPosted();
+    scenario.model().removeInterfaces(sample::kStickVolume, {udisks::interface::kBlock,
+                                                             udisks::interface::kPartition,
+                                                             udisks::interface::kFilesystem});
+    runPosted();
+    EXPECT_EQ(scenario.driver.dialog(), nullptr);
+}
+
+TEST_F(VolumeToolsTest, RenameClosedLeavesNoGuard)
+{
+    select("v:" + sample::kStickVolume);
+    ASSERT_TRUE(actions.trigger(Action::Rename));
+    {
+        auto dialog = over(scenario.driver);
+        ASSERT_TRUE(dialog);
+        dialog->typeKey(cutefish::ui::key::Escape);
+    }
+    runPosted();
+    ASSERT_EQ(scenario.driver.dialog(), nullptr);
+    scenario.model().removeInterfaces(sample::kStickVolume, {udisks::interface::kBlock,
+                                                             udisks::interface::kPartition,
+                                                             udisks::interface::kFilesystem});
+    runPosted();
+    EXPECT_EQ(scenario.driver.dialog(), nullptr);
 }

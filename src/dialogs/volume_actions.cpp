@@ -66,8 +66,19 @@ AddPartitionDialog::AddPartitionDialog(views::Context& context, std::string disk
     const std::string diskName = udisks::displayName(context.model, node);
 
     m_dialog = std::make_unique<DialogWindow>(&context.window, tr("Add Partition"), kWidth);
-    m_guard = std::make_unique<IdentityGuard>(context, std::vector<udisks::Identity>{m_identity}, diskName,
-                                              [this] { m_dialog->close(); });
+    m_guard = std::make_unique<IdentityGuard>(context, std::vector<udisks::Identity>{m_identity}, diskName, *m_dialog,
+                                              [this] { return m_runner && m_runner->isRunning(); });
+    // Nothing of the window is touched once it is gone.
+    m_dialog->onClosed = [this] {
+        m_guard->disarm();
+        m_subscriptions.clear();
+        m_name = nullptr;
+        m_format = nullptr;
+        m_size = nullptr;
+        m_note = nullptr;
+        m_problem = nullptr;
+        m_add = nullptr;
+    };
     m_dialog->window()->setBackgroundColor(ColorId::Background);
     m_dialog->window()->onCloseRequested = [this] {
         if (!m_runner || !m_runner->isRunning())
@@ -153,6 +164,8 @@ bool AddPartitionDialog::isOpen() const
 
 void AddPartitionDialog::updateFormats()
 {
+    if (!m_format)
+        return;
     std::vector<ChoiceButton::Item> items;
     for (const std::string& type : erasableFilesystems())
         items.push_back({formatName(type), type, m_formats.isAvailable(type), m_formats.reason(type)});
@@ -189,6 +202,8 @@ std::string AddPartitionDialog::problem() const
 
 void AddPartitionDialog::update()
 {
+    if (!m_add)
+        return;
     const std::string why = problem();
     m_problem->setText(why);
     const bool running = m_runner && m_runner->isRunning();
@@ -197,7 +212,7 @@ void AddPartitionDialog::update()
 
 void AddPartitionDialog::addPartition()
 {
-    if (!m_add->isEnabled() || !m_context.model.matches(m_identity))
+    if (!m_add || !m_add->isEnabled() || !m_context.model.matches(m_identity))
         return;
     m_runner = std::make_unique<PlanRunner>(m_context.model, m_context.operations, m_identity,
                                             std::vector<PlanStep>{step()});
@@ -273,7 +288,10 @@ static void confirmDelete(VolumeActions& actions, const udisks::Node& node)
     VolumeActions* owner = &actions;
     actions.confirmGuard = std::make_unique<IdentityGuard>(context, std::vector<udisks::Identity>{identity}, name,
                                                            [owner] { owner->confirm.reset(); });
-    actions.confirm->onAccepted = [&context, identity, name] {
+    // The answer ends what the guard watches for.
+    actions.confirm->onRejected = [owner] { owner->confirmGuard->disarm(); };
+    actions.confirm->onAccepted = [owner, &context, identity, name] {
+        owner->confirmGuard->disarm();
         if (!context.model.matches(identity)) {
             showGone(context, name);
             return;

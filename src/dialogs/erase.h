@@ -71,6 +71,9 @@ private:
     void stop();
     // The form as the last erase was asked for.
     void restore();
+    // The views of the content shown, which goes when it is replaced or the
+    // window closes.
+    void forgetViews();
 
     views::Context& m_context;
     udisks::Node m_node;

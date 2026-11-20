@@ -74,6 +74,9 @@ private:
     void stepStarted(size_t index);
     void updateProgress();
     void stop();
+    // The views of the content shown, which goes when it is replaced or the
+    // window closes.
+    void forgetViews();
     void finished();
 
     views::Context& m_context;

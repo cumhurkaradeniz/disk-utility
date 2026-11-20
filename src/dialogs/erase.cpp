@@ -71,8 +71,14 @@ EraseDialog::EraseDialog(views::Context& context, udisks::Node node)
             m_dialog->close();
     });
     m_identity = udisks::identityOf(context.model, m_node.block);
-    m_guard = std::make_unique<IdentityGuard>(context, std::vector<udisks::Identity>{m_identity}, m_name,
-                                              [this] { m_dialog->close(); });
+    m_guard = std::make_unique<IdentityGuard>(context, std::vector<udisks::Identity>{m_identity}, m_name, *m_dialog,
+                                              [this] { return isRunning(); });
+    // Nothing of the window is touched once it is gone.
+    m_dialog->onClosed = [this] {
+        m_guard->disarm();
+        m_subscriptions.clear();
+        forgetViews();
+    };
     m_subscriptions.push_back(m_formats.changed.connect([this] { updateFormats(); }));
     m_subscriptions.push_back(context.model.changed.connect([this] { updateProgress(); }));
     buildForm();
@@ -327,14 +333,30 @@ void EraseDialog::erase()
     m_runner->start();
 }
 
-void EraseDialog::showProgress()
+void EraseDialog::forgetViews()
 {
+    m_label = nullptr;
     m_format = nullptr;
     m_scheme = nullptr;
-    m_label = nullptr;
+    m_schemeNote = nullptr;
+    m_encrypt = nullptr;
+    m_passphraseRow = nullptr;
+    m_verifyRow = nullptr;
+    m_securityNote = nullptr;
+    m_problem = nullptr;
     m_eraseButton = nullptr;
     m_securityButton = nullptr;
-    m_schemeNote = nullptr;
+    m_status = nullptr;
+    m_bar = nullptr;
+    m_stepNote = nullptr;
+    m_error = nullptr;
+    m_done = nullptr;
+    m_stop = nullptr;
+}
+
+void EraseDialog::showProgress()
+{
+    forgetViews();
     auto* form = m_dialog->setContent<Form>();
     m_status = form->add<Label>();
     m_status->setWrap(true);

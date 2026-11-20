@@ -26,6 +26,7 @@ struct Context;
 namespace dialogs {
 
 class CopyDialog;
+class IdentityGuard;
 class NewImageDialog;
 class RestoreDialog;
 
@@ -93,6 +94,7 @@ private:
     std::unique_ptr<RestoreDialog> m_restore;
     std::unique_ptr<CopyDialog> m_copy;
     std::unique_ptr<cutefish::ui::ConfirmDialog> m_confirm;
+    std::unique_ptr<IdentityGuard> m_confirmGuard;
     // The disk to select once the sidebar lists it.
     std::string m_pendingSelection;
     std::vector<cutefish::base::Subscription> m_subscriptions;

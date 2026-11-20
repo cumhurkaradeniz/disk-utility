@@ -62,14 +62,12 @@ void RestoreDialog::show(const udisks::Node& target)
     m_targetName = udisks::displayName(m_context.model, target);
     m_targetIdentity = udisks::identityOf(m_context.model, target.block);
     m_image.clear();
+    // The old guard points at the dialog build() replaces.
+    m_guard.reset();
     build();
-    // The question goes with the dialog: both are about this target.
+    // The question goes with the dialog, which onClosed drops.
     m_guard = std::make_unique<IdentityGuard>(m_context, std::vector<udisks::Identity>{m_targetIdentity},
-                                              m_targetName, [this] {
-                                                  dropConfirmation();
-                                                  if (isOpen())
-                                                      m_dialog->close();
-                                              });
+                                              m_targetName, *m_dialog);
     reloadSources();
     m_dialog->show();
 }
@@ -91,6 +89,8 @@ void RestoreDialog::build()
     m_dialog->window()->addShortcut(NoModifier, key::Escape, [dialog] { dialog->close(); });
     m_dialog->onClosed = [this] {
         dropConfirmation();
+        if (m_guard)
+            m_guard->disarm();
         m_source = nullptr;
         m_problem = nullptr;
         m_restore = nullptr;
@@ -245,6 +245,9 @@ void RestoreDialog::restore()
         const udisks::Node onto = target;
         const std::string ontoName = targetName;
         const udisks::Identity ontoIdentity = targetIdentity;
+        // The question is answered; what follows checks the disks itself.
+        if (m_guard)
+            m_guard->disarm();
         if (isOpen())
             m_dialog->close();
         // The disks may have changed while the question was open.

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: BSD-3-Clause
 
 #include "dialogs/diskimages.h"
+#include "dialogs/identity_guard.h"
 #include "dialogs/copyprogress.h"
 #include "dialogs/newimage.h"
 #include "dialogs/restore.h"
@@ -13,6 +14,7 @@
 #include "udisks/operations.h"
 #include "views/context.h"
 
+#include "base/event_loop.h"
 #include "base/i18n.h"
 #include "base/paths.h"
 #include "ui/dialog_window.h"
@@ -290,7 +292,20 @@ void DiskImages::makeImage(const udisks::Node& node, const std::string& name, co
             &m_context.window, format(tr("“{name}” must be unmounted to make an image of it."), {{"name", name}}),
             tr("It is unmounted, and locked when it is encrypted, before it is read, and stays so afterwards."));
     m_confirm->setConfirmText(tr("Unmount"));
-    m_confirm->onAccepted = start;
+    m_confirm->onAccepted = [this, start] {
+        m_confirmGuard->disarm();
+        start();
+    };
+    m_confirm->onRejected = [this] { m_confirmGuard->disarm(); };
+    // The question goes with the volume it asks about.
+    m_confirmGuard = std::make_unique<IdentityGuard>(
+            m_context, std::vector<udisks::Identity>{source.identity}, name, [this] {
+                if (!m_confirm)
+                    return;
+                // Its window may be handling the event that got us here.
+                std::shared_ptr<ConfirmDialog> confirm(std::move(m_confirm));
+                cutefish::base::EventLoop::current()->post([confirm] {});
+            });
     m_confirm->show();
 }
 

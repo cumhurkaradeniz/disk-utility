@@ -14,6 +14,7 @@
 #include "udisks/model.h"
 
 #include "ui/dialog_window.h"
+#include "ui/keys.h"
 #include "ui/text_field.h"
 
 #include <gtest/gtest.h>
@@ -430,4 +431,82 @@ TEST_F(ImagesTest, NoImageOntoTheVolumeItself)
     ASSERT_NE(error, nullptr);
     TestDriver errorDriver(*error, fail);
     EXPECT_TRUE(errorDriver.showsText("The image could not be created."));
+}
+
+TEST_F(ImagesTest, NoAlertForATargetEjectedAfterwards)
+{
+    write("card", std::string(1000, '-'));
+    nextPath = write("backup.img", std::string(500, 'r'));
+    scenario.driver.click("sidebar:d:" + sample::kCard);
+
+    // Closed with Escape.
+    scenario.window->actions().trigger(Action::Restore);
+    {
+        TestDriver driver(*scenario.driver.dialog(), fail);
+        driver.typeKey(key::Escape);
+    }
+    settle();
+    EXPECT_FALSE(images().restoreDialog()->isOpen());
+
+    // Restored, and done.
+    scenario.window->actions().trigger(Action::Restore);
+    dialogs::RestoreDialog* restore = images().restoreDialog();
+    {
+        TestDriver driver(*scenario.driver.dialog(), fail);
+        driver.click("restore:image");
+        driver.click("restore:restore");
+    }
+    ASSERT_NE(restore->confirmation(), nullptr);
+    TestDriver alert(*restore->confirmation()->window(), fail);
+    ASSERT_TRUE(alert.clickText("Erase and Restore"));
+    ASSERT_TRUE(TestDriver::waitFor([&] { return images().copyDialog() && !images().copyDialog()->isRunning(); }));
+    settle();
+    EXPECT_FALSE(images().copyDialog()->isOpen());
+    ASSERT_EQ(scenario.driver.dialog(), nullptr);
+
+    // The card is ejected later: nothing is open on it to complain.
+    scenario.model().removeInterfaces(sample::kCard, {interface::kBlock});
+    settle();
+    EXPECT_EQ(scenario.driver.dialog(), nullptr);
+    EXPECT_FALSE(scenario.driver.showsText("is no longer there"));
+}
+
+TEST_F(ImagesTest, TheUnmountQuestionGoesWithItsVolume)
+{
+    scenario.driver.click("sidebar:v:" + sample::kStickVolume);
+    nextPath = file("STICK.img");
+    ASSERT_TRUE(scenario.window->actions().trigger(Action::NewImageFromSelection));
+    ASSERT_NE(images().confirmation(), nullptr);
+
+    // Pulled out while asked: the question goes and the window says why.
+    scenario.model().removeInterfaces(sample::kStickVolume,
+                                      {interface::kBlock, interface::kPartition, interface::kFilesystem});
+    settle();
+    EXPECT_EQ(images().confirmation(), nullptr);
+    EXPECT_TRUE(methods(scenario.backend().calls).empty());
+    Window* alert = scenario.driver.dialog();
+    ASSERT_NE(alert, nullptr);
+    TestDriver driver(*alert, fail);
+    EXPECT_TRUE(driver.showsText("“STICK” is no longer there."));
+}
+
+TEST_F(ImagesTest, NoAlertForAnImagedVolumeEjectedAfterwards)
+{
+    const std::string data(300'000, 's');
+    write("source", data);
+    scenario.model().changeProperties(sample::kStickVolume, interface::kBlock, {{"Size", Variant(uint64_t(300'000))}});
+    settle();
+    scenario.driver.click("sidebar:v:" + sample::kStickVolume);
+    nextPath = file("STICK.img");
+    ASSERT_TRUE(scenario.window->actions().trigger(Action::NewImageFromSelection));
+    TestDriver alert(*images().confirmation()->window(), fail);
+    ASSERT_TRUE(alert.clickText("Unmount"));
+    ASSERT_TRUE(TestDriver::waitFor([&] { return images().copyDialog() && !images().copyDialog()->isRunning(); }));
+    settle();
+    ASSERT_EQ(scenario.driver.dialog(), nullptr);
+
+    scenario.model().removeInterfaces(sample::kStickVolume,
+                                      {interface::kBlock, interface::kPartition, interface::kFilesystem});
+    settle();
+    EXPECT_EQ(scenario.driver.dialog(), nullptr);
 }

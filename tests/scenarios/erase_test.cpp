@@ -152,6 +152,15 @@ TEST_F(EraseTest, ErasesAMountedVolume)
     EXPECT_NE(driver->text("erase:status").find("was erased"), std::string::npos);
     driver->click("erase:done");
     EXPECT_TRUE(TestDriver::waitFor([&] { return !scenario.driver.dialog(); }));
+
+    // The stick pulled out later: the closed dialog raises no alert.
+    driver.reset();
+    scenario.model().removeInterfaces(sample::kStickVolume, {udisks::interface::kBlock,
+                                                             udisks::interface::kPartition,
+                                                             udisks::interface::kFilesystem});
+    runPosted();
+    scenario.driver.layout();
+    EXPECT_EQ(scenario.driver.dialog(), nullptr);
 }
 
 TEST_F(EraseTest, ChecksTheName)
@@ -251,6 +260,40 @@ TEST_F(EraseTest, ShowsTheError)
     }));
     EXPECT_NE(driver->text("erase:status").find("was not erased"), std::string::npos);
     EXPECT_NE(driver->text("erase:error").find("The device is busy"), std::string::npos);
+}
+
+
+TEST_F(EraseTest, TheDialogStaysWhileItsVolumeGoes)
+{
+    waiting = "Format";
+    openErase("v:" + sample::kData);
+    auto driver = dialog();
+    ASSERT_TRUE(driver);
+    Window* erase = scenario.driver.dialog();
+    driver->click("erase:erase");
+    ASSERT_EQ(scenario.backend().pendingCount(), 1u);
+
+    // The disk resets while the format runs: the dialog stays to report it.
+    scenario.model().removeInterfaces(sample::kData, {udisks::interface::kBlock, udisks::interface::kPartition,
+                                                      udisks::interface::kFilesystem});
+    runPosted();
+    scenario.driver.layout();
+    EXPECT_EQ(scenario.driver.dialog(), erase);
+    scenario.backend().reply(0, error("org.freedesktop.UDisks2.Error.Failed", "No such device"));
+    ASSERT_TRUE(TestDriver::waitFor([&] {
+        driver->layout();
+        return driver->shows("erase:done");
+    }));
+    EXPECT_NE(driver->text("erase:error").find("No such device"), std::string::npos);
+    driver->click("erase:done");
+    driver.reset();
+    ASSERT_TRUE(TestDriver::waitFor([&] { return !scenario.driver.dialog(); }));
+
+    // The closed dialog says nothing of what happens to the disk later.
+    scenario.model().removeInterfaces(sample::kSata, {udisks::interface::kBlock, udisks::interface::kPartitionTable});
+    runPosted();
+    scenario.driver.layout();
+    EXPECT_EQ(scenario.driver.dialog(), nullptr);
 }
 
 TEST_F(EraseTest, AFailureAfterTheNewMapSaysSo)
@@ -389,6 +432,15 @@ TEST_F(EraseTest, DeletesAPartitionAfterAsking)
     EXPECT_EQ(calls(), std::vector<std::string>{sample::kData + " Delete"});
     const VariantMap options = lastCall("Delete")->arguments.at(0).value<VariantMap>();
     EXPECT_TRUE(options.at("tear-down").value<bool>());
+
+    // The partition goes, as asked: no alert that it is gone.
+    driver.reset();
+    ASSERT_TRUE(TestDriver::waitFor([&] { return !scenario.driver.dialog(); }));
+    scenario.model().removeInterfaces(sample::kData, {udisks::interface::kBlock, udisks::interface::kPartition,
+                                                      udisks::interface::kFilesystem});
+    runPosted();
+    scenario.driver.layout();
+    EXPECT_EQ(scenario.driver.dialog(), nullptr);
 }
 
 TEST_F(EraseTest, AnUntouchedSizeIsKept)

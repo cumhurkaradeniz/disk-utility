@@ -40,8 +40,11 @@ RenameDialog::RenameDialog(views::Context& context, const udisks::Node& node)
         m_identities.push_back(udisks::identityOf(context.model, m_block));
 
     m_dialog = std::make_unique<DialogWindow>(&context.window, tr("Rename Volume"), kWidth);
+    // While SetLabel is out, its own answer reports a lost volume.
     m_guard = std::make_unique<IdentityGuard>(context, m_identities, udisks::displayName(context.model, node),
-                                              [this] { m_dialog->close(); });
+                                              *m_dialog, [this] { return m_waiting; });
+    // A guard left after the dialog would raise its alert on a later eject.
+    m_dialog->onClosed = [this] { m_guard->disarm(); };
     m_dialog->window()->setBackgroundColor(ColorId::Background);
     m_dialog->window()->addShortcut(NoModifier, key::Escape, [this] { m_dialog->close(); });
 

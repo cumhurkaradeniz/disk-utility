@@ -112,7 +112,13 @@ PartitionDialog::PartitionDialog(views::Context& context, std::string disk)
             m_dialog->close();
     });
     m_guard = std::make_unique<IdentityGuard>(context, std::vector<udisks::Identity>{m_identity}, m_diskName,
-                                              [this] { m_dialog->close(); });
+                                              *m_dialog, [this] { return isRunning(); });
+    // Nothing of the window is touched once it is gone.
+    m_dialog->onClosed = [this] {
+        m_guard->disarm();
+        m_subscriptions.clear();
+        forgetViews();
+    };
     m_subscriptions.push_back(m_formats.changed.connect([this] { refresh(); }));
     m_subscriptions.push_back(context.model.changed.connect([this] {
         if (!m_context.model.object(m_disk) && !isRunning() && isOpen())
@@ -243,6 +249,26 @@ void PartitionDialog::buildEditor()
     m_apply->setName("partition:apply");
     m_apply->onClicked = [this] { showSummary(); };
     refresh();
+}
+
+void PartitionDialog::forgetViews()
+{
+    m_pie = nullptr;
+    m_add = nullptr;
+    m_remove = nullptr;
+    m_name = nullptr;
+    m_format = nullptr;
+    m_size = nullptr;
+    m_note = nullptr;
+    m_problem = nullptr;
+    m_apply = nullptr;
+    m_revert = nullptr;
+    m_status = nullptr;
+    m_bar = nullptr;
+    m_stepNote = nullptr;
+    m_error = nullptr;
+    m_done = nullptr;
+    m_stop = nullptr;
 }
 
 void PartitionDialog::select(uint32_t id)
@@ -461,7 +487,7 @@ void PartitionDialog::showSummary()
         return;
     m_layout.updateTeardown(m_context.model);
     const std::vector<PlanStep> steps = m_layout.plan();
-    m_pie = nullptr;
+    forgetViews();
     auto* form = m_dialog->setContent<Form>();
     auto* message = form->add<Label>(format(tr("These steps will be taken on “{name}”, in this order:"),
                                             {{"name", m_diskName}}));
@@ -502,7 +528,7 @@ void PartitionDialog::apply()
     m_subscriptions.push_back(m_runner->stepStarted.connect([this](size_t index) { stepStarted(index); }));
     m_subscriptions.push_back(m_runner->finished.connect([this] { finished(); }));
 
-    m_pie = nullptr;
+    forgetViews();
     auto* form = m_dialog->setContent<Form>();
     m_status = form->add<Label>();
     m_status->setWrap(true);

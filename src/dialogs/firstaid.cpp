@@ -228,8 +228,14 @@ void FirstAid::start(const Selection& selection)
     const udisks::Identity identity = udisks::identityOf(m_context.model, node.block);
     m_confirmGuard = std::make_unique<IdentityGuard>(m_context, std::vector<udisks::Identity>{identity}, name,
                                                      [this] { m_confirm.reset(); });
+    // Answered, the question needs no guard: one left would raise its alert
+    // when the disk is ejected later.
+    m_confirm->onRejected = [this] { m_confirmGuard->disarm(); };
     m_confirm->onAccepted = [this, node, identity, name, alive = std::weak_ptr<bool>(m_alive)] {
-        if (alive.expired() || m_running)
+        if (alive.expired())
+            return;
+        m_confirmGuard->disarm();
+        if (m_running)
             return;
         if (!m_context.model.matches(identity)) {
             showGone(m_context, name);
