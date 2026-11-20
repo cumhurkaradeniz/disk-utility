@@ -11,6 +11,10 @@
 #include <string>
 #include <string_view>
 
+namespace cutefish::base {
+class Locale;
+}
+
 // What the sidebar, the detail pane and the dialogs say about a node.
 namespace udisks {
 
@@ -24,11 +28,15 @@ std::string displayName(const Model& model, const Node& node);
 std::string deviceName(const Model& model, const std::string& block);
 // "512.11 GB": decimal units, as drives are sold.
 std::string formatSize(uint64_t bytes);
-// A size typed by the user: a number with '.' or the locale's decimal point
-// (empty takes Locale::system()'s), in `multiple` bytes unless a suffix gives
-// another ("512 MB", "1.5G", "2 GiB", "4096 B"; decimal, binary with "i").
-// None for anything else, zero, or a size past 2^63 bytes.
-std::optional<uint64_t> parseSize(std::string_view text, uint64_t multiple, std::string_view decimalPoint = {});
+std::string formatSize(uint64_t bytes, const cutefish::base::Locale& locale);
+// A size typed by the user, in `multiple` bytes unless a unit follows: the
+// units formatSize() writes in the locale ("512 MB", "1,5 Go") or the ASCII
+// ones ("1.5G", "2 GiB", "4096 B"; decimal, binary with "i"). The number
+// takes the locale's digits and its decimal separator only; a grouping
+// separator is refused rather than guessed at, so "1.500" in German is no
+// size. None for anything else, zero, or a size past 2^63 bytes.
+std::optional<uint64_t> parseSize(std::string_view text, uint64_t multiple);
+std::optional<uint64_t> parseSize(std::string_view text, uint64_t multiple, const cutefish::base::Locale& locale);
 // The common name of UDisks2's IdType: "ext4", "FAT32", "exFAT", "NTFS",
 // "Btrfs", "XFS", "Swap", "LUKS", "ISO 9660"; the IdType itself otherwise,
 // empty for none.

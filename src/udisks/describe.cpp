@@ -19,18 +19,31 @@ using cutefish::i18n::tr;
 
 namespace udisks {
 
-std::string formatSize(uint64_t bytes)
+using cutefish::base::Locale;
+
+std::string formatSize(uint64_t bytes, const Locale& locale)
 {
-    return cutefish::base::Locale::system().formattedDataSize(int64_t(bytes), 2,
-                                                              cutefish::base::Locale::DataSizeFormat::Si);
+    return locale.formattedDataSize(int64_t(bytes), 2, Locale::DataSizeFormat::Si);
 }
 
-// The multiple a suffix stands for; 0 for an unknown one.
-static uint64_t suffixBytes(std::string_view suffix)
+std::string formatSize(uint64_t bytes)
 {
-    std::string lower;
-    for (char c : suffix)
-        lower.push_back(char(std::tolower(static_cast<unsigned char>(c))));
+    return formatSize(bytes, Locale::system());
+}
+
+static std::string asciiLower(std::string_view text)
+{
+    std::string lower(text);
+    for (char& c : lower)
+        c = char(std::tolower(static_cast<unsigned char>(c)));
+    return lower;
+}
+
+// The multiple a unit stands for; 0 for an unknown one. ASCII units in any
+// case, and the locale's own as formatSize() writes them.
+static uint64_t unitBytes(std::string_view unit, const Locale& locale)
+{
+    const std::string lower = asciiLower(unit);
     if (lower == "b")
         return 1;
     uint64_t decimal = 1;
@@ -44,25 +57,56 @@ static uint64_t suffixBytes(std::string_view suffix)
         if (lower == name + "ib")
             return binary;
     }
+    uint64_t multiple = 1;
+    for (int power = 0; power <= 4; ++power, multiple *= 1000) {
+        const std::string shown = locale.formattedDataSize(int64_t(multiple), 0, Locale::DataSizeFormat::Si);
+        const size_t space = shown.find(' ');
+        if (space != std::string::npos && asciiLower(shown.substr(space + 1)) == lower)
+            return multiple;
+    }
     return 0;
 }
 
-std::optional<uint64_t> parseSize(std::string_view text, uint64_t multiple, std::string_view decimalPoint)
+// The text with the locale's digits, when they are not ASCII, as ASCII ones.
+static std::string asciiDigits(std::string_view text, const Locale& locale)
 {
-    const std::string localPoint = decimalPoint.empty() ? cutefish::base::Locale::system().decimalPoint()
-                                                        : std::string(decimalPoint);
-    text = cutefish::base::strings::trimmed(text);
+    const std::string zero = locale.zeroDigit();
+    std::string result(text);
+    if (zero.empty() || zero == "0")
+        return result;
+    // The ten digits follow the zero in Unicode; the zero's last UTF-8 byte
+    // counts up, and none of them crosses a 64-codepoint boundary.
+    for (int digit = 9; digit >= 0; --digit) {
+        std::string local = zero;
+        local.back() = char(static_cast<unsigned char>(local.back()) + digit);
+        for (size_t at = result.find(local); at != std::string::npos; at = result.find(local, at + 1))
+            result.replace(at, local.size(), 1, char('0' + digit));
+    }
+    return result;
+}
+
+std::optional<uint64_t> parseSize(std::string_view input, uint64_t multiple)
+{
+    return parseSize(input, multiple, Locale::system());
+}
+
+std::optional<uint64_t> parseSize(std::string_view input, uint64_t multiple, const Locale& locale)
+{
+    const std::string digits = asciiDigits(input, locale);
+    const std::string point = locale.decimalPoint().empty() ? std::string(".") : locale.decimalPoint();
+    const std::string group = locale.groupSeparator();
+    std::string_view text = cutefish::base::strings::trimmed(digits);
     size_t index = 0;
     unsigned __int128 whole = 0;
     unsigned __int128 fraction = 0;
     unsigned __int128 scale = 1;
-    bool digits = false;
-    bool point = false;
+    bool any = false;
+    bool pointSeen = false;
     while (index < text.size()) {
         const char c = text[index];
         if (std::isdigit(static_cast<unsigned char>(c))) {
-            digits = true;
-            if (point) {
+            any = true;
+            if (pointSeen) {
                 // Digits past a byte's worth of precision change nothing.
                 if (scale < 1'000'000'000'000'000'000ull) {
                     fraction = fraction * 10 + unsigned(c - '0');
@@ -74,21 +118,20 @@ std::optional<uint64_t> parseSize(std::string_view text, uint64_t multiple, std:
                     return std::nullopt;
             }
             ++index;
-        } else if (!point && c == '.') {
-            point = true;
-            ++index;
-        } else if (!point && !localPoint.empty() && text.substr(index).starts_with(localPoint)) {
-            point = true;
-            index += localPoint.size();
+        } else if (!pointSeen && text.substr(index).starts_with(point)) {
+            pointSeen = true;
+            index += point.size();
+        } else if (!group.empty() && group != point && text.substr(index).starts_with(group)) {
+            return std::nullopt;
         } else {
             break;
         }
     }
-    if (!digits)
+    if (!any)
         return std::nullopt;
 
-    const std::string_view suffix = cutefish::base::strings::trimmed(text.substr(index));
-    const uint64_t bytesPerUnit = suffix.empty() ? multiple : suffixBytes(suffix);
+    const std::string_view unit = cutefish::base::strings::trimmed(text.substr(index));
+    const uint64_t bytesPerUnit = unit.empty() ? multiple : unitBytes(unit, locale);
     if (bytesPerUnit == 0)
         return std::nullopt;
 

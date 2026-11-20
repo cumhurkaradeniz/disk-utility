@@ -6,7 +6,11 @@
 #include "udisks/describe.h"
 #include "udisks/model.h"
 
+#include "base/locale.h"
+
 #include <gtest/gtest.h>
+
+#include <cmath>
 
 using namespace udisks;
 using namespace udisks::fake;
@@ -167,45 +171,80 @@ TEST_F(DescribeTest, UsageOfADisk)
 
 static constexpr uint64_t kMB = 1000 * 1000;
 
+using cutefish::base::Locale;
+
 TEST(SizeTest, NumbersInTheUnit)
 {
-    EXPECT_EQ(parseSize("200", kGB, "."), 200 * kGB);
-    EXPECT_EQ(parseSize("100", kMB, "."), 100 * kMB);
-    EXPECT_EQ(parseSize(" 1.5 ", kGB, "."), 1'500'000'000u);
-    EXPECT_EQ(parseSize(".5", kGB, "."), 500'000'000u);
-    EXPECT_EQ(parseSize("1.", kMB, "."), 1'000'000u);
+    const Locale english("en_US");
+    EXPECT_EQ(parseSize("200", kGB, english), 200 * kGB);
+    EXPECT_EQ(parseSize("100", kMB, english), 100 * kMB);
+    EXPECT_EQ(parseSize(" 1.5 ", kGB, english), 1'500'000'000u);
+    EXPECT_EQ(parseSize(".5", kGB, english), 500'000'000u);
+    EXPECT_EQ(parseSize("1.", kMB, english), 1'000'000u);
 }
 
-TEST(SizeTest, TheLocalesDecimalPoint)
+TEST(SizeTest, OnlyTheLocalesDecimalSeparator)
 {
-    // A point always works; a comma where the locale writes one.
-    EXPECT_EQ(parseSize("2,25 TB", kMB, ","), 2'250'000'000'000u);
-    EXPECT_EQ(parseSize("1,5", kGB, ","), 1'500'000'000u);
-    EXPECT_EQ(parseSize("1.5", kGB, ","), 1'500'000'000u);
-    EXPECT_FALSE(parseSize("1,5", kGB, "."));
-    EXPECT_FALSE(parseSize("1,5.2", kGB, ","));
-    // As formatSize() writes it, the shown text reads back.
-    EXPECT_EQ(parseSize(formatSize(512110190592), kGB), 512'110'000'000u);
+    const Locale german("de_DE");
+    EXPECT_EQ(parseSize("1,5", kGB, german), 1'500'000'000u);
+    EXPECT_EQ(parseSize("2,25 TB", kMB, german), 2'250'000'000'000u);
+    // A thousands separator is no decimal point, and is not guessed at.
+    EXPECT_FALSE(parseSize("1.500", kGB, german));
+    EXPECT_FALSE(parseSize("1.5", kGB, german));
+
+    const Locale english("en_US");
+    EXPECT_FALSE(parseSize("1,5", kGB, english));
+    EXPECT_FALSE(parseSize("1,500", kGB, english));
+    EXPECT_FALSE(parseSize("1,5.2", kGB, english));
+
+    const Locale french("fr_FR");
+    EXPECT_EQ(parseSize("1,5", kGB, french), 1'500'000'000u);
+    EXPECT_FALSE(parseSize("1.5", kGB, french));
+}
+
+// What formatSize() shows reads back as the size it stands for, to its two
+// decimals.
+TEST(SizeTest, TheShownTextReadsBack)
+{
+    for (const char* name : {"en_US", "de_DE", "fr_FR", "ru_RU"}) {
+        const Locale locale(name);
+        for (uint64_t bytes :
+             {uint64_t(512110190592), uint64_t(1500) * kMB, uint64_t(33) * kMB, uint64_t(2000) * kGB, uint64_t(999)}) {
+            const std::string shown = formatSize(bytes, locale);
+            const std::optional<uint64_t> read = parseSize(shown, kGB, locale);
+            ASSERT_TRUE(read) << name << ": " << shown;
+            uint64_t unit = 1;
+            while (unit * 1000 <= bytes)
+                unit *= 1000;
+            const double error = std::abs(double(*read) - double(bytes));
+            EXPECT_LE(error, unit * 0.005 + 0.5) << name << ": " << shown;
+        }
+    }
 }
 
 TEST(SizeTest, SuffixesOverrideTheUnit)
 {
-    EXPECT_EQ(parseSize("200 GB", kGB, "."), 200 * kGB);
-    EXPECT_EQ(parseSize(" 1.5tb ", kGB, "."), 1'500'000'000'000u);
-    EXPECT_EQ(parseSize("512 MB", kGB, "."), 512 * kMB);
-    EXPECT_EQ(parseSize("512M", kGB, "."), 512 * kMB);
-    EXPECT_EQ(parseSize("1.5G", kMB, "."), 1'500'000'000u);
-    EXPECT_EQ(parseSize("2 GiB", kMB, "."), 2ull << 30);
-    EXPECT_EQ(parseSize("4096 b", kGB, "."), 4096u);
-    EXPECT_EQ(parseSize("3k", kGB, "."), 3000u);
-    EXPECT_EQ(parseSize("1 tib", kMB, "."), 1ull << 40);
+    const Locale english("en_US");
+    EXPECT_EQ(parseSize("200 GB", kGB, english), 200 * kGB);
+    EXPECT_EQ(parseSize(" 1.5tb ", kGB, english), 1'500'000'000'000u);
+    EXPECT_EQ(parseSize("512 MB", kGB, english), 512 * kMB);
+    EXPECT_EQ(parseSize("512M", kGB, english), 512 * kMB);
+    EXPECT_EQ(parseSize("1.5G", kMB, english), 1'500'000'000u);
+    EXPECT_EQ(parseSize("2 GiB", kMB, english), 2ull << 30);
+    EXPECT_EQ(parseSize("4096 b", kGB, english), 4096u);
+    EXPECT_EQ(parseSize("3k", kGB, english), 3000u);
+    EXPECT_EQ(parseSize("1 tib", kMB, english), 1ull << 40);
+    // The ASCII units in every locale.
+    EXPECT_EQ(parseSize("2 GB", kMB, Locale("fr_FR")), 2 * kGB);
+    EXPECT_EQ(parseSize("2 GB", kMB, Locale("ru_RU")), 2 * kGB);
 }
 
 TEST(SizeTest, RejectsWhatIsNoSize)
 {
+    const Locale english("en_US");
     for (const char* text : {"", "  ", "abc", "big", "MB", "-1", "-1 GB", "0", "0.0000", "1.2.3", "5 XB", "2 PB",
                              "1 MBB", "1e3"})
-        EXPECT_FALSE(parseSize(text, kMB, ".")) << text;
-    EXPECT_FALSE(parseSize("99999999999999999999", kMB, "."));
-    EXPECT_FALSE(parseSize("10000000 TB", kMB, "."));
+        EXPECT_FALSE(parseSize(text, kMB, english)) << text;
+    EXPECT_FALSE(parseSize("99999999999999999999", kMB, english));
+    EXPECT_FALSE(parseSize("10000000 TB", kMB, english));
 }
