@@ -13,6 +13,8 @@ static void fillDisk(const Model& model, const Object& block, Identity& identity
         identity.driveId = drive->drive->id;
         identity.serial = drive->drive->serial;
         identity.wwn = drive->drive->wwn;
+        identity.timeDetected = drive->drive->timeDetected;
+        identity.timeMediaDetected = drive->drive->timeMediaDetected;
     }
     if (block.loop)
         identity.backingFile = block.loop->backingFile;
@@ -40,6 +42,8 @@ Identity identityOf(const Model& model, const std::string& path)
         identity.driveId = backing.driveId;
         identity.serial = backing.serial;
         identity.wwn = backing.wwn;
+        identity.timeDetected = backing.timeDetected;
+        identity.timeMediaDetected = backing.timeMediaDetected;
         identity.backingFile = backing.backingFile;
     }
     return identity;

@@ -82,6 +82,25 @@ TEST(IdentityTest, WhatAnOperationChangesKeepsIt)
     EXPECT_TRUE(model.matches(disk));
 }
 
+TEST(IdentityTest, AnotherCardOfTheSameKind)
+{
+    Model model;
+    loadSample(model);
+    // No serial to tell two cards apart: the reader saw a new medium.
+    model.changeProperties(sample::kCardDrive, interface::kDrive, {{"TimeMediaDetected", Variant(uint64_t(100))}});
+    const Identity card = identityOf(model, sample::kCard);
+    EXPECT_EQ(card.timeMediaDetected, 100u);
+    model.changeProperties(sample::kCardDrive, interface::kDrive, {{"TimeMediaDetected", Variant(uint64_t(200))}});
+    EXPECT_FALSE(model.matches(card));
+
+    // A stick without a serial replugged: detected anew.
+    model.changeProperties(sample::kStickDrive, interface::kDrive,
+                           {{"Serial", Variant(std::string())}, {"TimeDetected", Variant(uint64_t(1))}});
+    const Identity stick = identityOf(model, sample::kStickVolume);
+    model.changeProperties(sample::kStickDrive, interface::kDrive, {{"TimeDetected", Variant(uint64_t(2))}});
+    EXPECT_FALSE(model.matches(stick));
+}
+
 TEST(IdentityTest, AnotherImageOnTheLoopDevice)
 {
     Model model;

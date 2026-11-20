@@ -62,6 +62,9 @@ struct Drive
     bool canPowerOff = false;
     std::string sortKey;
     std::string siblingId;
+    // Microseconds since the epoch: when the drive, and its medium, appeared.
+    uint64_t timeDetected = 0;
+    uint64_t timeMediaDetected = 0;
 };
 
 // S.M.A.R.T. of an ATA drive.

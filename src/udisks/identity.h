@@ -23,10 +23,14 @@ struct Identity
 {
     std::string block;
     std::string drive;
-    // The drive's Id, Serial and WWN.
+    // The drive's Id, Serial and WWN, and when it and its medium appeared:
+    // two sticks without a serial, or two cards of a size swapped in one
+    // reader, differ there.
     std::string driveId;
     std::string serial;
     std::string wwn;
+    uint64_t timeDetected = 0;
+    uint64_t timeMediaDetected = 0;
     // A disk image's backing file.
     std::string backingFile;
     uint64_t size = 0;

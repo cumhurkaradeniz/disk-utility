@@ -126,6 +126,8 @@ static Drive parseDrive(const VariantMap& map)
     drive.canPowerOff = get<bool>(map, "CanPowerOff");
     drive.sortKey = get<std::string>(map, "SortKey");
     drive.siblingId = get<std::string>(map, "SiblingId");
+    drive.timeDetected = number<uint64_t>(map, "TimeDetected");
+    drive.timeMediaDetected = number<uint64_t>(map, "TimeMediaDetected");
     return drive;
 }
 
