@@ -515,6 +515,36 @@ TEST_F(ImagesTest, AFailedImageSaysTheFileWasRemoved)
     EXPECT_FALSE(std::filesystem::exists(file("Data.img")));
 }
 
+TEST_F(ImagesTest, ARemovedSourceLeavesNothingChosen)
+{
+    scenario.model().changeProperties(sample::kCard, interface::kBlock, {{"Size", Variant(uint64_t(1) << 42)}});
+    settle();
+    scenario.driver.click("sidebar:d:" + sample::kCard);
+    scenario.window->actions().trigger(Action::Restore);
+    dialogs::RestoreDialog* restore = images().restoreDialog();
+    TestDriver driver(*scenario.driver.dialog(), fail);
+    const auto& sources = restore->sources();
+    const auto stick = std::find_if(sources.begin(), sources.end(), [](const dialogs::RestoreDialog::Source& source) {
+        return source.endpoint.block == sample::kStickVolume;
+    });
+    ASSERT_NE(stick, sources.end());
+    auto* choice = driver.find<dialogs::ChoiceButton>("restore:source");
+    choice->setCurrentIndex(int(stick - sources.begin()));
+    ASSERT_TRUE(choice->onActivated);
+    choice->onActivated(choice->currentIndex());
+    driver.layout();
+    ASSERT_TRUE(driver.find<View>("restore:restore")->isEnabled()) << driver.text("restore:problem");
+
+    // The stick is pulled out.
+    scenario.model().removeInterfaces(sample::kStickVolume,
+                                      {interface::kBlock, interface::kPartition, interface::kFilesystem});
+    settle();
+    driver.layout();
+    EXPECT_EQ(choice->currentIndex(), -1);
+    EXPECT_FALSE(driver.find<View>("restore:restore")->isEnabled());
+    EXPECT_EQ(driver.text("restore:problem"), "“STICK” is no longer there. Choose another source.");
+}
+
 TEST_F(ImagesTest, TheUnmountQuestionGoesWithItsVolume)
 {
     scenario.driver.click("sidebar:v:" + sample::kStickVolume);
