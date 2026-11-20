@@ -16,6 +16,7 @@ find_package(CutefishToolkit REQUIRED)
 add_library(disk-utility-core STATIC
     src/actions.cpp
     src/application.cpp
+    src/dialogs/plan_runner.cpp
     src/dialogs/volume_format.cpp
     src/images/blankimage.cpp
     src/images/copy.cpp
