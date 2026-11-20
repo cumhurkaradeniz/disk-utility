@@ -55,6 +55,7 @@ add_custom_command(OUTPUT ${DISK_UTILITY_EMBEDDED}
     VERBATIM)
 
 add_library(disk-utility-ui STATIC
+    src/views/context.cpp
     src/views/style.cpp
     ${DISK_UTILITY_EMBEDDED}
 )
