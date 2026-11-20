@@ -18,6 +18,18 @@
 using namespace cutefish;
 using namespace std::chrono_literals;
 
+// Another connection that owns the name, or empty when none does: a failed
+// request for a name nobody holds is no second launch.
+static std::string ownerOf(base::dbus::Connection* bus, const char* name)
+{
+    base::dbus::Proxy dbus(bus, "org.freedesktop.DBus", "/org/freedesktop/DBus", "org.freedesktop.DBus");
+    dbus.setTimeout(3s);
+    const std::string owner = dbus.call("GetNameOwner", std::string(name)).value<std::string>().value_or(std::string());
+    if (owner.empty())
+        std::fprintf(stderr, "cutefish-disk-utility: could not take the name %s; running without it.\n", name);
+    return owner;
+}
+
 int main(int argc, char** argv)
 {
     base::CommandLineParser parser;
@@ -52,7 +64,7 @@ int main(int argc, char** argv)
     base::dbus::Connection* bus = app.sessionBus();
     if (bus) {
         application.publish(bus);
-        if (!bus->requestName(::Application::kService)) {
+        if (!bus->requestName(::Application::kService) && !ownerOf(bus, ::Application::kService).empty()) {
             base::dbus::Proxy running(bus, ::Application::kService, ::Application::kPath, ::Application::kService);
             running.setTimeout(3s);
             const auto reply = running.call("open", paths, app.takeActivationToken());
