@@ -80,6 +80,18 @@ std::string describeRunning(const PlanStep& step)
     return {};
 }
 
+bool stepHolds(const udisks::Model& model, const PlanStep& step)
+{
+    if (!step.expected.isValid())
+        return true;
+    const udisks::Identity now = udisks::identityOf(model, step.expected.block);
+    if (now == step.expected)
+        return true;
+    udisks::Identity before = step.expected;
+    before.size = step.resizedFrom;
+    return step.resizedFrom != 0 && now == before;
+}
+
 const udisks::Object* jobOf(const udisks::Model& model, const std::vector<std::string>& paths)
 {
     for (const std::string& path : paths) {
@@ -107,6 +119,16 @@ void PlanRunner::start()
     m_started = true;
     m_running = true;
     m_current = 0;
+    for (const PlanStep& step : m_steps) {
+        if (!stepHolds(m_model, step)) {
+            m_result = {kChangedError,
+                        format(tr("“{name}” is no longer the one the changes were made for."), {{"name", step.subject}}),
+                        {}};
+            m_running = false;
+            finished.emit();
+            return;
+        }
+    }
     runStep();
 }
 
@@ -124,6 +146,14 @@ void PlanRunner::runStep()
         return;
     }
     const PlanStep& step = m_steps[m_current];
+    if (!stepHolds(m_model, step)) {
+        m_result = {kChangedError,
+                    format(tr("“{name}” is no longer the one the changes were made for."), {{"name", step.subject}}),
+                    {}};
+        m_running = false;
+        finished.emit();
+        return;
+    }
     stepStarted.emit(m_current);
     udisks::Done done = [self = m_weakFactory.getWeakPtr()](const udisks::Result& result) {
         PlanRunner* runner = self.get();

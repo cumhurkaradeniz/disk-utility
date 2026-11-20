@@ -38,7 +38,8 @@ std::vector<PlanStep> eraseSteps(const udisks::Model& model, const udisks::Node&
     if (!erasesWholeDisk(node)) {
         steps = teardownSteps(model, *object, subject);
         steps.push_back({.kind = PlanStep::Kind::Format, .path = node.block, .size = object->block->size,
-                         .type = request.filesystem, .options = optionsFor(request), .subject = subject});
+                         .type = request.filesystem, .options = optionsFor(request), .subject = subject,
+                         .expected = udisks::identityOf(model, node.block)});
         return steps;
     }
 
@@ -60,7 +61,8 @@ std::vector<PlanStep> eraseSteps(const udisks::Model& model, const udisks::Node&
     table.erase = request.zeroFill ? "zero" : "";
     table.takeOwnership = false;
     steps.push_back({.kind = PlanStep::Kind::CreateTable, .path = node.block, .size = object->block->size,
-                     .type = request.scheme, .options = table, .subject = subject});
+                     .type = request.scheme, .options = table, .subject = subject,
+                     .expected = udisks::identityOf(model, node.block)});
 
     const uint64_t start = usableStart();
     const uint64_t end = usableEnd(object->block->size, request.scheme);
@@ -73,7 +75,8 @@ std::vector<PlanStep> eraseSteps(const udisks::Model& model, const udisks::Node&
     steps.push_back({.kind = PlanStep::Kind::Create, .path = node.block, .offset = start,
                      .size = end > start ? end - start : 0, .type = request.filesystem,
                      .partitionName = partitionName, .options = options,
-                     .subject = label.empty() ? formatName(request.filesystem) : label});
+                     .subject = label.empty() ? formatName(request.filesystem) : label,
+                     .expected = udisks::identityOf(model, node.block)});
     return steps;
 }
 

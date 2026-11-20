@@ -83,10 +83,13 @@ std::vector<PlanStep> teardownSteps(const Model& model, const Object& block, con
         if (!clear)
             return steps;
         if (mounted(clear))
-            steps.push_back({.kind = PlanStep::Kind::Unmount, .path = clear->path, .subject = subject});
-        steps.push_back({.kind = PlanStep::Kind::Lock, .path = block.path, .subject = subject});
+            steps.push_back({.kind = PlanStep::Kind::Unmount, .path = clear->path, .subject = subject,
+                             .expected = udisks::identityOf(model, clear->path)});
+        steps.push_back({.kind = PlanStep::Kind::Lock, .path = block.path, .subject = subject,
+                         .expected = udisks::identityOf(model, block.path)});
     } else if (mounted(&block)) {
-        steps.push_back({.kind = PlanStep::Kind::Unmount, .path = block.path, .subject = subject});
+        steps.push_back({.kind = PlanStep::Kind::Unmount, .path = block.path, .subject = subject,
+                         .expected = udisks::identityOf(model, block.path)});
     }
     return steps;
 }
@@ -106,6 +109,8 @@ static Slice partitionSlice(const Model& model, const Object& partition, const s
     const Object* holder = content && content->block ? content : &partition;
     slice.contentBlock = holder->path;
     slice.hasFilesystem = holder->filesystem.has_value();
+    slice.identity = udisks::identityOf(model, partition.path);
+    slice.contentIdentity = udisks::identityOf(model, holder->path);
     slice.filesystem = holder->block->idType;
     slice.name = holder->block->idLabel;
     slice.originalFilesystem = slice.filesystem;
@@ -704,6 +709,31 @@ std::vector<PlanStep> PartitionLayout::plan() const
                    steps.push_back({.kind = PlanStep::Kind::SetLabel, .path = slice.contentBlock, .options = options,
                                     .subject = slice.displayName});
                });
+    // Each step expects its block as the editor read it, with the size the
+    // plan's own resize gave it.
+    std::map<std::string, std::pair<udisks::Identity, uint64_t>> expected;
+    const auto known = [&](const Slice& slice) {
+        expected[slice.block] = {slice.identity, 0};
+        if (slice.contentBlock != slice.block)
+            expected[slice.contentBlock] = {slice.contentIdentity, 0};
+    };
+    for (const Slice& slice : m_slices) {
+        if (slice.kind == Slice::Kind::Partition)
+            known(slice);
+    }
+    for (const Slice& slice : m_deleted)
+        known(slice);
+    for (PlanStep& step : steps) {
+        const auto it = expected.find(step.path);
+        if (it == expected.end())
+            continue;
+        step.expected = it->second.first;
+        step.resizedFrom = it->second.second;
+        if (step.kind == PlanStep::Kind::ResizePartition) {
+            it->second.second = it->second.first.size;
+            it->second.first.size = step.size;
+        }
+    }
     return steps;
 }
 

@@ -79,6 +79,10 @@ struct Slice
     uint64_t used = 0;
     // What the summary calls it.
     std::string displayName;
+    // The partition and its content as read, which each step on them checks
+    // again before it runs.
+    udisks::Identity identity;
+    udisks::Identity contentIdentity;
 
     uint64_t end() const { return offset + size; }
     bool isEditable() const { return kind == Kind::New || kind == Kind::Partition; }

@@ -4,6 +4,7 @@
 #include "fake_udisks.h"
 
 #include "dialogs/erase_plan.h"
+#include "dialogs/partition_plan.h"
 #include "dialogs/plan_runner.h"
 #include "dialogs/volume_format.h"
 #include "udisks/describe.h"
@@ -169,7 +170,8 @@ TEST_F(ErasePlanTest, StopsWhenAnotherDiskTakesThePath)
     backend.responder = [this](const Call& call) -> std::optional<Result> {
         if (call.method == "Unmount")
             model.changeProperties(sample::kStickDrive, interface::kDrive,
-                                   {{"Serial", Variant(std::string("ANOTHER"))}, {"Id", Variant(std::string("Other"))}});
+                                   {{"Serial", Variant(std::string("ANOTHER"))},
+                                    {"Id", Variant(std::string("Other"))}});
         return Result{};
     };
     PlanRunner runner(model, operations, identityOf(model, sample::kStick),
@@ -245,4 +247,48 @@ TEST_F(ErasePlanTest, DescribesEachStep)
     EXPECT_EQ(describeRunning(step), "Deleting “Data”…");
     step = {.kind = Kind::CreateTable, .type = "gpt", .subject = "Disk"};
     EXPECT_EQ(describe(step), "Create a GUID Partition Map on “Disk”");
+}
+
+TEST_F(ErasePlanTest, AReplacedPartitionStopsThePlan)
+{
+    backend.responder = [](const Call&) -> std::optional<Result> { return Result{}; };
+    PartitionLayout layout = PartitionLayout::fromDisk(model, sample::kSata);
+    ASSERT_TRUE(layout.remove(layout.slices().front().id));
+    const std::vector<PlanStep> steps = layout.plan();
+    ASSERT_EQ(steps.size(), 1u);
+    EXPECT_EQ(steps[0].expected, identityOf(model, sample::kData));
+
+    // Another tool put a different partition where Data was.
+    model.changeProperties(sample::kData, interface::kPartition, {{"UUID", Variant(std::string("someone-else"))}});
+    EXPECT_FALSE(stepHolds(model, steps[0]));
+    PlanRunner runner(model, operations, identityOf(model, sample::kSata), steps);
+    bool finished = false;
+    auto subscription = runner.finished.connect([&] { finished = true; });
+    runner.start();
+    ASSERT_TRUE(finished);
+    EXPECT_EQ(runner.result().errorName, PlanRunner::kChangedError);
+    EXPECT_TRUE(methods().empty());
+}
+
+TEST_F(ErasePlanTest, StepsAfterAResizeExpectTheNewSize)
+{
+    PartitionLayout layout = PartitionLayout::fromDisk(model, sample::kStick);
+    const uint32_t stick = layout.slices().front().id;
+    const uint64_t before = layout.slices().front().size;
+    layout.setFilesystem(stick, "exfat");
+    layout.setSize(stick, 8 * kGB);
+    const uint64_t after = layout.slice(stick)->size;
+    const std::vector<PlanStep> steps = layout.plan();
+    ASSERT_EQ(steps.size(), 3u);
+    EXPECT_EQ(steps[1].kind, Kind::ResizePartition);
+    EXPECT_EQ(steps[1].expected.size, before);
+    EXPECT_EQ(steps[2].kind, Kind::Format);
+    EXPECT_EQ(steps[2].expected.size, after);
+    EXPECT_EQ(steps[2].resizedFrom, before);
+    // Before UDisks2 reports the new size, and after.
+    EXPECT_TRUE(stepHolds(model, steps[2]));
+    model.changeProperties(sample::kStickVolume, interface::kBlock, {{"Size", Variant(after)}});
+    EXPECT_TRUE(stepHolds(model, steps[2]));
+    model.changeProperties(sample::kStickVolume, interface::kBlock, {{"Size", Variant(after - kMiB)}});
+    EXPECT_FALSE(stepHolds(model, steps[2]));
 }

@@ -56,7 +56,16 @@ struct PlanStep
     udisks::FormatOptions options;
     // What the summary calls the volume or disk, such as "Data".
     std::string subject;
+    // What the block at path must still be when the step starts; not
+    // checked while invalid. After the plan's own resize of the block it
+    // has the new size, and the size it had (resizedFrom) passes too, in
+    // case UDisks2's change has not arrived yet.
+    udisks::Identity expected;
+    uint64_t resizedFrom = 0;
 };
+
+// The block at the step's path is still the one the step was made for.
+bool stepHolds(const udisks::Model& model, const PlanStep& step);
 
 // A line of the summary and of the progress: "Delete “Data”",
 // "Shrink “Data” to 200 GB"...
@@ -70,7 +79,8 @@ const udisks::Object* jobOf(const udisks::Model& model, const std::vector<std::s
 
 // Runs the steps one after another through the operations, stopping at the
 // first that fails, and before any step once the block the plan was made
-// for (a disk, or a volume) is not the one it was.
+// for (a disk, or a volume) or the step's own block is not the one it was.
+// Nothing runs unless every step's block is still the expected one.
 class PlanRunner
 {
 public:
