@@ -24,3 +24,7 @@ target_link_libraries(disk-utility-core PUBLIC Cutefish::ToolkitBase)
 cutefish_add_translations(cutefish-disk-utility SOURCES src DESKTOP_FILES cutefish-disk-utility.desktop)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/cutefish-disk-utility.desktop
         DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
+
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
