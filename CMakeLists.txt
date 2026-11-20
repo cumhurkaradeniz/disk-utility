@@ -69,6 +69,7 @@ add_library(disk-utility-ui STATIC
     src/dialogs/unlock.cpp
     src/dialogs/volume_actions.cpp
     src/dialogs/volumetools.cpp
+    src/dialogs/newimage.cpp
     src/views/context.cpp
     src/views/detail.cpp
     src/views/detailcards.cpp
