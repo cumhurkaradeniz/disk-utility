@@ -57,6 +57,7 @@ add_custom_command(OUTPUT ${DISK_UTILITY_EMBEDDED}
 add_library(disk-utility-ui STATIC
     src/dialogs/identity_guard.cpp
     src/views/context.cpp
+    src/views/detailcards.cpp
     src/views/detailcontent.cpp
     src/views/sidebar.cpp
     src/views/style.cpp
