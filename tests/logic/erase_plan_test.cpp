@@ -289,6 +289,73 @@ TEST_F(ErasePlanTest, StepsAfterAResizeExpectTheNewSize)
     EXPECT_TRUE(stepHolds(model, steps[2]));
     model.changeProperties(sample::kStickVolume, interface::kBlock, {{"Size", Variant(after)}});
     EXPECT_TRUE(stepHolds(model, steps[2]));
-    model.changeProperties(sample::kStickVolume, interface::kBlock, {{"Size", Variant(after - kMiB)}});
+    model.changeProperties(sample::kStickVolume, interface::kBlock, {{"Size", Variant(after - 2 * kMiB)}});
     EXPECT_FALSE(stepHolds(model, steps[2]));
+}
+
+TEST_F(ErasePlanTest, AResizeTheToolsAlignStillGrowsTheFilesystem)
+{
+    PartitionLayout layout = PartitionLayout::fromDisk(model, sample::kSata);
+    layout.setResizeSupport("ntfs", true, 2 | 4, "");
+    const uint32_t data = layout.slices().front().id;
+    layout.setSize(data, 600 * kGB);
+    const uint64_t asked = layout.slice(data)->size;
+    const std::vector<PlanStep> steps = layout.plan();
+    ASSERT_EQ(steps.size(), 2u);
+    ASSERT_EQ(steps[1].kind, Kind::GrowFilesystem);
+
+    // The partition tools give it a little more than was asked.
+    backend.responder = [&](const Call& call) -> std::optional<Result> {
+        if (call.interface == interface::kPartition && call.method == "Resize")
+            model.changeProperties(sample::kData, interface::kBlock, {{"Size", Variant(asked + 512 * 1024)}});
+        return Result{};
+    };
+    PlanRunner runner(model, operations, identityOf(model, sample::kSata), steps);
+    bool finished = false;
+    auto subscription = runner.finished.connect([&] { finished = true; });
+    runner.start();
+    for (int i = 0; i < 8 && !finished; ++i)
+        runPosted();
+    ASSERT_TRUE(finished);
+    EXPECT_TRUE(runner.succeeded()) << runner.result().errorMessage;
+    EXPECT_EQ(methods(), (std::vector<std::string>{sample::kData + " Resize", sample::kData + " Resize"}));
+
+    // More than a MiB off is another partition's size, not alignment.
+    model.changeProperties(sample::kData, interface::kBlock, {{"Size", Variant(asked + 3 * kMiB)}});
+    EXPECT_FALSE(stepHolds(model, steps[1]));
+}
+
+TEST_F(ErasePlanTest, BlocksThePlanDoesNotResizeStayStrict)
+{
+    PartitionLayout layout = PartitionLayout::fromDisk(model, sample::kSata);
+    ASSERT_TRUE(layout.remove(layout.slices().front().id));
+    const std::vector<PlanStep> steps = layout.plan();
+    ASSERT_EQ(steps.size(), 1u);
+    model.changeProperties(sample::kData, interface::kBlock, {{"Size", Variant(uint64_t(500 * kGB + 4096))}});
+    EXPECT_FALSE(stepHolds(model, steps[0]));
+}
+
+TEST_F(ErasePlanTest, TheChangedStepIsNamed)
+{
+    PartitionLayout layout = PartitionLayout::fromDisk(model, sample::kUsb);
+    const auto idOf = [&](const std::string& block) {
+        for (const Slice& slice : layout.slices()) {
+            if (slice.block == block)
+                return slice.id;
+        }
+        return uint32_t(0);
+    };
+    ASSERT_TRUE(layout.remove(idOf(sample::kLocked)));
+    layout.setFilesystem(idOf(sample::kUnformatted), "ext4");
+    const std::vector<PlanStep> steps = layout.plan();
+    ASSERT_EQ(steps.size(), 2u);
+    ASSERT_EQ(steps[1].path, sample::kUnformatted);
+    model.changeProperties(sample::kUnformatted, interface::kPartition, {{"UUID", Variant(std::string("other"))}});
+    PlanRunner runner(model, operations, identityOf(model, sample::kUsb), steps);
+    runner.start();
+    EXPECT_FALSE(runner.succeeded());
+    EXPECT_EQ(runner.current(), 0u);
+    EXPECT_EQ(runner.failedStep(), 1u);
+    EXPECT_NE(runner.result().errorMessage.find(steps[1].subject), std::string::npos);
+    EXPECT_TRUE(methods().empty());
 }

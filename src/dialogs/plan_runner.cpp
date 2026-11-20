@@ -87,9 +87,17 @@ bool stepHolds(const udisks::Model& model, const PlanStep& step)
     const udisks::Identity now = udisks::identityOf(model, step.expected.block);
     if (now == step.expected)
         return true;
-    udisks::Identity before = step.expected;
-    before.size = step.resizedFrom;
-    return step.resizedFrom != 0 && now == before;
+    if (step.resizedFrom == 0)
+        return false;
+    // The plan resized the block itself: the same partition, at the size it
+    // had or at about the one asked for, which the partition tools may align.
+    udisks::Identity same = now;
+    same.size = step.expected.size;
+    if (same != step.expected)
+        return false;
+    const uint64_t asked = step.expected.size;
+    const uint64_t slack = asked > now.size ? asked - now.size : now.size - asked;
+    return now.size == step.resizedFrom || slack <= kMiB;
 }
 
 bool erasesData(const PlanStep& step)
@@ -136,8 +144,10 @@ void PlanRunner::start()
     m_started = true;
     m_running = true;
     m_current = 0;
-    for (const PlanStep& step : m_steps) {
+    for (size_t i = 0; i < m_steps.size(); ++i) {
+        const PlanStep& step = m_steps[i];
         if (!stepHolds(m_model, step)) {
+            m_failed = i;
             m_result = {kChangedError,
                         format(tr("“{name}” is no longer the one the changes were made for."), {{"name", step.subject}}),
                         {}};
@@ -157,6 +167,7 @@ void PlanRunner::runStep()
         return;
     }
     if (!m_model.matches(m_subject)) {
+        m_failed = m_current;
         m_result = {kChangedError, tr("The disk was removed or replaced by another."), {}};
         m_running = false;
         finished.emit();
@@ -164,6 +175,7 @@ void PlanRunner::runStep()
     }
     const PlanStep& step = m_steps[m_current];
     if (!stepHolds(m_model, step)) {
+        m_failed = m_current;
         m_result = {kChangedError,
                     format(tr("“{name}” is no longer the one the changes were made for."), {{"name", step.subject}}),
                     {}};
@@ -178,6 +190,7 @@ void PlanRunner::runStep()
             return;
         runner->m_result = result;
         if (!result.ok()) {
+            runner->m_failed = runner->m_current;
             runner->m_running = false;
             runner->finished.emit();
             return;

@@ -105,7 +105,11 @@ public:
 
     const std::vector<PlanStep>& steps() const { return m_steps; }
     // The step running, or the one that failed; the step count once all ran.
+    // Also how many steps ran.
     size_t current() const { return m_current; }
+    // The step that failed, or whose block was found changed: a later one
+    // than current() when the check before anything ran found it.
+    size_t failedStep() const { return m_failed; }
     bool isRunning() const { return m_running; }
     // The last result: the failed step's, or the last step's.
     const udisks::Result& result() const { return m_result; }
@@ -124,6 +128,7 @@ private:
     udisks::Identity m_subject;
     std::vector<PlanStep> m_steps;
     size_t m_current = 0;
+    size_t m_failed = 0;
     bool m_running = false;
     bool m_started = false;
     udisks::Result m_result;

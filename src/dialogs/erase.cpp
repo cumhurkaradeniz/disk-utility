@@ -457,7 +457,7 @@ void EraseDialog::finished()
                                        {{"name", m_name}})
                               : format(tr("“{name}” was not erased; nothing stored on it was changed."),
                                        {{"name", m_name}}));
-    const std::string step = describe(steps[failed]);
+    const std::string step = describe(steps[m_runner->failedStep()]);
     if (m_stopped && result.cancelled())
         m_error->setText(format(tr("“{step}” was stopped before it finished."), {{"step", step}}));
     else if (result.cancelled())
