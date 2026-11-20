@@ -19,6 +19,7 @@ add_executable(disk-utility-logic-tests
     logic/operations_test.cpp
     logic/system_test.cpp
     logic/tree_test.cpp
+    logic/volumes_test.cpp
 )
 target_link_libraries(disk-utility-logic-tests PRIVATE disk-utility-fake GTest::gtest)
 gtest_discover_tests(disk-utility-logic-tests PROPERTIES LABELS logic)
