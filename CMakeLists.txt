@@ -15,6 +15,7 @@ find_package(CutefishToolkit REQUIRED)
 
 add_library(disk-utility-core STATIC
     src/udisks/parse.cpp
+    src/udisks/system.cpp
 )
 target_include_directories(disk-utility-core PUBLIC src)
 target_link_libraries(disk-utility-core PUBLIC Cutefish::ToolkitBase)
