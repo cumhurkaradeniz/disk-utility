@@ -543,6 +543,59 @@ TEST_F(ImagesTest, ARemovedSourceLeavesNothingChosen)
     EXPECT_EQ(choice->currentIndex(), -1);
     EXPECT_FALSE(driver.find<View>("restore:restore")->isEnabled());
     EXPECT_EQ(driver.text("restore:problem"), "“STICK” is no longer there. Choose another source.");
+
+    // An unplug comes in several batches, and other disks change meanwhile:
+    // nothing gets chosen in its place.
+    scenario.model().removeInterfaces(sample::kStick, {interface::kPartitionTable});
+    settle();
+    scenario.model().removeInterfaces(sample::kStick, {interface::kBlock});
+    settle();
+    scenario.model().changeProperties(sample::kMbrLinux, interface::kBlock,
+                                      {{"IdLabel", Variant(std::string("Renamed"))}});
+    settle();
+    driver.layout();
+    EXPECT_EQ(choice->currentIndex(), -1);
+    EXPECT_FALSE(driver.find<View>("restore:restore")->isEnabled());
+    EXPECT_EQ(driver.text("restore:problem"), "“STICK” is no longer there. Choose another source.");
+
+    // Until a source is picked again.
+    choice->setCurrentIndex(0);
+    choice->onActivated(0);
+    driver.layout();
+    EXPECT_NE(driver.text("restore:problem"), "“STICK” is no longer there. Choose another source.");
+}
+
+TEST_F(ImagesTest, AnotherStickAtTheSamePathIsNotTheSource)
+{
+    scenario.model().changeProperties(sample::kCard, interface::kBlock, {{"Size", Variant(uint64_t(1) << 42)}});
+    settle();
+    scenario.driver.click("sidebar:d:" + sample::kCard);
+    scenario.window->actions().trigger(Action::Restore);
+    dialogs::RestoreDialog* restore = images().restoreDialog();
+    TestDriver driver(*scenario.driver.dialog(), fail);
+    const auto& sources = restore->sources();
+    const auto stick = std::find_if(sources.begin(), sources.end(), [](const dialogs::RestoreDialog::Source& source) {
+        return source.endpoint.block == sample::kStickVolume;
+    });
+    ASSERT_NE(stick, sources.end());
+    auto* choice = driver.find<dialogs::ChoiceButton>("restore:source");
+    choice->setCurrentIndex(int(stick - sources.begin()));
+    choice->onActivated(choice->currentIndex());
+    driver.layout();
+    ASSERT_TRUE(driver.find<View>("restore:restore")->isEnabled()) << driver.text("restore:problem");
+
+    // In one change the stick is another one: same paths, another drive.
+    scenario.model().changeProperties(sample::kStickDrive, interface::kDrive,
+                                      {{"Serial", Variant(std::string("OTHER"))},
+                                       {"Id", Variant(std::string("Other-Stick-OTHER"))},
+                                       {"TimeDetected", Variant(uint64_t(1'900'000'000'000'000))}});
+    settle();
+    driver.layout();
+    EXPECT_EQ(choice->currentIndex(), -1);
+    EXPECT_FALSE(driver.find<View>("restore:restore")->isEnabled());
+    EXPECT_NE(driver.text("restore:problem").find("no longer there"), std::string::npos);
+    restore->restore();
+    EXPECT_EQ(restore->confirmation(), nullptr);
 }
 
 TEST_F(ImagesTest, TheUnmountQuestionGoesWithItsVolume)

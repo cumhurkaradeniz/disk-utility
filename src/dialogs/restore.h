@@ -82,8 +82,10 @@ private:
     // The target as the dialog opened on it.
     udisks::Identity m_targetIdentity;
     std::string m_image;
-    // Why nothing is chosen: the source chosen went away.
+    // Why nothing is chosen: the source chosen went away. Kept until the
+    // user picks a source, whatever the model does meanwhile.
     std::string m_removed;
+    bool m_nothingChosen = false;
     std::vector<Source> m_sources;
     std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
     std::unique_ptr<cutefish::ui::ConfirmDialog> m_confirm;

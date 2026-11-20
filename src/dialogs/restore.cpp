@@ -62,6 +62,7 @@ void RestoreDialog::show(const udisks::Node& target)
     m_targetName = udisks::displayName(m_context.model, target);
     m_targetIdentity = udisks::identityOf(m_context.model, target.block);
     m_image.clear();
+    m_nothingChosen = false;
     m_removed.clear();
     // The old guard points at the dialog build() replaces.
     m_guard.reset();
@@ -108,6 +109,7 @@ void RestoreDialog::build()
     m_source = row->addContent<ChoiceButton>();
     m_source->setName("restore:source");
     m_source->onActivated = [this](int) {
+        m_nothingChosen = false;
         m_removed.clear();
         update();
     };
@@ -177,17 +179,25 @@ void RestoreDialog::reloadSources()
 
     if (!m_source)
         return;
-    // The first source is chosen at first; a chosen one that goes leaves
-    // nothing chosen, rather than another disk in its place.
+    // The first source is chosen at first; a chosen one that goes, or whose
+    // path another device took, leaves nothing chosen until the user picks
+    // again, rather than another disk in its place.
     std::vector<ChoiceButton::Item> titles;
-    int current = hadChoice || m_sources.empty() ? -1 : 0;
+    int current = hadChoice || m_nothingChosen || m_sources.empty() ? -1 : 0;
     for (size_t i = 0; i < m_sources.size(); ++i) {
         titles.push_back({m_sources[i].title, std::to_string(i)});
-        if (hadChoice && m_sources[i].endpoint.block == keep.block && m_sources[i].endpoint.file == keep.file)
-            current = int(i);
+        if (!hadChoice || m_sources[i].endpoint.block != keep.block || m_sources[i].endpoint.file != keep.file)
+            continue;
+        if (keep.isBlock() && !model.matches(keep.identity))
+            continue;
+        current = int(i);
+        // The device as it was chosen, for the confirmation's check.
+        m_sources[i].endpoint = keep;
     }
-    if (hadChoice && current < 0)
+    if (hadChoice && current < 0) {
+        m_nothingChosen = true;
         m_removed = format(tr("“{name}” is no longer there. Choose another source."), {{"name", keptName}});
+    }
     m_source->setItems(titles);
     m_source->setCurrentIndex(current);
     update();
@@ -196,6 +206,7 @@ void RestoreDialog::reloadSources()
 void RestoreDialog::setImage(const std::string& path)
 {
     m_image = path;
+    m_nothingChosen = false;
     m_removed.clear();
     if (!isOpen())
         return;
