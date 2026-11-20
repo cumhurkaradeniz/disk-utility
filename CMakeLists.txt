@@ -58,6 +58,7 @@ add_library(disk-utility-ui STATIC
     src/dialogs/cards.cpp
     src/dialogs/choice_button.cpp
     src/dialogs/identity_guard.cpp
+    src/dialogs/mount.cpp
     src/dialogs/pie_chart.cpp
     src/dialogs/unlock.cpp
     src/views/context.cpp
