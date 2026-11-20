@@ -33,6 +33,7 @@ gtest_discover_tests(disk-utility-logic-tests PROPERTIES LABELS logic)
 add_executable(disk-utility-scenario-tests
     scenarios/main.cpp
     scenarios/erase_test.cpp
+    scenarios/partition_test.cpp
     scenarios/window_test.cpp
     scenarios/sidebar_test.cpp
     scenarios/detail_test.cpp
