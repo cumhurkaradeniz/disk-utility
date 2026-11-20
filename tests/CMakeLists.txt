@@ -15,6 +15,7 @@ add_executable(disk-utility-logic-tests
     logic/actions_test.cpp
     logic/copy_test.cpp
     logic/describe_test.cpp
+    logic/erase_plan_test.cpp
     logic/identity_test.cpp
     logic/images_test.cpp
     logic/model_test.cpp
