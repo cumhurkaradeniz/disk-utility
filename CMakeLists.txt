@@ -16,6 +16,7 @@ find_package(CutefishToolkit REQUIRED)
 add_library(disk-utility-core STATIC
     src/actions.cpp
     src/application.cpp
+    src/dialogs/erase_plan.cpp
     src/dialogs/partition_plan.cpp
     src/dialogs/plan_runner.cpp
     src/dialogs/volume_format.cpp
