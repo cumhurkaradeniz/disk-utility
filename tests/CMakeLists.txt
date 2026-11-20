@@ -33,6 +33,7 @@ gtest_discover_tests(disk-utility-logic-tests PROPERTIES LABELS logic)
 add_executable(disk-utility-scenario-tests
     scenarios/main.cpp
     scenarios/window_test.cpp
+    scenarios/sidebar_test.cpp
 )
 target_link_libraries(disk-utility-scenario-tests PRIVATE disk-utility-ui disk-utility-fake GTest::gtest)
 # The application tests group every running copy of these binaries.
