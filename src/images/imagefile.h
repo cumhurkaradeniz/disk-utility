@@ -24,7 +24,8 @@ bool attachesReadOnly(const std::string& path);
 // in an image's extension already; empty for a name that is no file name.
 std::string imageFileName(const std::string& name);
 
-// The loop device the file is attached to, or empty.
+// The loop device the file is attached to, or empty. A hard link to the
+// file, or its path through another mount, finds it too.
 std::string loopOfFile(const udisks::Model& model, const std::string& path);
 
 // The compression the file starts with ("xz", "gzip", "bzip2", "zstd",

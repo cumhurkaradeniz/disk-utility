@@ -549,3 +549,15 @@ TEST_F(TransferTest, CompressedFilesAreNoSource)
     EXPECT_EQ(compressionOf(write("short", "P")), "");
     EXPECT_EQ(compressionOf(file("missing")), "");
 }
+
+TEST_F(TransferTest, AttachedImagesAreFoundThroughHardLinks)
+{
+    write("attached.img", data(1000));
+    tree.setLoop(sdx, file("attached.img"));
+    model.reset(tree.objects());
+    ASSERT_EQ(::link(file("attached.img").c_str(), file("link.img").c_str()), 0);
+    EXPECT_EQ(loopOfFile(model, file("link.img")), sdx);
+    EXPECT_EQ(loopOfFile(model, file("attached.img")), sdx);
+    write("other.img", data(1000));
+    EXPECT_EQ(loopOfFile(model, file("other.img")), "");
+}

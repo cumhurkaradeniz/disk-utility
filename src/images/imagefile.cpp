@@ -15,6 +15,7 @@
 #include <string_view>
 
 #include <fcntl.h>
+#include <sys/stat.h>
 #include <sys/statvfs.h>
 #include <unistd.h>
 
@@ -71,13 +72,23 @@ static std::string normalized(const std::string& path)
     return error ? std::filesystem::path(path).lexically_normal().string() : canonical.string();
 }
 
+// The same file: by device and inode, so a hard link or a path through a
+// bind mount is one too; by the path when either cannot be looked at.
+static bool sameFile(const std::string& path, const std::string& other)
+{
+    struct stat first {};
+    struct stat second {};
+    if (::stat(path.c_str(), &first) == 0 && ::stat(other.c_str(), &second) == 0)
+        return first.st_dev == second.st_dev && first.st_ino == second.st_ino;
+    return normalized(path) == normalized(other);
+}
+
 std::string loopOfFile(const udisks::Model& model, const std::string& path)
 {
     if (path.empty())
         return {};
-    const std::string wanted = normalized(path);
     for (const auto& [objectPath, object] : model.objects()) {
-        if (object.loop && !object.loop->backingFile.empty() && normalized(object.loop->backingFile) == wanted)
+        if (object.loop && !object.loop->backingFile.empty() && sameFile(path, object.loop->backingFile))
             return objectPath;
     }
     return {};
@@ -115,6 +126,7 @@ std::string compressionOf(const std::string& path)
     }
     return {};
 }
+
 std::string createBlankFile(const std::string& path, uint64_t size)
 {
     // The file takes its room as it is written, so it has to be there already.
