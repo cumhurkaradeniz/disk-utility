@@ -12,3 +12,7 @@ include(GNUInstallDirs)
 include(CTest)
 
 find_package(CutefishToolkit REQUIRED)
+
+cutefish_add_translations(cutefish-disk-utility SOURCES src DESKTOP_FILES cutefish-disk-utility.desktop)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/cutefish-disk-utility.desktop
+        DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)

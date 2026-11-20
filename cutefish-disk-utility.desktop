@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Disk Utility
+Comment=Manage disks, volumes and disk images
+Exec=cutefish-disk-utility %F
+Icon=gnome-disks
+Terminal=false
+Type=Application
+Categories=System;Utility;Filesystem;
+Keywords=Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;
+MimeType=application/vnd.efi.img;application/x-raw-disk-image;application/vnd.efi.iso;application/x-cd-image;application/x-iso9660-image;
+StartupNotify=true
