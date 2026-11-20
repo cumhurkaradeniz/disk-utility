@@ -14,6 +14,7 @@ include(CTest)
 find_package(CutefishToolkit REQUIRED)
 
 add_library(disk-utility-core STATIC
+    src/actions.cpp
     src/udisks/bus.cpp
     src/udisks/describe.cpp
     src/udisks/errors.cpp
