@@ -195,6 +195,26 @@ void FirstAid::rehold()
         m_hold = m_context.operations.hold(m_disk);
 }
 
+void FirstAid::heldThrough()
+{
+    // A call refused at once answers on the next turn of the loop, and has
+    // not made the disk busy meanwhile.
+    if (m_running && !m_context.operations.isBusy(m_disk))
+        rehold();
+}
+
+bool FirstAid::stillThere()
+{
+    Volume& volume = m_volumes[m_index];
+    // Unmounted by us now: what counts is whether it was before.
+    const bool wasMounted = volume.wasMounted;
+    const bool found = resolve(volume) == Found::Ready;
+    volume.wasMounted = wasMounted;
+    if (!found)
+        log(format(tr("“{name}” is no longer there."), {{"name", volume.name}}));
+    return found;
+}
+
 void FirstAid::start(const Selection& selection)
 {
     if (!selection)
@@ -373,6 +393,7 @@ void FirstAid::checkVolume()
             ++m_failed;
             nextVolume();
         });
+        heldThrough();
     });
 }
 
@@ -402,6 +423,7 @@ void FirstAid::runCheck()
         log(tr("The file system has errors."));
         repairVolume();
     });
+    heldThrough();
 }
 
 void FirstAid::repairVolume()
@@ -419,6 +441,12 @@ void FirstAid::repairVolume()
                                  {{"format", udisks::filesystemName(type)}, {"tool", missing}}));
             ++m_unrepaired;
             remount();
+            return;
+        }
+        // The check may have taken long enough for the disk to change.
+        if (!stillThere()) {
+            ++m_failed;
+            nextVolume();
             return;
         }
         log(tr("Repairing the file system."));
@@ -439,6 +467,7 @@ void FirstAid::repairVolume()
             }
             remount();
         });
+        heldThrough();
     });
 }
 
@@ -446,6 +475,11 @@ void FirstAid::remount()
 {
     Volume& volume = m_volumes[m_index];
     if (!volume.wasMounted) {
+        nextVolume();
+        return;
+    }
+    if (!stillThere()) {
+        ++m_failed;
         nextVolume();
         return;
     }
@@ -463,6 +497,7 @@ void FirstAid::remount()
         }
         nextVolume();
     });
+    heldThrough();
 }
 
 bool FirstAid::stopOnCancel(const udisks::Result& result)

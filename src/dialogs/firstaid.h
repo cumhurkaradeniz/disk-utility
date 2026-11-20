@@ -90,6 +90,11 @@ private:
     // the hold, keeping the disk busy itself until it returns.
     void release();
     void rehold();
+    // After a call: holds the disk again when the call did not take it.
+    void heldThrough();
+    // Finds the volume again before the next step on it, its path and
+    // identity; says so when it is gone.
+    bool stillThere();
     void nextVolume();
     void checkVolume();
     void runCheck();

@@ -10,6 +10,7 @@
 #include "udisks/properties.h"
 #include "views/context.h"
 
+#include "base/event_loop.h"
 #include "ui/dialog_window.h"
 #include "ui/keys.h"
 #include "ui/text_area.h"
@@ -603,4 +604,76 @@ TEST_F(VolumeToolsTest, FirstAidUnansweredToolQuestionIsNotRemembered)
     EXPECT_EQ(log.find("not installed"), std::string::npos);
     // The next try asks again.
     EXPECT_TRUE(actions.isEnabled(Action::FirstAid));
+}
+
+TEST_F(VolumeToolsTest, FirstAidFindsTheVolumeAgainBeforeRepairing)
+{
+    select("v:" + sample::kStickVolume);
+    ASSERT_TRUE(actions.trigger(Action::FirstAid));
+    {
+        auto confirm = over(scenario.driver);
+        ASSERT_TRUE(confirm);
+        confirm->clickText("Run");
+    }
+    runPosted();
+    answer(available(true));
+    answer();
+    // Pulled out during the check.
+    scenario.model().removeInterfaces(sample::kStickVolume, {udisks::interface::kBlock,
+                                                             udisks::interface::kPartition,
+                                                             udisks::interface::kFilesystem});
+    answer(value(Variant(false)));
+    answer(available(true));
+    EXPECT_EQ(methods(), (std::vector<std::string>{"CanCheck", "Unmount", "Check", "CanRepair"}));
+    EXPECT_EQ(backend().pendingCount(), 0u);
+    auto dialog = over(scenario.driver);
+    ASSERT_TRUE(dialog);
+    EXPECT_EQ(dialog->text("firstAid:status"), "First Aid process has failed.");
+    EXPECT_NE(dialog->find<TextArea>("firstAid:log")->text().find("“STICK” is no longer there."), std::string::npos);
+}
+
+TEST_F(VolumeToolsTest, FirstAidFindsTheVolumeAgainBeforeMounting)
+{
+    select("v:" + sample::kStickVolume);
+    ASSERT_TRUE(actions.trigger(Action::FirstAid));
+    {
+        auto confirm = over(scenario.driver);
+        ASSERT_TRUE(confirm);
+        confirm->clickText("Run");
+    }
+    runPosted();
+    answer(available(true));
+    answer();
+    scenario.model().removeInterfaces(sample::kStickVolume, {udisks::interface::kBlock,
+                                                             udisks::interface::kPartition,
+                                                             udisks::interface::kFilesystem});
+    answer(value(Variant(true)));
+    EXPECT_EQ(methods(), (std::vector<std::string>{"CanCheck", "Unmount", "Check"}));
+    EXPECT_EQ(backend().pendingCount(), 0u);
+}
+
+TEST_F(VolumeToolsTest, FirstAidKeepsTheDiskThroughARefusedCall)
+{
+    select("v:" + sample::kStickVolume);
+    ASSERT_TRUE(actions.trigger(Action::FirstAid));
+    {
+        auto confirm = over(scenario.driver);
+        ASSERT_TRUE(confirm);
+        confirm->clickText("Run");
+    }
+    runPosted();
+    // Now mounted where the system lives: Unmount is refused without a call.
+    scenario.model().changeProperties(sample::kStickVolume, udisks::interface::kFilesystem,
+                                      {{"MountPoints", Variant(std::vector<std::vector<uint8_t>>{
+                                                               udisks::encodeBytes("/home")})}});
+    backend().reply(0, available(true));
+    bool busyBetween = false;
+    // Runs after the answer and before the refusal's result.
+    cutefish::base::EventLoop::current()->post(
+            [&] { busyBetween = scenario.application.operations().isBusy(sample::kStick); });
+    runPosted();
+    EXPECT_TRUE(busyBetween);
+    EXPECT_EQ(methods(), (std::vector<std::string>{"CanCheck"}));
+    runPosted();
+    EXPECT_FALSE(scenario.application.operations().isBusy(sample::kStick));
 }
