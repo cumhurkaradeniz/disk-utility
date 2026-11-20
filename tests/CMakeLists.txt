@@ -13,6 +13,7 @@ target_link_libraries(disk-utility-fake PUBLIC disk-utility-core)
 add_executable(disk-utility-logic-tests
     logic/main.cpp
     logic/model_test.cpp
+    logic/system_test.cpp
 )
 target_link_libraries(disk-utility-logic-tests PRIVATE disk-utility-fake GTest::gtest)
 gtest_discover_tests(disk-utility-logic-tests PROPERTIES LABELS logic)
