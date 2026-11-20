@@ -62,7 +62,7 @@ static Variant options(VariantMap map = {})
     return Variant(map);
 }
 
-static VariantMap formatOptions(const FormatOptions& options)
+static VariantMap formatOptions(const FormatOptions& options, bool retype = true)
 {
     VariantMap map;
     if (!options.label.empty())
@@ -76,9 +76,9 @@ static VariantMap formatOptions(const FormatOptions& options)
     }
     map["take-ownership"] = Variant(options.takeOwnership);
     // Unmounts and locks what is on the block first, and sets the partition's
-    // type to match the filesystem.
+    // type to match the filesystem unless the partition table may not change.
     map["tear-down"] = Variant(true);
-    map["update-partition-type"] = Variant(true);
+    map["update-partition-type"] = Variant(retype);
     return map;
 }
 
@@ -260,8 +260,11 @@ void Operations::resizeFilesystem(const std::string& block, uint64_t size, Done 
 void Operations::format(const std::string& block, const std::string& type, const FormatOptions& formatting,
                         Done done)
 {
-    Call call = makeCall(block, interface::kBlock, "Format", {Variant(type), options(formatOptions(formatting))},
-                         kLong);
+    // On the system's disk a partition is formatted in place, its table as it
+    // is: a new type would be a change to the running disk's table.
+    const bool retype = systemRefusal(m_model, block, Change::Table).empty();
+    Call call = makeCall(block, interface::kBlock, "Format",
+                         {Variant(type), options(formatOptions(formatting, retype))}, kLong);
     if (const std::string why = systemRefusal(m_model, block, formatChange(m_model, block)); !why.empty()) {
         refuse(std::move(call), kSystemError, why, std::move(done));
         return;

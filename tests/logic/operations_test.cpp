@@ -184,9 +184,16 @@ TEST_F(OperationsTest, AVolumeOnTheSystemDisk)
     backend.replyAll();
     runPosted();
     operations.format(windows, "ntfs", {});
+    // In place: the running disk's table keeps the partition's type.
+    EXPECT_FALSE(backend.calls.back().arguments.at(1).value<VariantMap>().at("update-partition-type").value<bool>());
     backend.replyAll();
     runPosted();
     EXPECT_EQ(backend.calls.size(), 4u);
+    // Elsewhere the type follows the filesystem.
+    operations.format(sample::kData, "ext4", {});
+    EXPECT_TRUE(backend.calls.back().arguments.at(1).value<VariantMap>().at("update-partition-type").value<bool>());
+    backend.replyAll();
+    runPosted();
     // The table, the whole disk and the drive do not.
     operations.deletePartition(windows, collect);
     operations.resizePartition(windows, 1, collect);
@@ -195,7 +202,7 @@ TEST_F(OperationsTest, AVolumeOnTheSystemDisk)
     operations.openForRestore(windows, collect);
     operations.createPartition(sample::kNvme, 0, 1, {}, {}, collect);
     operations.format(sample::kNvme, "gpt", {}, collect);
-    EXPECT_EQ(backend.calls.size(), 4u);
+    EXPECT_EQ(backend.calls.size(), 5u);
     runPosted();
     ASSERT_EQ(refused.size(), 7u);
     for (const Result& result : refused) {
