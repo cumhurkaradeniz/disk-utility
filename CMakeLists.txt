@@ -65,6 +65,7 @@ add_library(disk-utility-ui STATIC
     src/dialogs/rename.cpp
     src/dialogs/smart.cpp
     src/dialogs/unlock.cpp
+    src/dialogs/volumetools.cpp
     src/views/context.cpp
     src/views/detail.cpp
     src/views/detailcards.cpp
