@@ -1,0 +1,2414 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cutefish-disk-utility\n"
+"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"POT-Creation-Date: 2026-11-21 00:27+0800\n"
+"PO-Revision-Date: 2026-11-21 00:19+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/actions.cpp src/views/diskwindow.cpp
+msgid "View"
+msgstr "보기"
+
+#: src/actions.cpp
+msgid "Add Partition…"
+msgstr "파티션 추가…"
+
+#: src/actions.cpp
+msgid "Delete Partition…"
+msgstr "파티션 삭제…"
+
+#: src/actions.cpp
+msgid "First Aid…"
+msgstr "응급 처치…"
+
+#: src/actions.cpp
+msgid "Partition…"
+msgstr "파티션…"
+
+#: src/actions.cpp
+msgid "Erase…"
+msgstr "지우기…"
+
+#: src/actions.cpp
+msgid "Restore…"
+msgstr "복원…"
+
+#: src/actions.cpp
+msgid "Mount"
+msgstr "마운트"
+
+#: src/actions.cpp src/dialogs/diskimages.cpp
+msgid "Unmount"
+msgstr "마운트 해제"
+
+#: src/actions.cpp
+msgid "Get Info"
+msgstr "정보 가져오기"
+
+#: src/actions.cpp
+msgid "Eject"
+msgstr "추출"
+
+#: src/actions.cpp
+msgid "Rename…"
+msgstr "이름 변경…"
+
+#: src/actions.cpp
+msgid "Lock"
+msgstr "잠그기"
+
+#: src/actions.cpp
+msgid "Open Disk Image…"
+msgstr "디스크 이미지 열기…"
+
+#: src/actions.cpp
+msgid "Blank Image…"
+msgstr "빈 이미지…"
+
+#: src/actions.cpp
+msgid "Image from Selection…"
+msgstr "선택 항목에서 이미지 생성…"
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The disks of the running system could not be found."
+msgstr "실행 중인 시스템의 디스크를 찾을 수 없습니다."
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The disk holds the running system."
+msgstr "이 디스크에 실행 중인 시스템이 있습니다."
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The volume holds the running system."
+msgstr "이 볼륨에 실행 중인 시스템이 있습니다."
+
+#: src/actions.cpp
+msgid "An operation on this disk is in progress."
+msgstr "이 디스크에서 작업이 진행 중입니다."
+
+#: src/actions.cpp src/dialogs/partition_plan.cpp
+#: src/dialogs/volume_actions.cpp
+msgid "A Master Boot Record holds at most four partitions."
+msgstr "마스터 부트 레코드에는 파티션을 최대 4개까지만 만들 수 있습니다."
+
+#: src/actions.cpp src/dialogs/partition_plan.cpp
+#: src/dialogs/volume_actions.cpp
+msgid "There is no free space for another partition."
+msgstr "다른 파티션을 만들 여유 공간이 없습니다."
+
+#: src/actions.cpp
+msgid "A partition in it is mounted or unlocked."
+msgstr "그 안의 파티션이 마운트되어 있거나 잠금 해제되어 있습니다."
+
+#: src/dialogs/choice_button.cpp
+#, python-brace-format
+msgid "{choice} ({reason})"
+msgstr "{choice}({reason})"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Preparing…"
+msgstr "준비 중…"
+
+#: src/dialogs/copyprogress.cpp src/dialogs/erase.cpp src/dialogs/partition.cpp
+msgid "Stop"
+msgstr "정지"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Stopping…"
+msgstr "정지하는 중…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Unmounting…"
+msgstr "마운트 해제하는 중…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Opening…"
+msgstr "여는 중…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Stopped."
+msgstr "정지되었습니다."
+
+#: src/dialogs/diskimages.cpp
+msgid "The new image could not be mounted."
+msgstr "새 이미지를 마운트할 수 없습니다."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Restoring “{name}”"
+msgstr "“{name}” 복원 중"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Copying “{source}” onto “{target}”."
+msgstr "“{source}”을(를) “{target}”에 복사하는 중입니다."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” was restored."
+msgstr "“{name}”이(가) 복원되었습니다."
+
+#: src/dialogs/diskimages.cpp
+msgid "A copy is in progress."
+msgstr "복사가 진행 중입니다."
+
+#: src/dialogs/diskimages.cpp src/views/sidebar.cpp
+msgid "Disk Images"
+msgstr "디스크 이미지"
+
+#: src/dialogs/diskimages.cpp
+msgid "All Files"
+msgstr "모든 파일"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open Disk Image"
+msgstr "디스크 이미지 열기"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open"
+msgstr "열기"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open read-only"
+msgstr "읽기 전용으로 열기"
+
+#: src/dialogs/diskimages.cpp
+msgid "Restore from Disk Image"
+msgstr "디스크 이미지에서 복원"
+
+#: src/dialogs/diskimages.cpp
+msgid "Choose"
+msgstr "선택"
+
+#: src/dialogs/diskimages.cpp
+msgid "Save Image As"
+msgstr "다른 이름으로 이미지 저장"
+
+#: src/dialogs/diskimages.cpp
+msgid "Save"
+msgstr "저장"
+
+#: src/dialogs/diskimages.cpp
+msgid "Choose a Folder"
+msgstr "폴더 선택"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” could not be opened."
+msgstr "“{name}”을(를) 열 수 없습니다."
+
+#: src/dialogs/diskimages.cpp src/dialogs/newimage.cpp
+#: src/dialogs/volume_format.cpp
+msgid "Untitled"
+msgstr "제목 없음"
+
+#: src/dialogs/diskimages.cpp
+msgid "The image could not be created."
+msgstr "이미지를 만들 수 없습니다."
+
+#: src/dialogs/diskimages.cpp
+msgid "The file is an attached disk image. Eject it first."
+msgstr "이 파일은 연결된 디스크 이미지입니다. 먼저 추출하십시오."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "The image cannot be saved on “{name}” itself. Choose a folder on another disk."
+msgstr "이미지를 “{name}” 자체에 저장할 수 없습니다. 다른 디스크의 폴더를 선택하십시오."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” holds the running system, so it cannot be unmounted to be read."
+msgstr "“{name}”에 실행 중인 시스템이 있어 읽기 위해 마운트 해제할 수 없습니다."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Creating “{name}”"
+msgstr "“{name}” 생성 중"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Copying “{source}” into “{file}”."
+msgstr "“{source}”을(를) “{file}”(으)로 복사하는 중입니다."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{file}” was created."
+msgstr "“{file}”이(가) 생성되었습니다."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” must be unmounted to make an image of it."
+msgstr "“{name}”의 이미지를 만들려면 마운트를 해제해야 합니다."
+
+#: src/dialogs/diskimages.cpp
+msgid "It is unmounted, and locked when it is encrypted, before it is read, and stays so afterwards."
+msgstr "읽기 전에 마운트가 해제되고, 암호화되어 있으면 잠기며, 이후에도 그 상태로 유지됩니다."
+
+#: src/dialogs/diskimages.cpp
+msgid "Another copy is in progress."
+msgstr "다른 복사가 진행 중입니다."
+
+#: src/dialogs/diskimages.cpp
+msgid "Wait for it to finish, or stop it first."
+msgstr "끝날 때까지 기다리거나 먼저 정지하십시오."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erase “{name}”"
+msgstr "“{name}” 지우기"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erasing “{name}” deletes every volume on it and everything stored on them. This can't be undone. Choose a name, a format and a partition scheme for it."
+msgstr "“{name}”을(를) 지우면 그 안의 모든 볼륨과 볼륨에 저장된 모든 내용이 삭제됩니다. 이 작업은 되돌릴 수 없습니다. 이름, 포맷 및 파티션 방식을 선택하십시오."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erasing “{name}” deletes everything stored on it. This can't be undone. Choose a name and a format for it."
+msgstr "“{name}”을(를) 지우면 저장된 모든 내용이 삭제됩니다. 이 작업은 되돌릴 수 없습니다. 이름과 포맷을 선택하십시오."
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/rename.cpp src/dialogs/volume_actions.cpp
+#: src/udisks/properties.cpp
+msgid "Name"
+msgstr "이름"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/volume_actions.cpp src/udisks/properties.cpp
+msgid "Format"
+msgstr "포맷"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp
+msgid "Scheme"
+msgstr "방식"
+
+#: src/dialogs/erase.cpp
+msgid "Encrypt"
+msgstr "암호화"
+
+#: src/dialogs/erase.cpp src/dialogs/unlock.cpp
+msgid "Passphrase"
+msgstr "암호문"
+
+#: src/dialogs/erase.cpp src/dialogs/unlock.cpp
+msgid "Required"
+msgstr "필수"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp
+msgid "Verify"
+msgstr "확인"
+
+#: src/dialogs/erase.cpp
+msgid "The volume can only be read after unlocking it with the passphrase. If you forget the passphrase, the data can't be recovered."
+msgstr "볼륨은 암호문으로 잠금 해제한 후에만 읽을 수 있습니다. 암호문을 잊어버리면 데이터를 복구할 수 없습니다."
+
+#: src/dialogs/erase.cpp
+msgid "Security Options…"
+msgstr "보안 옵션…"
+
+#: src/dialogs/erase.cpp
+msgid "Erase"
+msgstr "지우기"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "needs at least {size}"
+msgstr "최소 {size} 필요"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "{format} can't be chosen: {reason}"
+msgstr "{format}을(를) 선택할 수 없음: {reason}"
+
+#: src/dialogs/erase.cpp
+msgid "The passphrases don't match."
+msgstr "암호문이 일치하지 않습니다."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "A Master Boot Record reaches only the first {reach} of “{name}”; the other {rest} stay unused. Choose GUID Partition Map to use all of it."
+msgstr "마스터 부트 레코드는 “{name}”의 처음 {reach}까지만 사용할 수 있으며, 나머지 {rest}은(는) 사용되지 않습니다. 전체를 사용하려면 GUID 파티션 맵을 선택하십시오."
+
+#: src/dialogs/erase.cpp
+msgid "The data is overwritten with zeros first, which takes as long as writing the whole volume once."
+msgstr "먼저 데이터를 0으로 덮어쓰며, 볼륨 전체를 한 번 쓰는 만큼의 시간이 걸립니다."
+
+#: src/dialogs/erase.cpp
+msgid "Quick Erase"
+msgstr "빠른 지우기"
+
+#: src/dialogs/erase.cpp
+msgid "Zero Out Data"
+msgstr "데이터를 0으로 덮어쓰기"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+msgid "Done"
+msgstr "완료"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Step {step} of {count}"
+msgstr "{count}단계 중 {step}단계"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Stopping “{step}”…"
+msgstr "“{step}” 정지하는 중…"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was erased."
+msgstr "“{name}”이(가) 지워졌습니다."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was erased only in part and has no usable volume now. Erase it again to use it."
+msgstr "“{name}”이(가) 일부만 지워져 지금은 사용할 수 있는 볼륨이 없습니다. 사용하려면 다시 지우십시오."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was not erased; nothing stored on it was changed."
+msgstr "“{name}”이(가) 지워지지 않았으며, 저장된 내용은 변경되지 않았습니다."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” was stopped before it finished."
+msgstr "“{step}”이(가) 끝나기 전에 정지되었습니다."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” was cancelled."
+msgstr "“{step}”이(가) 취소되었습니다."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” failed."
+msgstr "“{step}”에 실패했습니다."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” failed: {message}"
+msgstr "“{step}”에 실패했습니다: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "Hide Details"
+msgstr "세부사항 숨기기"
+
+#: src/dialogs/firstaid.cpp
+msgid "Show Details"
+msgstr "세부사항 보기"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking {format} volumes needs {tool}, which is not installed."
+msgstr "{format} 볼륨을 검사하려면 {tool}이(가) 필요하지만 설치되어 있지 않습니다."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds. Mounted volumes are unmounted while they are checked and mounted again afterwards."
+msgstr "응급 처치는 디스크의 모든 볼륨에서 오류를 검사하고 발견된 오류를 복구합니다. 마운트된 볼륨은 검사하는 동안 마운트가 해제되었다가 이후 다시 마운트됩니다."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds."
+msgstr "응급 처치는 디스크의 모든 볼륨에서 오류를 검사하고 발견된 오류를 복구합니다."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks the volume for errors and repairs the ones it finds. The volume is unmounted while it is checked, so its files can’t be used until it’s done."
+msgstr "응급 처치는 볼륨의 오류를 검사하고 발견된 오류를 복구합니다. 검사하는 동안 볼륨의 마운트가 해제되므로 완료될 때까지 파일을 사용할 수 없습니다."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks the volume for errors and repairs the ones it finds."
+msgstr "응급 처치는 볼륨의 오류를 검사하고 발견된 오류를 복구합니다."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Run First Aid on “{name}”?"
+msgstr "“{name}”에서 응급 처치를 실행하시겠습니까?"
+
+#: src/dialogs/firstaid.cpp
+msgid "Run"
+msgstr "실행"
+
+#: src/dialogs/firstaid.cpp
+msgid "There are no volumes to check."
+msgstr "검사할 볼륨이 없습니다."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking “{name}”…"
+msgstr "“{name}” 검사 중…"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there. Skipped."
+msgstr "“{name}”이(가) 더 이상 없습니다. 건너뛰었습니다."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is locked. Unlock it to check it. Skipped."
+msgstr "“{name}”이(가) 잠겨 있습니다. 검사하려면 잠금을 해제하십시오. 건너뛰었습니다."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” holds no file system First Aid can check. Skipped."
+msgstr "“{name}”에 응급 처치가 검사할 수 있는 파일 시스템이 없습니다. 건너뛰었습니다."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking “{name}” ({device}, {format})."
+msgstr "“{name}”({device}, {format})을(를) 검사하는 중입니다."
+
+#: src/dialogs/firstaid.cpp
+msgid "unknown format"
+msgstr "알 수 없는 포맷"
+
+#: src/dialogs/firstaid.cpp
+msgid "a checking tool"
+msgstr "검사 도구"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{format} volumes can’t be checked: {tool} is not installed."
+msgstr "{format} 볼륨을 검사할 수 없습니다: {tool}이(가) 설치되어 있지 않습니다."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Unmounting “{name}”."
+msgstr "“{name}”을(를) 마운트 해제하는 중입니다."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is in use and can’t be unmounted. Close the files and quit the programs using it, then run First Aid again."
+msgstr "“{name}”이(가) 사용 중이어서 마운트를 해제할 수 없습니다. 파일을 닫고 사용 중인 프로그램을 종료한 다음 응급 처치를 다시 실행하십시오."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is in use by {programs} and can’t be unmounted. Close their files on it or quit them, then run First Aid again."
+msgstr "{programs}에서 “{name}”을(를) 사용 중이어서 마운트를 해제할 수 없습니다. 해당 프로그램에서 파일을 닫거나 프로그램을 종료한 다음 응급 처치를 다시 실행하십시오."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” could not be unmounted: {message}"
+msgstr "“{name}”을(를) 마운트 해제할 수 없습니다: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "Checking the file system."
+msgstr "파일 시스템을 검사하는 중입니다."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "The check failed: {message}"
+msgstr "검사에 실패했습니다: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system appears to be OK."
+msgstr "파일 시스템에 문제가 없는 것으로 보입니다."
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system has errors."
+msgstr "파일 시스템에 오류가 있습니다."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{format} volumes can’t be repaired: {tool} is not installed."
+msgstr "{format} 볼륨을 복구할 수 없습니다: {tool}이(가) 설치되어 있지 않습니다."
+
+#: src/dialogs/firstaid.cpp
+msgid "a repair tool"
+msgstr "복구 도구"
+
+#: src/dialogs/firstaid.cpp
+msgid "Repairing the file system."
+msgstr "파일 시스템을 복구하는 중입니다."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Repairing “{name}”…"
+msgstr "“{name}” 복구 중…"
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system was repaired."
+msgstr "파일 시스템이 복구되었습니다."
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system could not be repaired."
+msgstr "파일 시스템을 복구할 수 없습니다."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "The repair failed: {message}"
+msgstr "복구에 실패했습니다: {message}"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Mounting “{name}” again."
+msgstr "“{name}”을(를) 다시 마운트하는 중입니다."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” could not be mounted again: {message}"
+msgstr "“{name}”을(를) 다시 마운트할 수 없습니다: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid was cancelled."
+msgstr "응급 처치가 취소되었습니다."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid found errors it could not repair. Back up the data you can and erase the volume."
+msgstr "응급 처치에서 복구할 수 없는 오류를 발견했습니다. 가능한 데이터를 백업하고 볼륨을 지우십시오."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid process has failed."
+msgstr "응급 처치 과정에 실패했습니다."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid process has completed."
+msgstr "응급 처치 과정이 완료되었습니다."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{n} volume was skipped."
+msgid_plural "{n} volumes were skipped."
+msgstr[0] "볼륨 {n}개를 건너뛰었습니다."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid"
+msgstr "응급 처치"
+
+#: src/dialogs/identity_guard.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there."
+msgstr "“{name}”이(가) 더 이상 없습니다."
+
+#: src/dialogs/identity_guard.cpp
+msgid "It was removed or replaced by another disk, so nothing more is done to it."
+msgstr "제거되었거나 다른 디스크로 교체되었으므로 더 이상 작업하지 않습니다."
+
+#: src/dialogs/info.cpp
+msgid "S.M.A.R.T. Details…"
+msgstr "S.M.A.R.T. 세부사항…"
+
+#: src/dialogs/mount.cpp
+msgid " and "
+msgstr " 및 "
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be mounted."
+msgstr "“{name}”을(를) 마운트할 수 없습니다."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be unmounted."
+msgstr "“{name}”을(를) 마운트 해제할 수 없습니다."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be locked."
+msgstr "“{name}”을(를) 잠글 수 없습니다."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be ejected."
+msgstr "“{name}”을(를) 추출할 수 없습니다."
+
+#: src/dialogs/mount.cpp
+msgid "A program is still using a file on it. Close the files and quit the programs using it, then try again."
+msgstr "아직 프로그램이 그 안의 파일을 사용하고 있습니다. 파일을 닫고 사용 중인 프로그램을 종료한 다음 다시 시도하십시오."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "It is in use by {programs}. Close their files on it or quit them, then try again."
+msgstr "{programs}에서 사용 중입니다. 해당 프로그램에서 파일을 닫거나 프로그램을 종료한 다음 다시 시도하십시오."
+
+#: src/dialogs/mount.cpp
+msgid "Another operation on this disk is still running."
+msgstr "이 디스크에서 다른 작업이 아직 실행 중입니다."
+
+#: src/dialogs/newimage.cpp
+msgid "New Blank Image"
+msgstr "새로운 빈 이미지"
+
+#: src/dialogs/newimage.cpp
+msgid "Save As"
+msgstr "저장 위치"
+
+#: src/dialogs/newimage.cpp
+msgid "Where"
+msgstr "위치"
+
+#: src/dialogs/newimage.cpp
+msgid "Choose…"
+msgstr "선택…"
+
+#: src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/volume_actions.cpp src/udisks/properties.cpp
+msgid "Size"
+msgstr "크기"
+
+#: src/dialogs/newimage.cpp src/udisks/properties.cpp
+msgid "None"
+msgstr "없음"
+
+#: src/dialogs/newimage.cpp src/udisks/properties.cpp
+msgid "Encryption"
+msgstr "암호화"
+
+#: src/dialogs/newimage.cpp
+msgid "Encrypted with a Password"
+msgstr "암호로 암호화됨"
+
+#: src/dialogs/newimage.cpp
+msgid "Password"
+msgstr "암호"
+
+#: src/dialogs/newimage.cpp
+msgid "Create"
+msgstr "생성"
+
+#: src/dialogs/newimage.cpp
+msgid "Type a name for the image file."
+msgstr "이미지 파일의 이름을 입력하십시오."
+
+#: src/dialogs/newimage.cpp
+msgid "The folder is no longer there."
+msgstr "폴더가 더 이상 없습니다."
+
+#: src/dialogs/newimage.cpp
+#, python-brace-format
+msgid "A file named “{name}” already exists in this folder."
+msgstr "이 폴더에 이름이 “{name}”인 파일이 이미 있습니다."
+
+#: src/dialogs/newimage.cpp
+msgid "Type a size, such as 100 MB."
+msgstr "100 MB와 같이 크기를 입력하십시오."
+
+#: src/dialogs/newimage.cpp
+#, python-brace-format
+msgid "A {format} image needs at least {size}."
+msgstr "{format} 이미지에는 최소 {size}이(가) 필요합니다."
+
+#: src/dialogs/newimage.cpp
+msgid "Type a password for the image."
+msgstr "이미지의 암호를 입력하십시오."
+
+#: src/dialogs/newimage.cpp
+msgid "The passwords do not match."
+msgstr "암호가 일치하지 않습니다."
+
+#: src/dialogs/newimage.cpp
+msgid "Creating the file…"
+msgstr "파일을 만드는 중…"
+
+#: src/dialogs/newimage.cpp
+msgid "Attaching the image…"
+msgstr "이미지를 연결하는 중…"
+
+#: src/dialogs/newimage.cpp
+msgid "Creating the partition map…"
+msgstr "파티션 맵을 만드는 중…"
+
+#: src/dialogs/newimage.cpp
+msgid "Formatting…"
+msgstr "포맷하는 중…"
+
+#: src/dialogs/newimage.cpp
+msgid "Mounting…"
+msgstr "마운트하는 중…"
+
+#: src/dialogs/partition.cpp src/dialogs/volume_actions.cpp
+msgid "Add Partition"
+msgstr "파티션 추가"
+
+#: src/dialogs/partition.cpp
+msgid "Delete Partition"
+msgstr "파티션 삭제"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Partition “{name}”"
+msgstr "“{name}” 파티션"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” ({size}) has no partition map. Click + to add partitions; Apply creates a GUID Partition Map for them, erasing what is on the disk."
+msgstr "“{name}”({size})에 파티션 맵이 없습니다. +를 클릭하여 파티션을 추가하십시오. 적용하면 GUID 파티션 맵이 생성되며 디스크의 내용이 지워집니다."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "{scheme}, {size}. Click + to add a partition, drag the handles on the rim to resize. Nothing changes until you click Apply."
+msgstr "{scheme}, {size}. +를 클릭하여 파티션을 추가하고, 가장자리의 핸들을 드래그하여 크기를 조절하십시오. 적용을 클릭하기 전까지는 아무것도 변경되지 않습니다."
+
+#: src/dialogs/partition.cpp
+msgid "Revert"
+msgstr "되돌리기"
+
+#: src/dialogs/partition.cpp
+msgid "Apply"
+msgstr "적용"
+
+#: src/dialogs/partition.cpp
+msgid "Free Space"
+msgstr "여유 공간"
+
+#: src/dialogs/partition.cpp src/views/detailcontent.cpp
+msgid "Unformatted"
+msgstr "포맷되지 않음"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Between {minimum} and {maximum}."
+msgstr "{minimum}에서 {maximum} 사이."
+
+#: src/dialogs/partition.cpp
+msgid "How far the filesystem can shrink is only known when it is applied; a shrink runs before anything is deleted."
+msgstr "파일 시스템을 얼마나 줄일 수 있는지는 적용할 때만 알 수 있으며, 축소는 삭제보다 먼저 실행됩니다."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Changing the format erases everything on “{name}”."
+msgstr "포맷을 변경하면 “{name}”의 모든 내용이 지워집니다."
+
+#: src/dialogs/partition.cpp
+msgid "Click + to add a partition in this free space."
+msgstr "+를 클릭하여 이 여유 공간에 파티션을 추가하십시오."
+
+#: src/dialogs/partition.cpp src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "{format} can't be made: {reason}"
+msgstr "{format}을(를) 만들 수 없음: {reason}"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "These steps will be taken on “{name}”, in this order:"
+msgstr "“{name}”에서 다음 단계가 순서대로 진행됩니다:"
+
+#: src/dialogs/partition.cpp
+msgid "Deleted and erased volumes lose everything stored on them. Resizing can take a while; keep the disk connected until it is done."
+msgstr "삭제되거나 지워진 볼륨은 저장된 모든 내용을 잃게 됩니다. 크기 조절은 시간이 걸릴 수 있으니 완료될 때까지 디스크를 연결해 두십시오."
+
+#: src/dialogs/partition.cpp
+msgid "Resizing can take a while; keep the disk connected until it is done."
+msgstr "크기 조절은 시간이 걸릴 수 있으니 완료될 때까지 디스크를 연결해 두십시오."
+
+#: src/dialogs/partition.cpp
+msgid "Back"
+msgstr "뒤로"
+
+#: src/dialogs/partition.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Partition"
+msgstr "파티션"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” was partitioned."
+msgstr "“{name}”의 파티션이 나뉘었습니다."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Nothing was changed on “{name}”."
+msgstr "“{name}”에서 변경된 것이 없습니다."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” was partitioned only in part: the first {count} steps were taken."
+msgstr "“{name}”의 파티션 작업이 일부만 완료되었습니다: 처음 {count}단계가 진행되었습니다."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Encrypted volumes can't be resized here."
+msgstr "암호화된 볼륨은 여기에서 크기를 조절할 수 없습니다."
+
+#: src/dialogs/partition_plan.cpp
+msgid "The partition has no filesystem that can be resized."
+msgstr "파티션에 크기를 조절할 수 있는 파일 시스템이 없습니다."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Checking whether the filesystem can be resized…"
+msgstr "파일 시스템의 크기를 조절할 수 있는지 확인하는 중…"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Resizing {format} needs {tool}, which is not installed."
+msgstr "{format}의 크기를 조절하려면 {tool}이(가) 필요하지만 설치되어 있지 않습니다."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't be resized."
+msgstr "{format}은(는) 크기를 조절할 수 없습니다."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Unmount “{name}” to shrink it."
+msgstr "줄이려면 “{name}”을(를) 마운트 해제하십시오."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Unmount “{name}” to grow it."
+msgstr "늘리려면 “{name}”을(를) 마운트 해제하십시오."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Mount “{name}” to shrink it."
+msgstr "줄이려면 “{name}”을(를) 마운트하십시오."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Mount “{name}” to grow it."
+msgstr "늘리려면 “{name}”을(를) 마운트하십시오."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't shrink."
+msgstr "{format}은(는) 줄일 수 없습니다."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't grow."
+msgstr "{format}은(는) 늘릴 수 없습니다."
+
+#: src/dialogs/partition_plan.cpp src/dialogs/volume_actions.cpp
+msgid "The partition map holds no more partitions."
+msgstr "파티션 맵에 파티션을 더 추가할 수 없습니다."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Extended partitions and the partitions inside them can't be changed here."
+msgstr "확장 파티션과 그 안의 파티션은 여기에서 변경할 수 없습니다."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” is too small for {format}, which needs at least {size}."
+msgstr "“{name}”이(가) {format}에 비해 너무 작습니다. {format}에는 최소 {size}이(가) 필요합니다."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” can't be resized."
+msgstr "“{name}”의 크기를 조절할 수 없습니다."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” can't be smaller than {size}."
+msgstr "“{name}”은(는) {size}보다 작을 수 없습니다."
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Unmount “{name}”"
+msgstr "“{name}” 마운트 해제"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Lock “{name}”"
+msgstr "“{name}” 잠그기"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Delete “{name}”"
+msgstr "“{name}” 삭제"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Shrink the filesystem of “{name}” to {size}"
+msgstr "“{name}”의 파일 시스템을 {size}(으)로 축소"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resize “{name}” to {size}"
+msgstr "“{name}”의 크기를 {size}(으)로 조절"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Grow the filesystem of “{name}” to fill its partition"
+msgstr "“{name}”의 파일 시스템을 파티션 크기에 맞게 확장"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create a {scheme} on “{name}”"
+msgstr "“{name}”에 {scheme} 생성"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erase “{name}” as encrypted {format}"
+msgstr "“{name}”을(를) 암호화된 {format}(으)로 지우기"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erase “{name}” as {format}"
+msgstr "“{name}”을(를) {format}(으)로 지우기"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create “{name}”, encrypted {format}, {size}"
+msgstr "“{name}” 생성, 암호화된 {format}, {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create “{name}”, {format}, {size}"
+msgstr "“{name}” 생성, {format}, {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Rename “{name}” to “{label}”"
+msgstr "“{name}”의 이름을 “{label}”(으)로 변경"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Unmounting “{name}”…"
+msgstr "“{name}” 마운트 해제 중…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Locking “{name}”…"
+msgstr "“{name}” 잠그는 중…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Deleting “{name}”…"
+msgstr "“{name}” 삭제 중…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resizing the filesystem of “{name}”…"
+msgstr "“{name}”의 파일 시스템 크기 조절 중…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resizing “{name}”…"
+msgstr "“{name}” 크기 조절 중…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Creating the partition map on “{name}”…"
+msgstr "“{name}”에 파티션 맵 생성 중…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erasing “{name}”…"
+msgstr "“{name}” 지우는 중…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Creating “{name}”…"
+msgstr "“{name}” 생성 중…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Renaming “{name}”…"
+msgstr "“{name}” 이름 변경 중…"
+
+#: src/dialogs/plan_runner.cpp src/images/transfer.cpp
+msgid "The disk was removed or replaced by another."
+msgstr "디스크가 제거되었거나 다른 디스크로 교체되었습니다."
+
+#: src/dialogs/rename.cpp
+msgid "Rename Volume"
+msgstr "볼륨 이름 변경"
+
+#: src/dialogs/rename.cpp
+msgid "Rename"
+msgstr "이름 변경"
+
+#: src/dialogs/rename.cpp
+#, python-brace-format
+msgid "{format} names have up to {n} characters and are kept in capitals."
+msgstr "{format} 이름은 최대 {n}자이며 대문자로 저장됩니다."
+
+#: src/dialogs/rename.cpp
+#, python-brace-format
+msgid "{format} names have up to {n} characters."
+msgstr "{format} 이름은 최대 {n}자입니다."
+
+#: src/dialogs/rename.cpp
+msgid "The volume could not be renamed."
+msgstr "볼륨의 이름을 변경할 수 없습니다."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Restore “{name}”"
+msgstr "“{name}” 복원"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Choose a volume, disk or disk image to copy onto “{name}”. Everything on “{name}” is erased and replaced with the copy."
+msgstr "“{name}”에 복사할 볼륨, 디스크 또는 디스크 이미지를 선택하십시오. “{name}”의 모든 내용이 지워지고 복사본으로 대체됩니다."
+
+#: src/dialogs/restore.cpp
+msgid "Restore From"
+msgstr "복원 소스"
+
+#: src/dialogs/restore.cpp
+msgid "Image…"
+msgstr "이미지…"
+
+#: src/dialogs/restore.cpp
+msgid "Restore"
+msgstr "복원"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "{name} ({device}, {size})"
+msgstr "{name}({device}, {size})"
+
+#: src/dialogs/restore.cpp
+msgid "Choose a disk image, or attach a disk to restore from."
+msgstr "디스크 이미지를 선택하거나 복원할 디스크를 연결하십시오."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Everything on “{target}” is replaced with the contents of “{source}”. This cannot be undone."
+msgstr "“{target}”의 모든 내용이 “{source}”의 내용으로 대체됩니다. 이 작업은 되돌릴 수 없습니다."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "“{source}” is unmounted before it is read, and stays so afterwards."
+msgstr "“{source}”은(는) 읽기 전에 마운트가 해제되며 이후에도 그 상태로 유지됩니다."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Erase “{target}”?"
+msgstr "“{target}”을(를) 지우시겠습니까?"
+
+#: src/dialogs/restore.cpp
+msgid "Erase and Restore"
+msgstr "지우고 복원"
+
+#: src/dialogs/restore.cpp
+msgid "The restore could not start."
+msgstr "복원을 시작할 수 없습니다."
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "S.M.A.R.T."
+msgstr "S.M.A.R.T."
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "The attributes could not be read: {message}"
+msgstr "속성을 읽을 수 없습니다: {message}"
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "The self-test could not be started: {message}"
+msgstr "자가 검사를 시작할 수 없습니다: {message}"
+
+#: src/dialogs/smart.cpp
+msgid "Status"
+msgstr "상태"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Temperature"
+msgstr "온도"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Powered On"
+msgstr "전원 켜짐 시간"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Bad Sectors"
+msgstr "불량 섹터"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Critical Warnings"
+msgstr "심각한 경고"
+
+#: src/dialogs/smart.cpp
+msgid "Self-Test"
+msgstr "자가 검사"
+
+#: src/dialogs/smart.cpp
+msgid "Last Read"
+msgstr "마지막 읽기"
+
+#: src/dialogs/smart.cpp
+msgid "Attributes"
+msgstr "속성"
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "Failing: {value}"
+msgstr "실패 중: {value}"
+
+#: src/dialogs/smart.cpp
+msgid "Health"
+msgstr "건강 상태"
+
+#: src/dialogs/smart.cpp
+msgid "Run Self-Test"
+msgstr "자가 검사 실행"
+
+#: src/dialogs/unlock.cpp
+msgid "Unlock Volume"
+msgstr "볼륨 잠금 해제"
+
+#: src/dialogs/unlock.cpp
+#, python-brace-format
+msgid "Enter the passphrase to unlock “{name}”."
+msgstr "“{name}”의 잠금을 해제하려면 암호문을 입력하십시오."
+
+#: src/dialogs/unlock.cpp
+msgid "Unlock"
+msgstr "잠금 해제"
+
+#: src/dialogs/unlock.cpp
+msgid "The passphrase is incorrect."
+msgstr "암호문이 올바르지 않습니다."
+
+#: src/dialogs/unlock.cpp
+msgid "The volume could not be unlocked."
+msgstr "볼륨의 잠금을 해제할 수 없습니다."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Up to {size} of free space, from {offset} into the disk."
+msgstr "디스크의 {offset} 지점부터 최대 {size}의 여유 공간."
+
+#: src/dialogs/volume_actions.cpp
+msgid "Add"
+msgstr "추가"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "{format} needs at least {size}."
+msgstr "{format}에는 최소 {size}이(가) 필요합니다."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Added “{name}”."
+msgstr "“{name}”을(를) 추가했습니다."
+
+#: src/dialogs/volume_actions.cpp
+msgid "The partition could not be added."
+msgstr "파티션을 추가할 수 없습니다."
+
+#: src/dialogs/volume_actions.cpp
+msgid "Everything stored on the partition is deleted. This can't be undone."
+msgstr "파티션에 저장된 모든 내용이 삭제됩니다. 이 작업은 되돌릴 수 없습니다."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "“{name}”"
+msgstr "“{name}”"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "The partitions in it, {names}, and everything stored on them are deleted. This can't be undone."
+msgstr "그 안의 파티션 {names} 및 그 안에 저장된 모든 내용이 삭제됩니다. 이 작업은 되돌릴 수 없습니다."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Delete “{name}”?"
+msgstr "“{name}”을(를) 삭제하시겠습니까?"
+
+#: src/dialogs/volume_actions.cpp
+msgid "Delete"
+msgstr "삭제"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Deleted “{name}”."
+msgstr "“{name}”을(를) 삭제했습니다."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "“{name}” could not be deleted."
+msgstr "“{name}”을(를) 삭제할 수 없습니다."
+
+#: src/dialogs/volume_format.cpp
+msgid "FAT32 (MS-DOS)"
+msgstr "FAT32 (MS-DOS)"
+
+#: src/dialogs/volume_format.cpp src/udisks/describe.cpp
+#: src/udisks/properties.cpp
+msgid "Swap"
+msgstr "스왑"
+
+#: src/dialogs/volume_format.cpp
+msgid "The name can't contain control characters."
+msgstr "이름에 제어 문자를 포함할 수 없습니다."
+
+#: src/dialogs/volume_format.cpp
+msgid "FAT32 names can only use unaccented letters, digits and simple punctuation."
+msgstr "FAT32 이름에는 악센트 없는 영문자, 숫자 및 간단한 문장 부호만 사용할 수 있습니다."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "FAT32 names can't contain “{character}”."
+msgstr "FAT32 이름에는 “{character}”을(를) 포함할 수 없습니다."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "{format} names can have at most {count} characters."
+msgstr "{format} 이름은 최대 {count}자까지 가능합니다."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "{format} names can have at most {count} bytes."
+msgstr "{format} 이름은 최대 {count}바이트까지 가능합니다."
+
+#: src/dialogs/volume_format.cpp
+msgid "Checking for its tools…"
+msgstr "도구를 확인하는 중…"
+
+#: src/dialogs/volume_format.cpp
+msgid "Its tools are not installed."
+msgstr "도구가 설치되어 있지 않습니다."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "Needs {tool}, which is not installed."
+msgstr "{tool}이(가) 필요하지만 설치되어 있지 않습니다."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The source could not be read: {reason}"
+msgstr "소스를 읽을 수 없습니다: {reason}"
+
+#: src/images/copy.cpp
+msgid "The destination is too small."
+msgstr "대상이 너무 작습니다."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The destination could not be written: {reason}"
+msgstr "대상에 쓸 수 없습니다: {reason}"
+
+#: src/images/copy.cpp
+msgid "The source ended before all of it was read."
+msgstr "소스를 모두 읽기 전에 끝났습니다."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The data could not be saved on the destination: {reason}"
+msgstr "데이터를 대상에 저장할 수 없습니다: {reason}"
+
+#: src/images/imagefile.cpp
+msgid "There is not enough free space for an image of that size."
+msgstr "그 크기의 이미지를 만들 여유 공간이 부족합니다."
+
+#: src/images/imagefile.cpp
+msgid "A file with that name already exists."
+msgstr "같은 이름의 파일이 이미 있습니다."
+
+#: src/images/imagefile.cpp
+#, python-brace-format
+msgid "The file could not be created: {reason}"
+msgstr "파일을 만들 수 없습니다: {reason}"
+
+#: src/images/imagefile.cpp
+msgid "The file is too large for the disk it is on."
+msgstr "파일이 위치한 디스크에 비해 파일이 너무 큽니다."
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{copied} of {total}"
+msgstr "{copied}/{total}"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{size}/s"
+msgstr "{size}/s"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} second left"
+msgid_plural "About {n} seconds left"
+msgstr[0] "약 {n}초 남음"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} minute left"
+msgid_plural "About {n} minutes left"
+msgstr[0] "약 {n}분 남음"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} hour left"
+msgid_plural "About {n} hours left"
+msgstr[0] "약 {n}시간 남음"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{amount} ({rate})"
+msgstr "{amount}({rate})"
+
+#: src/images/transfer.cpp
+msgid "The destination is no longer there."
+msgstr "대상이 더 이상 없습니다."
+
+#: src/images/transfer.cpp
+msgid "A volume cannot be restored from itself."
+msgstr "볼륨을 자기 자신에서 복원할 수 없습니다."
+
+#: src/images/transfer.cpp
+msgid "The source and the destination overlap: one lies inside the other."
+msgstr "소스와 대상이 서로를 포함하고 있습니다."
+
+#: src/images/transfer.cpp
+msgid "A disk image cannot be restored onto itself."
+msgstr "디스크 이미지를 자기 자신에 복원할 수 없습니다."
+
+#: src/images/transfer.cpp
+msgid "The disk image is attached and mounted. Eject it first."
+msgstr "디스크 이미지가 연결되어 마운트되어 있습니다. 먼저 추출하십시오."
+
+#: src/images/transfer.cpp
+msgid "The source could not be read."
+msgstr "소스를 읽을 수 없습니다."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The source ({source}) is larger than the destination ({destination})."
+msgstr "소스({source})가 대상({destination})보다 큽니다."
+
+#: src/images/transfer.cpp
+msgid "The source is empty."
+msgstr "소스가 비어 있습니다."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The source could not be opened: {reason}"
+msgstr "소스를 열 수 없습니다: {reason}"
+
+#: src/images/transfer.cpp
+msgid "The source could not be opened."
+msgstr "소스를 열 수 없습니다."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The destination could not be opened: {reason}"
+msgstr "대상을 열 수 없습니다: {reason}"
+
+#: src/images/transfer.cpp
+msgid "The destination could not be opened."
+msgstr "대상을 열 수 없습니다."
+
+#: src/udisks/describe.cpp
+msgid "GUID Partition Map"
+msgstr "GUID 파티션 맵"
+
+#: src/udisks/describe.cpp
+msgid "Master Boot Record"
+msgstr "마스터 부트 레코드"
+
+#. TRANSLATORS: a disk without a model name, such as "16 GB Disk".
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Disk"
+msgstr "{size} 디스크"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Extended Partition"
+msgstr "확장 파티션"
+
+#. TRANSLATORS: a volume without a label, named by its size, such as "16 GB Volume".
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Encrypted Volume"
+msgstr "{size} 암호화된 볼륨"
+
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Volume"
+msgstr "{size} 볼륨"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+msgid "SD Card"
+msgstr "SD 카드"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Disk Image"
+msgstr "디스크 이미지"
+
+#: src/udisks/operations.cpp
+msgid "The device is no longer available."
+msgstr "장치를 더 이상 사용할 수 없습니다."
+
+#: src/udisks/operations.cpp
+msgid "Another operation on this disk is in progress."
+msgstr "이 디스크에서 다른 작업이 진행 중입니다."
+
+#: src/udisks/operations.cpp
+msgid "The partition holds the running system."
+msgstr "이 파티션에 실행 중인 시스템이 있습니다."
+
+#: src/udisks/operations.cpp
+msgid "The disk is no longer available."
+msgstr "디스크를 더 이상 사용할 수 없습니다."
+
+#: src/udisks/operations.cpp
+msgid "The disk cannot be ejected."
+msgstr "디스크를 추출할 수 없습니다."
+
+#: src/udisks/operations.cpp
+msgid "The disk image holds the running system."
+msgstr "이 디스크 이미지에 실행 중인 시스템이 있습니다."
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{n} byte"
+msgid_plural "{n} bytes"
+msgstr[0] "{n}바이트"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{size} ({bytes})"
+msgstr "{size}({bytes})"
+
+#: src/udisks/properties.cpp
+msgid "EFI System"
+msgstr "EFI 시스템"
+
+#: src/udisks/properties.cpp
+msgid "BIOS Boot"
+msgstr "BIOS 부팅"
+
+#: src/udisks/properties.cpp
+msgid "Linux Filesystem"
+msgstr "Linux 파일 시스템"
+
+#: src/udisks/properties.cpp
+msgid "Linux Root (x86-64)"
+msgstr "Linux 루트(x86-64)"
+
+#: src/udisks/properties.cpp
+msgid "Linux Root (ARM64)"
+msgstr "Linux 루트(ARM64)"
+
+#: src/udisks/properties.cpp
+msgid "Linux Home"
+msgstr "Linux 홈"
+
+#: src/udisks/properties.cpp
+msgid "Linux Extended Boot"
+msgstr "Linux 확장 부팅"
+
+#: src/udisks/properties.cpp
+msgid "Linux Swap"
+msgstr "Linux 스왑"
+
+#: src/udisks/properties.cpp
+msgid "Linux LVM"
+msgstr "Linux LVM"
+
+#: src/udisks/properties.cpp
+msgid "Linux RAID"
+msgstr "Linux RAID"
+
+#: src/udisks/properties.cpp
+msgid "Linux LUKS"
+msgstr "Linux LUKS"
+
+#: src/udisks/properties.cpp
+msgid "Microsoft Basic Data"
+msgstr "Microsoft 기본 데이터"
+
+#: src/udisks/properties.cpp
+msgid "Microsoft Reserved"
+msgstr "Microsoft 예약"
+
+#: src/udisks/properties.cpp
+msgid "Windows Recovery"
+msgstr "Windows 복구"
+
+#: src/udisks/properties.cpp
+msgid "Apple HFS+"
+msgstr "Apple HFS+"
+
+#: src/udisks/properties.cpp
+msgid "Apple APFS"
+msgstr "Apple APFS"
+
+#: src/udisks/properties.cpp
+msgid "FAT12"
+msgstr "FAT12"
+
+#: src/udisks/properties.cpp
+msgid "FAT16"
+msgstr "FAT16"
+
+#: src/udisks/properties.cpp
+msgid "Extended"
+msgstr "확장"
+
+#: src/udisks/properties.cpp
+msgid "NTFS or exFAT"
+msgstr "NTFS 또는 exFAT"
+
+#: src/udisks/properties.cpp
+msgid "FAT32"
+msgstr "FAT32"
+
+#: src/udisks/properties.cpp
+msgid "FAT32 (LBA)"
+msgstr "FAT32 (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "FAT16 (LBA)"
+msgstr "FAT16 (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "Extended (LBA)"
+msgstr "확장 (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "Linux"
+msgstr "Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Extended"
+msgstr "Linux 확장"
+
+#: src/udisks/properties.cpp
+msgid "Non-Filesystem Data"
+msgstr "파일 시스템이 아닌 데이터"
+
+#: src/udisks/properties.cpp
+msgid "GPT Protective"
+msgstr "GPT 보호"
+
+#: src/udisks/properties.cpp
+msgid "Bootable"
+msgstr "부팅 가능"
+
+#: src/udisks/properties.cpp
+msgctxt "partition flag"
+msgid "Required"
+msgstr "필수"
+
+#: src/udisks/properties.cpp
+msgid "Ignored by Firmware"
+msgstr "펌웨어에서 무시"
+
+#: src/udisks/properties.cpp
+msgid "Legacy BIOS Bootable"
+msgstr "레거시 BIOS 부팅 가능"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Read Only"
+msgstr "읽기 전용"
+
+#: src/udisks/properties.cpp
+msgid "Hidden"
+msgstr "숨김"
+
+#: src/udisks/properties.cpp
+msgid "No Automount"
+msgstr "자동 마운트 안 함"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Enabled"
+msgstr "음향 관리 활성화됨"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Supported"
+msgstr "음향 관리 지원됨"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Recommended Value"
+msgstr "음향 관리 권장값"
+
+#: src/udisks/properties.cpp
+msgid "Active"
+msgstr "활성"
+
+#: src/udisks/properties.cpp
+msgid "Power Management (APM) Enabled"
+msgstr "전원 관리(APM) 활성화됨"
+
+#: src/udisks/properties.cpp
+msgid "Power Management (APM) Supported"
+msgstr "전원 관리(APM) 지원됨"
+
+#: src/udisks/properties.cpp
+msgid "Detaches When Unused"
+msgstr "사용하지 않으면 분리됨"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Image File"
+msgstr "이미지 파일"
+
+#: src/udisks/properties.cpp
+msgid "Can Power Off"
+msgstr "전원 끄기 가능"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Configuration"
+msgstr "잠금 해제된 구성"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Device"
+msgstr "잠금 해제된 장치"
+
+#: src/udisks/properties.cpp
+msgid "Configuration"
+msgstr "구성"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Connection"
+msgstr "연결"
+
+#: src/udisks/properties.cpp
+msgid "Controller ID"
+msgstr "컨트롤러 ID"
+
+#: src/udisks/properties.cpp
+msgid "Encrypted Device"
+msgstr "암호화된 장치"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Device"
+msgstr "장치"
+
+#: src/udisks/properties.cpp
+msgid "Device Number"
+msgstr "장치 번호"
+
+#: src/udisks/properties.cpp
+msgid "Drive"
+msgstr "드라이브"
+
+#: src/udisks/properties.cpp
+msgid "Ejectable"
+msgstr "추출 가능"
+
+#: src/udisks/properties.cpp
+msgid "FRU GUID"
+msgstr "FRU GUID"
+
+#: src/udisks/properties.cpp
+msgid "Flags"
+msgstr "플래그"
+
+#: src/udisks/properties.cpp
+msgid "Mounts Automatically"
+msgstr "자동 마운트"
+
+#: src/udisks/properties.cpp
+msgid "Icon"
+msgstr "아이콘"
+
+#: src/udisks/properties.cpp
+msgid "Hidden from Users"
+msgstr "사용자에게 숨김"
+
+#: src/udisks/properties.cpp
+msgid "Suggested Name"
+msgstr "제안된 이름"
+
+#: src/udisks/properties.cpp
+msgid "Partitionable"
+msgstr "파티션 가능"
+
+#: src/udisks/properties.cpp
+msgid "Symbolic Icon"
+msgstr "심볼릭 아이콘"
+
+#: src/udisks/properties.cpp
+msgid "System Device"
+msgstr "시스템 장치"
+
+#: src/udisks/properties.cpp
+msgid "Identifier"
+msgstr "식별자"
+
+#: src/udisks/properties.cpp
+msgid "Label"
+msgstr "레이블"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "UUID"
+msgstr "UUID"
+
+#: src/udisks/properties.cpp
+msgid "Contents"
+msgstr "내용"
+
+#: src/udisks/properties.cpp
+msgid "Format Version"
+msgstr "포맷 버전"
+
+#: src/udisks/properties.cpp
+msgid "Logical Partition"
+msgstr "논리 파티션"
+
+#: src/udisks/properties.cpp
+msgid "RAID Array"
+msgstr "RAID 어레이"
+
+#: src/udisks/properties.cpp
+msgid "RAID Member Of"
+msgstr "RAID 소속"
+
+#: src/udisks/properties.cpp
+msgid "Media"
+msgstr "미디어"
+
+#: src/udisks/properties.cpp
+msgid "Media Present"
+msgstr "미디어 있음"
+
+#: src/udisks/properties.cpp
+msgid "Media Change Detected"
+msgstr "미디어 변경 감지됨"
+
+#: src/udisks/properties.cpp
+msgid "Compatible Media"
+msgstr "호환 미디어"
+
+#: src/udisks/properties.cpp
+msgid "Removable Media"
+msgstr "이동식 미디어"
+
+#: src/udisks/properties.cpp
+msgid "Header Size"
+msgstr "헤더 크기"
+
+#: src/udisks/properties.cpp
+msgid "Model"
+msgstr "모델"
+
+#: src/udisks/properties.cpp
+msgid "Mount Points"
+msgstr "마운트 지점"
+
+#: src/udisks/properties.cpp
+msgid "NVMe Version"
+msgstr "NVMe 버전"
+
+#: src/udisks/properties.cpp
+msgid "Number"
+msgstr "번호"
+
+#: src/udisks/properties.cpp
+msgid "Offset"
+msgstr "오프셋"
+
+#: src/udisks/properties.cpp
+msgid "Optical"
+msgstr "광학"
+
+#: src/udisks/properties.cpp
+msgid "Blank Disc"
+msgstr "빈 디스크"
+
+#: src/udisks/properties.cpp
+msgid "Audio Tracks"
+msgstr "오디오 트랙"
+
+#: src/udisks/properties.cpp
+msgid "Data Tracks"
+msgstr "데이터 트랙"
+
+#: src/udisks/properties.cpp
+msgid "Sessions"
+msgstr "세션"
+
+#: src/udisks/properties.cpp
+msgid "Tracks"
+msgstr "트랙"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Partitions"
+msgstr "파티션"
+
+#: src/udisks/properties.cpp
+msgid "Power Management Enabled"
+msgstr "전원 관리 활성화됨"
+
+#: src/udisks/properties.cpp
+msgid "Power Management Supported"
+msgstr "전원 관리 지원됨"
+
+#: src/udisks/properties.cpp
+msgid "Preferred Device"
+msgstr "기본 장치"
+
+#: src/udisks/properties.cpp
+msgid "Read-Ahead Enabled"
+msgstr "미리 읽기 활성화됨"
+
+#: src/udisks/properties.cpp
+msgid "Read-Ahead Supported"
+msgstr "미리 읽기 지원됨"
+
+#: src/udisks/properties.cpp
+msgid "Removable"
+msgstr "이동식"
+
+#: src/udisks/properties.cpp
+msgid "Firmware Revision"
+msgstr "펌웨어 리비전"
+
+#: src/udisks/properties.cpp
+msgid "Rotation Rate"
+msgstr "회전 속도"
+
+#: src/udisks/properties.cpp
+msgid "Sanitize Remaining"
+msgstr "안전 삭제 남은 양"
+
+#: src/udisks/properties.cpp
+msgid "Sanitize Status"
+msgstr "안전 삭제 상태"
+
+#: src/udisks/properties.cpp
+msgid "Seat"
+msgstr "시트"
+
+#: src/udisks/properties.cpp
+msgid "Enhanced Secure Erase Time"
+msgstr "향상된 보안 지우기 시간"
+
+#: src/udisks/properties.cpp
+msgid "Secure Erase Time"
+msgstr "보안 지우기 시간"
+
+#: src/udisks/properties.cpp
+msgid "Security Frozen"
+msgstr "보안 고정됨"
+
+#: src/udisks/properties.cpp
+msgid "Serial Number"
+msgstr "일련번호"
+
+#: src/udisks/properties.cpp
+msgid "Attached by User"
+msgstr "사용자가 연결함"
+
+#: src/udisks/properties.cpp
+msgid "Sibling Identifier"
+msgstr "형제 식별자"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Enabled"
+msgstr "S.M.A.R.T. 활성화됨"
+
+#: src/udisks/properties.cpp
+msgid "Predicts Failure"
+msgstr "고장 예측"
+
+#: src/udisks/properties.cpp
+msgid "Attributes Failed in the Past"
+msgstr "과거에 실패한 속성"
+
+#: src/udisks/properties.cpp
+msgid "Attributes Failing"
+msgstr "실패 중인 속성"
+
+#: src/udisks/properties.cpp
+msgid "Self-Test Remaining"
+msgstr "자가 검사 남은 양"
+
+#: src/udisks/properties.cpp
+msgid "Last Self-Test"
+msgstr "마지막 자가 검사"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Supported"
+msgstr "S.M.A.R.T. 지원됨"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Read"
+msgstr "S.M.A.R.T. 읽기"
+
+#: src/udisks/properties.cpp
+msgid "Sort Key"
+msgstr "정렬 키"
+
+#: src/udisks/properties.cpp
+msgid "State"
+msgstr "상태"
+
+#: src/udisks/properties.cpp
+msgid "Subsystem NQN"
+msgstr "서브시스템 NQN"
+
+#: src/udisks/properties.cpp
+msgid "Links"
+msgstr "링크"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Partition Map"
+msgstr "파티션 맵"
+
+#: src/udisks/properties.cpp
+msgid "Detected"
+msgstr "감지됨"
+
+#: src/udisks/properties.cpp
+msgid "Media Detected"
+msgstr "미디어 감지됨"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Type"
+msgstr "유형"
+
+#: src/udisks/properties.cpp
+msgid "Unallocated Capacity"
+msgstr "할당되지 않은 용량"
+
+#: src/udisks/properties.cpp
+msgid "Mount Options"
+msgstr "마운트 옵션"
+
+#: src/udisks/properties.cpp
+msgid "Vendor"
+msgstr "제조업체"
+
+#: src/udisks/properties.cpp
+msgid "World Wide Name"
+msgstr "WWN(World Wide Name)"
+
+#: src/udisks/properties.cpp
+msgid "Write Cache Enabled"
+msgstr "쓰기 캐시 활성화됨"
+
+#: src/udisks/properties.cpp
+msgid "Write Cache Supported"
+msgstr "쓰기 캐시 지원됨"
+
+#: src/udisks/properties.cpp
+msgid "NVMe Controller"
+msgstr "NVMe 컨트롤러"
+
+#: src/udisks/properties.cpp
+msgid "Block Device"
+msgstr "블록 장치"
+
+#: src/udisks/properties.cpp
+msgid "File System"
+msgstr "파일 시스템"
+
+#: src/udisks/properties.cpp
+msgid "Yes"
+msgstr "예"
+
+#: src/udisks/properties.cpp
+msgid "No"
+msgstr "아니요"
+
+#: src/udisks/properties.cpp
+msgid "Never"
+msgstr "안 함"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Solid State"
+msgstr "SSD"
+
+#: src/udisks/properties.cpp
+msgid "Unknown"
+msgstr "알 수 없음"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{n} RPM"
+msgstr "{n}RPM"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{name} ({type})"
+msgstr "{name}({type})"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Block Device"
+msgstr "잠금 해제된 블록 장치"
+
+#: src/udisks/smart.cpp
+msgid "Not Supported"
+msgstr "지원되지 않음"
+
+#: src/udisks/smart.cpp
+msgid "Verified"
+msgstr "확인됨"
+
+#: src/udisks/smart.cpp
+msgid "Failing"
+msgstr "실패 중"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} °C"
+msgstr "{n}°C"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} hour"
+msgid_plural "{n} hours"
+msgstr[0] "{n}시간"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} day"
+msgid_plural "{n} days"
+msgstr[0] "{n}일"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{days} ({hours})"
+msgstr "{days}({hours})"
+
+#: src/udisks/smart.cpp
+msgid "In progress"
+msgstr "진행 중"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "In progress, {n}% left"
+msgstr "진행 중, {n}% 남음"
+
+#: src/udisks/smart.cpp
+msgid "Completed without error"
+msgstr "오류 없이 완료됨"
+
+#: src/udisks/smart.cpp
+msgid "Aborted"
+msgstr "중단됨"
+
+#: src/udisks/smart.cpp
+msgid "Interrupted by a reset"
+msgstr "재설정으로 중단됨"
+
+#: src/udisks/smart.cpp
+msgid "Failed: electrical error"
+msgstr "실패: 전기적 오류"
+
+#: src/udisks/smart.cpp
+msgid "Failed: servo error"
+msgstr "실패: 서보 오류"
+
+#: src/udisks/smart.cpp
+msgid "Failed: read error"
+msgstr "실패: 읽기 오류"
+
+#: src/udisks/smart.cpp
+msgid "Failed: damage found"
+msgstr "실패: 손상 발견"
+
+#: src/udisks/smart.cpp
+msgid "Failed"
+msgstr "실패"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "Attribute {n}"
+msgstr "속성 {n}"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} ms"
+msgstr "{n}ms"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} sector"
+msgid_plural "{n} sectors"
+msgstr[0] "{n}섹터"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} minute"
+msgid_plural "{n} minutes"
+msgstr[0] "{n}분"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{value} (threshold {threshold})"
+msgstr "{value}(임계값 {threshold})"
+
+#: src/udisks/smart.cpp
+msgid "Available Spare"
+msgstr "사용 가능한 예비 공간"
+
+#: src/udisks/smart.cpp
+msgid "Wear"
+msgstr "마모도"
+
+#: src/udisks/smart.cpp
+msgid "Data Read"
+msgstr "읽은 데이터"
+
+#: src/udisks/smart.cpp
+msgid "Data Written"
+msgstr "쓴 데이터"
+
+#: src/udisks/smart.cpp
+msgid "Busy Time"
+msgstr "사용 중 시간"
+
+#: src/udisks/smart.cpp
+msgid "Power Cycles"
+msgstr "전원 사이클"
+
+#: src/udisks/smart.cpp
+msgid "Unsafe Shutdowns"
+msgstr "비정상 종료"
+
+#: src/udisks/smart.cpp
+msgid "Media Errors"
+msgstr "미디어 오류"
+
+#: src/udisks/smart.cpp
+msgid "Error Log Entries"
+msgstr "오류 로그 항목"
+
+#: src/udisks/smart.cpp
+msgid "Warning Temperature"
+msgstr "경고 온도"
+
+#: src/udisks/smart.cpp
+msgid "Critical Temperature"
+msgstr "임계 온도"
+
+#: src/udisks/smart.cpp
+msgid "Time Above Warning"
+msgstr "경고 온도 초과 시간"
+
+#: src/udisks/smart.cpp
+msgid "Time Above Critical"
+msgstr "임계 온도 초과 시간"
+
+#: src/views/detail.cpp
+msgid "No Disks"
+msgstr "디스크 없음"
+
+#: src/views/detail.cpp
+msgid "Disks, volumes and disk images show here when they are attached."
+msgstr "디스크, 볼륨 및 디스크 이미지가 연결되면 여기에 표시됩니다."
+
+#: src/views/detailcards.cpp
+#, python-brace-format
+msgid "{percent}%"
+msgstr "{percent}%"
+
+#: src/views/detailcontent.cpp
+msgid "Erasing"
+msgstr "지우는 중"
+
+#: src/views/detailcontent.cpp
+msgid "Checking"
+msgstr "검사 중"
+
+#: src/views/detailcontent.cpp
+msgid "Repairing"
+msgstr "복구 중"
+
+#: src/views/detailcontent.cpp
+msgid "Resizing"
+msgstr "크기 조절 중"
+
+#: src/views/detailcontent.cpp
+msgid "Mounting"
+msgstr "마운트 중"
+
+#: src/views/detailcontent.cpp
+msgid "Unmounting"
+msgstr "마운트 해제 중"
+
+#: src/views/detailcontent.cpp
+msgid "Adding a partition"
+msgstr "파티션 추가 중"
+
+#: src/views/detailcontent.cpp
+msgid "Deleting a partition"
+msgstr "파티션 삭제 중"
+
+#: src/views/detailcontent.cpp
+msgid "Changing the partition"
+msgstr "파티션 변경 중"
+
+#: src/views/detailcontent.cpp
+msgid "Unlocking"
+msgstr "잠금 해제 중"
+
+#: src/views/detailcontent.cpp
+msgid "Locking"
+msgstr "잠그는 중"
+
+#: src/views/detailcontent.cpp
+msgid "Ejecting"
+msgstr "추출 중"
+
+#: src/views/detailcontent.cpp
+msgid "Powering off"
+msgstr "전원 끄는 중"
+
+#: src/views/detailcontent.cpp
+msgid "Running a self-test"
+msgstr "자가 검사 실행 중"
+
+#: src/views/detailcontent.cpp
+msgid "Attaching"
+msgstr "연결 중"
+
+#: src/views/detailcontent.cpp
+msgid "Working"
+msgstr "작업 중"
+
+#: src/views/detailcontent.cpp src/views/sidebar.cpp
+msgid "External"
+msgstr "외장"
+
+#: src/views/detailcontent.cpp src/views/sidebar.cpp
+msgid "Internal"
+msgstr "내장"
+
+#: src/views/detailcontent.cpp
+msgid "Optical Disc"
+msgstr "광학 디스크"
+
+#: src/views/detailcontent.cpp
+msgid "Flash Memory"
+msgstr "플래시 메모리"
+
+#: src/views/detailcontent.cpp
+msgid "Hard Disk"
+msgstr "하드 디스크"
+
+#. TRANSLATORS: an encrypted volume that is locked, such as "LUKS (Locked)".
+#: src/views/detailcontent.cpp
+#, python-brace-format
+msgid "{type} (Locked)"
+msgstr "{type}(잠김)"
+
+#. TRANSLATORS: an unlocked encrypted volume, such as "ext4 (Encrypted)".
+#: src/views/detailcontent.cpp
+#, python-brace-format
+msgid "{type} (Encrypted)"
+msgstr "{type}(암호화됨)"
+
+#: src/views/detailcontent.cpp
+msgid "Free"
+msgstr "여유"
+
+#: src/views/detailcontent.cpp
+msgid "Location"
+msgstr "위치"
+
+#: src/views/detailcontent.cpp
+msgid "Capacity"
+msgstr "용량"
+
+#: src/views/detailcontent.cpp
+msgid "S.M.A.R.T. Status"
+msgstr "S.M.A.R.T. 상태"
+
+#: src/views/detailcontent.cpp
+msgid "Access"
+msgstr "접근"
+
+#: src/views/detailcontent.cpp
+msgid "Used"
+msgstr "사용됨"
+
+#: src/views/detailcontent.cpp
+msgid "Other"
+msgstr "기타"
+
+#: src/views/detailcontent.cpp
+msgid "Mount Point"
+msgstr "마운트 지점"
+
+#: src/views/detailcontent.cpp
+msgid "Not Mounted"
+msgstr "마운트되지 않음"
+
+#: src/views/detailcontent.cpp
+msgid "Available"
+msgstr "사용 가능"
+
+#: src/views/detailcontent.cpp
+msgid "Owner"
+msgstr "소유자"
+
+#: src/views/diskwindow.cpp src/views/toolbar.cpp cutefish-disk-utility.desktop
+msgid "Disk Utility"
+msgstr "디스크 유틸리티"
+
+#: src/views/diskwindow.cpp
+msgid "The operation was refused."
+msgstr "작업이 거부되었습니다."
+
+#: src/views/diskwindow.cpp
+msgid "Show Only Volumes"
+msgstr "볼륨만 보기"
+
+#: src/views/diskwindow.cpp
+msgid "Show All Devices"
+msgstr "모든 장치 보기"
+
+#: src/views/diskwindow.cpp
+msgid "An operation is in progress."
+msgstr "작업이 진행 중입니다."
+
+#: src/views/diskwindow.cpp
+msgid "Quitting now stops it partway, which can leave the disk unusable. Wait until it is done."
+msgstr "지금 종료하면 작업이 중간에 멈춰 디스크를 사용할 수 없게 될 수 있습니다. 완료될 때까지 기다리십시오."
+
+#: src/views/diskwindow.cpp
+msgid "Keep Running"
+msgstr "계속 실행"
+
+#: src/views/diskwindow.cpp
+msgid "Quit Anyway"
+msgstr "그래도 종료"
+
+#: src/views/diskwindow.cpp
+msgid "OK"
+msgstr "확인"
+
+#: src/views/diskwindow.cpp
+msgid "Erases, partitions, checks and images the disks of your computer."
+msgstr "컴퓨터의 디스크를 지우고, 파티션을 나누고, 검사하고, 이미지를 만듭니다."
+
+#: src/views/diskwindow.cpp
+msgid "About Disk Utility"
+msgstr "디스크 유틸리티 정보"
+
+#: src/views/diskwindow.cpp
+msgid "Hide Disk Utility"
+msgstr "디스크 유틸리티 숨기기"
+
+#: src/views/diskwindow.cpp
+msgid "Quit Disk Utility"
+msgstr "디스크 유틸리티 종료"
+
+#: src/views/diskwindow.cpp
+msgid "File"
+msgstr "파일"
+
+#: src/views/diskwindow.cpp
+msgid "New Image"
+msgstr "새로운 이미지"
+
+#: src/views/diskwindow.cpp
+msgid "Close Window"
+msgstr "창 닫기"
+
+#: src/views/diskwindow.cpp
+msgid "Edit"
+msgstr "편집"
+
+#: src/views/diskwindow.cpp
+msgid "Window"
+msgstr "창"
+
+#: src/views/diskwindow.cpp
+msgid "Minimize"
+msgstr "최소화"
+
+#: src/views/diskwindow.cpp
+msgid "Zoom"
+msgstr "확대/축소"
+
+#: cutefish-disk-utility.desktop
+msgid "Manage disks, volumes and disk images"
+msgstr "디스크, 볼륨 및 디스크 이미지 관리"
+
+#: cutefish-disk-utility.desktop
+msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
+msgstr "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;디스크;드라이브;볼륨;파티션;포맷;지우기;마운트;이미지;"
