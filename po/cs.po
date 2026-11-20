@@ -1,0 +1,2432 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cutefish-disk-utility\n"
+"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"POT-Creation-Date: 2026-11-21 00:27+0800\n"
+"PO-Revision-Date: 2026-11-21 00:19+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: src/actions.cpp src/views/diskwindow.cpp
+msgid "View"
+msgstr "Zobrazení"
+
+#: src/actions.cpp
+msgid "Add Partition…"
+msgstr "Přidat oddíl…"
+
+#: src/actions.cpp
+msgid "Delete Partition…"
+msgstr "Smazat oddíl…"
+
+#: src/actions.cpp
+msgid "First Aid…"
+msgstr "První pomoc…"
+
+#: src/actions.cpp
+msgid "Partition…"
+msgstr "Rozdělit na oddíly…"
+
+#: src/actions.cpp
+msgid "Erase…"
+msgstr "Vymazat…"
+
+#: src/actions.cpp
+msgid "Restore…"
+msgstr "Obnovit…"
+
+#: src/actions.cpp
+msgid "Mount"
+msgstr "Připojit"
+
+#: src/actions.cpp src/dialogs/diskimages.cpp
+msgid "Unmount"
+msgstr "Odpojit"
+
+#: src/actions.cpp
+msgid "Get Info"
+msgstr "Informace"
+
+#: src/actions.cpp
+msgid "Eject"
+msgstr "Vysunout"
+
+#: src/actions.cpp
+msgid "Rename…"
+msgstr "Přejmenovat…"
+
+#: src/actions.cpp
+msgid "Lock"
+msgstr "Zamknout"
+
+#: src/actions.cpp
+msgid "Open Disk Image…"
+msgstr "Otevřít obraz disku…"
+
+#: src/actions.cpp
+msgid "Blank Image…"
+msgstr "Prázdný obraz…"
+
+#: src/actions.cpp
+msgid "Image from Selection…"
+msgstr "Obraz z výběru…"
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The disks of the running system could not be found."
+msgstr "Disky běžícího systému nelze najít."
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The disk holds the running system."
+msgstr "Na disku je běžící systém."
+
+#: src/actions.cpp src/udisks/operations.cpp
+msgid "The volume holds the running system."
+msgstr "Na svazku je běžící systém."
+
+#: src/actions.cpp
+msgid "An operation on this disk is in progress."
+msgstr "Na tomto disku probíhá operace."
+
+#: src/actions.cpp src/dialogs/partition_plan.cpp
+#: src/dialogs/volume_actions.cpp
+msgid "A Master Boot Record holds at most four partitions."
+msgstr "Hlavní spouštěcí záznam pojme nejvýše čtyři oddíly."
+
+#: src/actions.cpp src/dialogs/partition_plan.cpp
+#: src/dialogs/volume_actions.cpp
+msgid "There is no free space for another partition."
+msgstr "Pro další oddíl není volné místo."
+
+#: src/actions.cpp
+msgid "A partition in it is mounted or unlocked."
+msgstr "Jeden z jeho oddílů je připojený nebo odemčený."
+
+#: src/dialogs/choice_button.cpp
+#, python-brace-format
+msgid "{choice} ({reason})"
+msgstr "{choice} ({reason})"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Preparing…"
+msgstr "Příprava…"
+
+#: src/dialogs/copyprogress.cpp src/dialogs/erase.cpp src/dialogs/partition.cpp
+msgid "Stop"
+msgstr "Zastavit"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Stopping…"
+msgstr "Zastavování…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Unmounting…"
+msgstr "Odpojování…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Opening…"
+msgstr "Otevírání…"
+
+#: src/dialogs/copyprogress.cpp
+msgid "Stopped."
+msgstr "Zastaveno."
+
+#: src/dialogs/diskimages.cpp
+msgid "The new image could not be mounted."
+msgstr "Nový obraz nelze připojit."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Restoring “{name}”"
+msgstr "Obnovování „{name}“"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Copying “{source}” onto “{target}”."
+msgstr "Kopírování „{source}“ na „{target}“."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” was restored."
+msgstr "„{name}“ byl obnoven."
+
+#: src/dialogs/diskimages.cpp
+msgid "A copy is in progress."
+msgstr "Probíhá kopírování."
+
+#: src/dialogs/diskimages.cpp src/views/sidebar.cpp
+msgid "Disk Images"
+msgstr "Obrazy disků"
+
+#: src/dialogs/diskimages.cpp
+msgid "All Files"
+msgstr "Všechny soubory"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open Disk Image"
+msgstr "Otevřít obraz disku"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open"
+msgstr "Otevřít"
+
+#: src/dialogs/diskimages.cpp
+msgid "Open read-only"
+msgstr "Otevřít jen pro čtení"
+
+#: src/dialogs/diskimages.cpp
+msgid "Restore from Disk Image"
+msgstr "Obnovit z obrazu disku"
+
+#: src/dialogs/diskimages.cpp
+msgid "Choose"
+msgstr "Vybrat"
+
+#: src/dialogs/diskimages.cpp
+msgid "Save Image As"
+msgstr "Uložit obraz jako"
+
+#: src/dialogs/diskimages.cpp
+msgid "Save"
+msgstr "Uložit"
+
+#: src/dialogs/diskimages.cpp
+msgid "Choose a Folder"
+msgstr "Vyberte složku"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” could not be opened."
+msgstr "„{name}“ nelze otevřít."
+
+#: src/dialogs/diskimages.cpp src/dialogs/newimage.cpp
+#: src/dialogs/volume_format.cpp
+msgid "Untitled"
+msgstr "Bez názvu"
+
+#: src/dialogs/diskimages.cpp
+msgid "The image could not be created."
+msgstr "Obraz nelze vytvořit."
+
+#: src/dialogs/diskimages.cpp
+msgid "The file is an attached disk image. Eject it first."
+msgstr "Soubor je připojený obraz disku. Nejprve ho vysuňte."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "The image cannot be saved on “{name}” itself. Choose a folder on another disk."
+msgstr "Obraz nelze uložit přímo na „{name}“. Vyberte složku na jiném disku."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” holds the running system, so it cannot be unmounted to be read."
+msgstr "Na „{name}“ je běžící systém, a proto ho nelze odpojit a přečíst."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Creating “{name}”"
+msgstr "Vytváření „{name}“"
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "Copying “{source}” into “{file}”."
+msgstr "Kopírování „{source}“ do „{file}“."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{file}” was created."
+msgstr "„{file}“ byl vytvořen."
+
+#: src/dialogs/diskimages.cpp
+#, python-brace-format
+msgid "“{name}” must be unmounted to make an image of it."
+msgstr "Chcete-li vytvořit obraz „{name}“, je nutné ho odpojit."
+
+#: src/dialogs/diskimages.cpp
+msgid "It is unmounted, and locked when it is encrypted, before it is read, and stays so afterwards."
+msgstr "Před čtením se odpojí, a je-li šifrovaný, i zamkne, a takto zůstane i potom."
+
+#: src/dialogs/diskimages.cpp
+msgid "Another copy is in progress."
+msgstr "Probíhá jiné kopírování."
+
+#: src/dialogs/diskimages.cpp
+msgid "Wait for it to finish, or stop it first."
+msgstr "Počkejte na jeho dokončení, nebo ho nejprve zastavte."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erase “{name}”"
+msgstr "Vymazat „{name}“"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erasing “{name}” deletes every volume on it and everything stored on them. This can't be undone. Choose a name, a format and a partition scheme for it."
+msgstr "Vymazáním „{name}“ se smažou všechny svazky na něm a vše, co je na nich uloženo. Tuto akci nelze vrátit. Vyberte název, formát a schéma oddílů."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "Erasing “{name}” deletes everything stored on it. This can't be undone. Choose a name and a format for it."
+msgstr "Vymazáním „{name}“ se smaže vše, co je na něm uloženo. Tuto akci nelze vrátit. Vyberte název a formát."
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/rename.cpp src/dialogs/volume_actions.cpp
+#: src/udisks/properties.cpp
+msgid "Name"
+msgstr "Název"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/volume_actions.cpp src/udisks/properties.cpp
+msgid "Format"
+msgstr "Formát"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp
+msgid "Scheme"
+msgstr "Schéma"
+
+#: src/dialogs/erase.cpp
+msgid "Encrypt"
+msgstr "Šifrovat"
+
+#: src/dialogs/erase.cpp src/dialogs/unlock.cpp
+msgid "Passphrase"
+msgstr "Heslo"
+
+#: src/dialogs/erase.cpp src/dialogs/unlock.cpp
+msgid "Required"
+msgstr "Povinné"
+
+#: src/dialogs/erase.cpp src/dialogs/newimage.cpp
+msgid "Verify"
+msgstr "Ověřit"
+
+#: src/dialogs/erase.cpp
+msgid "The volume can only be read after unlocking it with the passphrase. If you forget the passphrase, the data can't be recovered."
+msgstr "Svazek lze číst až po odemčení heslem. Pokud heslo zapomenete, data nebude možné obnovit."
+
+#: src/dialogs/erase.cpp
+msgid "Security Options…"
+msgstr "Možnosti zabezpečení…"
+
+#: src/dialogs/erase.cpp
+msgid "Erase"
+msgstr "Vymazat"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "needs at least {size}"
+msgstr "vyžaduje alespoň {size}"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "{format} can't be chosen: {reason}"
+msgstr "{format} nelze vybrat: {reason}"
+
+#: src/dialogs/erase.cpp
+msgid "The passphrases don't match."
+msgstr "Hesla se neshodují."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "A Master Boot Record reaches only the first {reach} of “{name}”; the other {rest} stay unused. Choose GUID Partition Map to use all of it."
+msgstr "Hlavní spouštěcí záznam dosáhne jen na prvních {reach} disku „{name}“; zbývajících {rest} zůstane nevyužito. Chcete-li využít celý prostor, vyberte Tabulku oddílů GUID."
+
+#: src/dialogs/erase.cpp
+msgid "The data is overwritten with zeros first, which takes as long as writing the whole volume once."
+msgstr "Data se nejprve přepíšou nulami, což trvá stejně dlouho jako jeden zápis celého svazku."
+
+#: src/dialogs/erase.cpp
+msgid "Quick Erase"
+msgstr "Rychlé vymazání"
+
+#: src/dialogs/erase.cpp
+msgid "Zero Out Data"
+msgstr "Vynulovat data"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+msgid "Done"
+msgstr "Hotovo"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Step {step} of {count}"
+msgstr "Krok {step} z {count}"
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Stopping “{step}”…"
+msgstr "Zastavování „{step}“…"
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was erased."
+msgstr "„{name}“ byl vymazán."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was erased only in part and has no usable volume now. Erase it again to use it."
+msgstr "„{name}“ byl vymazán jen zčásti a nyní nemá použitelný svazek. Chcete-li ho použít, vymažte ho znovu."
+
+#: src/dialogs/erase.cpp
+#, python-brace-format
+msgid "“{name}” was not erased; nothing stored on it was changed."
+msgstr "„{name}“ nebyl vymazán; nic z toho, co je na něm uloženo, se nezměnilo."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” was stopped before it finished."
+msgstr "Krok „{step}“ byl zastaven před dokončením."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” was cancelled."
+msgstr "Krok „{step}“ byl zrušen."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” failed."
+msgstr "Krok „{step}“ selhal."
+
+#: src/dialogs/erase.cpp src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{step}” failed: {message}"
+msgstr "Krok „{step}“ selhal: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "Hide Details"
+msgstr "Skrýt podrobnosti"
+
+#: src/dialogs/firstaid.cpp
+msgid "Show Details"
+msgstr "Zobrazit podrobnosti"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking {format} volumes needs {tool}, which is not installed."
+msgstr "Kontrola svazků {format} vyžaduje {tool}, který není nainstalován."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds. Mounted volumes are unmounted while they are checked and mounted again afterwards."
+msgstr "První pomoc zkontroluje chyby na všech svazcích disku a opraví ty, které najde. Připojené svazky se během kontroly odpojí a potom znovu připojí."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks every volume on the disk for errors and repairs the ones it finds."
+msgstr "První pomoc zkontroluje chyby na všech svazcích disku a opraví ty, které najde."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks the volume for errors and repairs the ones it finds. The volume is unmounted while it is checked, so its files can’t be used until it’s done."
+msgstr "První pomoc zkontroluje chyby na svazku a opraví ty, které najde. Svazek je během kontroly odpojený, takže jeho soubory nelze až do dokončení používat."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid checks the volume for errors and repairs the ones it finds."
+msgstr "První pomoc zkontroluje chyby na svazku a opraví ty, které najde."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Run First Aid on “{name}”?"
+msgstr "Spustit První pomoc na „{name}“?"
+
+#: src/dialogs/firstaid.cpp
+msgid "Run"
+msgstr "Spustit"
+
+#: src/dialogs/firstaid.cpp
+msgid "There are no volumes to check."
+msgstr "Nejsou žádné svazky ke kontrole."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking “{name}”…"
+msgstr "Kontrola „{name}“…"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there. Skipped."
+msgstr "„{name}“ už není k dispozici. Přeskočeno."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is locked. Unlock it to check it. Skipped."
+msgstr "„{name}“ je zamčený. Chcete-li ho zkontrolovat, odemkněte ho. Přeskočeno."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” holds no file system First Aid can check. Skipped."
+msgstr "„{name}“ neobsahuje systém souborů, který by První pomoc mohla zkontrolovat. Přeskočeno."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Checking “{name}” ({device}, {format})."
+msgstr "Kontrola „{name}“ ({device}, {format})."
+
+#: src/dialogs/firstaid.cpp
+msgid "unknown format"
+msgstr "neznámý formát"
+
+#: src/dialogs/firstaid.cpp
+msgid "a checking tool"
+msgstr "nástroj pro kontrolu"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{format} volumes can’t be checked: {tool} is not installed."
+msgstr "Svazky {format} nelze zkontrolovat: {tool} není nainstalován."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Unmounting “{name}”."
+msgstr "Odpojování „{name}“."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is in use and can’t be unmounted. Close the files and quit the programs using it, then run First Aid again."
+msgstr "„{name}“ se používá a nelze ho odpojit. Zavřete soubory a ukončete programy, které ho používají, a potom spusťte První pomoc znovu."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” is in use by {programs} and can’t be unmounted. Close their files on it or quit them, then run First Aid again."
+msgstr "„{name}“ používá {programs} a nelze ho odpojit. Zavřete jejich soubory na něm nebo je ukončete a potom spusťte První pomoc znovu."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” could not be unmounted: {message}"
+msgstr "„{name}“ nelze odpojit: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "Checking the file system."
+msgstr "Kontrola systému souborů."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "The check failed: {message}"
+msgstr "Kontrola selhala: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system appears to be OK."
+msgstr "Systém souborů se zdá být v pořádku."
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system has errors."
+msgstr "Systém souborů obsahuje chyby."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{format} volumes can’t be repaired: {tool} is not installed."
+msgstr "Svazky {format} nelze opravit: {tool} není nainstalován."
+
+#: src/dialogs/firstaid.cpp
+msgid "a repair tool"
+msgstr "nástroj pro opravu"
+
+#: src/dialogs/firstaid.cpp
+msgid "Repairing the file system."
+msgstr "Oprava systému souborů."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Repairing “{name}”…"
+msgstr "Oprava „{name}“…"
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system was repaired."
+msgstr "Systém souborů byl opraven."
+
+#: src/dialogs/firstaid.cpp
+msgid "The file system could not be repaired."
+msgstr "Systém souborů nelze opravit."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "The repair failed: {message}"
+msgstr "Oprava selhala: {message}"
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "Mounting “{name}” again."
+msgstr "Opětovné připojování „{name}“."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "“{name}” could not be mounted again: {message}"
+msgstr "„{name}“ nelze znovu připojit: {message}"
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid was cancelled."
+msgstr "První pomoc byla zrušena."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid found errors it could not repair. Back up the data you can and erase the volume."
+msgstr "První pomoc našla chyby, které nedokázala opravit. Zálohujte data, která můžete, a svazek vymažte."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid process has failed."
+msgstr "Proces První pomoci selhal."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid process has completed."
+msgstr "Proces První pomoci byl dokončen."
+
+#: src/dialogs/firstaid.cpp
+#, python-brace-format
+msgid "{n} volume was skipped."
+msgid_plural "{n} volumes were skipped."
+msgstr[0] "{n} svazek byl přeskočen."
+msgstr[1] "{n} svazky byly přeskočeny."
+msgstr[2] "{n} svazků bylo přeskočeno."
+
+#: src/dialogs/firstaid.cpp
+msgid "First Aid"
+msgstr "První pomoc"
+
+#: src/dialogs/identity_guard.cpp
+#, python-brace-format
+msgid "“{name}” is no longer there."
+msgstr "„{name}“ už není k dispozici."
+
+#: src/dialogs/identity_guard.cpp
+msgid "It was removed or replaced by another disk, so nothing more is done to it."
+msgstr "Byl odebrán nebo nahrazen jiným diskem, takže se s ním už nic dalšího neprovede."
+
+#: src/dialogs/info.cpp
+msgid "S.M.A.R.T. Details…"
+msgstr "Podrobnosti S.M.A.R.T.…"
+
+#: src/dialogs/mount.cpp
+msgid " and "
+msgstr " a "
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be mounted."
+msgstr "„{name}“ nelze připojit."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be unmounted."
+msgstr "„{name}“ nelze odpojit."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be locked."
+msgstr "„{name}“ nelze zamknout."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "“{name}” couldn’t be ejected."
+msgstr "„{name}“ nelze vysunout."
+
+#: src/dialogs/mount.cpp
+msgid "A program is still using a file on it. Close the files and quit the programs using it, then try again."
+msgstr "Některý program stále používá soubor na něm. Zavřete soubory a ukončete programy, které ho používají, a zkuste to znovu."
+
+#: src/dialogs/mount.cpp
+#, python-brace-format
+msgid "It is in use by {programs}. Close their files on it or quit them, then try again."
+msgstr "Používá ho {programs}. Zavřete jejich soubory na něm nebo je ukončete a zkuste to znovu."
+
+#: src/dialogs/mount.cpp
+msgid "Another operation on this disk is still running."
+msgstr "Na tomto disku stále probíhá jiná operace."
+
+#: src/dialogs/newimage.cpp
+msgid "New Blank Image"
+msgstr "Nový prázdný obraz"
+
+#: src/dialogs/newimage.cpp
+msgid "Save As"
+msgstr "Uložit jako"
+
+#: src/dialogs/newimage.cpp
+msgid "Where"
+msgstr "Umístění"
+
+#: src/dialogs/newimage.cpp
+msgid "Choose…"
+msgstr "Vybrat…"
+
+#: src/dialogs/newimage.cpp src/dialogs/partition.cpp
+#: src/dialogs/volume_actions.cpp src/udisks/properties.cpp
+msgid "Size"
+msgstr "Velikost"
+
+#: src/dialogs/newimage.cpp src/udisks/properties.cpp
+msgid "None"
+msgstr "Žádné"
+
+#: src/dialogs/newimage.cpp src/udisks/properties.cpp
+msgid "Encryption"
+msgstr "Šifrování"
+
+#: src/dialogs/newimage.cpp
+msgid "Encrypted with a Password"
+msgstr "Šifrováno heslem"
+
+#: src/dialogs/newimage.cpp
+msgid "Password"
+msgstr "Heslo"
+
+#: src/dialogs/newimage.cpp
+msgid "Create"
+msgstr "Vytvořit"
+
+#: src/dialogs/newimage.cpp
+msgid "Type a name for the image file."
+msgstr "Zadejte název souboru obrazu."
+
+#: src/dialogs/newimage.cpp
+msgid "The folder is no longer there."
+msgstr "Složka už neexistuje."
+
+#: src/dialogs/newimage.cpp
+#, python-brace-format
+msgid "A file named “{name}” already exists in this folder."
+msgstr "Soubor s názvem „{name}“ už v této složce existuje."
+
+#: src/dialogs/newimage.cpp
+msgid "Type a size, such as 100 MB."
+msgstr "Zadejte velikost, například 100 MB."
+
+#: src/dialogs/newimage.cpp
+#, python-brace-format
+msgid "A {format} image needs at least {size}."
+msgstr "Obraz {format} vyžaduje alespoň {size}."
+
+#: src/dialogs/newimage.cpp
+msgid "Type a password for the image."
+msgstr "Zadejte heslo k obrazu."
+
+#: src/dialogs/newimage.cpp
+msgid "The passwords do not match."
+msgstr "Hesla se neshodují."
+
+#: src/dialogs/newimage.cpp
+msgid "Creating the file…"
+msgstr "Vytváření souboru…"
+
+#: src/dialogs/newimage.cpp
+msgid "Attaching the image…"
+msgstr "Připojování obrazu…"
+
+#: src/dialogs/newimage.cpp
+msgid "Creating the partition map…"
+msgstr "Vytváření tabulky oddílů…"
+
+#: src/dialogs/newimage.cpp
+msgid "Formatting…"
+msgstr "Formátování…"
+
+#: src/dialogs/newimage.cpp
+msgid "Mounting…"
+msgstr "Připojování…"
+
+#: src/dialogs/partition.cpp src/dialogs/volume_actions.cpp
+msgid "Add Partition"
+msgstr "Přidat oddíl"
+
+#: src/dialogs/partition.cpp
+msgid "Delete Partition"
+msgstr "Smazat oddíl"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Partition “{name}”"
+msgstr "Rozdělit „{name}“ na oddíly"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” ({size}) has no partition map. Click + to add partitions; Apply creates a GUID Partition Map for them, erasing what is on the disk."
+msgstr "„{name}“ ({size}) nemá tabulku oddílů. Klepnutím na + přidáte oddíly; Použít pro ně vytvoří Tabulku oddílů GUID a vymaže obsah disku."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "{scheme}, {size}. Click + to add a partition, drag the handles on the rim to resize. Nothing changes until you click Apply."
+msgstr "{scheme}, {size}. Klepnutím na + přidáte oddíl, tažením úchytů na okraji změníte velikost. Nic se nezmění, dokud neklepnete na Použít."
+
+#: src/dialogs/partition.cpp
+msgid "Revert"
+msgstr "Vrátit"
+
+#: src/dialogs/partition.cpp
+msgid "Apply"
+msgstr "Použít"
+
+#: src/dialogs/partition.cpp
+msgid "Free Space"
+msgstr "Volné místo"
+
+#: src/dialogs/partition.cpp src/views/detailcontent.cpp
+msgid "Unformatted"
+msgstr "Nenaformátováno"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Between {minimum} and {maximum}."
+msgstr "Od {minimum} do {maximum}."
+
+#: src/dialogs/partition.cpp
+msgid "How far the filesystem can shrink is only known when it is applied; a shrink runs before anything is deleted."
+msgstr "O kolik lze systém souborů zmenšit, se zjistí až při použití; zmenšení proběhne před jakýmkoli mazáním."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Changing the format erases everything on “{name}”."
+msgstr "Změnou formátu se vymaže vše na „{name}“."
+
+#: src/dialogs/partition.cpp
+msgid "Click + to add a partition in this free space."
+msgstr "Klepnutím na + přidáte do tohoto volného místa oddíl."
+
+#: src/dialogs/partition.cpp src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "{format} can't be made: {reason}"
+msgstr "{format} nelze vytvořit: {reason}"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "These steps will be taken on “{name}”, in this order:"
+msgstr "Na „{name}“ se v tomto pořadí provedou tyto kroky:"
+
+#: src/dialogs/partition.cpp
+msgid "Deleted and erased volumes lose everything stored on them. Resizing can take a while; keep the disk connected until it is done."
+msgstr "Smazané a vymazané svazky přijdou o vše, co je na nich uloženo. Změna velikosti může chvíli trvat; nechte disk připojený až do dokončení."
+
+#: src/dialogs/partition.cpp
+msgid "Resizing can take a while; keep the disk connected until it is done."
+msgstr "Změna velikosti může chvíli trvat; nechte disk připojený až do dokončení."
+
+#: src/dialogs/partition.cpp
+msgid "Back"
+msgstr "Zpět"
+
+#: src/dialogs/partition.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Partition"
+msgstr "Rozdělit"
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” was partitioned."
+msgstr "„{name}“ byl rozdělen na oddíly."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "Nothing was changed on “{name}”."
+msgstr "Na „{name}“ se nic nezměnilo."
+
+#: src/dialogs/partition.cpp
+#, python-brace-format
+msgid "“{name}” was partitioned only in part: the first {count} steps were taken."
+msgstr "„{name}“ byl rozdělen jen zčásti: počet provedených kroků: {count}."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Encrypted volumes can't be resized here."
+msgstr "Velikost šifrovaných svazků zde nelze měnit."
+
+#: src/dialogs/partition_plan.cpp
+msgid "The partition has no filesystem that can be resized."
+msgstr "Oddíl nemá systém souborů, jehož velikost lze změnit."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Checking whether the filesystem can be resized…"
+msgstr "Zjišťování, zda lze změnit velikost systému souborů…"
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Resizing {format} needs {tool}, which is not installed."
+msgstr "Změna velikosti {format} vyžaduje {tool}, který není nainstalován."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't be resized."
+msgstr "Velikost {format} nelze změnit."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Unmount “{name}” to shrink it."
+msgstr "Chcete-li „{name}“ zmenšit, odpojte ho."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Unmount “{name}” to grow it."
+msgstr "Chcete-li „{name}“ zvětšit, odpojte ho."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Mount “{name}” to shrink it."
+msgstr "Chcete-li „{name}“ zmenšit, připojte ho."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "Mount “{name}” to grow it."
+msgstr "Chcete-li „{name}“ zvětšit, připojte ho."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't shrink."
+msgstr "{format} nelze zmenšit."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "{format} can't grow."
+msgstr "{format} nelze zvětšit."
+
+#: src/dialogs/partition_plan.cpp src/dialogs/volume_actions.cpp
+msgid "The partition map holds no more partitions."
+msgstr "Tabulka oddílů už další oddíly nepojme."
+
+#: src/dialogs/partition_plan.cpp
+msgid "Extended partitions and the partitions inside them can't be changed here."
+msgstr "Rozšířené oddíly a oddíly v nich zde nelze měnit."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” is too small for {format}, which needs at least {size}."
+msgstr "„{name}“ je pro {format} příliš malý, vyžaduje alespoň {size}."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” can't be resized."
+msgstr "Velikost „{name}“ nelze změnit."
+
+#: src/dialogs/partition_plan.cpp
+#, python-brace-format
+msgid "“{name}” can't be smaller than {size}."
+msgstr "„{name}“ nemůže být menší než {size}."
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Unmount “{name}”"
+msgstr "Odpojit „{name}“"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Lock “{name}”"
+msgstr "Zamknout „{name}“"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Delete “{name}”"
+msgstr "Smazat „{name}“"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Shrink the filesystem of “{name}” to {size}"
+msgstr "Zmenšit systém souborů „{name}“ na {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resize “{name}” to {size}"
+msgstr "Změnit velikost „{name}“ na {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Grow the filesystem of “{name}” to fill its partition"
+msgstr "Zvětšit systém souborů „{name}“ na celý oddíl"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create a {scheme} on “{name}”"
+msgstr "Vytvořit {scheme} na „{name}“"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erase “{name}” as encrypted {format}"
+msgstr "Vymazat „{name}“ jako šifrovaný {format}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erase “{name}” as {format}"
+msgstr "Vymazat „{name}“ jako {format}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create “{name}”, encrypted {format}, {size}"
+msgstr "Vytvořit „{name}“, šifrovaný {format}, {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Create “{name}”, {format}, {size}"
+msgstr "Vytvořit „{name}“, {format}, {size}"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Rename “{name}” to “{label}”"
+msgstr "Přejmenovat „{name}“ na „{label}“"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Unmounting “{name}”…"
+msgstr "Odpojování „{name}“…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Locking “{name}”…"
+msgstr "Zamykání „{name}“…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Deleting “{name}”…"
+msgstr "Mazání „{name}“…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resizing the filesystem of “{name}”…"
+msgstr "Změna velikosti systému souborů „{name}“…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Resizing “{name}”…"
+msgstr "Změna velikosti „{name}“…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Creating the partition map on “{name}”…"
+msgstr "Vytváření tabulky oddílů na „{name}“…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Erasing “{name}”…"
+msgstr "Vymazávání „{name}“…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Creating “{name}”…"
+msgstr "Vytváření „{name}“…"
+
+#: src/dialogs/plan_runner.cpp
+#, python-brace-format
+msgid "Renaming “{name}”…"
+msgstr "Přejmenovávání „{name}“…"
+
+#: src/dialogs/plan_runner.cpp src/images/transfer.cpp
+msgid "The disk was removed or replaced by another."
+msgstr "Disk byl odebrán nebo nahrazen jiným."
+
+#: src/dialogs/rename.cpp
+msgid "Rename Volume"
+msgstr "Přejmenovat svazek"
+
+#: src/dialogs/rename.cpp
+msgid "Rename"
+msgstr "Přejmenovat"
+
+#: src/dialogs/rename.cpp
+#, python-brace-format
+msgid "{format} names have up to {n} characters and are kept in capitals."
+msgstr "Názvy {format} mají nejvýše {n} znaků a ukládají se velkými písmeny."
+
+#: src/dialogs/rename.cpp
+#, python-brace-format
+msgid "{format} names have up to {n} characters."
+msgstr "Názvy {format} mají nejvýše {n} znaků."
+
+#: src/dialogs/rename.cpp
+msgid "The volume could not be renamed."
+msgstr "Svazek nelze přejmenovat."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Restore “{name}”"
+msgstr "Obnovit „{name}“"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Choose a volume, disk or disk image to copy onto “{name}”. Everything on “{name}” is erased and replaced with the copy."
+msgstr "Vyberte svazek, disk nebo obraz disku, který se zkopíruje na „{name}“. Vše na „{name}“ se vymaže a nahradí kopií."
+
+#: src/dialogs/restore.cpp
+msgid "Restore From"
+msgstr "Obnovit z"
+
+#: src/dialogs/restore.cpp
+msgid "Image…"
+msgstr "Obraz…"
+
+#: src/dialogs/restore.cpp
+msgid "Restore"
+msgstr "Obnovit"
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "{name} ({device}, {size})"
+msgstr "{name} ({device}, {size})"
+
+#: src/dialogs/restore.cpp
+msgid "Choose a disk image, or attach a disk to restore from."
+msgstr "Vyberte obraz disku nebo připojte disk, ze kterého chcete obnovit."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Everything on “{target}” is replaced with the contents of “{source}”. This cannot be undone."
+msgstr "Vše na „{target}“ se nahradí obsahem „{source}“. Tuto akci nelze vrátit."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "“{source}” is unmounted before it is read, and stays so afterwards."
+msgstr "„{source}“ se před čtením odpojí a zůstane odpojený i potom."
+
+#: src/dialogs/restore.cpp
+#, python-brace-format
+msgid "Erase “{target}”?"
+msgstr "Vymazat „{target}“?"
+
+#: src/dialogs/restore.cpp
+msgid "Erase and Restore"
+msgstr "Vymazat a obnovit"
+
+#: src/dialogs/restore.cpp
+msgid "The restore could not start."
+msgstr "Obnovení nelze spustit."
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "S.M.A.R.T."
+msgstr "S.M.A.R.T."
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "The attributes could not be read: {message}"
+msgstr "Atributy nelze přečíst: {message}"
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "The self-test could not be started: {message}"
+msgstr "Autotest nelze spustit: {message}"
+
+#: src/dialogs/smart.cpp
+msgid "Status"
+msgstr "Stav"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Temperature"
+msgstr "Teplota"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Powered On"
+msgstr "Doba provozu"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Bad Sectors"
+msgstr "Vadné sektory"
+
+#: src/dialogs/smart.cpp src/udisks/properties.cpp
+msgid "Critical Warnings"
+msgstr "Kritická varování"
+
+#: src/dialogs/smart.cpp
+msgid "Self-Test"
+msgstr "Autotest"
+
+#: src/dialogs/smart.cpp
+msgid "Last Read"
+msgstr "Poslední čtení"
+
+#: src/dialogs/smart.cpp
+msgid "Attributes"
+msgstr "Atributy"
+
+#: src/dialogs/smart.cpp
+#, python-brace-format
+msgid "Failing: {value}"
+msgstr "Selhává: {value}"
+
+#: src/dialogs/smart.cpp
+msgid "Health"
+msgstr "Zdraví"
+
+#: src/dialogs/smart.cpp
+msgid "Run Self-Test"
+msgstr "Spustit autotest"
+
+#: src/dialogs/unlock.cpp
+msgid "Unlock Volume"
+msgstr "Odemknout svazek"
+
+#: src/dialogs/unlock.cpp
+#, python-brace-format
+msgid "Enter the passphrase to unlock “{name}”."
+msgstr "Zadejte heslo k odemčení „{name}“."
+
+#: src/dialogs/unlock.cpp
+msgid "Unlock"
+msgstr "Odemknout"
+
+#: src/dialogs/unlock.cpp
+msgid "The passphrase is incorrect."
+msgstr "Heslo je nesprávné."
+
+#: src/dialogs/unlock.cpp
+msgid "The volume could not be unlocked."
+msgstr "Svazek nelze odemknout."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Up to {size} of free space, from {offset} into the disk."
+msgstr "Až {size} volného místa od pozice {offset} na disku."
+
+#: src/dialogs/volume_actions.cpp
+msgid "Add"
+msgstr "Přidat"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "{format} needs at least {size}."
+msgstr "{format} vyžaduje alespoň {size}."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Added “{name}”."
+msgstr "Přidán „{name}“."
+
+#: src/dialogs/volume_actions.cpp
+msgid "The partition could not be added."
+msgstr "Oddíl nelze přidat."
+
+#: src/dialogs/volume_actions.cpp
+msgid "Everything stored on the partition is deleted. This can't be undone."
+msgstr "Vše, co je na oddílu uloženo, se smaže. Tuto akci nelze vrátit."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "“{name}”"
+msgstr "„{name}“"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "The partitions in it, {names}, and everything stored on them are deleted. This can't be undone."
+msgstr "Oddíly v něm ({names}) a vše, co je na nich uloženo, se smažou. Tuto akci nelze vrátit."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Delete “{name}”?"
+msgstr "Smazat „{name}“?"
+
+#: src/dialogs/volume_actions.cpp
+msgid "Delete"
+msgstr "Smazat"
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "Deleted “{name}”."
+msgstr "Smazán „{name}“."
+
+#: src/dialogs/volume_actions.cpp
+#, python-brace-format
+msgid "“{name}” could not be deleted."
+msgstr "„{name}“ nelze smazat."
+
+#: src/dialogs/volume_format.cpp
+msgid "FAT32 (MS-DOS)"
+msgstr "FAT32 (MS-DOS)"
+
+#: src/dialogs/volume_format.cpp src/udisks/describe.cpp
+#: src/udisks/properties.cpp
+msgid "Swap"
+msgstr "Swap"
+
+#: src/dialogs/volume_format.cpp
+msgid "The name can't contain control characters."
+msgstr "Název nesmí obsahovat řídicí znaky."
+
+#: src/dialogs/volume_format.cpp
+msgid "FAT32 names can only use unaccented letters, digits and simple punctuation."
+msgstr "Názvy FAT32 mohou obsahovat jen písmena bez diakritiky, číslice a jednoduchou interpunkci."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "FAT32 names can't contain “{character}”."
+msgstr "Názvy FAT32 nesmí obsahovat „{character}“."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "{format} names can have at most {count} characters."
+msgstr "Názvy {format} mohou mít nejvýše {count} znaků."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "{format} names can have at most {count} bytes."
+msgstr "Názvy {format} mohou mít nejvýše {count} bajtů."
+
+#: src/dialogs/volume_format.cpp
+msgid "Checking for its tools…"
+msgstr "Hledání nástrojů…"
+
+#: src/dialogs/volume_format.cpp
+msgid "Its tools are not installed."
+msgstr "Nástroje nejsou nainstalovány."
+
+#: src/dialogs/volume_format.cpp
+#, python-brace-format
+msgid "Needs {tool}, which is not installed."
+msgstr "Vyžaduje {tool}, který není nainstalován."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The source could not be read: {reason}"
+msgstr "Zdroj nelze přečíst: {reason}"
+
+#: src/images/copy.cpp
+msgid "The destination is too small."
+msgstr "Cíl je příliš malý."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The destination could not be written: {reason}"
+msgstr "Do cíle nelze zapisovat: {reason}"
+
+#: src/images/copy.cpp
+msgid "The source ended before all of it was read."
+msgstr "Zdroj skončil dříve, než byl celý přečten."
+
+#: src/images/copy.cpp
+#, python-brace-format
+msgid "The data could not be saved on the destination: {reason}"
+msgstr "Data nelze uložit do cíle: {reason}"
+
+#: src/images/imagefile.cpp
+msgid "There is not enough free space for an image of that size."
+msgstr "Pro obraz této velikosti není dost volného místa."
+
+#: src/images/imagefile.cpp
+msgid "A file with that name already exists."
+msgstr "Soubor s tímto názvem už existuje."
+
+#: src/images/imagefile.cpp
+#, python-brace-format
+msgid "The file could not be created: {reason}"
+msgstr "Soubor nelze vytvořit: {reason}"
+
+#: src/images/imagefile.cpp
+msgid "The file is too large for the disk it is on."
+msgstr "Soubor je příliš velký pro disk, na kterém je."
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{copied} of {total}"
+msgstr "{copied} z {total}"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{size}/s"
+msgstr "{size}/s"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} second left"
+msgid_plural "About {n} seconds left"
+msgstr[0] "Zbývá asi {n} sekunda"
+msgstr[1] "Zbývají asi {n} sekundy"
+msgstr[2] "Zbývá asi {n} sekund"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} minute left"
+msgid_plural "About {n} minutes left"
+msgstr[0] "Zbývá asi {n} minuta"
+msgstr[1] "Zbývají asi {n} minuty"
+msgstr[2] "Zbývá asi {n} minut"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "About {n} hour left"
+msgid_plural "About {n} hours left"
+msgstr[0] "Zbývá asi {n} hodina"
+msgstr[1] "Zbývají asi {n} hodiny"
+msgstr[2] "Zbývá asi {n} hodin"
+
+#: src/images/progress.cpp
+#, python-brace-format
+msgid "{amount} ({rate})"
+msgstr "{amount} ({rate})"
+
+#: src/images/transfer.cpp
+msgid "The destination is no longer there."
+msgstr "Cíl už není k dispozici."
+
+#: src/images/transfer.cpp
+msgid "A volume cannot be restored from itself."
+msgstr "Svazek nelze obnovit sám ze sebe."
+
+#: src/images/transfer.cpp
+msgid "The source and the destination overlap: one lies inside the other."
+msgstr "Zdroj a cíl jsou jeden v druhém."
+
+#: src/images/transfer.cpp
+msgid "A disk image cannot be restored onto itself."
+msgstr "Obraz disku nelze obnovit sám na sebe."
+
+#: src/images/transfer.cpp
+msgid "The disk image is attached and mounted. Eject it first."
+msgstr "Obraz disku je připojený. Nejprve ho vysuňte."
+
+#: src/images/transfer.cpp
+msgid "The source could not be read."
+msgstr "Zdroj nelze přečíst."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The source ({source}) is larger than the destination ({destination})."
+msgstr "Zdroj ({source}) je větší než cíl ({destination})."
+
+#: src/images/transfer.cpp
+msgid "The source is empty."
+msgstr "Zdroj je prázdný."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The source could not be opened: {reason}"
+msgstr "Zdroj nelze otevřít: {reason}"
+
+#: src/images/transfer.cpp
+msgid "The source could not be opened."
+msgstr "Zdroj nelze otevřít."
+
+#: src/images/transfer.cpp
+#, python-brace-format
+msgid "The destination could not be opened: {reason}"
+msgstr "Cíl nelze otevřít: {reason}"
+
+#: src/images/transfer.cpp
+msgid "The destination could not be opened."
+msgstr "Cíl nelze otevřít."
+
+#: src/udisks/describe.cpp
+msgid "GUID Partition Map"
+msgstr "Tabulka oddílů GUID"
+
+#: src/udisks/describe.cpp
+msgid "Master Boot Record"
+msgstr "Hlavní spouštěcí záznam"
+
+#. TRANSLATORS: a disk without a model name, such as "16 GB Disk".
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Disk"
+msgstr "Disk {size}"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Extended Partition"
+msgstr "Rozšířený oddíl"
+
+#. TRANSLATORS: a volume without a label, named by its size, such as "16 GB Volume".
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Encrypted Volume"
+msgstr "Šifrovaný svazek {size}"
+
+#: src/udisks/describe.cpp
+#, python-brace-format
+msgid "{size} Volume"
+msgstr "Svazek {size}"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+msgid "SD Card"
+msgstr "SD karta"
+
+#: src/udisks/describe.cpp src/udisks/properties.cpp
+#: src/views/detailcontent.cpp
+msgid "Disk Image"
+msgstr "Obraz disku"
+
+#: src/udisks/operations.cpp
+msgid "The device is no longer available."
+msgstr "Zařízení už není k dispozici."
+
+#: src/udisks/operations.cpp
+msgid "Another operation on this disk is in progress."
+msgstr "Na tomto disku probíhá jiná operace."
+
+#: src/udisks/operations.cpp
+msgid "The partition holds the running system."
+msgstr "Na oddílu je běžící systém."
+
+#: src/udisks/operations.cpp
+msgid "The disk is no longer available."
+msgstr "Disk už není k dispozici."
+
+#: src/udisks/operations.cpp
+msgid "The disk cannot be ejected."
+msgstr "Disk nelze vysunout."
+
+#: src/udisks/operations.cpp
+msgid "The disk image holds the running system."
+msgstr "Na obrazu disku je běžící systém."
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{n} byte"
+msgid_plural "{n} bytes"
+msgstr[0] "{n} bajt"
+msgstr[1] "{n} bajty"
+msgstr[2] "{n} bajtů"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{size} ({bytes})"
+msgstr "{size} ({bytes})"
+
+#: src/udisks/properties.cpp
+msgid "EFI System"
+msgstr "Systém EFI"
+
+#: src/udisks/properties.cpp
+msgid "BIOS Boot"
+msgstr "Spouštění BIOS"
+
+#: src/udisks/properties.cpp
+msgid "Linux Filesystem"
+msgstr "Systém souborů Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Root (x86-64)"
+msgstr "Kořen Linux (x86-64)"
+
+#: src/udisks/properties.cpp
+msgid "Linux Root (ARM64)"
+msgstr "Kořen Linux (ARM64)"
+
+#: src/udisks/properties.cpp
+msgid "Linux Home"
+msgstr "Domovský Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Extended Boot"
+msgstr "Rozšířené spouštění Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Swap"
+msgstr "Swap Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux LVM"
+msgstr "Linux LVM"
+
+#: src/udisks/properties.cpp
+msgid "Linux RAID"
+msgstr "Linux RAID"
+
+#: src/udisks/properties.cpp
+msgid "Linux LUKS"
+msgstr "Linux LUKS"
+
+#: src/udisks/properties.cpp
+msgid "Microsoft Basic Data"
+msgstr "Základní data Microsoft"
+
+#: src/udisks/properties.cpp
+msgid "Microsoft Reserved"
+msgstr "Vyhrazený Microsoft"
+
+#: src/udisks/properties.cpp
+msgid "Windows Recovery"
+msgstr "Obnovení Windows"
+
+#: src/udisks/properties.cpp
+msgid "Apple HFS+"
+msgstr "Apple HFS+"
+
+#: src/udisks/properties.cpp
+msgid "Apple APFS"
+msgstr "Apple APFS"
+
+#: src/udisks/properties.cpp
+msgid "FAT12"
+msgstr "FAT12"
+
+#: src/udisks/properties.cpp
+msgid "FAT16"
+msgstr "FAT16"
+
+#: src/udisks/properties.cpp
+msgid "Extended"
+msgstr "Rozšířený"
+
+#: src/udisks/properties.cpp
+msgid "NTFS or exFAT"
+msgstr "NTFS nebo exFAT"
+
+#: src/udisks/properties.cpp
+msgid "FAT32"
+msgstr "FAT32"
+
+#: src/udisks/properties.cpp
+msgid "FAT32 (LBA)"
+msgstr "FAT32 (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "FAT16 (LBA)"
+msgstr "FAT16 (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "Extended (LBA)"
+msgstr "Rozšířený (LBA)"
+
+#: src/udisks/properties.cpp
+msgid "Linux"
+msgstr "Linux"
+
+#: src/udisks/properties.cpp
+msgid "Linux Extended"
+msgstr "Rozšířený Linux"
+
+#: src/udisks/properties.cpp
+msgid "Non-Filesystem Data"
+msgstr "Data bez systému souborů"
+
+#: src/udisks/properties.cpp
+msgid "GPT Protective"
+msgstr "Ochranný GPT"
+
+#: src/udisks/properties.cpp
+msgid "Bootable"
+msgstr "Spustitelný"
+
+#: src/udisks/properties.cpp
+msgctxt "partition flag"
+msgid "Required"
+msgstr "Povinné"
+
+#: src/udisks/properties.cpp
+msgid "Ignored by Firmware"
+msgstr "Ignorován firmwarem"
+
+#: src/udisks/properties.cpp
+msgid "Legacy BIOS Bootable"
+msgstr "Spustitelný starším BIOSem"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Read Only"
+msgstr "Jen pro čtení"
+
+#: src/udisks/properties.cpp
+msgid "Hidden"
+msgstr "Skrytý"
+
+#: src/udisks/properties.cpp
+msgid "No Automount"
+msgstr "Bez automatického připojení"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Enabled"
+msgstr "Akustická správa zapnuta"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Supported"
+msgstr "Akustická správa podporována"
+
+#: src/udisks/properties.cpp
+msgid "Acoustic Management Recommended Value"
+msgstr "Doporučená hodnota akustické správy"
+
+#: src/udisks/properties.cpp
+msgid "Active"
+msgstr "Aktivní"
+
+#: src/udisks/properties.cpp
+msgid "Power Management (APM) Enabled"
+msgstr "Správa napájení (APM) zapnuta"
+
+#: src/udisks/properties.cpp
+msgid "Power Management (APM) Supported"
+msgstr "Správa napájení (APM) podporována"
+
+#: src/udisks/properties.cpp
+msgid "Detaches When Unused"
+msgstr "Při nečinnosti se odpojí"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Image File"
+msgstr "Soubor obrazu"
+
+#: src/udisks/properties.cpp
+msgid "Can Power Off"
+msgstr "Lze vypnout"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Configuration"
+msgstr "Odemčená konfigurace"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Device"
+msgstr "Odemčené zařízení"
+
+#: src/udisks/properties.cpp
+msgid "Configuration"
+msgstr "Konfigurace"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Connection"
+msgstr "Připojení"
+
+#: src/udisks/properties.cpp
+msgid "Controller ID"
+msgstr "ID řadiče"
+
+#: src/udisks/properties.cpp
+msgid "Encrypted Device"
+msgstr "Šifrované zařízení"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Device"
+msgstr "Zařízení"
+
+#: src/udisks/properties.cpp
+msgid "Device Number"
+msgstr "Číslo zařízení"
+
+#: src/udisks/properties.cpp
+msgid "Drive"
+msgstr "Jednotka"
+
+#: src/udisks/properties.cpp
+msgid "Ejectable"
+msgstr "Vysunutelné"
+
+#: src/udisks/properties.cpp
+msgid "FRU GUID"
+msgstr "GUID FRU"
+
+#: src/udisks/properties.cpp
+msgid "Flags"
+msgstr "Příznaky"
+
+#: src/udisks/properties.cpp
+msgid "Mounts Automatically"
+msgstr "Připojuje se automaticky"
+
+#: src/udisks/properties.cpp
+msgid "Icon"
+msgstr "Ikona"
+
+#: src/udisks/properties.cpp
+msgid "Hidden from Users"
+msgstr "Skryto před uživateli"
+
+#: src/udisks/properties.cpp
+msgid "Suggested Name"
+msgstr "Navrhovaný název"
+
+#: src/udisks/properties.cpp
+msgid "Partitionable"
+msgstr "Lze rozdělit na oddíly"
+
+#: src/udisks/properties.cpp
+msgid "Symbolic Icon"
+msgstr "Symbolická ikona"
+
+#: src/udisks/properties.cpp
+msgid "System Device"
+msgstr "Systémové zařízení"
+
+#: src/udisks/properties.cpp
+msgid "Identifier"
+msgstr "Identifikátor"
+
+#: src/udisks/properties.cpp
+msgid "Label"
+msgstr "Jmenovka"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "UUID"
+msgstr "UUID"
+
+#: src/udisks/properties.cpp
+msgid "Contents"
+msgstr "Obsah"
+
+#: src/udisks/properties.cpp
+msgid "Format Version"
+msgstr "Verze formátu"
+
+#: src/udisks/properties.cpp
+msgid "Logical Partition"
+msgstr "Logický oddíl"
+
+#: src/udisks/properties.cpp
+msgid "RAID Array"
+msgstr "Pole RAID"
+
+#: src/udisks/properties.cpp
+msgid "RAID Member Of"
+msgstr "Člen pole RAID"
+
+#: src/udisks/properties.cpp
+msgid "Media"
+msgstr "Médium"
+
+#: src/udisks/properties.cpp
+msgid "Media Present"
+msgstr "Médium vloženo"
+
+#: src/udisks/properties.cpp
+msgid "Media Change Detected"
+msgstr "Zjištěna výměna média"
+
+#: src/udisks/properties.cpp
+msgid "Compatible Media"
+msgstr "Kompatibilní média"
+
+#: src/udisks/properties.cpp
+msgid "Removable Media"
+msgstr "Vyjímatelné médium"
+
+#: src/udisks/properties.cpp
+msgid "Header Size"
+msgstr "Velikost hlavičky"
+
+#: src/udisks/properties.cpp
+msgid "Model"
+msgstr "Model"
+
+#: src/udisks/properties.cpp
+msgid "Mount Points"
+msgstr "Přípojná místa"
+
+#: src/udisks/properties.cpp
+msgid "NVMe Version"
+msgstr "Verze NVMe"
+
+#: src/udisks/properties.cpp
+msgid "Number"
+msgstr "Číslo"
+
+#: src/udisks/properties.cpp
+msgid "Offset"
+msgstr "Posun"
+
+#: src/udisks/properties.cpp
+msgid "Optical"
+msgstr "Optické"
+
+#: src/udisks/properties.cpp
+msgid "Blank Disc"
+msgstr "Prázdný disk"
+
+#: src/udisks/properties.cpp
+msgid "Audio Tracks"
+msgstr "Zvukové stopy"
+
+#: src/udisks/properties.cpp
+msgid "Data Tracks"
+msgstr "Datové stopy"
+
+#: src/udisks/properties.cpp
+msgid "Sessions"
+msgstr "Relace"
+
+#: src/udisks/properties.cpp
+msgid "Tracks"
+msgstr "Stopy"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Partitions"
+msgstr "Oddíly"
+
+#: src/udisks/properties.cpp
+msgid "Power Management Enabled"
+msgstr "Správa napájení zapnuta"
+
+#: src/udisks/properties.cpp
+msgid "Power Management Supported"
+msgstr "Správa napájení podporována"
+
+#: src/udisks/properties.cpp
+msgid "Preferred Device"
+msgstr "Upřednostňované zařízení"
+
+#: src/udisks/properties.cpp
+msgid "Read-Ahead Enabled"
+msgstr "Čtení dopředu zapnuto"
+
+#: src/udisks/properties.cpp
+msgid "Read-Ahead Supported"
+msgstr "Čtení dopředu podporováno"
+
+#: src/udisks/properties.cpp
+msgid "Removable"
+msgstr "Vyjímatelné"
+
+#: src/udisks/properties.cpp
+msgid "Firmware Revision"
+msgstr "Revize firmwaru"
+
+#: src/udisks/properties.cpp
+msgid "Rotation Rate"
+msgstr "Rychlost otáčení"
+
+#: src/udisks/properties.cpp
+msgid "Sanitize Remaining"
+msgstr "Zbývá do sanitizace"
+
+#: src/udisks/properties.cpp
+msgid "Sanitize Status"
+msgstr "Stav sanitizace"
+
+#: src/udisks/properties.cpp
+msgid "Seat"
+msgstr "Pracoviště"
+
+#: src/udisks/properties.cpp
+msgid "Enhanced Secure Erase Time"
+msgstr "Doba rozšířeného bezpečného vymazání"
+
+#: src/udisks/properties.cpp
+msgid "Secure Erase Time"
+msgstr "Doba bezpečného vymazání"
+
+#: src/udisks/properties.cpp
+msgid "Security Frozen"
+msgstr "Zabezpečení zmrazeno"
+
+#: src/udisks/properties.cpp
+msgid "Serial Number"
+msgstr "Sériové číslo"
+
+#: src/udisks/properties.cpp
+msgid "Attached by User"
+msgstr "Připojeno uživatelem"
+
+#: src/udisks/properties.cpp
+msgid "Sibling Identifier"
+msgstr "Sourozenecký identifikátor"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Enabled"
+msgstr "S.M.A.R.T. zapnuto"
+
+#: src/udisks/properties.cpp
+msgid "Predicts Failure"
+msgstr "Předpovídá selhání"
+
+#: src/udisks/properties.cpp
+msgid "Attributes Failed in the Past"
+msgstr "Atributy, které v minulosti selhaly"
+
+#: src/udisks/properties.cpp
+msgid "Attributes Failing"
+msgstr "Selhávající atributy"
+
+#: src/udisks/properties.cpp
+msgid "Self-Test Remaining"
+msgstr "Zbývá do konce autotestu"
+
+#: src/udisks/properties.cpp
+msgid "Last Self-Test"
+msgstr "Poslední autotest"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Supported"
+msgstr "S.M.A.R.T. podporováno"
+
+#: src/udisks/properties.cpp
+msgid "S.M.A.R.T. Read"
+msgstr "Čtení S.M.A.R.T."
+
+#: src/udisks/properties.cpp
+msgid "Sort Key"
+msgstr "Klíč řazení"
+
+#: src/udisks/properties.cpp
+msgid "State"
+msgstr "Stav"
+
+#: src/udisks/properties.cpp
+msgid "Subsystem NQN"
+msgstr "NQN subsystému"
+
+#: src/udisks/properties.cpp
+msgid "Links"
+msgstr "Odkazy"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Partition Map"
+msgstr "Tabulka oddílů"
+
+#: src/udisks/properties.cpp
+msgid "Detected"
+msgstr "Zjištěno"
+
+#: src/udisks/properties.cpp
+msgid "Media Detected"
+msgstr "Médium zjištěno"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Type"
+msgstr "Typ"
+
+#: src/udisks/properties.cpp
+msgid "Unallocated Capacity"
+msgstr "Nepřidělená kapacita"
+
+#: src/udisks/properties.cpp
+msgid "Mount Options"
+msgstr "Možnosti připojení"
+
+#: src/udisks/properties.cpp
+msgid "Vendor"
+msgstr "Výrobce"
+
+#: src/udisks/properties.cpp
+msgid "World Wide Name"
+msgstr "World Wide Name"
+
+#: src/udisks/properties.cpp
+msgid "Write Cache Enabled"
+msgstr "Mezipaměť zápisu zapnuta"
+
+#: src/udisks/properties.cpp
+msgid "Write Cache Supported"
+msgstr "Mezipaměť zápisu podporována"
+
+#: src/udisks/properties.cpp
+msgid "NVMe Controller"
+msgstr "Řadič NVMe"
+
+#: src/udisks/properties.cpp
+msgid "Block Device"
+msgstr "Blokové zařízení"
+
+#: src/udisks/properties.cpp
+msgid "File System"
+msgstr "Systém souborů"
+
+#: src/udisks/properties.cpp
+msgid "Yes"
+msgstr "Ano"
+
+#: src/udisks/properties.cpp
+msgid "No"
+msgstr "Ne"
+
+#: src/udisks/properties.cpp
+msgid "Never"
+msgstr "Nikdy"
+
+#: src/udisks/properties.cpp src/views/detailcontent.cpp
+msgid "Solid State"
+msgstr "SSD"
+
+#: src/udisks/properties.cpp
+msgid "Unknown"
+msgstr "Neznámé"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{n} RPM"
+msgstr "{n} ot./min"
+
+#: src/udisks/properties.cpp
+#, python-brace-format
+msgid "{name} ({type})"
+msgstr "{name} ({type})"
+
+#: src/udisks/properties.cpp
+msgid "Unlocked Block Device"
+msgstr "Odemčené blokové zařízení"
+
+#: src/udisks/smart.cpp
+msgid "Not Supported"
+msgstr "Nepodporováno"
+
+#: src/udisks/smart.cpp
+msgid "Verified"
+msgstr "Ověřeno"
+
+#: src/udisks/smart.cpp
+msgid "Failing"
+msgstr "Selhává"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} °C"
+msgstr "{n} °C"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} hour"
+msgid_plural "{n} hours"
+msgstr[0] "{n} hodina"
+msgstr[1] "{n} hodiny"
+msgstr[2] "{n} hodin"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} day"
+msgid_plural "{n} days"
+msgstr[0] "{n} den"
+msgstr[1] "{n} dny"
+msgstr[2] "{n} dní"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{days} ({hours})"
+msgstr "{days} ({hours})"
+
+#: src/udisks/smart.cpp
+msgid "In progress"
+msgstr "Probíhá"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "In progress, {n}% left"
+msgstr "Probíhá, zbývá {n} %"
+
+#: src/udisks/smart.cpp
+msgid "Completed without error"
+msgstr "Dokončeno bez chyb"
+
+#: src/udisks/smart.cpp
+msgid "Aborted"
+msgstr "Přerušeno"
+
+#: src/udisks/smart.cpp
+msgid "Interrupted by a reset"
+msgstr "Přerušeno resetem"
+
+#: src/udisks/smart.cpp
+msgid "Failed: electrical error"
+msgstr "Selhalo: elektrická chyba"
+
+#: src/udisks/smart.cpp
+msgid "Failed: servo error"
+msgstr "Selhalo: chyba serva"
+
+#: src/udisks/smart.cpp
+msgid "Failed: read error"
+msgstr "Selhalo: chyba čtení"
+
+#: src/udisks/smart.cpp
+msgid "Failed: damage found"
+msgstr "Selhalo: zjištěno poškození"
+
+#: src/udisks/smart.cpp
+msgid "Failed"
+msgstr "Selhalo"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "Attribute {n}"
+msgstr "Atribut {n}"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} ms"
+msgstr "{n} ms"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} sector"
+msgid_plural "{n} sectors"
+msgstr[0] "{n} sektor"
+msgstr[1] "{n} sektory"
+msgstr[2] "{n} sektorů"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{n} minute"
+msgid_plural "{n} minutes"
+msgstr[0] "{n} minuta"
+msgstr[1] "{n} minuty"
+msgstr[2] "{n} minut"
+
+#: src/udisks/smart.cpp
+#, python-brace-format
+msgid "{value} (threshold {threshold})"
+msgstr "{value} (práh {threshold})"
+
+#: src/udisks/smart.cpp
+msgid "Available Spare"
+msgstr "Dostupná rezerva"
+
+#: src/udisks/smart.cpp
+msgid "Wear"
+msgstr "Opotřebení"
+
+#: src/udisks/smart.cpp
+msgid "Data Read"
+msgstr "Přečtená data"
+
+#: src/udisks/smart.cpp
+msgid "Data Written"
+msgstr "Zapsaná data"
+
+#: src/udisks/smart.cpp
+msgid "Busy Time"
+msgstr "Doba zaneprázdnění"
+
+#: src/udisks/smart.cpp
+msgid "Power Cycles"
+msgstr "Cykly napájení"
+
+#: src/udisks/smart.cpp
+msgid "Unsafe Shutdowns"
+msgstr "Nebezpečná vypnutí"
+
+#: src/udisks/smart.cpp
+msgid "Media Errors"
+msgstr "Chyby média"
+
+#: src/udisks/smart.cpp
+msgid "Error Log Entries"
+msgstr "Záznamy v protokolu chyb"
+
+#: src/udisks/smart.cpp
+msgid "Warning Temperature"
+msgstr "Varovná teplota"
+
+#: src/udisks/smart.cpp
+msgid "Critical Temperature"
+msgstr "Kritická teplota"
+
+#: src/udisks/smart.cpp
+msgid "Time Above Warning"
+msgstr "Doba nad varovnou"
+
+#: src/udisks/smart.cpp
+msgid "Time Above Critical"
+msgstr "Doba nad kritickou"
+
+#: src/views/detail.cpp
+msgid "No Disks"
+msgstr "Žádné disky"
+
+#: src/views/detail.cpp
+msgid "Disks, volumes and disk images show here when they are attached."
+msgstr "Disky, svazky a obrazy disků se zde zobrazí po připojení."
+
+#: src/views/detailcards.cpp
+#, python-brace-format
+msgid "{percent}%"
+msgstr "{percent} %"
+
+#: src/views/detailcontent.cpp
+msgid "Erasing"
+msgstr "Vymazávání"
+
+#: src/views/detailcontent.cpp
+msgid "Checking"
+msgstr "Kontrola"
+
+#: src/views/detailcontent.cpp
+msgid "Repairing"
+msgstr "Oprava"
+
+#: src/views/detailcontent.cpp
+msgid "Resizing"
+msgstr "Změna velikosti"
+
+#: src/views/detailcontent.cpp
+msgid "Mounting"
+msgstr "Připojování"
+
+#: src/views/detailcontent.cpp
+msgid "Unmounting"
+msgstr "Odpojování"
+
+#: src/views/detailcontent.cpp
+msgid "Adding a partition"
+msgstr "Přidávání oddílu"
+
+#: src/views/detailcontent.cpp
+msgid "Deleting a partition"
+msgstr "Mazání oddílu"
+
+#: src/views/detailcontent.cpp
+msgid "Changing the partition"
+msgstr "Změna oddílu"
+
+#: src/views/detailcontent.cpp
+msgid "Unlocking"
+msgstr "Odemykání"
+
+#: src/views/detailcontent.cpp
+msgid "Locking"
+msgstr "Zamykání"
+
+#: src/views/detailcontent.cpp
+msgid "Ejecting"
+msgstr "Vysouvání"
+
+#: src/views/detailcontent.cpp
+msgid "Powering off"
+msgstr "Vypínání"
+
+#: src/views/detailcontent.cpp
+msgid "Running a self-test"
+msgstr "Probíhá autotest"
+
+#: src/views/detailcontent.cpp
+msgid "Attaching"
+msgstr "Připojování"
+
+#: src/views/detailcontent.cpp
+msgid "Working"
+msgstr "Probíhá práce"
+
+#: src/views/detailcontent.cpp src/views/sidebar.cpp
+msgid "External"
+msgstr "Externí"
+
+#: src/views/detailcontent.cpp src/views/sidebar.cpp
+msgid "Internal"
+msgstr "Interní"
+
+#: src/views/detailcontent.cpp
+msgid "Optical Disc"
+msgstr "Optický disk"
+
+#: src/views/detailcontent.cpp
+msgid "Flash Memory"
+msgstr "Flash paměť"
+
+#: src/views/detailcontent.cpp
+msgid "Hard Disk"
+msgstr "Pevný disk"
+
+#. TRANSLATORS: an encrypted volume that is locked, such as "LUKS (Locked)".
+#: src/views/detailcontent.cpp
+#, python-brace-format
+msgid "{type} (Locked)"
+msgstr "{type} (zamčeno)"
+
+#. TRANSLATORS: an unlocked encrypted volume, such as "ext4 (Encrypted)".
+#: src/views/detailcontent.cpp
+#, python-brace-format
+msgid "{type} (Encrypted)"
+msgstr "{type} (šifrováno)"
+
+#: src/views/detailcontent.cpp
+msgid "Free"
+msgstr "Volné"
+
+#: src/views/detailcontent.cpp
+msgid "Location"
+msgstr "Umístění"
+
+#: src/views/detailcontent.cpp
+msgid "Capacity"
+msgstr "Kapacita"
+
+#: src/views/detailcontent.cpp
+msgid "S.M.A.R.T. Status"
+msgstr "Stav S.M.A.R.T."
+
+#: src/views/detailcontent.cpp
+msgid "Access"
+msgstr "Přístup"
+
+#: src/views/detailcontent.cpp
+msgid "Used"
+msgstr "Využito"
+
+#: src/views/detailcontent.cpp
+msgid "Other"
+msgstr "Ostatní"
+
+#: src/views/detailcontent.cpp
+msgid "Mount Point"
+msgstr "Přípojné místo"
+
+#: src/views/detailcontent.cpp
+msgid "Not Mounted"
+msgstr "Nepřipojeno"
+
+#: src/views/detailcontent.cpp
+msgid "Available"
+msgstr "Dostupné"
+
+#: src/views/detailcontent.cpp
+msgid "Owner"
+msgstr "Vlastník"
+
+#: src/views/diskwindow.cpp src/views/toolbar.cpp cutefish-disk-utility.desktop
+msgid "Disk Utility"
+msgstr "Disková utilita"
+
+#: src/views/diskwindow.cpp
+msgid "The operation was refused."
+msgstr "Operace byla odmítnuta."
+
+#: src/views/diskwindow.cpp
+msgid "Show Only Volumes"
+msgstr "Jen svazky"
+
+#: src/views/diskwindow.cpp
+msgid "Show All Devices"
+msgstr "Všechna zařízení"
+
+#: src/views/diskwindow.cpp
+msgid "An operation is in progress."
+msgstr "Probíhá operace."
+
+#: src/views/diskwindow.cpp
+msgid "Quitting now stops it partway, which can leave the disk unusable. Wait until it is done."
+msgstr "Ukončením nyní se operace přeruší v polovině, což může disk znepoužitelnit. Počkejte, až skončí."
+
+#: src/views/diskwindow.cpp
+msgid "Keep Running"
+msgstr "Pokračovat"
+
+#: src/views/diskwindow.cpp
+msgid "Quit Anyway"
+msgstr "Přesto ukončit"
+
+#: src/views/diskwindow.cpp
+msgid "OK"
+msgstr "OK"
+
+#: src/views/diskwindow.cpp
+msgid "Erases, partitions, checks and images the disks of your computer."
+msgstr "Vymazává, rozděluje na oddíly, kontroluje disky počítače a vytváří jejich obrazy."
+
+#: src/views/diskwindow.cpp
+msgid "About Disk Utility"
+msgstr "O aplikaci Disková utilita"
+
+#: src/views/diskwindow.cpp
+msgid "Hide Disk Utility"
+msgstr "Skrýt Diskovou utilitu"
+
+#: src/views/diskwindow.cpp
+msgid "Quit Disk Utility"
+msgstr "Ukončit Diskovou utilitu"
+
+#: src/views/diskwindow.cpp
+msgid "File"
+msgstr "Soubor"
+
+#: src/views/diskwindow.cpp
+msgid "New Image"
+msgstr "Nový obraz"
+
+#: src/views/diskwindow.cpp
+msgid "Close Window"
+msgstr "Zavřít okno"
+
+#: src/views/diskwindow.cpp
+msgid "Edit"
+msgstr "Úpravy"
+
+#: src/views/diskwindow.cpp
+msgid "Window"
+msgstr "Okno"
+
+#: src/views/diskwindow.cpp
+msgid "Minimize"
+msgstr "Minimalizovat"
+
+#: src/views/diskwindow.cpp
+msgid "Zoom"
+msgstr "Zvětšit"
+
+#: cutefish-disk-utility.desktop
+msgid "Manage disks, volumes and disk images"
+msgstr "Správa disků, svazků a obrazů disků"
+
+#: cutefish-disk-utility.desktop
+msgid "Disk;Drive;Volume;Partition;Format;Erase;Mount;Image;ISO;USB;"
+msgstr "Disk;Jednotka;Svazek;Oddíl;Formátovat;Vymazat;Připojit;Obraz;ISO;USB;Flashdisk;"
