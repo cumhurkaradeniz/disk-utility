@@ -17,6 +17,7 @@ add_library(disk-utility-core STATIC
     src/actions.cpp
     src/application.cpp
     src/dialogs/volume_format.cpp
+    src/images/blankimage.cpp
     src/images/copy.cpp
     src/images/formats.cpp
     src/images/imagefile.cpp
