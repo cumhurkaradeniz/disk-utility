@@ -12,6 +12,7 @@ target_link_libraries(disk-utility-fake PUBLIC disk-utility-core)
 # The model, the operations and the actions alone: no window can come in.
 add_executable(disk-utility-logic-tests
     logic/main.cpp
+    logic/describe_test.cpp
     logic/model_test.cpp
     logic/system_test.cpp
     logic/tree_test.cpp
