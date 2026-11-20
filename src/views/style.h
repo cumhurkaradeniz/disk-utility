@@ -29,6 +29,9 @@ inline constexpr double sidebarMinimumWidth = 180;
 inline constexpr double sidebarPadding = 12;
 inline constexpr double headerHeight = 46;
 
+// The sidebar's text, rows and headings alike, as Settings' sidebar: 8
+// points.
+inline constexpr double sidebarFontSize = 8 * 4.0 / 3;
 // The sidebar's rows, as Music's.
 inline constexpr double rowHeight = 30;
 inline constexpr double rowGap = 2;

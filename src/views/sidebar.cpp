@@ -62,9 +62,7 @@ public:
         : first(first)
     {
         m_label = addChild<Label>(text);
-        m_label->setFontSize(12);
-        m_label->setWeight(600);
-        m_label->setVerticallyCentered(true);
+        m_label->setFontSize(metrics::sidebarFontSize);
     }
 
     double height() const { return kHeadingHeight + (first ? 0 : kHeadingSpace); }
@@ -74,9 +72,11 @@ public:
 protected:
     void layout() override
     {
-        m_label->setColor(palette::faint());
-        m_label->setGeometry({8, geometry().height - kHeadingHeight, std::max(0.0, geometry().width - 16),
-                              kHeadingHeight});
+        m_label->setColor(Theme::current().disabledText);
+        // On a whole pixel, as Settings' headings.
+        const double height = m_label->sizeHint().height;
+        const double top = geometry().height - kHeadingHeight + std::round((kHeadingHeight - height) / 2);
+        m_label->setGeometry({8, top, std::max(0.0, geometry().width - 16), height});
     }
 
 private:
@@ -219,10 +219,10 @@ public:
             m_disclosure->onClicked = [this] { m_sidebar.setExpanded(this->id, !m_sidebar.isExpanded(this->id)); };
         }
         m_glyph = addChild<Icon>(deviceGlyph(context.model, node, context.viewMode), metrics::rowGlyph);
+        m_glyph->setName("sidebar:glyph:" + id);
         m_label = addChild<Label>(udisks::displayName(context.model, node));
-        m_label->setFontSize(13);
-        m_label->setWeight(500);
-        m_label->setVerticallyCentered(true);
+        m_label->setName("sidebar:label:" + id);
+        m_label->setFontSize(metrics::sidebarFontSize);
         m_label->setElide(Label::Elide::Right);
         if (ejectable) {
             m_eject = addChild<EjectButton>();
@@ -268,8 +268,16 @@ protected:
                 m_disclosure->setGeometry({x - 2, 0, metrics::disclosureWidth + 2, height});
             x += metrics::disclosureWidth;
         }
+        // In device pixels from the window's top: the glyph is drawn whole
+        // on them, so it goes where it is drawn, centred in the row, and the
+        // capitals' middle meets its middle with the baseline on a pixel.
+        const double scale = window() ? window()->scale() : 1;
+        const double origin = mapToWindow({}).y * scale;
+        const double side = std::max(1.0, double(std::lround(metrics::rowGlyph * scale)));
+        const double glyphTop = std::round(origin + (height * scale - side) / 2);
+        const double glyphMiddle = glyphTop + side / 2;
         m_glyph->setColor(m_current ? palette::onAccent() : palette::text().withAlpha(0.8));
-        m_glyph->setGeometry({x, std::round((height - metrics::rowGlyph) / 2), metrics::rowGlyph, metrics::rowGlyph});
+        m_glyph->setGeometry({x, (glyphTop - origin) / scale, side / scale, side / scale});
         x += metrics::rowGlyph + kGlyphGap;
         double right = width - 8;
         if (m_eject) {
@@ -278,7 +286,9 @@ protected:
             right = width - gap - kEjectSize - 2;
         }
         m_label->setColor(m_current ? palette::onAccent() : palette::text());
-        m_label->setGeometry({x, 0, std::max(0.0, right - x), height});
+        const double baseline = std::round(glyphMiddle + m_label->capHeight() * scale / 2);
+        m_label->setGeometry({x, (baseline - origin) / scale - m_label->baselineOffset(), std::max(0.0, right - x),
+                              m_label->sizeHint().height});
     }
 
     void paint(Painter& painter) override
@@ -343,7 +353,12 @@ protected:
             if (auto* heading = dynamic_cast<SidebarHeading*>(child.get())) {
                 heading->setGeometry({6, y, std::max(0.0, geometry().width - 12), heading->height()});
             } else {
+                const double before = child->geometry().y;
                 child->setGeometry({6, y, std::max(0.0, geometry().width - 12), metrics::rowHeight});
+                // A row places its glyph and text on its device pixels,
+                // which a move changes.
+                if (before != y)
+                    child->requestLayout();
             }
             y += heightOf(child.get());
         }
