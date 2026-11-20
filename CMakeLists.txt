@@ -77,6 +77,7 @@ add_library(disk-utility-ui STATIC
     src/views/detail.cpp
     src/views/detailcards.cpp
     src/views/detailcontent.cpp
+    src/views/diskwindow.cpp
     src/views/sidebar.cpp
     src/views/style.cpp
     src/views/toolbar.cpp
@@ -84,6 +85,12 @@ add_library(disk-utility-ui STATIC
 )
 target_include_directories(disk-utility-ui PUBLIC src)
 target_link_libraries(disk-utility-ui PUBLIC disk-utility-core Cutefish::Toolkit)
+
+add_executable(${PROJECT_NAME} src/main.cpp)
+target_compile_definitions(${PROJECT_NAME} PRIVATE DISK_UTILITY_VERSION="${PROJECT_VERSION}")
+target_link_libraries(${PROJECT_NAME} PRIVATE disk-utility-ui)
+
+install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 cutefish_add_translations(cutefish-disk-utility SOURCES src DESKTOP_FILES cutefish-disk-utility.desktop)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/cutefish-disk-utility.desktop
