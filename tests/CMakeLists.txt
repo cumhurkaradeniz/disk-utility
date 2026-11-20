@@ -44,3 +44,12 @@ add_executable(disk-utility-scenario-tests
 target_link_libraries(disk-utility-scenario-tests PRIVATE disk-utility-ui disk-utility-fake GTest::gtest)
 # The application tests group every running copy of these binaries.
 gtest_discover_tests(disk-utility-scenario-tests PROPERTIES LABELS scenario RESOURCE_LOCK disk-utility-ui)
+
+# The insets and gaps of the window's own views, measured headless.
+add_executable(disk-utility-layout-tests
+    scenarios/main.cpp
+    layout/layout_test.cpp
+)
+target_include_directories(disk-utility-layout-tests PRIVATE scenarios)
+target_link_libraries(disk-utility-layout-tests PRIVATE disk-utility-ui disk-utility-fake GTest::gtest)
+gtest_discover_tests(disk-utility-layout-tests PROPERTIES LABELS layout RESOURCE_LOCK disk-utility-ui)
