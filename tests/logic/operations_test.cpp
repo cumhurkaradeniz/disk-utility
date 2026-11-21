@@ -13,6 +13,8 @@
 #include <filesystem>
 #include <fstream>
 #include <memory>
+#include <tuple>
+#include <vector>
 
 #include <unistd.h>
 
@@ -239,7 +241,7 @@ TEST_F(OperationsTest, Format)
     EXPECT_EQ(map.at("label").value<std::string>(), "Backup");
     EXPECT_EQ(map.at("encrypt.passphrase").value<std::string>(), "secret");
     EXPECT_EQ(map.at("encrypt.type").value<std::string>(), "luks2");
-    EXPECT_TRUE(map.at("tear-down").value<bool>());
+    EXPECT_FALSE(map.at("tear-down").value<bool>());
     EXPECT_TRUE(map.at("update-partition-type").value<bool>());
     EXPECT_TRUE(map.at("take-ownership").value<bool>());
     EXPECT_FALSE(map.contains("erase"));
@@ -252,6 +254,42 @@ TEST_F(OperationsTest, Format)
     EXPECT_EQ(card.at("erase").value<std::string>(), "zero");
     EXPECT_FALSE(card.at("take-ownership").value<bool>());
     EXPECT_FALSE(card.contains("encrypt.passphrase"));
+    backend.replyAll();
+    runPosted();
+}
+
+TEST_F(OperationsTest, TearsDownOnlyWhatHasSystemEntries)
+{
+    using Entries = std::vector<std::tuple<std::string, VariantMap>>;
+    const auto tearsDown = [&](const std::string& block) {
+        operations.format(block, "ext4", {});
+        const bool tearDown = options(backend.calls.back(), 1).at("tear-down").value<bool>();
+        backend.replyAll();
+        runPosted();
+        return tearDown;
+    };
+    EXPECT_FALSE(tearsDown(sample::kUsb));
+
+    // An entry on the cleartext block of an unlocked partition counts for
+    // the partition and its disk.
+    model.changeProperties(sample::kCleartext, interface::kBlock,
+                           {{"Configuration", Variant(Entries{{"fstab", VariantMap{}}})}});
+    EXPECT_TRUE(tearsDown(sample::kUnlocked));
+    EXPECT_TRUE(tearsDown(sample::kUsb));
+    EXPECT_FALSE(tearsDown(sample::kUnformatted));
+
+    // A locked partition keeps its cleartext's entries itself.
+    model.changeProperties(sample::kLocked, interface::kEncrypted,
+                           {{"ChildConfiguration", Variant(Entries{{"fstab", VariantMap{}}})}});
+    EXPECT_TRUE(tearsDown(sample::kLocked));
+
+    model.changeProperties(sample::kCard, interface::kBlock,
+                           {{"Configuration", Variant(Entries{{"crypttab", VariantMap{}}})}});
+    EXPECT_TRUE(tearsDown(sample::kCard));
+
+    // A new partition has nothing to tear down.
+    operations.createPartitionAndFormat(sample::kUsb, 1, 2, "type", "Name", "ext4", {});
+    EXPECT_FALSE(options(backend.calls.back(), 6).at("tear-down").value<bool>());
     backend.replyAll();
     runPosted();
 }

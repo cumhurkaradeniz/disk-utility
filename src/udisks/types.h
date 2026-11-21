@@ -129,6 +129,8 @@ struct Block
     std::string hintName;
     std::string hintIconName;
     std::string hintSymbolicIconName;
+    // It has entries in /etc/fstab or /etc/crypttab.
+    bool configured = false;
 };
 
 struct PartitionTable
@@ -168,6 +170,8 @@ struct Encrypted
     // "luks1", "luks2", "bitlk", "tcrypt" and so on.
     std::string hintEncryptionType;
     uint64_t metadataSize = 0;
+    // Its cleartext block, while locked, has entries in /etc/fstab.
+    bool childConfigured = false;
 };
 
 struct Loop

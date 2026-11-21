@@ -34,6 +34,13 @@ static const Variant* find(const VariantMap& map, const char* key)
     return value;
 }
 
+// An array property with at least one element.
+static bool hasItems(const VariantMap& map, const char* key)
+{
+    const Variant* value = find(map, key);
+    return value && value->signature().starts_with("a") && !value->items().empty();
+}
+
 template<typename T>
 static T get(const VariantMap& map, const char* key, T fallback = T())
 {
@@ -188,6 +195,7 @@ static Block parseBlock(const VariantMap& map)
     block.hintIgnore = get<bool>(map, "HintIgnore");
     block.hintAuto = get<bool>(map, "HintAuto");
     block.hintName = get<std::string>(map, "HintName");
+    block.configured = hasItems(map, "Configuration");
     block.hintIconName = get<std::string>(map, "HintIconName");
     block.hintSymbolicIconName = get<std::string>(map, "HintSymbolicIconName");
     return block;
@@ -231,6 +239,7 @@ static Encrypted parseEncrypted(const VariantMap& map)
     encrypted.cleartextDevice = path(map, "CleartextDevice");
     encrypted.hintEncryptionType = get<std::string>(map, "HintEncryptionType");
     encrypted.metadataSize = number<uint64_t>(map, "MetadataSize");
+    encrypted.childConfigured = hasItems(map, "ChildConfiguration");
     return encrypted;
 }
 

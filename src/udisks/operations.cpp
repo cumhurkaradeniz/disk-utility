@@ -62,7 +62,7 @@ static Variant options(VariantMap map = {})
     return Variant(map);
 }
 
-static VariantMap formatOptions(const FormatOptions& options, bool retype = true)
+static VariantMap formatOptions(const FormatOptions& options, bool retype = true, bool tearDown = false)
 {
     VariantMap map;
     if (!options.label.empty())
@@ -75,11 +75,38 @@ static VariantMap formatOptions(const FormatOptions& options, bool retype = true
             map["encrypt.type"] = Variant(options.encryptionType);
     }
     map["take-ownership"] = Variant(options.takeOwnership);
-    // Unmounts and locks what is on the block first, and sets the partition's
-    // type to match the filesystem unless the partition table may not change.
-    map["tear-down"] = Variant(true);
+    // Tear-down also removes the block's /etc/fstab and /etc/crypttab entries,
+    // and UDisks2 asks for the password again on every call that sets it.
+    // The plans unmount and lock first, so it is set only when there are
+    // entries to remove.
+    map["tear-down"] = Variant(tearDown);
+    // Sets the partition's type to match the filesystem unless the
+    // partition table may not change.
     map["update-partition-type"] = Variant(retype);
     return map;
+}
+
+// UDisks2's tear-down walks the same blocks: the partitions of a table, and
+// the cleartext block of an unlocked one or the child entries of a locked one.
+static bool hasConfiguration(const Model& model, const std::string& path)
+{
+    const Object* object = model.object(path);
+    if (!object || !object->block)
+        return false;
+    if (object->block->configured)
+        return true;
+    if (object->partitionTable) {
+        for (const Object* partition : model.partitionsOf(path)) {
+            if (hasConfiguration(model, partition->path))
+                return true;
+        }
+    }
+    if (object->encrypted) {
+        if (const Object* cleartext = model.cleartextOf(path))
+            return hasConfiguration(model, cleartext->path);
+        return object->encrypted->childConfigured;
+    }
+    return false;
 }
 
 Operations::Operations(Model& model, Backend& backend)
@@ -264,7 +291,8 @@ void Operations::format(const std::string& block, const std::string& type, const
     // is: a new type would be a change to the running disk's table.
     const bool retype = systemRefusal(m_model, block, Change::Table).empty();
     Call call = makeCall(block, interface::kBlock, "Format",
-                         {Variant(type), options(formatOptions(formatting, retype))}, kLong);
+                         {Variant(type), options(formatOptions(formatting, retype, hasConfiguration(m_model, block)))},
+                         kLong);
     if (const std::string why = systemRefusal(m_model, block, formatChange(m_model, block)); !why.empty()) {
         refuse(std::move(call), kSystemError, why, std::move(done));
         return;
