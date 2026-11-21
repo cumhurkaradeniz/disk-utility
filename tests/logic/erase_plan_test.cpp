@@ -12,10 +12,21 @@
 #include "udisks/model.h"
 #include "udisks/operations.h"
 
+#include "base/dbus_types.h"
 #include "base/event_loop.h"
+
+#include <algorithm>
+#include <chrono>
+#include <filesystem>
+#include <fstream>
+#include <thread>
+
+#include <fcntl.h>
+#include <unistd.h>
 
 #include <gtest/gtest.h>
 
+using cutefish::base::dbus::UnixFd;
 using namespace dialogs;
 using namespace udisks;
 using namespace udisks::fake;
@@ -358,4 +369,106 @@ TEST_F(ErasePlanTest, TheChangedStepIsNamed)
     EXPECT_EQ(runner.failedStep(), 1u);
     EXPECT_NE(runner.result().errorMessage.find(steps[1].subject), std::string::npos);
     EXPECT_TRUE(methods().empty());
+}
+
+class StaleTableTest : public ErasePlanTest
+{
+protected:
+    void SetUp() override
+    {
+        ErasePlanTest::SetUp();
+        target = std::filesystem::temp_directory_path() / ("disk-utility-stale-" + std::to_string(::getpid()));
+        std::ofstream(target, std::ios::binary) << std::string(2 * kMiB, '\xff');
+    }
+    void TearDown() override { std::filesystem::remove(target); }
+
+    // The first Format wipes the map, and the kernel keeps partitions in a
+    // table nobody reads.
+    std::optional<Result> answer(const Call& call, bool recognized = false)
+    {
+        if (call.method == "Format" && ++formats == 1) {
+            if (!recognized)
+                model.changeProperties(sample::kUsb, interface::kPartitionTable, {{"Type", Variant(std::string())}});
+            return error("org.freedesktop.UDisks2.Error.Failed",
+                         "Error synchronizing after initial wipe: Timed out waiting for object");
+        }
+        if (call.method == "OpenForRestore")
+            return Result{{}, {}, {Variant(UnixFd::adopt(::open(target.c_str(), O_WRONLY | O_CLOEXEC)))}};
+        return Result{};
+    }
+
+    bool run(PlanRunner& runner)
+    {
+        bool finished = false;
+        auto subscription = runner.finished.connect([&] { finished = true; });
+        runner.start();
+        const auto end = std::chrono::steady_clock::now() + std::chrono::seconds(10);
+        while (!finished && std::chrono::steady_clock::now() < end) {
+            runPosted();
+            std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        }
+        return finished;
+    }
+
+    std::string contents() const
+    {
+        std::ifstream in(target, std::ios::binary);
+        return std::string(std::istreambuf_iterator<char>(in), {});
+    }
+
+    std::vector<PlanStep> steps()
+    {
+        return eraseSteps(model, disk(sample::kUsb, sample::kUsbDrive),
+                          {.name = "Big", .filesystem = "ext4", .scheme = "gpt"});
+    }
+
+    std::filesystem::path target;
+    int formats = 0;
+};
+
+TEST_F(StaleTableTest, TheStartOfTheDiskIsClearedAndTheMapTriedAgain)
+{
+    backend.responder = [this](const Call& call) { return answer(call); };
+    PlanRunner runner(model, operations, identityOf(model, sample::kUsb), steps());
+    ASSERT_TRUE(run(runner));
+    EXPECT_TRUE(runner.succeeded());
+    EXPECT_EQ(methods(), (std::vector<std::string>{sample::kCleartext + " Unmount", sample::kUnlocked + " Lock",
+                                                   sample::kUsb + " Format", sample::kUsb + " OpenForRestore",
+                                                   sample::kUsb + " Format",
+                                                   sample::kUsb + " CreatePartitionAndFormat"}));
+    const std::string data = contents();
+    ASSERT_EQ(data.size(), 2 * kMiB);
+    EXPECT_EQ(data.substr(0, kMiB), std::string(kMiB, '\0'));
+    EXPECT_EQ(data.substr(kMiB), std::string(kMiB, '\xff'));
+    EXPECT_FALSE(operations.isAnyBusy());
+}
+
+TEST_F(StaleTableTest, TurningDownThePasswordEndsThePlanPartWay)
+{
+    backend.responder = [this](const Call& call) -> std::optional<Result> {
+        if (call.method == "OpenForRestore")
+            return error("org.freedesktop.UDisks2.Error.NotAuthorizedDismissed");
+        return answer(call);
+    };
+    PlanRunner runner(model, operations, identityOf(model, sample::kUsb), steps());
+    ASSERT_TRUE(run(runner));
+    EXPECT_FALSE(runner.succeeded());
+    EXPECT_EQ(runner.current(), 2u);
+    EXPECT_EQ(runner.result().errorName, PlanRunner::kStaleTableError);
+    EXPECT_TRUE(ranPartWay(runner.result()));
+    EXPECT_FALSE(dismissed(runner.result()));
+    EXPECT_EQ(formats, 1);
+    EXPECT_EQ(contents(), std::string(2 * kMiB, '\xff'));
+}
+
+TEST_F(StaleTableTest, ARecognizedMapIsNotCleared)
+{
+    backend.responder = [this](const Call& call) { return answer(call, true); };
+    PlanRunner runner(model, operations, identityOf(model, sample::kUsb), steps());
+    ASSERT_TRUE(run(runner));
+    EXPECT_FALSE(runner.succeeded());
+    EXPECT_EQ(runner.result().errorName, "org.freedesktop.UDisks2.Error.Failed");
+    EXPECT_EQ(formats, 1);
+    const std::vector<std::string> called = methods();
+    EXPECT_EQ(std::count(called.begin(), called.end(), sample::kUsb + " OpenForRestore"), 0);
 }

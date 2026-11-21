@@ -5,9 +5,16 @@
 #include "dialogs/volume_format.h"
 
 #include "udisks/describe.h"
+#include "udisks/errors.h"
 #include "udisks/model.h"
 
+#include "base/dbus_types.h"
 #include "base/i18n.h"
+
+#include <algorithm>
+
+#include <fcntl.h>
+#include <unistd.h>
 
 using cutefish::i18n::format;
 using cutefish::i18n::tr;
@@ -188,13 +195,12 @@ void PlanRunner::runStep()
         PlanRunner* runner = self.get();
         if (!runner)
             return;
-        runner->m_result = result;
         if (!result.ok()) {
-            runner->m_failed = runner->m_current;
-            runner->m_running = false;
-            runner->finished.emit();
+            if (!runner->clearStaleTable(result))
+                runner->fail(result);
             return;
         }
+        runner->m_result = result;
         ++runner->m_current;
         runner->runStep();
     };
@@ -232,6 +238,95 @@ void PlanRunner::runStep()
         m_operations.setLabel(step.path, step.options.label, std::move(done));
         break;
     }
+}
+
+void PlanRunner::fail(udisks::Result result)
+{
+    m_result = std::move(result);
+    m_failed = m_current;
+    m_running = false;
+    finished.emit();
+}
+
+// The kernel lists partitions on the disk in a table that no tool reads.
+static bool holdsUnknownPartitions(const udisks::Model& model, const std::string& block)
+{
+    const udisks::Object* object = model.object(block);
+    return object && object->partitionTable && object->partitionTable->type.empty()
+            && !object->partitionTable->partitions.empty();
+}
+
+static int descriptorOf(const udisks::Result& result)
+{
+    if (result.values.empty())
+        return -1;
+    const std::optional<cutefish::base::dbus::UnixFd> fd = result.values.front().get<cutefish::base::dbus::UnixFd>();
+    return fd && fd->isValid() ? fd->release() : -1;
+}
+
+// Every partition table the kernel reads starts within it.
+static constexpr uint64_t kClearedLength = kMiB;
+
+bool PlanRunner::clearStaleTable(const udisks::Result& result)
+{
+    const PlanStep& step = m_steps[m_current];
+    if (m_clearedTable || step.kind != PlanStep::Kind::CreateTable
+        || !udisks::isStaleTableError(result.errorName, result.errorMessage)
+        || !holdsUnknownPartitions(m_model, step.path))
+        return false;
+    m_clearedTable = true;
+    const udisks::Object* object = m_model.object(step.path);
+    const uint64_t length = std::min(kClearedLength, object->block ? object->block->size : 0);
+    m_operations.openForRestore(step.path, [self = m_weakFactory.getWeakPtr(), length](const udisks::Result& opened) {
+        PlanRunner* runner = self.get();
+        if (!runner)
+            return;
+        const std::string name = runner->m_steps[runner->m_current].subject;
+        if (!opened.ok()) {
+            if (dismissed(opened) || opened.cancelled()) {
+                runner->fail({kStaleTableError,
+                              format(tr("“{name}” still holds data from an earlier startup disk that the system reads "
+                                        "as partitions. Clearing it needs an administrator’s password."),
+                                     {{"name", name}}),
+                              {}});
+                return;
+            }
+            runner->fail({kStaleTableError,
+                          format(tr("The leftover data on “{name}” could not be cleared: {reason}"),
+                                 {{"name", name}, {"reason", opened.errorMessage}}),
+                          {}});
+            return;
+        }
+        const int target = descriptorOf(opened);
+        const int zeros = ::open("/dev/zero", O_RDONLY | O_CLOEXEC);
+        if (target < 0 || zeros < 0) {
+            if (target >= 0)
+                ::close(target);
+            if (zeros >= 0)
+                ::close(zeros);
+            runner->fail({kStaleTableError,
+                          format(tr("The leftover data on “{name}” could not be cleared."), {{"name", name}}), {}});
+            return;
+        }
+        runner->m_clearingHold = runner->m_operations.hold(runner->m_steps[runner->m_current].path);
+        runner->m_clearing = std::make_unique<images::CopyJob>();
+        runner->m_clearing->onFinished = [self, name](const images::CopyResult& copied) {
+            PlanRunner* runner = self.get();
+            if (!runner)
+                return;
+            runner->m_clearingHold.reset();
+            if (!copied.ok()) {
+                runner->fail({kStaleTableError,
+                              format(tr("The leftover data on “{name}” could not be cleared: {reason}"),
+                                     {{"name", name}, {"reason", copied.message()}}),
+                              {}});
+                return;
+            }
+            runner->runStep();
+        };
+        runner->m_clearing->start(zeros, target, length);
+    });
+    return true;
 }
 
 } // namespace dialogs

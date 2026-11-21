@@ -25,4 +25,10 @@ bool isWrongPassphrase(const std::string& errorName, const std::string& errorMes
             || contains(errorMessage, "No key available");
 }
 
+bool isStaleTableError(const std::string& errorName, const std::string& errorMessage)
+{
+    return errorName == "org.freedesktop.UDisks2.Error.Failed"
+            && contains(errorMessage, "Error synchronizing after initial wipe");
+}
+
 } // namespace udisks

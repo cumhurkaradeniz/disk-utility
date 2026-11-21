@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "images/copy.h"
 #include "udisks/backend.h"
 #include "udisks/identity.h"
 #include "udisks/operations.h"
@@ -11,6 +12,7 @@
 #include "base/weak_ptr.h"
 
 #include <cstdint>
+#include <memory>
 #include <optional>
 #include <string>
 #include <vector>
@@ -90,10 +92,16 @@ const udisks::Object* jobOf(const udisks::Model& model, const std::vector<std::s
 // first that fails, and before any step once the block the plan was made
 // for (a disk, or a volume) or the step's own block is not the one it was.
 // Nothing runs unless every step's block is still the expected one.
+//
+// A new partition map that fails because the kernel still reads partitions
+// no tool recognizes, left over from an earlier startup disk, is tried once
+// more after the start of the disk is overwritten with zeros, which asks
+// for authorization.
 class PlanRunner
 {
 public:
     static constexpr const char* kChangedError = "org.cutefish.DiskUtility.Error.Changed";
+    static constexpr const char* kStaleTableError = "org.cutefish.DiskUtility.Error.StaleTable";
 
     PlanRunner(const udisks::Model& model, udisks::Operations& operations, udisks::Identity subject,
                std::vector<PlanStep> steps);
@@ -122,6 +130,9 @@ public:
 
 private:
     void runStep();
+    void fail(udisks::Result result);
+    // Starts clearing the step's disk when its failure calls for it.
+    bool clearStaleTable(const udisks::Result& result);
 
     const udisks::Model& m_model;
     udisks::Operations& m_operations;
@@ -132,6 +143,9 @@ private:
     bool m_running = false;
     bool m_started = false;
     udisks::Result m_result;
+    bool m_clearedTable = false;
+    std::unique_ptr<images::CopyJob> m_clearing;
+    udisks::Operations::Hold m_clearingHold;
     cutefish::base::WeakPtrFactory<PlanRunner> m_weakFactory{this};
 };
 

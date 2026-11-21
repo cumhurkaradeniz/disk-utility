@@ -12,5 +12,8 @@ namespace udisks {
 bool isBusyError(const std::string& errorName, const std::string& errorMessage);
 // Unlock was given the wrong passphrase.
 bool isWrongPassphrase(const std::string& errorName, const std::string& errorMessage);
+// Format wiped the block's signatures, but the kernel still found
+// partitions on it afterwards.
+bool isStaleTableError(const std::string& errorName, const std::string& errorMessage);
 
 } // namespace udisks
