@@ -36,9 +36,10 @@ static std::map<std::string, BarRule> rules()
     const Theme& theme = Theme::current();
     const double window = ScrollBar::cornerPadding(theme.windowRadius);
     return {
-        // Under the header, which keeps it clear of the window's top corners.
-        {"sidebar:scroll", {ScrollBar::inset, window}},
-        {"detail:scroll", {views::metrics::headerHeight, window}},
+        // A side column: under the header, and its foot meets the detail
+        // pane, not a corner of the window.
+        {"sidebar:scroll", {ScrollBar::inset, ScrollBar::inset}},
+        {"detail:scroll", {views::metrics::headerHeight + ScrollBar::inset, window}},
         // Edge to edge under the title: the bottom is the window's when
         // there is no footer, which the check below takes into account.
         {"info:scroll", {ScrollBar::inset, ScrollBar::inset, true}},
@@ -129,9 +130,9 @@ static void checkWindow(TestDriver& driver, const std::string& where)
         const PointF barEnd = bar->mapToWindow({bar->geometry().width, bar->geometry().height});
         if (rule->second.atWindowEdge)
             EXPECT_DOUBLE_EQ(barEnd.x, windowWidth) << where << ": " << scroll->name() << " is off the window's edge";
-        // A bar that reaches the window's bottom keeps clear of its corner.
+        // A bar that reaches the window's bottom right keeps clear of its corner.
         double bottomRule = rule->second.bottom;
-        if (std::abs(barEnd.y - windowHeight) < 0.5)
+        if (std::abs(barEnd.y - windowHeight) < 0.5 && std::abs(barEnd.x - windowWidth) < 0.5)
             bottomRule = std::max(bottomRule, ScrollBar::cornerPadding(Theme::current().windowRadius));
         const auto [top, bottom] = handleGaps(driver, *bar);
         ASSERT_GE(top, 0) << where << ": " << scroll->name() << " drew no handle";

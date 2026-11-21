@@ -344,17 +344,18 @@ public:
 protected:
     void layout() override
     {
-        // The rows keep clear of the scroll view's edges, which reach past
-        // the column so the bar does not crowd them.
+        // The scroll view spans the column so its bar sits at the trailing
+        // edge; the rows keep the column's padding.
+        const double side = metrics::sidebarPadding;
         double y = 0;
         for (const auto& child : children()) {
             if (!child->isVisible())
                 continue;
             if (auto* heading = dynamic_cast<SidebarHeading*>(child.get())) {
-                heading->setGeometry({6, y, std::max(0.0, geometry().width - 12), heading->height()});
+                heading->setGeometry({side, y, std::max(0.0, geometry().width - 2 * side), heading->height()});
             } else {
                 const double before = child->geometry().y;
-                child->setGeometry({6, y, std::max(0.0, geometry().width - 12), metrics::rowHeight});
+                child->setGeometry({side, y, std::max(0.0, geometry().width - 2 * side), metrics::rowHeight});
                 // A row places its glyph and text on its device pixels,
                 // which a move changes.
                 if (before != y)
@@ -378,7 +379,6 @@ Sidebar::Sidebar(Context& context)
 {
     m_scroll = addChild<ScrollView>();
     m_scroll->setName("sidebar:scroll");
-    m_scroll->setBottomCornerRadius(Theme::current().windowRadius);
     m_list = m_scroll->setContent<SidebarList>();
     reload();
 }
@@ -598,8 +598,7 @@ bool Sidebar::keyPress(const KeyEvent& event)
 void Sidebar::layout()
 {
     const double top = metrics::headerHeight;
-    const double side = metrics::sidebarPadding;
-    m_scroll->setGeometry({side - 6, top, geometry().width - 2 * side + 12, std::max(0.0, geometry().height - top)});
+    m_scroll->setGeometry({0, top, geometry().width, std::max(0.0, geometry().height - top)});
 }
 
 void Sidebar::paint(Painter& painter)

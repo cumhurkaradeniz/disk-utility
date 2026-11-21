@@ -73,7 +73,7 @@ DetailPane::DetailPane(Context& context)
 {
     m_scroll = addChild<ScrollView>();
     m_scroll->setName("detail:scroll");
-    m_scroll->setVerticalBarPadding(metrics::headerHeight, ScrollBar::inset);
+    m_scroll->setVerticalBarPadding(metrics::headerHeight + ScrollBar::inset, ScrollBar::inset);
     m_scroll->setBottomCornerRadius(Theme::current().windowRadius);
     m_backdrop = addChild<HeaderBackdrop>(m_scroll);
     m_backdrop->setSeparatorVisible(false);
