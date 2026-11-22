@@ -15,6 +15,8 @@ The disks come from UDisks2, whose own authorization asks for a password
 where one is needed. The volumes and disk of the running system are never
 erased, partitioned, repaired or unmounted.
 
+<img src="screenshots/disk-utility.png" alt="Disk Utility" width="945">
+
 ## Dependencies
 
 Disk Utility uses cutefish-toolkit, and UDisks2 at run time; GoogleTest
