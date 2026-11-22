@@ -98,6 +98,7 @@ public:
     }
 
     std::function<void()> onSidebarResized;
+    std::function<void()> onLayout;
     double sidebarWidth = metrics::sidebarWidth;
 
     Sidebar* sidebar;
@@ -118,6 +119,8 @@ protected:
         detail->setGeometry({left, 0, std::max(0.0, width - left), height});
         toolbar->requestLayout();
         header->setGeometry({0, 0, width, metrics::headerHeight});
+        if (onLayout)
+            onLayout();
     }
 
 private:
@@ -155,9 +158,10 @@ DiskWindow::DiskWindow(::Application& application)
         m_window->setBackgroundColor(color(m_window->isActive() ? ColorId::TranslucentWindowBackground
                                                                 : ColorId::TranslucentWindowBackgroundInactive));
         const SizeF size = m_window->size();
-        m_window->setBackgroundBlur({0, 0, m_root->sidebarWidth, size.height}, Theme::current().windowRadius);
+        m_window->setBackgroundBlur({0, 0, size.width, size.height}, Theme::current().windowRadius);
     };
     m_root->onSidebarResized = updateBackground;
+    m_root->onLayout = updateBackground;
     m_subscriptions.push_back(Theme::changed().connect([this, updateBackground] {
         updateBackground();
         relayoutTree(m_root);
